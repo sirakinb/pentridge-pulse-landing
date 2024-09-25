@@ -1,11 +1,20 @@
-import React from 'react';
-
 export default function HomePage() {
   return (
     <>
+      <h1 style={{color: 'red', fontSize: '36px'}}>TEST HEADING - DELETE ME</h1>
+      {/* Hero Section */}
+      <section className="bg-gray-900 text-white py-20">
+        {/* ... existing hero content ... */}
+      </section>
+
       {/* What We Do Best Section */}
       <section className="py-16 bg-gray-100">
-        {/* ... existing content ... */}
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">What We Do Best</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* ... existing service cards ... */}
+          </div>
+        </div>
       </section>
 
       {/* Check Out Our Work Section */}

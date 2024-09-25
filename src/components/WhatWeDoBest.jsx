@@ -57,7 +57,7 @@ const WhatWeDoBest = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <h3 className="text-2xl font-bold mb-4 text-gold">{service.title}</h3>
+              <h3 className="text-2xl font-bold mb-4 text-white">{service.title}</h3>
               <p className="text-gray-300">{service.description}</p>
             </motion.div>
           ))}
@@ -72,7 +72,7 @@ const WhatWeDoBest = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: (services.length - 2 + index) * 0.1 }}
               >
-                <h3 className="text-2xl font-bold mb-4 text-gold">{service.title}</h3>
+                <h3 className="text-2xl font-bold mb-4 text-white">{service.title}</h3>
                 <p className="text-gray-300">{service.description}</p>
               </motion.div>
             ))}

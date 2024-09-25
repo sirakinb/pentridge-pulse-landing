@@ -5,6 +5,7 @@ import HowItWorks from '../components/HowItWorks';
 import WhatWeDoBest from '../components/WhatWeDoBest';
 import PartnershipBanner from '../components/PartnershipBanner';
 import ExpertiseTech from '../components/ExpertiseTech';
+import TechStackConnectivity from '../components/TechStackConnectivity';
 
 const Index = () => {
   return (
@@ -15,6 +16,7 @@ const Index = () => {
       <WhatWeDoBest />
       <PartnershipBanner />
       <ExpertiseTech />
+      <TechStackConnectivity />
     </div>
   );
 };

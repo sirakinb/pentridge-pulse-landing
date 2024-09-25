@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../components/Header';
 import Description from '../components/Description';
 import HowItWorks from '../components/HowItWorks';
+import WhatWeDoBest from '../components/WhatWeDoBest';
 
 const Index = () => {
   return (
@@ -9,6 +10,7 @@ const Index = () => {
       <Header />
       <Description />
       <HowItWorks />
+      <WhatWeDoBest />
     </div>
   );
 };

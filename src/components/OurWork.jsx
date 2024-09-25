@@ -43,10 +43,11 @@ const projects = [
 
 const OurWork = () => {
   return (
-    <section className="py-20 bg-gradient-to-br from-[#1A0B2E] to-[#4B2C70] text-white">
-      <div className="container mx-auto px-4">
+    <section className="py-20 relative bg-fixed bg-cover bg-center" style={{ backgroundImage: 'url(/background2.png)' }}>
+      <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+      <div className="container mx-auto px-4 relative z-10">
         <motion.h2 
-          className="text-5xl font-bold text-center mb-16"
+          className="text-5xl font-bold text-center mb-16 text-white"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -57,25 +58,33 @@ const OurWork = () => {
           {projects.map((project, index) => (
             <motion.div 
               key={index} 
-              className="bg-white bg-opacity-5 rounded-lg overflow-hidden shadow-lg hover:bg-opacity-10 transition-all duration-300"
+              className="relative group"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
-              <div className="p-6">
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag, tagIndex) => (
-                    <span key={tagIndex} className="px-2 py-1 text-xs rounded-full bg-purple-800 text-white">
-                      {tag}
-                    </span>
-                  ))}
+              <div className="bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 relative z-10 card-glow">
+                <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 glow-effect"></div>
+                <div className="relative z-20">
+                  <div className="relative overflow-hidden">
+                    <img src={project.image} alt={project.title} className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
+                  </div>
+                  <div className="p-6 relative">
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.tags.map((tag, tagIndex) => (
+                        <span key={tagIndex} className="px-2 py-1 text-xs rounded-full bg-purple-700 text-white">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <h3 className="text-2xl font-bold mb-4 text-white">{project.title}</h3>
+                    <p className="text-gray-300 mb-4">{project.description}</p>
+                    <a href="#" className="inline-flex items-center text-purple-400 hover:text-purple-300 transition-colors duration-300">
+                      Read more <ArrowRight className="ml-2 h-4 w-4" />
+                    </a>
+                  </div>
                 </div>
-                <h3 className="text-2xl font-bold mb-4 text-white">{project.title}</h3>
-                <p className="text-gray-300 mb-4">{project.description}</p>
-                <a href="#" className="inline-flex items-center text-white hover:underline">
-                  Read more <ArrowRight className="ml-2 h-4 w-4" />
-                </a>
               </div>
             </motion.div>
           ))}

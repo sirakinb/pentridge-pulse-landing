@@ -11,8 +11,9 @@ const steps = [
 
 const HowItWorks = () => {
   return (
-    <section className="py-20 bg-gradient-to-br from-purple-900 via-[#1A0B2E] to-[#09090B] text-white">
-      <div className="container mx-auto px-4">
+    <section id="how-it-works" className="py-20 relative bg-fixed bg-cover bg-center" style={{ backgroundImage: 'url(/background2.png)' }}>
+      <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+      <div className="container mx-auto px-4 relative z-10 text-white">
         <h2 className="text-5xl font-bold text-center mb-20">How It Works</h2>
         <div className="flex justify-center items-start mb-8">
           {steps.map((step, index) => (

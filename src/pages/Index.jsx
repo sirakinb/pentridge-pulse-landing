@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import Description from '../components/Description';
 import HowItWorks from '../components/HowItWorks';
 import WhatWeDoBest from '../components/WhatWeDoBest';
+import PartnershipBanner from '../components/PartnershipBanner';
 
 const Index = () => {
   return (
@@ -11,6 +12,7 @@ const Index = () => {
       <Description />
       <HowItWorks />
       <WhatWeDoBest />
+      <PartnershipBanner />
     </div>
   );
 };

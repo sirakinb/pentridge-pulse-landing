@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import Description from '../components/Description';
 import HowItWorks from '../components/HowItWorks';
 import PartnerInAI from '../components/PartnerInAI';
+import { WhyChooseSection } from '../components/WhyChooseSection';
 import OurWork from '../components/OurWork';
 import FAQ from '../components/FAQ';
 import Footer from '../components/Footer';
@@ -22,6 +23,7 @@ const Index = () => {
       <Description />
       <HowItWorks />
       <PartnerInAI />
+      <WhyChooseSection />
       <OurWork />
       <FAQ />
       <Footer />

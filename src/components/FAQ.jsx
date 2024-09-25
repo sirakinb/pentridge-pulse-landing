@@ -4,20 +4,36 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 
 const faqItems = [
   {
-    question: "What AI technologies do you specialize in?",
-    answer: "We specialize in a range of AI technologies including natural language processing, machine learning, computer vision, and predictive analytics. We work with cutting-edge tools like GPT-3, TensorFlow, and custom AI models tailored to specific business needs."
+    question: "How do I get started with a service?",
+    answer: "Click on the get started button and someone from our team will reach out to you shortly."
   },
   {
-    question: "How can AI improve my business productivity?",
-    answer: "AI can automate repetitive tasks, provide data-driven insights, enhance decision-making processes, and optimize workflows. This leads to increased efficiency, reduced errors, and allows your team to focus on high-value strategic activities."
+    question: "What do you mean by automated workflows?",
+    answer: "Streamlined tasks depending on your business needs, from automating the process of generating proposals, invoicing, or sending welcome packages, making your business operations smoother. We also incorporate conversational AI into these one and two click workflows to tailor and personalize the processes for your leads and clients."
   },
   {
-    question: "What industries do you typically work with?",
-    answer: "We work with a diverse range of industries including finance, healthcare, e-commerce, manufacturing, and more. Our AI solutions are adaptable and can be customized to meet the specific needs of various sectors."
+    question: "What is a Custom AI Model?",
+    answer: "This is a fine-tuned version of an existing large language model emphasizing a specific use case for your business. For instance, you can create a custom AI model that writes emails in your brand voice, or a model that helps to automate your welcome packages when you onboard new clients."
   },
   {
-    question: "How long does it typically take to implement an AI solution?",
-    answer: "The timeline can vary depending on the complexity of the project. Simple automations might take a few weeks, while more complex AI integrations could take several months. We work closely with our clients to establish realistic timelines and milestones."
+    question: "Can you help me increase my content output without spending all my time creating content?",
+    answer: "Yes, we use AI-powered content automation to repurpose existing content like audio/video clips, long-form content, or conversations into multiple pieces of content for social media. This allows you to scale your content creation efficiently."
+  },
+  {
+    question: "Do you work with businesses in specific industries?",
+    answer: "We work with clients across various industries, including coaches, consultants, service providers, and businesses looking to leverage technology and automation. Our services can be customized to fit your specific niche and target audience."
+  },
+  {
+    question: "Can you help set up automated systems for lead capture and follow-up?",
+    answer: "Absolutely. We can implement tools like ManyChat to create automated responses to inquiries, set up discovery call bookings, and nurture leads through personalized follow-up sequences."
+  },
+  {
+    question: "How do you maintain authenticity when using AI for content creation?",
+    answer: "We focus on repurposing your existing content, conversations, and ideas. This ensures the content remains authentic to your voice and message, while AI helps scale the production and distribution."
+  },
+  {
+    question: "Do you offer training on AI tools and automation for my team?",
+    answer: "Yes, we can provide training and support to help your team leverage AI tools and automation effectively in their workflows."
   }
 ];
 

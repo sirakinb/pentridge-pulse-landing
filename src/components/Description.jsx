@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react';
 
 const Description = () => {
   return (
-    <section className="py-20 bg-gradient-to-br from-purple-900 via-[#1A0B2E] to-[#09090B] text-white overflow-hidden">
+    <section className="py-20 bg-gradient-to-br from-black via-[#1A0B2E] to-[#4B2C70] text-white overflow-hidden">
       <div className="container mx-auto px-4 relative">
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}

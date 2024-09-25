@@ -30,7 +30,7 @@ const Header = () => {
             <a href="#" className="text-white hover:text-gray-200">Blog</a>
           </div>
           <Button variant="outline" className="text-white border-white hover:bg-white hover:text-purple-900 bg-transparent">
-            Book Discovery Call
+            Get Started
           </Button>
         </nav>
         <div className="flex-grow flex flex-col justify-center items-start w-full">
@@ -39,7 +39,7 @@ const Header = () => {
           </h1>
           <div className="w-full max-w-[90%] mx-auto flex justify-start pl-20">
             <Button variant="outline" className="text-white border-white hover:bg-white hover:text-purple-900 bg-transparent text-lg px-8 py-3">
-              Book Discovery Call
+              Get Started
             </Button>
           </div>
         </div>

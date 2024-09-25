@@ -1,37 +1,72 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 
 const Description = () => {
   return (
-    <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
-      <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
-          <div className="bg-white bg-opacity-10 p-6 rounded-lg">
-            <h3 className="text-xl font-bold mb-3">Custom AI Solutions</h3>
-            <p>Tailored AI models and integrations to enhance your business operations.</p>
-          </div>
-          <div className="bg-white bg-opacity-10 p-6 rounded-lg">
-            <h3 className="text-xl font-bold mb-3">Low/No Code Development</h3>
-            <p>Rapidly build and deploy functional solutions without extensive coding.</p>
-          </div>
-          <div className="bg-white bg-opacity-10 p-6 rounded-lg">
-            <h3 className="text-xl font-bold mb-3">Business Process Automation</h3>
-            <p>Streamline workflows and optimize operations with smart automation.</p>
-          </div>
-        </div>
-        <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center">
+    <section className="py-20 bg-gradient-to-br from-purple-900 via-[#1A0B2E] to-[#09090B] text-white overflow-hidden">
+      <div className="container mx-auto px-4 relative">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          className="absolute top-0 left-0 w-full h-full"
+        >
+          <div className="absolute top-10 left-10 w-20 h-20 bg-blue-500 rounded-full opacity-20 blur-xl"></div>
+          <div className="absolute bottom-10 right-10 w-32 h-32 bg-purple-500 rounded-full opacity-20 blur-xl"></div>
+        </motion.div>
+        
+        <motion.div
+          initial={{ y: -100, opacity: 0, rotateY: 180 }}
+          animate={{ y: 0, opacity: 1, rotateY: 0 }}
+          transition={{ duration: 1, delay: 0.5 }}
+          className="relative mx-auto mb-16 h-60 w-60"
+        >
+          <motion.img
+            src="/logonew.png"
+            alt="Pentridge Media"
+            className="w-full h-full object-contain"
+            animate={{ rotate: 360 }}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          />
+        </motion.div>
+        
+        <motion.h2 
+          className="text-4xl md:text-5xl font-bold mb-12 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+        >
           We didn't reinvent the wheel. <br />
-          <span className="text-yellow-300">Just business automation.</span>
-        </h2>
-        <div className="max-w-4xl mx-auto">
-          <p className="text-xl md:text-2xl mb-6 text-center">
+          <span className="text-gold">Just business automation.</span>
+        </motion.h2>
+        
+        <motion.div 
+          className="max-w-4xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.2 }}
+        >
+          <p className="text-xl md:text-2xl mb-12 text-center leading-relaxed">
             <span className="font-semibold">Pentridge Media</span> leverages AI, Automation, and Digital Strategies to{' '}
-            <span className="underline">save you time</span> and{' '}
-            <span className="underline">propel your business forward</span>.
+            <motion.span 
+              className="inline-block"
+              initial={{ opacity: 1 }}
+              animate={{ opacity: [1, 0.5, 1] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
+              save you time
+            </motion.span> and{' '}
+            <motion.span 
+              className="inline-block"
+              initial={{ opacity: 1 }}
+              animate={{ opacity: [1, 0.5, 1] }}
+              transition={{ duration: 2, repeat: Infinity, delay: 1 }}
+            >
+              propel your business forward
+            </motion.span>.
           </p>
-          <p className="text-center mt-12 text-lg">
-            Our range of services is designed to streamline your workflows and accelerate your business growth.
-          </p>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -58,19 +58,19 @@ const OurWork = () => {
           {projects.map((project, index) => (
             <motion.div 
               key={index} 
-              className="relative group"
+              className="relative group h-full"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <div className="bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 relative z-10 card-glow">
+              <div className="bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 relative z-10 card-glow h-full flex flex-col">
                 <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 glow-effect"></div>
-                <div className="relative z-20">
+                <div className="relative z-20 flex flex-col h-full">
                   <div className="relative overflow-hidden">
                     <img src={project.image} alt={project.title} className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105" />
                     <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
                   </div>
-                  <div className="p-6 relative">
+                  <div className="p-6 flex flex-col flex-grow">
                     <div className="flex flex-wrap gap-2 mb-4">
                       {project.tags.map((tag, tagIndex) => (
                         <span key={tagIndex} className="px-2 py-1 text-xs rounded-full bg-purple-700 text-white">
@@ -79,8 +79,8 @@ const OurWork = () => {
                       ))}
                     </div>
                     <h3 className="text-2xl font-bold mb-4 text-white">{project.title}</h3>
-                    <p className="text-gray-300 mb-4">{project.description}</p>
-                    <a href="#" className="inline-flex items-center text-purple-400 hover:text-purple-300 transition-colors duration-300">
+                    <p className="text-gray-300 mb-4 flex-grow">{project.description}</p>
+                    <a href="#" className="inline-flex items-center text-purple-400 hover:text-purple-300 transition-colors duration-300 mt-auto">
                       Read more <ArrowRight className="ml-2 h-4 w-4" />
                     </a>
                   </div>

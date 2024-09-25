@@ -18,7 +18,7 @@ const Header = () => {
             <img 
               src="/logonew.png" 
               alt="Pentridge Media" 
-              className="h-10 w-auto"
+              className="h-16 w-auto" // Changed from h-10 to h-16
             />
           </div>
           <div className="hidden md:flex space-x-6">

@@ -4,6 +4,7 @@ import Description from '../components/Description';
 import HowItWorks from '../components/HowItWorks';
 import WhatWeDoBest from '../components/WhatWeDoBest';
 import PartnershipBanner from '../components/PartnershipBanner';
+import ExpertiseTech from '../components/ExpertiseTech';
 
 const Index = () => {
   return (
@@ -13,6 +14,7 @@ const Index = () => {
       <HowItWorks />
       <WhatWeDoBest />
       <PartnershipBanner />
+      <ExpertiseTech />
     </div>
   );
 };

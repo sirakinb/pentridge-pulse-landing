@@ -43,7 +43,7 @@ const projects = [
 
 const OurWork = () => {
   return (
-    <section className="py-20 bg-gradient-to-br from-purple-900 via-[#1A0B2E] to-[#09090B] text-white">
+    <section className="py-20 bg-gradient-to-br from-[#1A0B2E] to-[#4B2C70] text-white">
       <div className="container mx-auto px-4">
         <motion.h2 
           className="text-5xl font-bold text-center mb-16"

@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 const Header = () => {
   return (
-    <header className="bg-gradient-to-br from-purple-900 via-[#1A0B2E] to-[#09090B] text-white min-h-screen flex flex-col">
+    <header className="bg-gradient-to-br from-[#1A0B2E] to-[#4B2C70] text-white min-h-screen flex flex-col">
       <div className="container mx-auto px-4 flex flex-col flex-grow">
         <nav className="flex justify-between items-center py-6">
           <div className="flex items-center">

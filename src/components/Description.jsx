@@ -16,16 +16,16 @@ const Description = () => {
           </p>
           <div className="grid md:grid-cols-3 gap-8 mt-12">
             <div className="bg-white bg-opacity-10 p-6 rounded-lg">
-              <h3 className="text-xl font-bold mb-3">Custom AI Models</h3>
-              <p>Enhance your operations with tailored AI solutions.</p>
+              <h3 className="text-xl font-bold mb-3">Custom AI Solutions</h3>
+              <p>Tailored AI models and integrations to enhance your business operations.</p>
             </div>
             <div className="bg-white bg-opacity-10 p-6 rounded-lg">
-              <h3 className="text-xl font-bold mb-3">CRM Build-outs</h3>
-              <p>Track, iterate, and scale your growth efficiently.</p>
+              <h3 className="text-xl font-bold mb-3">Low/No Code Development</h3>
+              <p>Rapidly build and deploy functional solutions without extensive coding.</p>
             </div>
             <div className="bg-white bg-opacity-10 p-6 rounded-lg">
-              <h3 className="text-xl font-bold mb-3">Automated Workflows</h3>
-              <p>Save time with smart, automated processes.</p>
+              <h3 className="text-xl font-bold mb-3">Business Process Automation</h3>
+              <p>Streamline workflows and optimize operations with smart automation.</p>
             </div>
           </div>
           <p className="text-center mt-12 text-lg">

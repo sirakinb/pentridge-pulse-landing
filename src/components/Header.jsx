@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
+import { Link as ScrollLink } from 'react-scroll';
 
 const Header = () => {
   return (
@@ -14,12 +15,19 @@ const Header = () => {
             />
           </div>
           <div className="hidden md:flex space-x-6">
-            <a href="#" className="text-white hover:text-gray-200">Home</a>
+            <a href="/" className="text-white hover:text-gray-200">Home</a>
             <a href="#" className="text-white hover:text-gray-200">Content House</a>
-            <a href="#" className="text-white hover:text-gray-200">How It Works</a>
+            <ScrollLink 
+              to="how-it-works" 
+              smooth={true} 
+              duration={500} 
+              className="text-white hover:text-gray-200 cursor-pointer"
+            >
+              How It Works
+            </ScrollLink>
             <a href="#" className="text-white hover:text-gray-200">About Us</a>
             <a href="#" className="text-white hover:text-gray-200">Contact</a>
-            <a href="#" className="text-white hover:text-gray-200">Blog</a>
+            {/* <a href="#" className="text-white hover:text-gray-200">Blog</a> */}
           </div>
           <Button 
             variant="outline" 

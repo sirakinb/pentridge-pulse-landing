@@ -9,6 +9,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import BookingOptions from './components/BookingOptions';
+import { AnimatePresence } from 'framer-motion';
 
 const queryClient = new QueryClient();
 
@@ -17,13 +18,15 @@ const App = () => {
     <Router>
       <div className="flex flex-col min-h-screen">
         <div className="flex-grow">
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/content-house" element={<ContentHouse />} />
-            <Route path="/about" element={<AboutUs />} /> {/* Add this route */}
-            {/* ... other routes ... */}
-          </Routes>
+          <AnimatePresence mode="wait">
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/content-house" element={<ContentHouse />} />
+              <Route path="/about" element={<AboutUs />} /> {/* Add this route */}
+              {/* ... other routes ... */}
+            </Routes>
+          </AnimatePresence>
         </div>
         <Footer />
       </div>

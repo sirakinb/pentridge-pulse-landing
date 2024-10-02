@@ -3,17 +3,33 @@ import { motion } from 'framer-motion';
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { Link } from 'react-router-dom'; // Add this import
+import FuturisticBackLink from '../components/FuturisticBackLink';
 
 const Contact = () => {
+  const pageVariants = {
+    initial: { opacity: 0, y: 20 },
+    in: { opacity: 1, y: 0 },
+    out: { opacity: 0, y: -20 }
+  };
+
+  const pageTransition = {
+    type: "tween",
+    ease: "anticipate",
+    duration: 0.5
+  };
+
   return (
-    <motion.div 
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      className="bg-gradient-to-br from-[#1A0B2E] to-[#4B2C70] text-white min-h-screen flex flex-col"
+    <motion.div
+      initial="initial"
+      animate="in"
+      exit="out"
+      variants={pageVariants}
+      transition={pageTransition}
+      className="bg-gradient-to-br from-[#1A0B2E] to-[#4B2C70] text-white min-h-screen"
     >
-      <div className="container mx-auto px-4 py-20 flex-grow">
+      <div className="container mx-auto px-4 py-6">
+        <FuturisticBackLink />
+
         <motion.h1 
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -30,39 +46,20 @@ const Contact = () => {
         >
           Ask us a question
         </motion.h2>
-        <motion.p
-          initial={{ y: -20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="text-center mb-12 text-gray-300"
-        >
-          Have a miscellaneous question that's not related to getting started or hiring?
-          <br />
-          Reach out below & a member of the team will get back to you within two business days.
-        </motion.p>
-        <motion.form
+
+        <motion.form 
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="max-w-2xl mx-auto space-y-6"
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="max-w-md mx-auto space-y-6"
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <label htmlFor="fullName" className="block text-sm font-medium mb-2">Full Name *</label>
-              <Input id="fullName" placeholder="Enter your full name" className="bg-white bg-opacity-10 border-purple-500 text-white placeholder-gray-400" />
-            </div>
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium mb-2">Email address *</label>
-              <Input id="email" type="email" placeholder="Email address" className="bg-white bg-opacity-10 border-purple-500 text-white placeholder-gray-400" />
-            </div>
-            <div>
-              <label htmlFor="phone" className="block text-sm font-medium mb-2">Phone *</label>
-              <Input id="phone" placeholder="Enter your phone number" className="bg-white bg-opacity-10 border-purple-500 text-white placeholder-gray-400" />
-            </div>
-            <div>
-              <label htmlFor="subject" className="block text-sm font-medium mb-2">Subject *</label>
-              <Input id="subject" placeholder="Type your subject" className="bg-white bg-opacity-10 border-purple-500 text-white placeholder-gray-400" />
-            </div>
+          <div>
+            <label htmlFor="name" className="block text-sm font-medium mb-2">Name *</label>
+            <Input id="name" placeholder="Your name" className="bg-white bg-opacity-10 border-purple-500 text-white placeholder-gray-400" />
+          </div>
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium mb-2">Email *</label>
+            <Input id="email" type="email" placeholder="Your email" className="bg-white bg-opacity-10 border-purple-500 text-white placeholder-gray-400" />
           </div>
           <div>
             <label htmlFor="question" className="block text-sm font-medium mb-2">Question *</label>
@@ -72,26 +69,9 @@ const Contact = () => {
             Submit
           </Button>
         </motion.form>
-        
-        {/* Add this block for the "Back to Home" link */}
-        <motion.div 
-          initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          className="mt-12 text-center"
-        >
-          <Link to="/" className="text-gold hover:text-white transition-colors inline-block text-xl">
-            <motion.span
-              whileHover={{ x: -5 }}
-              transition={{ type: "spring", stiffness: 400, damping: 10 }}
-            >
-              ← Back to Home
-            </motion.span>
-          </Link>
-        </motion.div>
       </div>
     </motion.div>
   );
-};
+}
 
 export default Contact;

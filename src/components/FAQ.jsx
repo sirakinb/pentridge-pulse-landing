@@ -1,23 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const faqItems = [
   {
-    question: "How do I get started with a service?",
-    answer: "Click on the get started button and someone from our team will reach out to you shortly."
-  },
-  {
-    question: "What do you mean by automated workflows?",
-    answer: "Streamlined tasks depending on your business needs, from automating the process of generating proposals, invoicing, or sending welcome packages, making your business operations smoother. We also incorporate conversational AI into these one and two click workflows to tailor and personalize the processes for your leads and clients."
-  },
-  {
-    question: "What is a Custom AI Model?",
-    answer: "This is a fine-tuned version of an existing large language model emphasizing a specific use case for your business. For instance, you can create a custom AI model that writes emails in your brand voice, or a model that helps to automate your welcome packages when you onboard new clients."
-  },
-  {
-    question: "Can you help me increase my content output without spending all my time creating content?",
-    answer: "Yes, we use AI-powered content automation to repurpose existing content like audio/video clips, long-form content, or conversations into multiple pieces of content for social media. This allows you to scale your content creation efficiently."
+    question: "What types of businesses do you work with?",
+    answer: "We work with a wide range of businesses, from startups to established companies, across various industries. Our focus is on helping businesses leverage AI and automation to improve their operations and growth."
   },
   {
     question: "Do you work with businesses in specific industries?",

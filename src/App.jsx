@@ -10,6 +10,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import BookingOptions from './components/BookingOptions';
 import { AnimatePresence } from 'framer-motion';
+import TermsAndConditions from './pages/TermsAndConditions';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 
 const queryClient = new QueryClient();
 
@@ -24,6 +26,8 @@ const App = () => {
               <Route path="/contact" element={<Contact />} />
               <Route path="/content-house" element={<ContentHouse />} />
               <Route path="/about" element={<AboutUs />} /> {/* Add this route */}
+              <Route path="/terms" element={<TermsAndConditions />} />
+              <Route path="/privacy" element={<PrivacyPolicy />} />
               {/* ... other routes ... */}
             </Routes>
           </AnimatePresence>

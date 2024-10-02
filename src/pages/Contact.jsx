@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -6,6 +6,10 @@ import { Button } from "@/components/ui/button";
 import FuturisticBackLink from '../components/FuturisticBackLink';
 
 const Contact = () => {
+  const [showThankYou, setShowThankYou] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+
   const pageVariants = {
     initial: { opacity: 0, y: 20 },
     in: { opacity: 1, y: 0 },
@@ -16,6 +20,43 @@ const Contact = () => {
     type: "tween",
     ease: "anticipate",
     duration: 0.5
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setErrorMessage('');
+    
+    const form = e.target;
+    const formData = new FormData(form);
+
+    try {
+      console.log('Submitting form...');
+      const response = await fetch('https://formsubmit.co/ajax/aki.b@pentridgemedia.com', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json'
+        },
+        body: formData,
+      });
+
+      console.log('Response received:', response);
+      const result = await response.json();
+      console.log('Response JSON:', result);
+
+      if (result.success === 'true') {
+        console.log('Form submitted successfully');
+        setShowThankYou(true);
+        form.reset();
+      } else {
+        throw new Error(result.message || 'Form submission failed');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      setErrorMessage(`An error occurred: ${error.message}. Please try again or contact support.`);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -52,23 +93,44 @@ const Contact = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.4 }}
           className="max-w-md mx-auto space-y-6"
+          onSubmit={handleSubmit}
         >
           <div>
             <label htmlFor="name" className="block text-sm font-medium mb-2">Name *</label>
-            <Input id="name" placeholder="Your name" className="bg-white bg-opacity-10 border-purple-500 text-white placeholder-gray-400" />
+            <Input id="name" name="name" placeholder="Your name" required className="bg-white bg-opacity-10 border-purple-500 text-white placeholder-gray-400" />
           </div>
           <div>
             <label htmlFor="email" className="block text-sm font-medium mb-2">Email *</label>
-            <Input id="email" type="email" placeholder="Your email" className="bg-white bg-opacity-10 border-purple-500 text-white placeholder-gray-400" />
+            <Input id="email" name="email" type="email" placeholder="Your email" required className="bg-white bg-opacity-10 border-purple-500 text-white placeholder-gray-400" />
           </div>
           <div>
             <label htmlFor="question" className="block text-sm font-medium mb-2">Question *</label>
-            <Textarea id="question" placeholder="Enter your question" className="bg-white bg-opacity-10 border-purple-500 text-white placeholder-gray-400" rows={4} />
+            <Textarea id="question" name="message" placeholder="Enter your question" required className="bg-white bg-opacity-10 border-purple-500 text-white placeholder-gray-400" rows={4} />
           </div>
-          <Button type="submit" className="w-full bg-purple-600 hover:bg-purple-700 text-white">
-            Submit
+          <Button type="submit" className="w-full bg-purple-600 hover:bg-purple-700 text-white" disabled={isSubmitting}>
+            {isSubmitting ? 'Submitting...' : 'Submit'}
           </Button>
+          
+          {/* Disable captcha */}
+          <input type="hidden" name="_captcha" value="false" />
         </motion.form>
+
+        {errorMessage && (
+          <p className="mt-4 text-red-500 text-center">{errorMessage}</p>
+        )}
+
+        {showThankYou && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
+          >
+            <div className="bg-white p-6 rounded-lg shadow-lg text-black">
+              <p className="text-lg font-semibold mb-4">Thank you for your message, we'll be in touch shortly.</p>
+              <Button onClick={() => setShowThankYou(false)} className="bg-purple-600 hover:bg-purple-700 text-white">Close</Button>
+            </div>
+          </motion.div>
+        )}
       </div>
     </motion.div>
   );

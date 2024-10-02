@@ -92,4 +92,47 @@
       box-shadow: 0 0 15px 5px rgba(147, 51, 234, 0.5);
     }
   }
+
+  /* Add responsive utilities */
+  .container {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+
+  .text-responsive {
+    @apply text-base sm:text-lg md:text-xl;
+  }
+
+  .heading-responsive {
+    @apply text-2xl sm:text-3xl md:text-4xl font-bold;
+  }
+}
+
+/* Add responsive base styles */
+@layer base {
+  html {
+    @apply text-base;
+  }
+
+  body {
+    @apply text-base;
+  }
+
+  h1 {
+    @apply text-2xl sm:text-3xl md:text-4xl font-bold;
+  }
+
+  h2 {
+    @apply text-xl sm:text-2xl md:text-3xl font-bold;
+  }
+
+  h3 {
+    @apply text-lg sm:text-xl md:text-2xl font-semibold;
+  }
+}
+
+/* Add responsive grid system */
+@layer components {
+  .grid-responsive {
+    @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4;
+  }
 }

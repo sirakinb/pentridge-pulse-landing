@@ -1,62 +1,58 @@
 import React from 'react';
 
-const ComparisonItem = ({ label, pentridgeMedia, freelancer, agencies, inHouse }) => (
-  <div className="grid grid-cols-5 gap-4 mb-4">
-    <div className="font-semibold">{label}</div>
-    <div className="text-center bg-purple-600 bg-opacity-20 rounded-lg py-2 glow-purple">{pentridgeMedia}</div>
-    <div className="text-center bg-gray-700 bg-opacity-20 rounded-lg py-2">{freelancer}</div>
-    <div className="text-center bg-gray-700 bg-opacity-20 rounded-lg py-2">{agencies}</div>
-    <div className="text-center bg-gray-700 bg-opacity-20 rounded-lg py-2">{inHouse}</div>
+const ComparisonColumn = ({ title, items, labels, isPentridgeMedia = false }) => (
+  <div className={`flex flex-col ${isPentridgeMedia ? 'bg-purple-600 bg-opacity-20 glow-purple' : 'bg-gray-700 bg-opacity-20'} rounded-lg p-4`}>
+    <h3 className="text-xl font-extrabold mb-6 text-center">{title}</h3>
+    {items.map((item, index) => (
+      <React.Fragment key={index}>
+        <div className="grid grid-cols-2 gap-2 py-2 text-sm">
+          <div className="text-right font-semibold">{labels[index]}:</div>
+          <div className="text-left">
+            {isPentridgeMedia ? <span className="text-purple-400 font-bold">{item}</span> : item}
+          </div>
+        </div>
+        {index < items.length - 1 && <div className="border-b border-gray-600 my-2"></div>}
+      </React.Fragment>
+    ))}
   </div>
 );
 
 export function WhyChooseSection() {
+  const comparisonData = {
+    labels: ['Billing', 'Termination', 'First delivery', 'Time to hire', 'Unlimited Revisions'],
+    pentridgeMedia: ['Fixed Monthly Price', 'Cancel Anytime', '2-3 Days', 'Same Day', '✓'],
+    freelancer: ['Hourly', 'Project End', 'Several Weeks', 'Days/Weeks', '✗'],
+    agencies: ['Project Based', 'No Escape', 'Several Weeks', 'Weeks/Months', '✗'],
+    inHouse: ['Salary + Benefits', 'Severance + Frustration', 'Several Weeks', 'Weeks/Months', 'N/A'],
+  };
+
   return (
     <section className="py-20 bg-gradient-to-br from-[#1A0B2E] to-[#4B2C70] text-white">
       <div className="container mx-auto px-4">
-        <h2 className="text-5xl font-bold text-center mb-16">Why Choose Pentridge Media</h2>
-        <div className="grid grid-cols-5 gap-4 mb-8">
-          <div></div>
-          <div className="text-center font-bold bg-purple-600 bg-opacity-20 rounded-lg py-2 glow-purple">Pentridge Media</div>
-          <div className="text-center font-bold bg-gray-700 bg-opacity-20 rounded-lg py-2">Freelancer</div>
-          <div className="text-center font-bold bg-gray-700 bg-opacity-20 rounded-lg py-2">Other Agencies</div>
-          <div className="text-center font-bold bg-gray-700 bg-opacity-20 rounded-lg py-2">In-House</div>
+        <h2 className="text-4xl font-bold text-center mb-12">Why Choose Pentridge Media</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <ComparisonColumn 
+            title="Pentridge Media" 
+            items={comparisonData.pentridgeMedia} 
+            labels={comparisonData.labels}
+            isPentridgeMedia={true} 
+          />
+          <ComparisonColumn 
+            title="Freelancer" 
+            items={comparisonData.freelancer} 
+            labels={comparisonData.labels}
+          />
+          <ComparisonColumn 
+            title="Other Agencies" 
+            items={comparisonData.agencies} 
+            labels={comparisonData.labels}
+          />
+          <ComparisonColumn 
+            title="In-House" 
+            items={comparisonData.inHouse} 
+            labels={comparisonData.labels}
+          />
         </div>
-        <ComparisonItem 
-          label="Billing"
-          pentridgeMedia={<span className="text-purple-400 font-bold">Fixed Monthly Price</span>}
-          freelancer="Hourly"
-          agencies="Project Based"
-          inHouse="Salary + Benefits"
-        />
-        <ComparisonItem 
-          label="Termination"
-          pentridgeMedia={<span className="text-purple-400 font-bold">Cancel Anytime</span>}
-          freelancer="Project End"
-          agencies="No Escape"
-          inHouse="Severance + Frustration"
-        />
-        <ComparisonItem 
-          label="First delivery"
-          pentridgeMedia={<span className="text-purple-400 font-bold">2-3 Days</span>}
-          freelancer="Several Weeks"
-          agencies="Several Weeks"
-          inHouse="Several Weeks"
-        />
-        <ComparisonItem 
-          label="Time to hire"
-          pentridgeMedia={<span className="text-purple-400 font-bold">Same Day</span>}
-          freelancer="Days/Weeks"
-          agencies="Weeks/Months"
-          inHouse="Weeks/Months"
-        />
-        <ComparisonItem 
-          label="Unlimited Revisions"
-          pentridgeMedia={<span className="text-purple-400 font-bold">✓</span>}
-          freelancer="✗"
-          agencies="✗"
-          inHouse="N/A"
-        />
       </div>
     </section>
   );

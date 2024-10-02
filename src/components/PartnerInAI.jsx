@@ -38,42 +38,42 @@ const services = [
 
 const PartnerInAI = () => {
   return (
-    <section className="py-20 bg-gradient-to-br from-[#1A0B2E] to-[#4B2C70] text-white">
+    <section className="py-12 sm:py-20 bg-gradient-to-br from-[#1A0B2E] to-[#4B2C70] text-white">
       <div className="container mx-auto px-4">
         <motion.h2 
-          className="text-5xl font-bold text-center mb-16"
+          className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-16"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
           Your Partner in AI-Powered Productivity
         </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.slice(0, -2).map((service, index) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {services.slice(0, 6).map((service, index) => (
             <motion.div
               key={index}
-              className="bg-white bg-opacity-5 rounded-lg p-6 hover:bg-opacity-10 transition-all duration-300"
+              className="bg-white bg-opacity-5 rounded-lg p-4 sm:p-6 hover:bg-opacity-10 transition-all duration-300"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <h3 className="text-2xl font-bold mb-4 text-white">{service.title}</h3>
-              <p className="text-gray-300">{service.description}</p>
+              <h3 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-4 text-white">{service.title}</h3>
+              <p className="text-sm sm:text-base text-gray-300">{service.description}</p>
             </motion.div>
           ))}
         </div>
-        <div className="mt-8 flex justify-center">
-          <div className="w-2/3 flex justify-center -mx-4">
-            {services.slice(-2).map((service, index) => (
+        <div className="mt-6 sm:mt-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
+            {services.slice(6).map((service, index) => (
               <motion.div
-                key={index}
-                className="bg-white bg-opacity-5 rounded-lg p-6 hover:bg-opacity-10 transition-all duration-300 w-1/2 mx-4"
+                key={index + 6}
+                className="bg-white bg-opacity-5 rounded-lg p-4 sm:p-6 hover:bg-opacity-10 transition-all duration-300"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: (services.length - 2 + index) * 0.1 }}
+                transition={{ duration: 0.5, delay: (index + 6) * 0.1 }}
               >
-                <h3 className="text-2xl font-bold mb-4 text-white">{service.title}</h3>
-                <p className="text-gray-300">{service.description}</p>
+                <h3 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-4 text-white">{service.title}</h3>
+                <p className="text-sm sm:text-base text-gray-300">{service.description}</p>
               </motion.div>
             ))}
           </div>

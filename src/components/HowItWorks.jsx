@@ -5,35 +5,35 @@ import { Check } from 'lucide-react';
 const steps = [
   { title: 'Book a discovery call', completed: true },
   { title: 'On-boarding', completed: true },
-  { title: 'Add Project', completed: true },
+  { title: 'Make Request', completed: true },
   { title: 'Weekly Consultations (optional)', completed: false },
 ];
 
 const HowItWorks = () => {
   return (
-    <section id="how-it-works" className="py-20 relative bg-fixed bg-cover bg-center" style={{ backgroundImage: 'url(/background2.png)' }}>
+    <section id="how-it-works" className="py-12 sm:py-20 relative bg-fixed bg-cover bg-center" style={{ backgroundImage: 'url(/background2.png)' }}>
       <div className="absolute inset-0 bg-black bg-opacity-50"></div>
       <div className="container mx-auto px-4 relative z-10 text-white">
-        <h2 className="text-5xl font-bold text-center mb-20">How It Works</h2>
-        <div className="flex justify-center items-start mb-8">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-16">How It Works</h2>
+        <div className="flex flex-col sm:flex-row justify-center items-center sm:items-start mb-8">
           {steps.map((step, index) => (
             <React.Fragment key={index}>
-              <div className="flex flex-col items-center w-64">
+              <div className="flex flex-col items-center w-full sm:w-64 mb-8 sm:mb-0">
                 <motion.div
                   className="flex flex-col items-center"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                  <div className={`w-24 h-24 rounded-full border-4 flex items-center justify-center ${step.completed ? 'border-gold' : 'border-gray-400'}`}>
-                    <Check className={`w-12 h-12 ${step.completed ? 'text-gold' : 'text-gray-400'}`} />
+                  <div className={`w-20 h-20 sm:w-24 sm:h-24 rounded-full border-4 flex items-center justify-center ${step.completed ? 'border-gold' : 'border-gray-400'}`}>
+                    <Check className={`w-10 h-10 sm:w-12 sm:h-12 ${step.completed ? 'text-gold' : 'text-gray-400'}`} />
                   </div>
-                  <p className="text-2xl font-bold text-center mt-6">{`Step ${index + 1}`}</p>
-                  <p className="text-xl font-semibold text-center mt-2 w-48">{step.title}</p>
+                  <p className="text-xl sm:text-2xl font-bold text-center mt-4 sm:mt-6">{`Step ${index + 1}`}</p>
+                  <p className="text-lg sm:text-xl font-semibold text-center mt-2 w-full sm:w-48">{step.title}</p>
                 </motion.div>
               </div>
               {index < steps.length - 1 && (
-                <div className="w-32 h-0 border-t-4 border-dotted border-gray-400 self-start mt-12"></div>
+                <div className="hidden sm:block w-32 h-0 border-t-4 border-dotted border-gray-400 self-start mt-12"></div>
               )}
             </React.Fragment>
           ))}

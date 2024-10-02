@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Link as ScrollLink } from 'react-scroll';
+import { Link } from 'react-router-dom'; // Add this import
 
 const Header = () => {
   return (
@@ -15,7 +16,7 @@ const Header = () => {
             />
           </div>
           <div className="hidden md:flex space-x-6">
-            <a href="/" className="text-white hover:text-gray-200">Home</a>
+            <Link to="/" className="text-white hover:text-gray-200">Home</Link>
             <a href="#" className="text-white hover:text-gray-200">Content House</a>
             <ScrollLink 
               to="how-it-works" 
@@ -25,7 +26,7 @@ const Header = () => {
             >
               How It Works
             </ScrollLink>
-            <a href="#" className="text-white hover:text-gray-200">About Us</a>
+            <Link to="/about" className="text-white hover:text-gray-200">About Us</Link>
             <a href="#" className="text-white hover:text-gray-200">Contact</a>
             {/* <a href="#" className="text-white hover:text-gray-200">Blog</a> */}
           </div>

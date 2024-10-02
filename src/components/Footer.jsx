@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 
 const Footer = () => {
   return (
@@ -13,13 +12,9 @@ const Footer = () => {
             Meets Technology
           </p>
         </div>
-        <div className="flex justify-between items-end mt-auto">
-          <div>
-            <p className="text-sm">© Pentridge Media Copyright 2024</p>
-          </div>
-          <div>
-            <a href="#" className="text-sm hover:underline">Terms and Conditions</a>
-          </div>
+        <div className="flex justify-between items-center mt-auto">
+          <p className="text-sm">© Pentridge Media Copyright 2024</p>
+          <a href="#" className="text-sm hover:underline">Terms and Conditions</a>
         </div>
       </div>
     </footer>

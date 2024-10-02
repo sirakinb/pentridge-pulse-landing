@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import { Link } from 'react-router-dom'; // Add this import
 
 const Contact = () => {
   return (
@@ -71,6 +72,23 @@ const Contact = () => {
             Submit
           </Button>
         </motion.form>
+        
+        {/* Add this block for the "Back to Home" link */}
+        <motion.div 
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          className="mt-12 text-center"
+        >
+          <Link to="/" className="text-gold hover:text-white transition-colors inline-block text-xl">
+            <motion.span
+              whileHover={{ x: -5 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            >
+              ← Back to Home
+            </motion.span>
+          </Link>
+        </motion.div>
       </div>
     </motion.div>
   );

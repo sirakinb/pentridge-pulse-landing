@@ -2,14 +2,6 @@ import React from 'react';
 import { Button } from "@/components/ui/button";
 
 const Header = () => {
-  const scrollToHowItWorks = (e) => {
-    e.preventDefault();
-    const howItWorksSection = document.getElementById('how-it-works');
-    if (howItWorksSection) {
-      howItWorksSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <header className="bg-gradient-to-br from-[#1A0B2E] to-[#4B2C70] text-white min-h-screen flex flex-col">
       <div className="container mx-auto px-4 flex flex-col flex-grow">
@@ -24,13 +16,17 @@ const Header = () => {
           <div className="hidden md:flex space-x-6">
             <a href="#" className="text-white hover:text-gray-200">Home</a>
             <a href="#" className="text-white hover:text-gray-200">Content House</a>
-            <a href="#" onClick={scrollToHowItWorks} className="text-white hover:text-gray-200">How It Works</a>
+            <a href="#" className="text-white hover:text-gray-200">How It Works</a>
             <a href="#" className="text-white hover:text-gray-200">About Us</a>
             <a href="#" className="text-white hover:text-gray-200">Contact</a>
             <a href="#" className="text-white hover:text-gray-200">Blog</a>
           </div>
-          <Button variant="outline" className="text-white border-white hover:bg-white hover:text-purple-900 bg-transparent">
-            Get Started
+          <Button 
+            variant="outline" 
+            className="text-white border-white hover:bg-white hover:text-purple-900 bg-transparent"
+            onClick={() => window.open('https://api.leadconnectorhq.com/widget/form/j7zStrxFZKUQ7af8OZpg', '_blank')}
+          >
+            Book Call
           </Button>
         </nav>
         <div className="flex-grow flex flex-col justify-center items-start w-full">
@@ -38,14 +34,18 @@ const Header = () => {
             We Build AI-Powered Growth Systems For Founders
           </h1>
           <div className="w-full max-w-[90%] mx-auto flex justify-start pl-20">
-            <Button variant="outline" className="text-white border-white hover:bg-white hover:text-purple-900 bg-transparent text-lg px-8 py-3">
-              Get Started
+            <Button 
+              variant="outline" 
+              className="text-white border-white hover:bg-white hover:text-purple-900 bg-transparent text-lg px-8 py-3"
+              onClick={() => window.open('https://api.leadconnectorhq.com/widget/form/j7zStrxFZKUQ7af8OZpg', '_blank')}
+            >
+              Book Discovery Call
             </Button>
           </div>
         </div>
       </div>
     </header>
   );
-};
+}
 
 export default Header;

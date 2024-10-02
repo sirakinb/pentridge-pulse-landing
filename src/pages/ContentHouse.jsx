@@ -38,6 +38,10 @@ const ContentHouse = () => {
     }
   ];
 
+  const handleBooking = () => {
+    window.open("https://app.acuityscheduling.com/schedule.php?owner=32940683", "_blank", "noopener,noreferrer");
+  };
+
   return (
     <div className="bg-gradient-to-br from-[#1A0B2E] to-[#4B2C70] text-white min-h-screen">
       <div className="container mx-auto px-4 py-20">
@@ -64,11 +68,12 @@ const ContentHouse = () => {
           ))}
         </div>
 
-        <div className="text-center mb-20">
+        {/* Single booking button */}
+        <div className="text-center my-20">
           <Button 
             variant="outline" 
             className="text-white border-white hover:bg-white hover:text-purple-900 bg-transparent text-lg px-8 py-3"
-            onClick={() => {/* Add booking functionality */}}
+            onClick={handleBooking}
           >
             Book Your Next Photo/Video Shoot
           </Button>
@@ -139,12 +144,12 @@ const ContentHouse = () => {
           ))}
         </div>
 
-        {/* New "Book Your Next Photo/Video Shoot" button after testimonials */}
-        <div className="text-center mb-20">
+        {/* Add another booking button after testimonials */}
+        <div className="text-center my-20">
           <Button 
             variant="outline" 
             className="text-white border-white hover:bg-white hover:text-purple-900 bg-transparent text-lg px-8 py-3"
-            onClick={() => {/* Add booking functionality */}}
+            onClick={handleBooking}
           >
             Book Your Next Photo/Video Shoot
           </Button>

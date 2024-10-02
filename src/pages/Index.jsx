@@ -7,7 +7,7 @@ import { WhyChooseSection } from '../components/WhyChooseSection';
 import OurWork from '../components/OurWork';
 import FAQ from '../components/FAQ';
 import DiscoveryCallCTA from '../components/DiscoveryCallCTA';
-import Footer from '../components/Footer';
+// Remove the Footer import
 
 const Index = () => {
   return (
@@ -20,7 +20,7 @@ const Index = () => {
       <OurWork />
       <FAQ />
       <DiscoveryCallCTA />
-      <Footer />
+      {/* Remove the Footer component from here */}
     </div>
   );
 };

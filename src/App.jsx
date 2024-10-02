@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Index from './pages/Index';
 import AboutUs from './pages/AboutUs';
+import Contact from './pages/Contact'; // Add this import
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -14,6 +15,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/about" element={<AboutUs />} />
+        <Route path="/contact" element={<Contact />} /> {/* Add this line */}
         {/* ... other routes ... */}
       </Routes>
     </Router>

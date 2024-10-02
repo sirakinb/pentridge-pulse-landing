@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Link as ScrollLink } from 'react-scroll';
 import { Link } from 'react-router-dom'; // Add this import
+import { motion } from 'framer-motion';
 
 const Header = () => {
   return (
@@ -27,7 +28,7 @@ const Header = () => {
               How It Works
             </ScrollLink>
             <Link to="/about" className="text-white hover:text-gray-200">About Us</Link>
-            <a href="#" className="text-white hover:text-gray-200">Contact</a>
+            <Link to="/contact" className="text-white hover:text-gray-200">Contact</Link> {/* Updated this line */}
             {/* <a href="#" className="text-white hover:text-gray-200">Blog</a> */}
           </div>
           <Button 

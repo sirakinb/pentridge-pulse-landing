@@ -43,16 +43,13 @@ const AboutUs = () => {
           className="text-lg space-y-6"
         >
           <p>
-            Pentridge Media is a cutting-edge digital agency specializing in AI-powered growth systems for founders and entrepreneurs. Our mission is to leverage the latest advancements in artificial intelligence to create innovative solutions that drive business growth and efficiency.
+            The Pentridge Brand has come a long way since the inception of Pentridge Manor in 2021, a content creation house for capturing stunning photos and videos. The Pentridge Manor has become a popular destination for photographers, videographers, artists and other creatives looking for a unique and instagram-youtube worthy location to shoot their content. From fashion and music videos to product launches, film productions, and social media campaigns, "the manor" has played host to different functions.
           </p>
           <p>
-            Founded by a team of tech enthusiasts and business strategists, we combine our expertise in AI, machine learning, and digital marketing to deliver tailored strategies that help our clients stay ahead in the rapidly evolving digital landscape.
+            With the evolution of technology and market demands, we recognized a way to provide more value to content creators who occupied our space. As a result, Pentridge Media was born. Pentridge Media emerged as an extension of our creative ecosystem, blending the physical space of content creation with digital media services for editing and content management. However, it didn't stop there. With the rise of ChatGPT and Generative AI, we recognized their potential in transforming the digital landscape. Therefore, we evolved further.
           </p>
           <p>
-            At Pentridge Media, we believe in the power of technology to transform businesses. Our approach is rooted in data-driven decision making, continuous innovation, and a deep understanding of our clients' unique challenges and goals.
-          </p>
-          <p>
-            Whether you're a startup founder looking to scale your operations or an established business aiming to optimize your processes, our team is here to guide you through the exciting possibilities that AI-powered solutions can offer.
+            Today, Pentridge Media offers a range of solutions tailored to the needs of modern businesses and creators. From cutting-edge AI and automation services to digital strategy, or simply renting out our space, we are committed to helping you achieve your goals. Join us on this exhilarating journey of content evolution and AI-driven automation, and let us help you bring your vision to life. Pentridge Media, where creativity meets technology.
           </p>
         </motion.div>
       </div>

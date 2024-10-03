@@ -18,12 +18,13 @@ const Header = () => {
           <div className="flex items-center">
             <img 
               src="/logonew.png" 
-              alt="Pentridge Media" 
+              alt="Pentridge Media"
               className="h-16 w-auto"
             />
           </div>
           <div className="hidden md:flex flex-1 justify-center space-x-6">
-            <Link to="/" className="text-white hover:text-gray-200">Home</Link>
+            {/* Remove or comment out the "Home" link */}
+            {/* <Link to="/" className="text-white hover:text-gray-200">Home</Link> */}
             <Link to="/content-house" className="text-white hover:text-gray-200">Content House</Link>
             <ScrollLink 
               to="how-it-works" 
@@ -54,7 +55,8 @@ const Header = () => {
         {isNavOpen && (
           <div className="md:hidden pb-3">
             <div className="space-y-2 text-center">
-              <Link to="/" className="text-white block">Home</Link>
+              {/* Remove or comment out the "Home" link for mobile version */}
+              {/* <Link to="/" className="text-white block">Home</Link> */}
               <Link to="/content-house" className="text-white block">Content House</Link>
               <ScrollLink 
                 to="how-it-works" 

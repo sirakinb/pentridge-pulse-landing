@@ -6,7 +6,7 @@ const testimonials = [
   {
     name: "DO Olivas",
     company: "LogoSeed",
-    text: "Amazing & solution-driven! Will definitely work with again…",
+    text: "Absolutely amazing and solution-driven! Working together was a seamless experience from start to finish. They not only delivered outstanding results but also went above and beyond to address challenges with creative, effective solutions. Their professionalism, attention to detail, and commitment to excellence made a lasting impact. I will definitely collaborate with them again and highly recommend their services to anyone seeking top-tier expertise and results.",
     rating: 5
   },
   {
@@ -27,7 +27,7 @@ const Testimonials = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          What They Say About Pentridge Media
+          What They Are Saying About Pentridge Media
         </motion.h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {testimonials.map((testimonial, index) => (

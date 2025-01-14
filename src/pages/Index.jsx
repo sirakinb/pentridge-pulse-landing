@@ -7,6 +7,7 @@ import PartnerInAI from '../components/PartnerInAI';
 import { WhyChooseSection } from '../components/WhyChooseSection';
 import OurWork from '../components/OurWork';
 import FAQ from '../components/FAQ';
+import Testimonials from '../components/Testimonials';
 import DiscoveryCallCTA from '../components/DiscoveryCallCTA';
 // Remove the Footer import
 
@@ -47,6 +48,7 @@ const Index = () => {
       <PartnerInAI />
       <WhyChooseSection />
       <OurWork />
+      <Testimonials />
       <FAQ />
       <DiscoveryCallCTA />
       {/* Remove the Footer component from here */}

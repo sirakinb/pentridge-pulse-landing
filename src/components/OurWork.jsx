@@ -25,7 +25,7 @@ const projects = [
     link: 'https://www.youtube.com/watch?v=uj_k8dxqP00&t=1s'
   },
   {
-    tags: ['Web & App Development'],
+    tags: ['Web & App Composition'],
     title: 'Productivity Tool',
     description: 'Build web apps with natural language prompts using tools like Cursor, Replit, and Firebase. Leverage AI models like ChatGPT and Claude to develop both front-end and back-end, and streamline the coding process from start to finish.',
     image: '/productivity.png',

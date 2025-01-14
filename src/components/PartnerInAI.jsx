@@ -7,7 +7,7 @@ const services = [
     description: "Customize AI models to suit your specific business needs. Develop and deploy AI chatbots to improve customer engagement."
   },
   {
-    title: "Web & App Development",
+    title: "Web & App Composition",
     description: "Quickly build and deploy functional solutions. Compose applications using AI-driven natural language programming. Design and build unique, visually appealing landing pages."
   },
   {

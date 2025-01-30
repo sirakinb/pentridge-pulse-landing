@@ -74,7 +74,6 @@ const Header = () => {
         <div className="flex-grow flex flex-col justify-start items-start w-full pt-8 md:pt-48">
           <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-12 mt-0 w-full max-w-[90%] mx-auto">
             We Build AI-Powered Growth Systems For Founders
-            <span className="block text-sm mt-2">Page loaded successfully!</span>
           </h1>
           <div className="w-full max-w-[90%] mx-auto flex justify-start pl-20">
             <Button 

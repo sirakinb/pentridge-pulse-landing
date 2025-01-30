@@ -26,7 +26,7 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     setErrorMessage('');
-    
+
     const form = e.target;
     const formData = new FormData(form);
 
@@ -72,12 +72,12 @@ const Contact = () => {
         <FuturisticBackLink />
 
         <motion.h1 
-          initial={{ y: -50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-5xl font-bold text-center mb-8"
         >
-          Contact the Team
+          Contact Pentridge Media
         </motion.h1>
         <motion.h2
           initial={{ y: -30, opacity: 0 }}
@@ -85,7 +85,7 @@ const Contact = () => {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="text-3xl font-bold text-center mb-4"
         >
-          Ask us a question
+          Get in touch with our team
         </motion.h2>
 
         <motion.form 
@@ -110,7 +110,7 @@ const Contact = () => {
           <Button type="submit" className="w-full bg-purple-600 hover:bg-purple-700 text-white" disabled={isSubmitting}>
             {isSubmitting ? 'Submitting...' : 'Submit'}
           </Button>
-          
+
           {/* Disable captcha */}
           <input type="hidden" name="_captcha" value="false" />
         </motion.form>

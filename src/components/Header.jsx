@@ -17,7 +17,7 @@ const Header = () => {
         <nav className="flex justify-between items-center py-6">
           <div className="flex items-center">
             <img 
-              src="/logonew.png" 
+              src="/logo.png" 
               alt="Pentridge Media"
               className="h-16 w-auto"
             />

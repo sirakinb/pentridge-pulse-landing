@@ -4,11 +4,17 @@ const cors = require('cors');
 
 const app = express();
 app.use(bodyParser.json());
-app.use(cors({
-  origin: '*',
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
-}));
+app.use(cors());
+app.set('trust proxy', 1);
+app.use((req, res, next) => {
+  if (req.secure) {
+    next();
+  } else if (req.headers['x-forwarded-proto'] === 'https') {
+    next();
+  } else {
+    res.redirect(`https://${req.headers.host}${req.url}`);
+  }
+});
 
 // Force HTTPS redirect
 app.use((req, res, next) => {

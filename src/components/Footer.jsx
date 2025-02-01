@@ -57,7 +57,7 @@ const Footer = () => {
         
         {/* Copyright notice */}
         <div className="border-t border-gray-800 pt-4 mt-4">
-          <p className="text-sm text-gray-500">© 2024 Pentridge Media. All rights reserved.</p>
+          <p className="text-sm text-gray-500">© 2025 Pentridge Media. All rights reserved.</p>
         </div>
       </div>
     </footer>

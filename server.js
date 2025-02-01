@@ -1,14 +1,18 @@
 
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
+import express from 'express';
+import bodyParser from 'body-parser';
+import cors from 'cors';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 
-// Basic middleware
 app.use(bodyParser.json());
+app.use(express.static('dist'));
 
-// Configure CORS with specific origins
 const allowedOrigins = [
   'https://pentridgemedia.com',
   'https://www.pentridgemedia.com',
@@ -27,10 +31,8 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
 }));
 
-// Trust proxy headers
 app.set('trust proxy', true);
 
-// HTTPS redirect
 app.use((req, res, next) => {
   if (req.secure || req.headers['x-forwarded-proto'] === 'https') {
     next();
@@ -40,7 +42,10 @@ app.use((req, res, next) => {
   }
 });
 
-// Error handling
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
+
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).send('Something broke!');
@@ -50,9 +55,4 @@ const PORT = process.env.PORT || 8080;
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server running on port ${PORT}`);
   console.log('Server is ready to accept connections');
-});
-
-// Basic route for health check
-app.get('/', (req, res) => {
-  res.send('Server is running');
 });

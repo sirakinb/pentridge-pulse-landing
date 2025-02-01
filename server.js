@@ -1,33 +1,36 @@
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const app = express();
+
+// Basic middleware
 app.use(bodyParser.json());
-app.use(cors());
-app.set('trust proxy', 1);
+app.use(cors({
+  origin: ['https://pentridgemedia.com', 'https://pentridgemedia.xyz', 'https://www.pentridgemedia.com', 'https://www.pentridgemedia.xyz'],
+  credentials: true
+}));
+
+// Trust proxy headers
+app.enable('trust proxy');
+
+// HTTPS redirect with proper header checks
 app.use((req, res, next) => {
-  if (req.secure) {
-    next();
-  } else if (req.headers['x-forwarded-proto'] === 'https') {
+  if (req.secure || req.headers['x-forwarded-proto'] === 'https') {
     next();
   } else {
-    res.redirect(`https://${req.headers.host}${req.url}`);
+    res.redirect(301, `https://${req.get('host')}${req.url}`);
   }
 });
 
-// Force HTTPS redirect
-app.use((req, res, next) => {
-  if (req.headers['x-forwarded-proto'] !== 'https') {
-    return res.redirect(['https://', req.get('Host'), req.url].join(''));
-  }
-  next();
+// Error handling
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
 });
 
-const PORT = process.env.PORT || 3001;
-
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server running on port ${PORT}`);
 });
-
-// We don't need the email sending logic anymore

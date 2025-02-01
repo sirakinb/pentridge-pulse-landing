@@ -13,20 +13,18 @@ const allowedOrigins = [
   'https://pentridgemedia.com',
   'https://www.pentridgemedia.com',
   'https://pentridgemedia.xyz',
-  'https://www.pentridgemedia.xyz'
+  'https://www.pentridgemedia.xyz',
+  'http://pentridgemedia.com',
+  'http://www.pentridgemedia.com',
+  'http://pentridgemedia.xyz',
+  'http://www.pentridgemedia.xyz'
 ];
 
 app.use(cors({
-  origin: function(origin, callback) {
-    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(null, false);
-    }
-  },
+  origin: '*',
   credentials: true,
-  methods: ['GET', 'POST', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
 }));
 
 // Trust proxy headers
@@ -48,7 +46,12 @@ app.use((err, req, res, next) => {
   res.status(500).send('Something broke!');
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server running on port ${PORT}`);
+});
+
+// Basic route for health check
+app.get('/', (req, res) => {
+  res.send('Server is running');
 });

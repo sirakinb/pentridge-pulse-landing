@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 const services = [
   {
     title: "Custom AI Solutions",
-    description: "Customize AI models to suit your specific business needs. Develop and deploy AI chatbots to improve customer engagement."
+    description: "Customize AI models to suit your specific business needs. Develop and deploy AI chatbots and voice agents to improve customer engagement."
   },
   {
     title: "Web & App Composition",
@@ -15,24 +15,16 @@ const services = [
     description: "Seamlessly connect your software with third-party applications. Integrate your business applications to streamline operations."
   },
   {
-    title: "Business Process Automation",
-    description: "Automate and optimize business workflows. Implement automated systems for nurturing leads and running activation campaigns."
+    title: "Automated Workflow Solutions",
+    description: "Automate and optimize workflows, streamline proposal and document generation, implement systems to nurture leads, run activation campaigns, and simplify admin processes."
   },
   {
     title: "CRM & Business Management Systems",
     description: "Develop and customize CRM systems. Build internal business management applications."
   },
   {
-    title: "Custom Chrome Extensions",
-    description: "Create custom Chrome extensions to address specific business needs, offering enhanced functionality and integrations."
-  },
-  {
     title: "AI-Driven Content Automation",
     description: "Develop systems for automated content creation, distribution, and management, enhancing your digital presence and efficiency."
-  },
-  {
-    title: "Automated Workflow Solutions",
-    description: "Streamline the generation of proposals and documents. Simplify and automate administrative processes."
   }
 ];
 

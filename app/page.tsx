@@ -1,3 +1,6 @@
+/// <reference types="react" />
+import React from "react";
+
 export default function HomePage() {
   return (
     <>
@@ -29,10 +32,6 @@ export default function HomePage() {
             <div className="bg-gray-100 p-6 rounded-lg">
               <h3 className="text-xl font-semibold mb-4">Automated Proposal Workflow</h3>
               <p className="text-gray-600">Description of the automated proposal workflow project.</p>
-            </div>
-            <div className="bg-gray-100 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold mb-4">Custom Chrome Extension</h3>
-              <p className="text-gray-600">Description of the custom Chrome extension project.</p>
             </div>
             <div className="bg-gray-100 p-6 rounded-lg">
               <h3 className="text-xl font-semibold mb-4">Web App</h3>

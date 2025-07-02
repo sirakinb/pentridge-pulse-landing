@@ -40,7 +40,7 @@ const ContentHouse = () => {
   ];
 
   const handleBooking = () => {
-    window.open("https://app.acuityscheduling.com/schedule.php?owner=32940683", "_blank", "noopener,noreferrer");
+    window.open("https://www.peerspace.com/pages/listings/6357e450d6990c00222cfd89?utm_source=copy_link&utm_campaign=listing_sharing", "_blank", "noopener,noreferrer");
   };
 
   const pageVariants = {

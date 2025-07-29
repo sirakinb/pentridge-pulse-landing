@@ -1,6 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import FuturisticBackLink from '../components/FuturisticBackLink';
+import PageSchemaMarkup from '../components/PageSchemaMarkup';
+import MetaTags from '../components/MetaTags';
+import { getMetaConfig } from '../lib/meta-config';
 
 const AboutUs = () => {
   const pageVariants = {
@@ -15,6 +18,8 @@ const AboutUs = () => {
     duration: 0.5
   };
 
+  const metaConfig = getMetaConfig('about');
+
   return (
     <motion.div
       initial="initial"
@@ -24,6 +29,8 @@ const AboutUs = () => {
       transition={pageTransition}
       className="bg-gradient-to-br from-[#1A0B2E] to-[#4B2C70] text-white min-h-screen"
     >
+      <MetaTags {...metaConfig} />
+      <PageSchemaMarkup pageType="about" />
       <div className="container mx-auto px-4 py-6">
         <FuturisticBackLink />
 

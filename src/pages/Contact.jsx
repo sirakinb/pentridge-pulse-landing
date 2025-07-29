@@ -4,6 +4,9 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import FuturisticBackLink from '../components/FuturisticBackLink';
+import PageSchemaMarkup from '../components/PageSchemaMarkup';
+import MetaTags from '../components/MetaTags';
+import { getMetaConfig } from '../lib/meta-config';
 
 const Contact = () => {
   const [showThankYou, setShowThankYou] = useState(false);
@@ -21,6 +24,8 @@ const Contact = () => {
     ease: "anticipate",
     duration: 0.5
   };
+
+  const metaConfig = getMetaConfig('contact');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -68,6 +73,8 @@ const Contact = () => {
       transition={pageTransition}
       className="bg-gradient-to-br from-[#1A0B2E] to-[#4B2C70] text-white min-h-screen"
     >
+      <MetaTags {...metaConfig} />
+      <PageSchemaMarkup pageType="contact" />
       <div className="container mx-auto px-4 py-6">
         <FuturisticBackLink />
 

@@ -9,6 +9,9 @@ import OurWork from '../components/OurWork';
 import FAQ from '../components/FAQ';
 import Testimonials from '../components/Testimonials';
 import DiscoveryCallCTA from '../components/DiscoveryCallCTA';
+import PageSchemaMarkup from '../components/PageSchemaMarkup';
+import MetaTags from '../components/MetaTags';
+import { getMetaConfig } from '../lib/meta-config';
 // Remove the Footer import
 
 const Index = () => {
@@ -33,6 +36,8 @@ const Index = () => {
     duration: 0.5
   };
 
+  const metaConfig = getMetaConfig('home');
+
   return (
     <motion.div
       initial="initial"
@@ -42,6 +47,8 @@ const Index = () => {
       transition={pageTransition}
       className="min-h-screen bg-[#1A0B2E]"
     >
+      <MetaTags {...metaConfig} />
+      <PageSchemaMarkup pageType="home" />
       <Header />
       <Description />
       <HowItWorks />

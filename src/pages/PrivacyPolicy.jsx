@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import FuturisticBackLink from '../components/FuturisticBackLink';
 import { scrollToTop } from '../utils/scrollToTop';
+import MetaTags from '../components/MetaTags';
+import { getMetaConfig } from '../lib/meta-config';
 
 const PrivacyPolicy = () => {
   useEffect(() => {
@@ -20,6 +22,8 @@ const PrivacyPolicy = () => {
     duration: 0.5
   };
 
+  const metaConfig = getMetaConfig('privacy');
+
   return (
     <motion.div
       initial="initial"
@@ -29,6 +33,7 @@ const PrivacyPolicy = () => {
       transition={pageTransition}
       className="bg-black text-white min-h-screen"
     >
+      <MetaTags {...metaConfig} />
       <div className="container mx-auto px-4 py-6">
         <div className="mb-8">
           <FuturisticBackLink />

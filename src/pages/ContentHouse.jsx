@@ -3,6 +3,9 @@ import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import FuturisticBackLink from '../components/FuturisticBackLink';
 import { Link } from 'react-router-dom';
+import PageSchemaMarkup from '../components/PageSchemaMarkup';
+import MetaTags from '../components/MetaTags';
+import { getMetaConfig } from '../lib/meta-config';
 
 const ContentHouse = () => {
   // Original images
@@ -64,6 +67,8 @@ const ContentHouse = () => {
     duration: 0.5
   };
 
+  const metaConfig = getMetaConfig('content-house');
+
   return (
     <motion.div
       initial="initial"
@@ -73,6 +78,8 @@ const ContentHouse = () => {
       transition={pageTransition}
       className="min-h-screen"
     >
+      <MetaTags {...metaConfig} />
+      <PageSchemaMarkup pageType="content-house" />
       {/* First Section: Black background */}
       <div className="bg-black text-white">
         <div className="container mx-auto px-4 py-6">

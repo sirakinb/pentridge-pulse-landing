@@ -12,6 +12,10 @@ import BookingOptions from './components/BookingOptions';
 import { AnimatePresence } from 'framer-motion';
 import TermsAndConditions from './pages/TermsAndConditions';
 import PrivacyPolicy from './pages/PrivacyPolicy';
+import SEOTest from './pages/SEOTest';
+import PerformanceTest from './pages/PerformanceTest';
+import SchemaMarkup from './components/SchemaMarkup';
+import PerformanceMonitor from './components/PerformanceMonitor';
 
 const queryClient = new QueryClient();
 
@@ -19,6 +23,7 @@ const App = () => {
   return (
     <Router>
       <div className="flex flex-col min-h-screen">
+        <SchemaMarkup />
         <div className="flex-grow">
           <AnimatePresence mode="wait">
             <Routes>
@@ -28,12 +33,15 @@ const App = () => {
               <Route path="/about" element={<AboutUs />} /> {/* Add this route */}
               <Route path="/terms" element={<TermsAndConditions />} />
               <Route path="/privacy" element={<PrivacyPolicy />} />
+              <Route path="/seo-test" element={<SEOTest />} />
+              <Route path="/performance-test" element={<PerformanceTest />} />
               {/* ... other routes ... */}
             </Routes>
           </AnimatePresence>
         </div>
         <Footer />
       </div>
+      <PerformanceMonitor />
     </Router>
   );
 };

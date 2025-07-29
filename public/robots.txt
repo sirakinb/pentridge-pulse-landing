@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://pentridgemedia.com/sitemap.xml
+
+# Disallow admin or private areas (if any)
+Disallow: /admin/
+Disallow: /private/
+
+# Allow all other content
+Allow: /about
+Allow: /contact
+Allow: /content-house
+Allow: /terms
+Allow: /privacy
+
+# Crawl delay (optional - helps with server load)
+Crawl-delay: 1 

@@ -93,6 +93,14 @@ const PerformanceMonitor = () => {
     }
   };
 
+  // Only show in development mode or on performance test page
+  const isDevelopment = import.meta.env.DEV;
+  const isPerformanceTestPage = window.location.pathname === '/performance-test';
+  
+  if (!isDevelopment && !isPerformanceTestPage) {
+    return null;
+  }
+
   return (
     <div className="fixed bottom-4 right-4 bg-black bg-opacity-90 text-white p-4 rounded-lg shadow-lg z-50 max-w-sm">
       <h3 className="text-sm font-bold mb-2">Core Web Vitals</h3>

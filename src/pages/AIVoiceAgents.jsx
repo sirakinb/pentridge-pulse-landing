@@ -6,6 +6,7 @@ import Navbar from '../components/Navbar';
 import { Phone, Clock, Users, TrendingUp, CheckCircle, Star, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Slider } from "@/components/ui/slider";
+import MetaTags from '../components/MetaTags';
 
 const AIVoiceAgents = () => {
   const features = [
@@ -75,9 +76,84 @@ const AIVoiceAgents = () => {
   const gaugeMax = 20000; // cap for the dial visualization (monthly)
   const gaugePct = Math.min(100, Math.round((moneySavedPerMonth / gaugeMax) * 100));
 
+  const pageTitle = "AI Phone Answering System | AI Call Answering Service & Appointment Scheduling";
+  const pageDescription = "24/7 AI voice agent for customer calls, automated phone answering, and AI appointment scheduling. Reduce costs and capture more leads.";
+  const pageKeywords = "AI phone answering system, AI call answering service, automated phone answering, AI appointment scheduling, AI customer service automation, voice AI for business";
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is an AI voice agent?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "An AI voice agent is software that answers phone calls, understands intent, and performs actions like routing, scheduling, and logging calls—24/7—without human intervention."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does an AI phone answering service work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It greets callers, captures information, answers common questions, schedules appointments, and hands off to your team when needed. It integrates with your CRM and calendar."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can it schedule appointments?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The agent can qualify callers and book appointments directly to your calendar with confirmations and reminders."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is pricing calculated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pricing is based on call volume and features. Most clients see savings versus staffing a full‑time receptionist. Use the calculator on this page to estimate savings."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which industries is this best for?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Healthcare, property management, and professional services see strong ROI—high call volume and scheduling tasks make automation especially valuable."
+        }
+      }
+    ]
+  };
+
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "AI Phone Answering System & Call Answering Service",
+    "serviceType": ["Automated phone answering", "AI appointment scheduling"],
+    "provider": {
+      "@type": "Organization",
+      "name": "Pentridge Media",
+      "url": "https://pentridgemedia.com"
+    },
+    "areaServed": { "@type": "Country", "name": "United States" },
+    "url": "https://pentridgemedia.com/services/ai-voice-agents",
+    "description": pageDescription
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#0B0B10] via-[#0D0F14] to-[#111827] text-slate-100">
+      <MetaTags 
+        title={pageTitle}
+        description={pageDescription}
+        keywords={pageKeywords}
+        pageType="website"
+        canonicalUrl="https://pentridgemedia.com/services/ai-voice-agents"
+      />
       <Navbar variant="dark" />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       
       <div className="container mx-auto px-4 py-16">
         {/* Hero Section */}
@@ -91,19 +167,46 @@ const AIVoiceAgents = () => {
             AI Voice Technology
           </Badge>
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            AI Voice Agents That Never Sleep
+            AI Phone Answering System & Call Answering Service
           </h1>
           <p className="text-xl text-slate-300 mb-8 max-w-3xl mx-auto">
-            Transform your phone system with intelligent AI voice agents that handle customer calls, 
-            qualify leads, and provide 24/7 support with human-like conversations.
+            Transform your phone system with automated phone answering, AI appointment scheduling, and 24/7 support with human‑like conversations.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-violet-600 hover:bg-violet-700 text-white" onClick={() => window.open('https://tally.so/r/3NBGBl', '_blank')}>
               Book Call <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
             <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white/10" onClick={() => window.open('https://tally.so/r/wgo8Rl', '_blank')}>
-              Request Case Study
+              Property Management case study publishing soon — request early access
             </Button>
+          </div>
+        </motion.div>
+
+        {/* FAQ Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.55 }}
+          className="mb-16"
+        >
+          <h2 className="text-3xl font-bold text-center text-white mb-8">Frequently Asked Questions</h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            {[
+              { q: 'What is an AI voice agent?', a: 'Software that answers calls, understands intent, and performs actions like routing and scheduling—24/7.' },
+              { q: 'How does it work?', a: 'It greets callers, captures info, answers common questions, and books appointments; integrates with your CRM and calendar.' },
+              { q: 'Can it schedule appointments?', a: 'Yes—qualified callers can be booked directly to your calendar with confirmations and reminders.' },
+              { q: 'How is pricing calculated?', a: 'Usage and features determine price. Many clients save compared to staffing a full‑time receptionist.' },
+              { q: 'Best-fit industries?', a: 'Healthcare, property management, and professional services see the strongest ROI.' },
+            ].map((item, i) => (
+              <Card key={i} className="bg-slate-900 border-slate-800">
+                <CardHeader>
+                  <CardTitle className="text-white text-lg">{item.q}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="text-slate-300">{item.a}</CardDescription>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </motion.div>
 
@@ -212,6 +315,54 @@ const AIVoiceAgents = () => {
           </Card>
         </motion.div>
 
+        {/* Comparison Table: AI vs. Human Receptionist */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="mb-16"
+        >
+          <h2 className="text-3xl font-bold text-center text-white mb-8">AI vs. Human Receptionist</h2>
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse rounded-xl overflow-hidden">
+              <thead>
+                <tr className="bg-slate-900 text-slate-200">
+                  <th className="p-4 text-left">Capability</th>
+                  <th className="p-4 text-left">AI Voice Agent</th>
+                  <th className="p-4 text-left">Human Receptionist</th>
+                </tr>
+              </thead>
+              <tbody className="bg-slate-950/40">
+                <tr className="border-t border-slate-800">
+                  <td className="p-4 text-slate-300">Coverage</td>
+                  <td className="p-4 text-white">24/7/365</td>
+                  <td className="p-4 text-slate-300">Business hours</td>
+                </tr>
+                <tr className="border-t border-slate-800">
+                  <td className="p-4 text-slate-300">Cost</td>
+                  <td className="p-4 text-white">Low, usage‑based</td>
+                  <td className="p-4 text-slate-300">High, fixed salary + benefits</td>
+                </tr>
+                <tr className="border-t border-slate-800">
+                  <td className="p-4 text-slate-300">Appointment Scheduling</td>
+                  <td className="p-4 text-white">Integrated, instant booking</td>
+                  <td className="p-4 text-slate-300">Manual or tool‑assisted</td>
+                </tr>
+                <tr className="border-t border-slate-800">
+                  <td className="p-4 text-slate-300">Consistency</td>
+                  <td className="p-4 text-white">Always on‑brand</td>
+                  <td className="p-4 text-slate-300">Varies by staff</td>
+                </tr>
+                <tr className="border-t border-slate-800">
+                  <td className="p-4 text-slate-300">Scalability</td>
+                  <td className="p-4 text-white">Handles spikes instantly</td>
+                  <td className="p-4 text-slate-300">Requires additional hires</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </motion.div>
+
         {/* Benefits Section */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -283,7 +434,7 @@ const AIVoiceAgents = () => {
               Get Started Today <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
             <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white/10" onClick={() => window.open('https://tally.so/r/wgo8Rl', '_blank')}>
-              Request Case Study
+              Property Management case study publishing soon — request early access
             </Button>
           </div>
         </motion.div>

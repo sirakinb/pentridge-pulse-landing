@@ -1,11 +1,6 @@
-const CACHE_NAME = 'pentridge-media-v1';
+const CACHE_NAME = 'pentridge-media-v3';
 const urlsToCache = [
-  '/',
-  '/about',
-  '/contact',
-  '/content-house',
-  '/static/js/bundle.js',
-  '/static/css/main.css',
+  // Do not cache HTML pages to avoid serving stale index.html
   '/logo.png',
   '/logonew.png',
   '/logop.png',
@@ -21,16 +16,26 @@ self.addEventListener('install', (event) => {
         return cache.addAll(urlsToCache);
       })
   );
+  self.skipWaiting();
 });
 
 // Fetch event - serve from cache when possible
 self.addEventListener('fetch', (event) => {
-  event.respondWith(
-    caches.match(event.request)
-      .then((response) => {
-        // Return cached version or fetch from network
-        return response || fetch(event.request);
+  const req = event.request;
+  // Always network-first for navigation (HTML) to avoid blank page from stale cache
+  if (req.mode === 'navigate') {
+    event.respondWith(
+      fetch(req).catch(async () => {
+        const cache = await caches.open(CACHE_NAME);
+        return cache.match('/index.html');
       })
+    );
+    return;
+  }
+
+  // For assets, try cache first then network
+  event.respondWith(
+    caches.match(req).then((cached) => cached || fetch(req))
   );
 });
 
@@ -48,4 +53,5 @@ self.addEventListener('activate', (event) => {
       );
     })
   );
+  self.clients.claim();
 }); 

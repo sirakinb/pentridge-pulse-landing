@@ -6,6 +6,7 @@ import Navbar from '../components/Navbar';
 import { Phone, Clock, Users, TrendingUp, CheckCircle, Star, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Slider } from "@/components/ui/slider";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import MetaTags from '../components/MetaTags';
 
 const AIVoiceAgents = () => {
@@ -182,33 +183,7 @@ const AIVoiceAgents = () => {
           </div>
         </motion.div>
 
-        {/* FAQ Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.55 }}
-          className="mb-16"
-        >
-          <h2 className="text-3xl font-bold text-center text-white mb-8">Frequently Asked Questions</h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            {[
-              { q: 'What is an AI voice agent?', a: 'Software that answers calls, understands intent, and performs actions like routing and scheduling—24/7.' },
-              { q: 'How does it work?', a: 'It greets callers, captures info, answers common questions, and books appointments; integrates with your CRM and calendar.' },
-              { q: 'Can it schedule appointments?', a: 'Yes—qualified callers can be booked directly to your calendar with confirmations and reminders.' },
-              { q: 'How is pricing calculated?', a: 'Usage and features determine price. Many clients save compared to staffing a full‑time receptionist.' },
-              { q: 'Best-fit industries?', a: 'Healthcare, property management, and professional services see the strongest ROI.' },
-            ].map((item, i) => (
-              <Card key={i} className="bg-slate-900 border-slate-800">
-                <CardHeader>
-                  <CardTitle className="text-white text-lg">{item.q}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-slate-300">{item.a}</CardDescription>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </motion.div>
+        
 
         {/* Features Section */}
         <motion.div 
@@ -406,6 +381,50 @@ const AIVoiceAgents = () => {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </motion.div>
+
+        {/* FAQ Section (between industries and CTA) */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.7 }}
+          className="mb-16"
+        >
+          <h2 className="text-3xl font-bold text-center text-white mb-8">Frequently Asked Questions</h2>
+          <div className="max-w-3xl mx-auto bg-slate-900 border border-slate-800 rounded-xl">
+            <Accordion type="single" collapsible>
+              <AccordionItem value="q1">
+                <AccordionTrigger className="px-4 text-white">What is an AI voice agent?</AccordionTrigger>
+                <AccordionContent className="px-4 text-slate-300">
+                  Software that answers calls, understands intent, and performs actions like routing and scheduling—24/7.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="q2">
+                <AccordionTrigger className="px-4 text-white">How does it work?</AccordionTrigger>
+                <AccordionContent className="px-4 text-slate-300">
+                  It greets callers, captures info, answers common questions, and books appointments; integrates with your CRM and calendar.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="q3">
+                <AccordionTrigger className="px-4 text-white">Can it schedule appointments?</AccordionTrigger>
+                <AccordionContent className="px-4 text-slate-300">
+                  Yes—qualified callers can be booked directly to your calendar with confirmations and reminders.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="q4">
+                <AccordionTrigger className="px-4 text-white">How is pricing calculated?</AccordionTrigger>
+                <AccordionContent className="px-4 text-slate-300">
+                  Usage and features determine price. Many clients save compared to staffing a full‑time receptionist.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="q5">
+                <AccordionTrigger className="px-4 text-white">Best‑fit industries?</AccordionTrigger>
+                <AccordionContent className="px-4 text-slate-300">
+                  Healthcare, property management, and professional services see the strongest ROI.
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
           </div>
         </motion.div>
 

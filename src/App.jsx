@@ -4,6 +4,9 @@ import Index from './pages/Index';
 import Contact from './pages/Contact';
 import ContentHouse from './pages/ContentHouse';
 import AboutUs from './pages/AboutUs'; // Add this import
+import Blog from './pages/Blog'; // Add this import
+import Resources from './pages/Resources'; // Add this import
+import AIVoiceAgents from './pages/AIVoiceAgents'; // Add this import
 import Footer from './components/Footer'; // Add this import
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -31,6 +34,9 @@ const App = () => {
               <Route path="/contact" element={<Contact />} />
               <Route path="/content-house" element={<ContentHouse />} />
               <Route path="/about" element={<AboutUs />} /> {/* Add this route */}
+              <Route path="/blog" element={<Blog />} /> {/* Add this route */}
+              <Route path="/resources" element={<Resources />} /> {/* Add this route */}
+              <Route path="/services/ai-voice-agents" element={<AIVoiceAgents />} /> {/* Add this route */}
               <Route path="/terms" element={<TermsAndConditions />} />
               <Route path="/privacy" element={<PrivacyPolicy />} />
               <Route path="/seo-test" element={<SEOTest />} />

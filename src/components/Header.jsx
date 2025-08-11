@@ -16,16 +16,39 @@ const Header = () => {
       <div className="container mx-auto px-4 flex flex-col flex-grow">
         <nav className="flex justify-between items-center py-6">
           <div className="flex items-center">
-            <img 
-              src="/logonew.png" 
-              alt="Pentridge Media"
-              className="h-16 w-auto"
-            />
+            <Link to="/">
+              <img 
+                src="/logonew.png" 
+                alt="Pentridge Media"
+                className="h-16 w-auto"
+              />
+            </Link>
           </div>
           <div className="hidden md:flex flex-1 justify-center space-x-6">
             {/* Remove or comment out the "Home" link */}
             {/* <Link to="/" className="text-white hover:text-gray-200">Home</Link> */}
-            <Link to="/content-house" className="text-white hover:text-gray-200">Content House</Link>
+            <div className="relative group">
+              <button className="text-white hover:text-gray-200 flex items-center gap-1">
+                Services
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                <div className="py-2">
+                  <Link to="/services/ai-voice-agents" className="block px-4 py-3 text-gray-800 hover:bg-purple-50 border-b border-gray-100">
+                    <div className="font-medium">AI Voice Agents</div>
+                    <div className="text-sm text-gray-600">24/7 AI phone answering service</div>
+                  </Link>
+                  <Link to="/content-house" className="block px-4 py-3 text-gray-800 hover:bg-purple-50">
+                    <div className="font-medium">Content House</div>
+                    <div className="text-sm text-gray-600">AI-powered content creation</div>
+                  </Link>
+                </div>
+              </div>
+            </div>
+            <button className="text-white hover:text-gray-200" onClick={() => alert('Coming soon')}>Blog</button>
+            <button className="text-white hover:text-gray-200" onClick={() => alert('Coming soon')}>Resources</button>
             <ScrollLink 
               to="how-it-works" 
               smooth={true} 
@@ -57,7 +80,11 @@ const Header = () => {
             <div className="space-y-2 text-center">
               {/* Remove or comment out the "Home" link for mobile version */}
               {/* <Link to="/" className="text-white block">Home</Link> */}
-              <Link to="/content-house" className="text-white block">Content House</Link>
+              <div className="text-white font-medium py-2">Services</div>
+              <Link to="/services/ai-voice-agents" className="text-white block pl-4 text-sm">AI Voice Agents</Link>
+              <Link to="/content-house" className="text-white block pl-4 text-sm">Content House</Link>
+              <button className="text-white block w-full" onClick={() => alert('Coming soon')}>Blog</button>
+              <button className="text-white block w-full" onClick={() => alert('Coming soon')}>Resources</button>
               <ScrollLink 
                 to="how-it-works" 
                 smooth={true} 

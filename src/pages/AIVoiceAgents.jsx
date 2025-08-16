@@ -178,7 +178,7 @@ const AIVoiceAgents = () => {
               Book Call <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
             <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white/10" onClick={() => window.open('https://tally.so/r/wgo8Rl', '_blank')}>
-              Property Management case study publishing soon — request early access
+              Case study publishing soon
             </Button>
           </div>
         </motion.div>
@@ -453,7 +453,7 @@ const AIVoiceAgents = () => {
               Get Started Today <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
             <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white/10" onClick={() => window.open('https://tally.so/r/wgo8Rl', '_blank')}>
-              Property Management case study publishing soon — request early access
+              Case study publishing soon
             </Button>
           </div>
         </motion.div>

@@ -117,7 +117,8 @@ const Header = () => {
               <a href="https://build.pentridgemedia.com" target="_blank" rel="noopener noreferrer" className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">Custom Apps</a>
               <div className="text-white/90 font-medium py-2">Products</div>
               <a href="https://www.dropcard.app/" target="_blank" rel="noopener noreferrer" className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">DropCard</a>
-              <a href="https://discover.circle.so/product/pentridge-club-ai-automation-emerging-tech-community" target="_blank" rel="noopener noreferrer" className="text-white/80 block py-2 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">Community</a>
+              <div className="text-white/90 font-medium py-2">Community</div>
+              <a href="https://discover.circle.so/product/pentridge-club-ai-automation-emerging-tech-community" target="_blank" rel="noopener noreferrer" className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">Pentridge Club</a>
               <button className="text-white/80 block w-full text-left py-2 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300" onClick={() => alert('Coming soon')}>Blog</button>
               <button className="text-white/80 block w-full text-left py-2 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300" onClick={() => alert('Coming soon')}>Resources</button>
               <Link to="/contact" className="text-white/80 block py-2 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">Contact</Link>

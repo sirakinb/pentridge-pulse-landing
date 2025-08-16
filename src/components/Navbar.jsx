@@ -14,8 +14,8 @@ const Navbar = ({ variant = "light" }) => {
   return (
     <nav className={`w-full sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-opacity-80 ${
       isDark
-        ? 'bg-slate-950/80 border-b border-slate-800'
-        : 'bg-white/90 border-b border-gray-100'
+        ? 'bg-purple-900/90 border-b border-purple-700/50'
+        : 'bg-purple-800/90 border-b border-purple-600/30'
     }`}>
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
@@ -27,9 +27,9 @@ const Navbar = ({ variant = "light" }) => {
             />
           </Link>
         </div>
-        <div className={`hidden md:flex items-center gap-6 ${isDark ? 'text-slate-200' : 'text-gray-800'}`}>
+        <div className={`hidden md:flex items-center gap-6 ${isDark ? 'text-purple-100' : 'text-white'}`}>
           <div className="relative group">
-            <button className={`${isDark ? 'text-slate-200 hover:text-violet-300' : 'text-gray-800 hover:text-purple-700'} flex items-center gap-1`}>
+            <button className={`${isDark ? 'text-purple-100 hover:text-purple-200' : 'text-white hover:text-purple-200'} flex items-center gap-1`}>
               Services
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -52,7 +52,7 @@ const Navbar = ({ variant = "light" }) => {
             </div>
           </div>
           <div className="relative group">
-            <button className={`${isDark ? 'text-slate-200 hover:text-violet-300' : 'text-gray-800 hover:text-purple-700'} flex items-center gap-1`}>
+            <button className={`${isDark ? 'text-purple-100 hover:text-purple-200' : 'text-white hover:text-purple-200'} flex items-center gap-1`}>
               Products
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -72,13 +72,13 @@ const Navbar = ({ variant = "light" }) => {
             href="https://discover.circle.so/product/pentridge-club-ai-automation-emerging-tech-community" 
             target="_blank" 
             rel="noopener noreferrer"
-            className={`${isDark ? 'hover:text-violet-300' : 'hover:text-purple-700'}`}
+            className={`${isDark ? 'hover:text-purple-200' : 'hover:text-purple-200'}`}
           >
             Community
           </a>
           <Dialog>
             <DialogTrigger asChild>
-              <button className={`${isDark ? 'hover:text-violet-300' : 'hover:text-purple-700'}`}>Blog</button>
+              <button className={`${isDark ? 'hover:text-purple-200' : 'hover:text-purple-200'}`}>Blog</button>
             </DialogTrigger>
             <DialogContent className={isDark ? 'bg-slate-900 border-slate-800 text-slate-100' : ''}>
               <DialogHeader>
@@ -89,7 +89,7 @@ const Navbar = ({ variant = "light" }) => {
           </Dialog>
           <Dialog>
             <DialogTrigger asChild>
-              <button className={`${isDark ? 'hover:text-violet-300' : 'hover:text-purple-700'}`}>Resources</button>
+              <button className={`${isDark ? 'hover:text-purple-200' : 'hover:text-purple-200'}`}>Resources</button>
             </DialogTrigger>
             <DialogContent className={isDark ? 'bg-slate-900 border-slate-800 text-slate-100' : ''}>
               <DialogHeader>
@@ -98,162 +98,233 @@ const Navbar = ({ variant = "light" }) => {
               <p className="text-sm opacity-80">We're polishing our resources hub. Check back soon.</p>
             </DialogContent>
           </Dialog>
-          <Link to="/about" className={`${isDark ? 'hover:text-violet-300' : 'hover:text-purple-700'}`}>About Us</Link>
-          <Link to="/contact" className={`${isDark ? 'hover:text-violet-300' : 'hover:text-purple-700'}`}>Contact</Link>
+          <Link to="/about" className={`${isDark ? 'hover:text-purple-200' : 'hover:text-purple-200'}`}>About Us</Link>
+          <Link to="/contact" className={`${isDark ? 'hover:text-purple-200' : 'hover:text-purple-200'}`}>Contact</Link>
           <Button 
             variant="outline"
-            className={`${isDark ? 'bg-transparent border-white text-white hover:bg-white/10' : 'border-purple-600 text-purple-700 hover:bg-purple-600 hover:text-white'}`}
+            className={`${isDark ? 'bg-transparent border-purple-200 text-purple-100 hover:bg-purple-200/20' : 'border-purple-200 text-white hover:bg-purple-200/20'}`}
             onClick={() => window.open('https://tally.so/r/3NBGBl', '_blank')}
           >
             Book Call
           </Button>
         </div>
         <div className="md:hidden">
-          <button onClick={toggleNavbar} className={`${isDark ? 'text-slate-200' : 'text-gray-800'} focus:outline-none transition-all duration-200 hover:scale-110`}>
+          <button onClick={toggleNavbar} className={`${isDark ? 'text-purple-100' : 'text-white'} focus:outline-none transition-all duration-200 hover:scale-110`}>
             {isNavOpen ? <X className="h-8 w-8" /> : <Menu className="h-8 w-8" />}
           </button>
         </div>
       </div>
       
-      {/* NEW SEXY MOBILE MENU - SIMPLIFIED VERSION */}
+      {/* MODERN PURPLE MOBILE MENU */}
       {isNavOpen && (
-        <div className="md:hidden bg-gradient-to-b from-purple-900/90 to-purple-800/90 backdrop-blur-xl border-t border-purple-400/30">
-          <div className="px-6 py-6 space-y-6">
+        <div className="md:hidden fixed inset-x-0 top-[88px] bg-gradient-to-b from-purple-800/98 to-purple-900/98 backdrop-blur-3xl border-t border-purple-400/30 shadow-2xl">
+          <div className="px-6 py-6 space-y-6 max-h-[calc(100vh-88px)] overflow-y-auto">
             
-            {/* ACCOUNT SECTION */}
-            <div>
-              <div className="flex items-center gap-3 text-white font-bold text-lg mb-3">
-                <Users className="h-6 w-6 text-purple-300" />
-                <span>ACCOUNT</span>
-              </div>
-              <div className="ml-8 space-y-2">
-                <button className="flex items-center gap-3 w-full p-3 rounded-lg bg-purple-700/30 text-white hover:bg-purple-600/50 transition-all duration-200">
-                  <Calendar className="h-5 w-5 text-purple-300" />
-                  <span>Newsletter</span>
-                </button>
-                <button className="flex items-center gap-3 w-full p-3 rounded-lg bg-purple-700/30 text-white hover:bg-purple-600/50 transition-all duration-200">
-                  <Users2 className="h-5 w-5 text-purple-300" />
-                  <span>Community Access</span>
-                </button>
-              </div>
-            </div>
-
             {/* SERVICES SECTION */}
-            <div>
-              <div className="flex items-center gap-3 text-white font-bold text-lg mb-3">
-                <Briefcase className="h-6 w-6 text-purple-300" />
-                <span>SERVICES</span>
+            <div className="group">
+              <div className="flex items-center gap-3 text-white font-semibold text-lg mb-4 group-hover:text-purple-200 transition-colors duration-300">
+                <div className="p-2 rounded-xl bg-gradient-to-r from-purple-600 to-purple-500 shadow-lg">
+                  <Briefcase className="h-5 w-5 text-white" />
+                </div>
+                <span className="tracking-wide">SERVICES</span>
               </div>
-              <div className="ml-8 space-y-2">
-                <Link to="/services/ai-voice-agents" className="flex items-center gap-3 w-full p-3 rounded-lg bg-purple-700/30 text-white hover:bg-purple-600/50 transition-all duration-200">
-                  <Sparkles className="h-5 w-5 text-purple-300" />
-                  <span>AI Voice Agents</span>
+              <div className="ml-2 space-y-2">
+                <Link 
+                  to="/services/ai-voice-agents" 
+                  className="flex items-center gap-3 w-full p-3 rounded-xl bg-purple-700/40 border border-purple-500/30 text-white hover:bg-purple-600/60 hover:border-purple-400/50 hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
+                  onClick={() => setIsNavOpen(false)}
+                >
+                  <div className="p-2 rounded-lg bg-purple-500/40">
+                    <Sparkles className="h-4 w-4 text-purple-200" />
+                  </div>
+                  <div>
+                    <span className="font-medium">AI Voice Agents</span>
+                    <p className="text-xs text-purple-200/80 mt-0.5">24/7 intelligent phone automation</p>
+                  </div>
                 </Link>
-                <Link to="/content-house" className="flex items-center gap-3 w-full p-3 rounded-lg bg-purple-700/30 text-white hover:bg-purple-600/50 transition-all duration-200">
-                  <Building2 className="h-5 w-5 text-purple-300" />
-                  <span>Content House</span>
+                <Link 
+                  to="/content-house" 
+                  className="flex items-center gap-3 w-full p-3 rounded-xl bg-purple-700/40 border border-purple-500/30 text-white hover:bg-purple-600/60 hover:border-purple-400/50 hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
+                  onClick={() => setIsNavOpen(false)}
+                >
+                  <div className="p-2 rounded-lg bg-purple-500/40">
+                    <Building2 className="h-4 w-4 text-purple-200" />
+                  </div>
+                  <div>
+                    <span className="font-medium">Content House</span>
+                    <p className="text-xs text-purple-200/80 mt-0.5">Premium content creation</p>
+                  </div>
                 </Link>
-                <a href="https://build.pentridgemedia.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 w-full p-3 rounded-lg bg-purple-700/30 text-white hover:bg-purple-600/50 transition-all duration-200">
-                  <Zap className="h-5 w-5 text-purple-300" />
-                  <span>Custom Apps + Automations</span>
+                <a 
+                  href="https://build.pentridgemedia.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="flex items-center gap-3 w-full p-3 rounded-xl bg-purple-700/40 border border-purple-500/30 text-white hover:bg-purple-600/60 hover:border-purple-400/50 hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
+                >
+                  <div className="p-2 rounded-lg bg-purple-500/40">
+                    <Zap className="h-4 w-4 text-purple-200" />
+                  </div>
+                  <div>
+                    <span className="font-medium">Custom Apps + Automations</span>
+                    <p className="text-xs text-purple-200/80 mt-0.5">Bespoke solutions & workflows</p>
+                  </div>
                 </a>
               </div>
             </div>
 
-            {/* PRODUCTS SECTION */}
-            <div>
-              <div className="flex items-center gap-3 text-white font-bold text-lg mb-3">
-                <Package className="h-6 w-6 text-purple-300" />
-                <span>PRODUCTS</span>
+                                    {/* PRODUCTS SECTION */}
+            <div className="group">
+              <div className="flex items-center gap-3 text-white font-semibold text-lg mb-4 group-hover:text-purple-200 transition-colors duration-300">
+                <div className="p-2 rounded-xl bg-gradient-to-r from-purple-600 to-purple-500 shadow-lg">
+                  <Package className="h-5 w-5 text-white" />
+                </div>
+                <span className="tracking-wide">PRODUCTS</span>
               </div>
-              <div className="ml-8 space-y-2">
-                <a href="https://www.dropcard.app/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 w-full p-3 rounded-lg bg-purple-700/30 text-white hover:bg-purple-600/50 transition-all duration-200">
-                  <Palette className="h-5 w-5 text-purple-300" />
-                  <span>DropCard</span>
+              <div className="ml-2 space-y-2">
+                <a 
+                  href="https://www.dropcard.app/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="flex items-center gap-3 w-full p-3 rounded-xl bg-purple-700/40 border border-purple-500/30 text-white hover:bg-purple-600/60 hover:border-purple-400/50 hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
+                >
+                  <div className="p-2 rounded-lg bg-purple-500/40">
+                    <Palette className="h-4 w-4 text-purple-200" />
+                  </div>
+                  <div>
+                    <span className="font-medium">DropCard</span>
+                    <p className="text-xs text-purple-200/80 mt-0.5">Digital business cards reimagined</p>
+                  </div>
                 </a>
               </div>
             </div>
 
             {/* COMMUNITY SECTION */}
-            <div>
-              <div className="flex items-center gap-3 text-white font-bold text-lg mb-3">
-                <Globe className="h-6 w-6 text-purple-300" />
-                <span>COMMUNITY</span>
+            <div className="group">
+              <div className="flex items-center gap-3 text-white font-semibold text-lg mb-4 group-hover:text-purple-200 transition-colors duration-300">
+                <div className="p-2 rounded-xl bg-gradient-to-r from-purple-600 to-purple-500 shadow-lg">
+                  <Globe className="h-5 w-5 text-white" />
+                </div>
+                <span className="tracking-wide">COMMUNITY</span>
               </div>
-              <div className="ml-8 space-y-2">
-                <a href="https://discover.circle.so/product/pentridge-club-ai-automation-emerging-tech-community" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 w-full p-3 rounded-lg bg-purple-700/30 text-white hover:bg-purple-600/50 transition-all duration-200">
-                  <Users2 className="h-5 w-5 text-purple-300" />
-                  <span>Pentridge Club</span>
+              <div className="ml-2 space-y-2">
+                <a 
+                  href="https://discover.circle.so/product/pentridge-club-ai-automation-emerging-tech-community" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="flex items-center gap-3 w-full p-3 rounded-xl bg-purple-700/40 border border-purple-500/30 text-white hover:bg-purple-600/60 hover:border-purple-400/50 hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
+                >
+                  <div className="p-2 rounded-lg bg-purple-500/40">
+                    <Users2 className="h-4 w-4 text-purple-200" />
+                  </div>
+                  <div>
+                    <span className="font-medium">Pentridge Club</span>
+                    <p className="text-xs text-purple-200/80 mt-0.5">AI & automation community</p>
+                  </div>
                 </a>
               </div>
             </div>
 
             {/* CONTENT SECTION */}
-            <div>
-              <div className="flex items-center gap-3 text-white font-bold text-lg mb-3">
-                <FileText className="h-6 w-6 text-purple-300" />
-                <span>CONTENT</span>
+            <div className="group">
+              <div className="flex items-center gap-3 text-white font-semibold text-lg mb-4 group-hover:text-purple-200 transition-colors duration-300">
+                <div className="p-2 rounded-xl bg-gradient-to-r from-purple-600 to-purple-500 shadow-lg">
+                  <FileText className="h-5 w-5 text-white" />
+                </div>
+                <span className="tracking-wide">CONTENT</span>
               </div>
-              <div className="ml-8 space-y-2">
-                <Dialog>
-                  <DialogTrigger asChild>
-                    <button className="flex items-center gap-3 w-full p-3 rounded-lg bg-purple-700/30 text-white hover:bg-purple-600/50 transition-all duration-200">
-                      <BookOpen className="h-5 w-5 text-purple-300" />
-                      <span>Blog</span>
+              <div className="ml-2 space-y-2">
+            <Dialog>
+              <DialogTrigger asChild>
+                    <button className="flex items-center gap-3 w-full p-3 rounded-xl bg-purple-700/40 border border-purple-500/30 text-white hover:bg-purple-600/60 hover:border-purple-400/50 hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300">
+                      <div className="p-2 rounded-lg bg-purple-500/40">
+                        <BookOpen className="h-4 w-4 text-purple-200" />
+                      </div>
+                      <div className="text-left">
+                        <span className="font-medium">Blog</span>
+                        <p className="text-xs text-purple-200/80 mt-0.5">Insights & industry updates</p>
+                      </div>
                     </button>
-                  </DialogTrigger>
-                  <DialogContent className="bg-slate-900/95 border-slate-800 text-slate-100 backdrop-blur-xl">
-                    <DialogHeader>
-                      <DialogTitle>Coming soon</DialogTitle>
-                    </DialogHeader>
-                    <p className="text-sm opacity-80">Our blog launches shortly. Subscribe on the resources page to get notified.</p>
-                  </DialogContent>
-                </Dialog>
-                <Dialog>
-                  <DialogTrigger asChild>
-                    <button className="flex items-center gap-3 w-full p-3 rounded-lg bg-purple-700/30 text-white hover:bg-purple-600/50 transition-all duration-200">
-                      <BookOpen className="h-5 w-5 text-purple-300" />
-                      <span>Resources</span>
+              </DialogTrigger>
+                  <DialogContent className="bg-slate-900/95 border-slate-700 text-slate-100 backdrop-blur-xl">
+                <DialogHeader>
+                      <DialogTitle className="text-purple-300">Coming Soon</DialogTitle>
+                </DialogHeader>
+                    <p className="text-sm text-slate-300">Our blog launches shortly. Subscribe on the resources page to get notified.</p>
+              </DialogContent>
+            </Dialog>
+            <Dialog>
+              <DialogTrigger asChild>
+                    <button className="flex items-center gap-3 w-full p-3 rounded-xl bg-purple-700/40 border border-purple-500/30 text-white hover:bg-purple-600/60 hover:border-purple-400/50 hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300">
+                      <div className="p-2 rounded-lg bg-purple-500/40">
+                        <BookOpen className="h-4 w-4 text-purple-200" />
+                      </div>
+                      <div className="text-left">
+                        <span className="font-medium">Resources</span>
+                        <p className="text-xs text-purple-200/80 mt-0.5">Guides, tools & templates</p>
+                      </div>
                     </button>
-                  </DialogTrigger>
-                  <DialogContent className="bg-slate-900/95 border-slate-800 text-slate-100 backdrop-blur-xl">
-                    <DialogHeader>
-                      <DialogTitle>Coming soon</DialogTitle>
-                    </DialogHeader>
-                    <p className="text-sm opacity-80">We're polishing our resources hub. Check back soon.</p>
-                  </DialogContent>
-                </Dialog>
+              </DialogTrigger>
+                  <DialogContent className="bg-slate-900/95 border-slate-700 text-slate-100 backdrop-blur-xl">
+                <DialogHeader>
+                      <DialogTitle className="text-purple-300">Coming Soon</DialogTitle>
+                </DialogHeader>
+                    <p className="text-sm text-slate-300">We're polishing our resources hub. Check back soon.</p>
+              </DialogContent>
+            </Dialog>
               </div>
             </div>
 
             {/* COMPANY SECTION */}
-            <div>
-              <div className="flex items-center gap-3 text-white font-bold text-lg mb-3">
-                <Building2 className="h-6 w-6 text-purple-300" />
-                <span>COMPANY</span>
+            <div className="group">
+              <div className="flex items-center gap-3 text-white font-semibold text-lg mb-4 group-hover:text-purple-200 transition-colors duration-300">
+                <div className="p-2 rounded-xl bg-gradient-to-r from-purple-600 to-purple-500 shadow-lg">
+                  <Building2 className="h-5 w-5 text-white" />
+                </div>
+                <span className="tracking-wide">COMPANY</span>
               </div>
-              <div className="ml-8 space-y-2">
-                <Link to="/about" className="flex items-center gap-3 w-full p-3 rounded-lg bg-purple-700/30 text-white hover:bg-purple-600/50 transition-all duration-200">
-                  <User className="h-5 w-5 text-purple-300" />
-                  <span>About Us</span>
+              <div className="ml-2 space-y-2">
+                <Link 
+                  to="/about" 
+                  className="flex items-center gap-3 w-full p-3 rounded-xl bg-purple-700/40 border border-purple-500/30 text-white hover:bg-purple-600/60 hover:border-purple-400/50 hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
+                  onClick={() => setIsNavOpen(false)}
+                >
+                  <div className="p-2 rounded-lg bg-purple-500/40">
+                    <User className="h-4 w-4 text-purple-200" />
+                  </div>
+                  <div>
+                    <span className="font-medium">About Us</span>
+                    <p className="text-xs text-purple-200/80 mt-0.5">Our story & mission</p>
+                  </div>
                 </Link>
-                <Link to="/contact" className="flex items-center gap-3 w-full p-3 rounded-lg bg-purple-700/30 text-white hover:bg-purple-600/50 transition-all duration-200">
-                  <MessageCircle className="h-5 w-5 text-purple-300" />
-                  <span>Contact</span>
+                <Link 
+                  to="/contact" 
+                  className="flex items-center gap-3 w-full p-3 rounded-xl bg-purple-700/40 border border-purple-500/30 text-white hover:bg-purple-600/60 hover:border-purple-400/50 hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
+                  onClick={() => setIsNavOpen(false)}
+                >
+                  <div className="p-2 rounded-lg bg-purple-500/40">
+                    <MessageCircle className="h-4 w-4 text-purple-200" />
+                  </div>
+                  <div>
+                    <span className="font-medium">Contact</span>
+                    <p className="text-xs text-purple-200/80 mt-0.5">Get in touch with us</p>
+                  </div>
                 </Link>
               </div>
             </div>
 
-            {/* CTA BUTTON */}
-            <div className="pt-4">
-              <Button 
-                variant="outline"
-                className="w-full bg-gradient-to-r from-purple-600 to-blue-600 border-purple-400 text-white hover:from-purple-700 hover:to-blue-700 transition-all duration-300"
-                onClick={() => window.open('https://tally.so/r/3NBGBl', '_blank')}
+                                    {/* PURPLE CTA BUTTON */}
+            <div className="pt-4 border-t border-purple-500/20">
+            <Button 
+              variant="outline"
+                className="w-full h-12 bg-gradient-to-r from-purple-600 to-purple-500 border border-purple-400/50 text-white font-medium text-base hover:from-purple-500 hover:to-purple-400 hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
+                onClick={() => {
+                  window.open('https://tally.so/r/3NBGBl', '_blank');
+                  setIsNavOpen(false);
+                }}
               >
-                <Calendar className="h-4 w-4 mr-2" />
-                Book Discovery Call
-              </Button>
+                <Calendar className="h-5 w-5 mr-2" />
+                <span>Book Discovery Call</span>
+            </Button>
             </div>
           </div>
         </div>

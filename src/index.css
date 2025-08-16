@@ -148,25 +148,7 @@
   background-color: rgba(168, 85, 247, 0.5) !important;
 }
 
-/* NUCLEAR OPTION: Force ALL buttons to be purple on mobile */
-@media (max-width: 768px) {
-  button, a[href], .dropdown-container button, .dropdown-container a {
-    background-color: rgba(168, 85, 247, 0.4) !important;
-    border-color: rgba(196, 181, 253, 0.6) !important;
-    color: white !important;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
-  }
-  
-  button:hover, a[href]:hover, .dropdown-container button:hover, .dropdown-container a:hover {
-    background-color: rgba(168, 85, 247, 0.5) !important;
-  }
-  
-  /* Force all backdrop-blur elements to be purple */
-  [class*="backdrop-blur"] {
-    background-color: rgba(168, 85, 247, 0.4) !important;
-    border-color: rgba(196, 181, 253, 0.6) !important;
-  }
-}
+/* Removed nuclear option CSS that was affecting footer links */
   }
 
   .text-responsive {

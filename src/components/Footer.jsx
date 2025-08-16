@@ -34,15 +34,17 @@ const Footer = () => {
             <div>
               <Link 
                 to="/terms" 
-                className="block hover:text-gold transition-colors mb-2"
+                className="block hover:text-gold transition-colors mb-2 bg-transparent"
                 onClick={scrollToTop}
+                style={{ backgroundColor: 'transparent !important' }}
               >
                 Terms & Conditions
               </Link>
               <Link 
                 to="/privacy" 
-                className="block hover:text-gold transition-colors"
+                className="block hover:text-gold transition-colors bg-transparent"
                 onClick={scrollToTop}
+                style={{ backgroundColor: 'transparent !important' }}
               >
                 Privacy Policy
               </Link>

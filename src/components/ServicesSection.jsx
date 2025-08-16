@@ -31,6 +31,7 @@ const ServicesSection = () => {
             <div className="relative dropdown-container">
               <button 
                 className="w-full text-center backdrop-blur-xl purple-frosted-glass rounded-2xl shadow-2xl p-6 md:p-8 transition-all duration-300 group"
+                style={{backgroundColor: 'rgba(168, 85, 247, 0.4)', borderColor: 'rgba(196, 181, 253, 0.6)'}}
                 onClick={toggleServices}
               >
                 <h3 className="text-xl md:text-2xl font-bold text-white">Services</h3>
@@ -94,6 +95,7 @@ const ServicesSection = () => {
             <div className="relative dropdown-container">
               <button 
                 className="w-full text-center backdrop-blur-xl purple-frosted-glass rounded-2xl shadow-2xl p-6 md:p-8 transition-all duration-300 group"
+                style={{backgroundColor: 'rgba(168, 85, 247, 0.4)', borderColor: 'rgba(196, 181, 253, 0.6)'}}
                 onClick={toggleProducts}
               >
                 <h3 className="text-xl md:text-2xl font-bold text-white">Products</h3>
@@ -129,6 +131,7 @@ const ServicesSection = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="block w-full text-center backdrop-blur-xl purple-frosted-glass rounded-2xl shadow-2xl p-6 md:p-8 transition-all duration-300 group"
+              style={{backgroundColor: 'rgba(168, 85, 247, 0.4)', borderColor: 'rgba(196, 181, 253, 0.6)'}}
             >
               <h3 className="text-xl md:text-2xl font-bold text-white">Community</h3>
             </a>

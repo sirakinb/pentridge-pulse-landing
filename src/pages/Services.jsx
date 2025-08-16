@@ -134,8 +134,10 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Interactive Services Section */}
-      <ServicesSection />
+      {/* Interactive Services Section - Hidden on mobile, visible on desktop */}
+      <div className="hidden md:block">
+        <ServicesSection />
+      </div>
 
       {/* CTA Section */}
       <section className="py-16 md:py-20">

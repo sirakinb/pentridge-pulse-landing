@@ -115,109 +115,91 @@ const Navbar = ({ variant = "light" }) => {
         </div>
       </div>
       
-      {/* Enhanced Mobile Menu Dropdown */}
-      <div className={`md:hidden transition-all duration-500 ease-in-out ${
-        isNavOpen 
-          ? 'max-h-screen opacity-100 translate-y-0' 
-          : 'max-h-0 opacity-0 -translate-y-4 pointer-events-none'
-      }`}>
-        <div 
-          className="relative overflow-hidden"
-          style={{
-            background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, rgba(196, 181, 253, 0.25) 100%)',
-            backdropFilter: 'blur(20px)',
-            borderTop: '1px solid rgba(196, 181, 253, 0.3)',
-            borderBottom: '1px solid rgba(196, 181, 253, 0.2)'
-          }}
-        >
-          {/* Animated background elements */}
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute -top-10 -left-10 w-20 h-20 bg-purple-400/20 rounded-full blur-xl animate-pulse"></div>
-            <div className="absolute -bottom-10 -right-10 w-16 h-16 bg-blue-400/20 rounded-full blur-xl animate-pulse delay-1000"></div>
-            <div className="absolute top-1/2 left-1/4 w-12 h-12 bg-pink-400/20 rounded-full blur-lg animate-pulse delay-500"></div>
-          </div>
-          
-          <div className="relative px-6 py-6 space-y-4">
-            {/* Account Section */}
-            <div className="space-y-3">
-              <div className="flex items-center gap-3 text-white/90 font-semibold text-lg">
-                <Users className="h-5 w-5 text-purple-300" />
-                <span>Account</span>
+      {/* NEW SEXY MOBILE MENU - SIMPLIFIED VERSION */}
+      {isNavOpen && (
+        <div className="md:hidden bg-gradient-to-b from-purple-900/90 to-purple-800/90 backdrop-blur-xl border-t border-purple-400/30">
+          <div className="px-6 py-6 space-y-6">
+            
+            {/* ACCOUNT SECTION */}
+            <div>
+              <div className="flex items-center gap-3 text-white font-bold text-lg mb-3">
+                <Users className="h-6 w-6 text-purple-300" />
+                <span>ACCOUNT</span>
               </div>
               <div className="ml-8 space-y-2">
-                <button className="flex items-center gap-3 w-full p-3 rounded-xl text-white/80 hover:text-white hover:bg-white/10 transition-all duration-200 group">
-                  <Calendar className="h-4 w-4 text-purple-300 group-hover:text-purple-200 transition-colors" />
-                  <span className="text-sm">Newsletter</span>
+                <button className="flex items-center gap-3 w-full p-3 rounded-lg bg-purple-700/30 text-white hover:bg-purple-600/50 transition-all duration-200">
+                  <Calendar className="h-5 w-5 text-purple-300" />
+                  <span>Newsletter</span>
                 </button>
-                <button className="flex items-center gap-3 w-full p-3 rounded-xl text-white/80 hover:text-white hover:bg-white/10 transition-all duration-200 group">
-                  <Users2 className="h-4 w-4 text-purple-300 group-hover:text-purple-200 transition-colors" />
-                  <span className="text-sm">Community Access</span>
+                <button className="flex items-center gap-3 w-full p-3 rounded-lg bg-purple-700/30 text-white hover:bg-purple-600/50 transition-all duration-200">
+                  <Users2 className="h-5 w-5 text-purple-300" />
+                  <span>Community Access</span>
                 </button>
               </div>
             </div>
 
-            {/* Services Section */}
-            <div className="space-y-3">
-              <div className="flex items-center gap-3 text-white/90 font-semibold text-lg">
-                <Briefcase className="h-5 w-5 text-purple-300" />
-                <span>Services</span>
+            {/* SERVICES SECTION */}
+            <div>
+              <div className="flex items-center gap-3 text-white font-bold text-lg mb-3">
+                <Briefcase className="h-6 w-6 text-purple-300" />
+                <span>SERVICES</span>
               </div>
               <div className="ml-8 space-y-2">
-                <Link to="/services/ai-voice-agents" className="flex items-center gap-3 w-full p-3 rounded-xl text-white/80 hover:text-white hover:bg-white/10 transition-all duration-200 group">
-                  <Sparkles className="h-4 w-4 text-purple-300 group-hover:text-purple-200 transition-colors" />
-                  <span className="text-sm">AI Voice Agents</span>
+                <Link to="/services/ai-voice-agents" className="flex items-center gap-3 w-full p-3 rounded-lg bg-purple-700/30 text-white hover:bg-purple-600/50 transition-all duration-200">
+                  <Sparkles className="h-5 w-5 text-purple-300" />
+                  <span>AI Voice Agents</span>
                 </Link>
-                <Link to="/content-house" className="flex items-center gap-3 w-full p-3 rounded-xl text-white/80 hover:text-white hover:bg-white/10 transition-all duration-200 group">
-                  <Building2 className="h-4 w-4 text-purple-300 group-hover:text-purple-200 transition-colors" />
-                  <span className="text-sm">Content House</span>
+                <Link to="/content-house" className="flex items-center gap-3 w-full p-3 rounded-lg bg-purple-700/30 text-white hover:bg-purple-600/50 transition-all duration-200">
+                  <Building2 className="h-5 w-5 text-purple-300" />
+                  <span>Content House</span>
                 </Link>
-                <a href="https://build.pentridgemedia.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 w-full p-3 rounded-xl text-white/80 hover:text-white hover:bg-white/10 transition-all duration-200 group">
-                  <Zap className="h-4 w-4 text-purple-300 group-hover:text-purple-200 transition-colors" />
-                  <span className="text-sm">Custom Apps + Automations</span>
+                <a href="https://build.pentridgemedia.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 w-full p-3 rounded-lg bg-purple-700/30 text-white hover:bg-purple-600/50 transition-all duration-200">
+                  <Zap className="h-5 w-5 text-purple-300" />
+                  <span>Custom Apps + Automations</span>
                 </a>
               </div>
             </div>
 
-            {/* Products Section */}
-            <div className="space-y-3">
-              <div className="flex items-center gap-3 text-white/90 font-semibold text-lg">
-                <Package className="h-5 w-5 text-purple-300" />
-                <span>Products</span>
+            {/* PRODUCTS SECTION */}
+            <div>
+              <div className="flex items-center gap-3 text-white font-bold text-lg mb-3">
+                <Package className="h-6 w-6 text-purple-300" />
+                <span>PRODUCTS</span>
               </div>
               <div className="ml-8 space-y-2">
-                <a href="https://www.dropcard.app/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 w-full p-3 rounded-xl text-white/80 hover:text-white hover:bg-white/10 transition-all duration-200 group">
-                  <Palette className="h-4 w-4 text-purple-300 group-hover:text-purple-200 transition-colors" />
-                  <span className="text-sm">DropCard</span>
+                <a href="https://www.dropcard.app/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 w-full p-3 rounded-lg bg-purple-700/30 text-white hover:bg-purple-600/50 transition-all duration-200">
+                  <Palette className="h-5 w-5 text-purple-300" />
+                  <span>DropCard</span>
                 </a>
               </div>
             </div>
 
-            {/* Community Section */}
-            <div className="space-y-3">
-              <div className="flex items-center gap-3 text-white/90 font-semibold text-lg">
-                <Globe className="h-5 w-5 text-purple-300" />
-                <span>Community</span>
+            {/* COMMUNITY SECTION */}
+            <div>
+              <div className="flex items-center gap-3 text-white font-bold text-lg mb-3">
+                <Globe className="h-6 w-6 text-purple-300" />
+                <span>COMMUNITY</span>
               </div>
               <div className="ml-8 space-y-2">
-                <a href="https://discover.circle.so/product/pentridge-club-ai-automation-emerging-tech-community" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 w-full p-3 rounded-xl text-white/80 hover:text-white hover:bg-white/10 transition-all duration-200 group">
-                  <Users2 className="h-4 w-4 text-purple-300 group-hover:text-purple-200 transition-colors" />
-                  <span className="text-sm">Pentridge Club</span>
+                <a href="https://discover.circle.so/product/pentridge-club-ai-automation-emerging-tech-community" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 w-full p-3 rounded-lg bg-purple-700/30 text-white hover:bg-purple-600/50 transition-all duration-200">
+                  <Users2 className="h-5 w-5 text-purple-300" />
+                  <span>Pentridge Club</span>
                 </a>
               </div>
             </div>
 
-            {/* Content Section */}
-            <div className="space-y-3">
-              <div className="flex items-center gap-3 text-white/90 font-semibold text-lg">
-                <FileText className="h-5 w-5 text-purple-300" />
-                <span>Content</span>
+            {/* CONTENT SECTION */}
+            <div>
+              <div className="flex items-center gap-3 text-white font-bold text-lg mb-3">
+                <FileText className="h-6 w-6 text-purple-300" />
+                <span>CONTENT</span>
               </div>
               <div className="ml-8 space-y-2">
                 <Dialog>
                   <DialogTrigger asChild>
-                    <button className="flex items-center gap-3 w-full p-3 rounded-xl text-white/80 hover:text-white hover:bg-white/10 transition-all duration-200 group">
-                      <BookOpen className="h-4 w-4 text-purple-300 group-hover:text-purple-200 transition-colors" />
-                      <span className="text-sm">Blog</span>
+                    <button className="flex items-center gap-3 w-full p-3 rounded-lg bg-purple-700/30 text-white hover:bg-purple-600/50 transition-all duration-200">
+                      <BookOpen className="h-5 w-5 text-purple-300" />
+                      <span>Blog</span>
                     </button>
                   </DialogTrigger>
                   <DialogContent className="bg-slate-900/95 border-slate-800 text-slate-100 backdrop-blur-xl">
@@ -229,9 +211,9 @@ const Navbar = ({ variant = "light" }) => {
                 </Dialog>
                 <Dialog>
                   <DialogTrigger asChild>
-                    <button className="flex items-center gap-3 w-full p-3 rounded-xl text-white/80 hover:text-white hover:bg-white/10 transition-all duration-200 group">
-                      <BookOpen className="h-4 w-4 text-purple-300 group-hover:text-purple-200 transition-colors" />
-                      <span className="text-sm">Resources</span>
+                    <button className="flex items-center gap-3 w-full p-3 rounded-lg bg-purple-700/30 text-white hover:bg-purple-600/50 transition-all duration-200">
+                      <BookOpen className="h-5 w-5 text-purple-300" />
+                      <span>Resources</span>
                     </button>
                   </DialogTrigger>
                   <DialogContent className="bg-slate-900/95 border-slate-800 text-slate-100 backdrop-blur-xl">
@@ -244,29 +226,29 @@ const Navbar = ({ variant = "light" }) => {
               </div>
             </div>
 
-            {/* Company Section */}
-            <div className="space-y-3">
-              <div className="flex items-center gap-3 text-white/90 font-semibold text-lg">
-                <Building2 className="h-5 w-5 text-purple-300" />
-                <span>Company</span>
+            {/* COMPANY SECTION */}
+            <div>
+              <div className="flex items-center gap-3 text-white font-bold text-lg mb-3">
+                <Building2 className="h-6 w-6 text-purple-300" />
+                <span>COMPANY</span>
               </div>
               <div className="ml-8 space-y-2">
-                <Link to="/about" className="flex items-center gap-3 w-full p-3 rounded-xl text-white/80 hover:text-white hover:bg-white/10 transition-all duration-200 group">
-                  <User className="h-4 w-4 text-purple-300 group-hover:text-purple-200 transition-colors" />
-                  <span className="text-sm">About Us</span>
+                <Link to="/about" className="flex items-center gap-3 w-full p-3 rounded-lg bg-purple-700/30 text-white hover:bg-purple-600/50 transition-all duration-200">
+                  <User className="h-5 w-5 text-purple-300" />
+                  <span>About Us</span>
                 </Link>
-                <Link to="/contact" className="flex items-center gap-3 w-full p-3 rounded-xl text-white/80 hover:text-white hover:bg-white/10 transition-all duration-200 group">
-                  <MessageCircle className="h-4 w-4 text-purple-300 group-hover:text-purple-200 transition-colors" />
-                  <span className="text-sm">Contact</span>
+                <Link to="/contact" className="flex items-center gap-3 w-full p-3 rounded-lg bg-purple-700/30 text-white hover:bg-purple-600/50 transition-all duration-200">
+                  <MessageCircle className="h-5 w-5 text-purple-300" />
+                  <span>Contact</span>
                 </Link>
               </div>
             </div>
 
-            {/* CTA Button */}
+            {/* CTA BUTTON */}
             <div className="pt-4">
               <Button 
                 variant="outline"
-                className="w-full bg-gradient-to-r from-purple-600/20 to-blue-600/20 border-purple-400/50 text-white hover:from-purple-600/30 hover:to-blue-600/30 hover:border-purple-300/70 transition-all duration-300 backdrop-blur-sm"
+                className="w-full bg-gradient-to-r from-purple-600 to-blue-600 border-purple-400 text-white hover:from-purple-700 hover:to-blue-700 transition-all duration-300"
                 onClick={() => window.open('https://tally.so/r/3NBGBl', '_blank')}
               >
                 <Calendar className="h-4 w-4 mr-2" />
@@ -275,7 +257,7 @@ const Navbar = ({ variant = "light" }) => {
             </div>
           </div>
         </div>
-      </div>
+      )}
     </nav>
   );
 };

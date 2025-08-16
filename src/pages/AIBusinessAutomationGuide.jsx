@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import MetaTags from '../components/MetaTags';
 import { Phone, Target, PenTool, Zap, Briefcase, CheckCircle, Rocket } from 'lucide-react';
 
@@ -96,6 +97,18 @@ const AIBusinessAutomationGuide = () => {
             <p className="text-gray-700 mb-6 leading-relaxed">
               Beyond cost savings, voice agents can boost revenue and customer experience. Because they offer unlimited call concurrency, a single AI agent can make or answer thousands of calls simultaneously – meaning no missed opportunities during peak times. Operating 24/7, they capture leads or sales that would otherwise come in after hours.
             </p>
+
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-6">
+              <p className="text-gray-800 mb-3">
+                <strong>Ready to implement AI voice agents in your business?</strong> Our team specializes in deploying custom AI voice solutions that integrate seamlessly with your existing systems and deliver measurable ROI from day one.
+              </p>
+              <Link 
+                to="/services/ai-voice-agents" 
+                className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200"
+              >
+                Learn more about our AI Voice Agent services →
+              </Link>
+            </div>
 
             <div className="grid md:grid-cols-2 gap-6 mb-6">
               <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
@@ -350,15 +363,19 @@ const AIBusinessAutomationGuide = () => {
             
             <div className="bg-gradient-to-r from-purple-50 to-blue-50 p-8 rounded-lg border border-purple-200">
               <p className="text-gray-800 mb-4 leading-relaxed">
-                AI-powered business automation is moving from experimental to essential. Across voice interactions, lead generation, content marketing, and internal workflows, the pattern is clear: automate the repetitive and tedious, so humans can focus on creative, strategic, and high-value work.
+                AI-powered business automation is moving from experimental to essential. Across <Link to="/services/ai-voice-agents" className="text-purple-600 hover:text-purple-800 font-medium underline">voice interactions</Link>, lead generation, content marketing, and internal workflows, the pattern is clear: automate the repetitive and tedious, so humans can focus on creative, strategic, and high-value work.
               </p>
               
               <p className="text-gray-800 mb-4 leading-relaxed">
                 We also saw that metrics back up the hype. Whether it's 331% ROI in contact centers, 50% more leads, 75% higher conversions, or 80% faster proposal turnarounds, automation driven by AI is delivering real, quantifiable improvements. Adoption is accelerating, and those who embrace it early can gain a competitive edge in efficiency and responsiveness.
               </p>
               
-              <p className="text-gray-800 leading-relaxed">
+              <p className="text-gray-800 mb-4 leading-relaxed">
                 In conclusion, AI business automation represents a strategic opportunity: it's about working smarter, not harder. Businesses that successfully offload their busywork to AI and connect their processes into unified, intelligent workflows will find themselves saving countless hours, engaging more prospects, and making data-driven decisions that propel growth.
+              </p>
+
+              <p className="text-gray-800 mt-6 pt-4 border-t border-purple-200">
+                <strong>Ready to get started?</strong> Contact our team to discuss how AI automation can transform your business operations and drive measurable results.
               </p>
             </div>
           </section>

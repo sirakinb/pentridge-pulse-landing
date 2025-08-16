@@ -41,24 +41,23 @@ const Services = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <Card className="h-full mobile-card backdrop-blur-xl text-white transition-all duration-300 shadow-2xl">
-                <CardHeader className="text-center p-6 md:p-8">
-                  <div className="w-12 h-12 md:w-16 md:h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <MessageSquare className="w-6 h-6 md:w-8 md:h-8 text-white" />
+              <Card className="h-full bg-white/10 backdrop-blur-xl border border-white/20 text-white hover:bg-white/15 transition-all duration-300">
+                <CardHeader className="text-center">
+                  <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <MessageSquare className="w-8 h-8 text-white" />
                   </div>
-                  <CardTitle className="text-xl md:text-2xl text-white font-bold">AI Voice Agents</CardTitle>
-                  <CardDescription className="text-purple-200 font-medium">
+                  <CardTitle className="text-2xl text-white">AI Voice Agents</CardTitle>
+                  <CardDescription className="text-purple-200">
                     24/7 AI phone answering service
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="text-center p-6 md:p-8 pt-0">
-                  <p className="text-white font-medium mb-6 text-sm md:text-base">
+                <CardContent className="text-center">
+                  <p className="text-purple-100 mb-6">
                     Never miss a call again with our intelligent AI voice agents that can handle 
                     customer inquiries, schedule appointments, and provide support around the clock.
                   </p>
                   <Button 
                     variant="outline" 
-                    size="sm"
                     className="border-white text-white hover:bg-white hover:text-purple-600"
                     onClick={() => window.location.href = '/services/ai-voice-agents'}
                   >
@@ -74,24 +73,23 @@ const Services = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <Card className="h-full mobile-card backdrop-blur-xl text-white transition-all duration-300 shadow-2xl">
-                <CardHeader className="text-center p-6 md:p-8">
-                  <div className="w-12 h-12 md:w-16 md:h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <FileText className="w-6 h-6 md:w-8 md:h-8 text-white" />
+              <Card className="h-full bg-white/10 backdrop-blur-xl border border-white/20 text-white hover:bg-white/15 transition-all duration-300">
+                <CardHeader className="text-center">
+                  <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <FileText className="w-8 h-8 text-white" />
                   </div>
-                  <CardTitle className="text-xl md:text-2xl text-white font-bold">Content House</CardTitle>
-                  <CardDescription className="text-blue-200 font-medium">
+                  <CardTitle className="text-2xl text-white">Content House</CardTitle>
+                  <CardDescription className="text-blue-200">
                     AI-powered content creation
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="text-center p-6 md:p-8 pt-0">
-                  <p className="text-white font-medium mb-6 text-sm md:text-base">
+                <CardContent className="text-center">
+                  <p className="text-blue-100 mb-6">
                     Scale your content production with AI-driven tools that create engaging, 
                     SEO-optimized content for blogs, social media, and marketing campaigns.
                   </p>
                   <Button 
                     variant="outline" 
-                    size="sm"
                     className="border-white text-white hover:bg-white hover:text-blue-600"
                     onClick={() => window.location.href = '/content-house'}
                   >
@@ -107,24 +105,23 @@ const Services = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
-              <Card className="h-full mobile-card backdrop-blur-xl text-white transition-all duration-300 shadow-2xl">
-                <CardHeader className="text-center p-6 md:p-8">
-                  <div className="w-12 h-12 md:w-16 md:h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Zap className="w-6 h-6 md:w-8 md:h-8 text-white" />
+              <Card className="h-full bg-white/10 backdrop-blur-xl border border-white/20 text-white hover:bg-white/15 transition-all duration-300">
+                <CardHeader className="text-center">
+                  <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Zap className="w-8 h-8 text-white" />
                   </div>
-                  <CardTitle className="text-xl md:text-2xl text-white font-bold">AI Business Automation</CardTitle>
-                  <CardDescription className="text-green-200 font-medium">
+                  <CardTitle className="text-2xl text-white">AI Business Automation</CardTitle>
+                  <CardDescription className="text-green-200">
                     Transform operations with intelligent automation
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="text-center p-6 md:p-8 pt-0">
-                  <p className="text-white font-medium mb-6 text-sm md:text-base">
+                <CardContent className="text-center">
+                  <p className="text-green-100 mb-6">
                     Streamline your business processes with AI automation solutions that reduce costs, 
                     improve efficiency, and free up your team for high-value tasks.
                   </p>
                   <Button 
                     variant="outline" 
-                    size="sm"
                     className="border-white text-white hover:bg-white hover:text-green-600"
                     onClick={() => window.location.href = '/ai-business-automation-guide'}
                   >

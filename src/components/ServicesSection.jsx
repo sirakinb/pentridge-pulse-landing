@@ -30,13 +30,13 @@ const ServicesSection = () => {
           >
             <div className="relative dropdown-container">
               <button 
-                className="w-full text-center backdrop-blur-xl bg-white/10 rounded-2xl border border-white/20 shadow-2xl p-6 md:p-8 hover:bg-white/15 transition-all duration-300 group"
+                className="w-full text-center backdrop-blur-xl bg-white/20 rounded-2xl border border-white/30 shadow-2xl p-6 md:p-8 hover:bg-white/25 transition-all duration-300 group"
                 onClick={toggleServices}
               >
                 <h3 className="text-xl md:text-2xl font-bold text-white">Services</h3>
               </button>
               {isServicesOpen && (
-                <div className="absolute bottom-full left-0 mb-4 w-full backdrop-blur-xl bg-white/10 rounded-2xl shadow-2xl border border-white/20 z-50">
+                <div className="absolute bottom-full left-0 mb-4 w-full backdrop-blur-xl bg-white/20 rounded-2xl shadow-2xl border border-white/30 z-50">
                   <div className="py-4">
                     <button 
                       className="w-full text-left px-6 py-4 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 border-b border-white/10 last:border-b-0 cursor-pointer rounded-lg"
@@ -93,13 +93,13 @@ const ServicesSection = () => {
           >
             <div className="relative dropdown-container">
               <button 
-                className="w-full text-center backdrop-blur-xl bg-white/10 rounded-2xl border border-white/20 shadow-2xl p-6 md:p-8 hover:bg-white/15 transition-all duration-300 group"
+                className="w-full text-center backdrop-blur-xl bg-white/20 rounded-2xl border border-white/30 shadow-2xl p-6 md:p-8 hover:bg-white/25 transition-all duration-300 group"
                 onClick={toggleProducts}
               >
                 <h3 className="text-xl md:text-2xl font-bold text-white">Products</h3>
               </button>
               {isProductsOpen && (
-                <div className="absolute bottom-full left-0 mb-4 w-full backdrop-blur-xl bg-white/10 rounded-2xl shadow-2xl border border-white/20 z-50">
+                <div className="absolute bottom-full left-0 mb-4 w-full backdrop-blur-xl bg-white/20 rounded-2xl shadow-2xl border border-white/30 z-50">
                   <div className="py-4">
                     <button 
                       className="w-full text-left px-6 py-4 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 cursor-pointer rounded-lg"
@@ -128,7 +128,7 @@ const ServicesSection = () => {
               href="https://discover.circle.so/product/pentridge-club-ai-automation-emerging-tech-community"
               target="_blank"
               rel="noopener noreferrer"
-              className="block w-full text-center backdrop-blur-xl bg-white/10 rounded-2xl border border-white/20 shadow-2xl p-6 md:p-8 hover:bg-white/15 transition-all duration-300 group"
+              className="block w-full text-center backdrop-blur-xl bg-white/20 rounded-2xl border border-white/30 shadow-2xl p-6 md:p-8 hover:bg-white/25 transition-all duration-300 group"
             >
               <h3 className="text-xl md:text-2xl font-bold text-white">Community</h3>
             </a>

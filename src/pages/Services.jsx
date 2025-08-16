@@ -41,7 +41,7 @@ const Services = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <Card className="h-full bg-white/10 backdrop-blur-xl border border-white/20 text-white hover:bg-white/15 transition-all duration-300">
+              <Card className="h-full bg-white/20 backdrop-blur-xl border border-white/30 text-white hover:bg-white/25 transition-all duration-300">
                 <CardHeader className="text-center">
                   <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
                     <MessageSquare className="w-8 h-8 text-white" />
@@ -73,7 +73,7 @@ const Services = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <Card className="h-full bg-white/10 backdrop-blur-xl border border-white/20 text-white hover:bg-white/15 transition-all duration-300">
+              <Card className="h-full bg-white/20 backdrop-blur-xl border border-white/30 text-white hover:bg-white/25 transition-all duration-300">
                 <CardHeader className="text-center">
                   <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
                     <FileText className="w-8 h-8 text-white" />
@@ -105,7 +105,7 @@ const Services = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
-              <Card className="h-full bg-white/10 backdrop-blur-xl border border-white/20 text-white hover:bg-white/15 transition-all duration-300">
+              <Card className="h-full bg-white/20 backdrop-blur-xl border border-white/30 text-white hover:bg-white/25 transition-all duration-300">
                 <CardHeader className="text-center">
                   <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Zap className="w-8 h-8 text-white" />

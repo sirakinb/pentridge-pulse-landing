@@ -115,7 +115,7 @@ const Navbar = ({ variant = "light" }) => {
         </div>
       </div>
       {isNavOpen && (
-        <div className={`md:hidden border-t ${isDark ? 'border-slate-800 bg-slate-900' : 'border-gray-100 bg-white'}`}>
+        <div className={`md:hidden border-t backdrop-blur-xl ${isDark ? 'border-purple-400/60 bg-purple-500/40' : 'border-purple-400/60 bg-purple-500/40'}`} style={{backgroundColor: 'rgba(168, 85, 247, 0.4)', borderColor: 'rgba(196, 181, 253, 0.6)'}}>
           <div className="px-4 py-3 space-y-2">
             <div className={`${isDark ? 'text-slate-100' : 'text-gray-800'} font-medium py-2`}>Create Account</div>
             <button className={`block pl-2 py-1 text-sm ${isDark ? 'text-slate-300' : 'text-gray-700'}`} onClick={() => alert('Coming soon')}>Newsletter</button>
@@ -126,7 +126,8 @@ const Navbar = ({ variant = "light" }) => {
             <a href="https://build.pentridgemedia.com" target="_blank" rel="noopener noreferrer" className={`block pl-2 py-1 text-sm ${isDark ? 'text-slate-300' : 'text-gray-700'}`}>Custom Apps + Automations</a>
             <div className={`${isDark ? 'text-slate-100' : 'text-gray-800'} font-medium py-2`}>Products</div>
             <a href="https://www.dropcard.app/" target="_blank" rel="noopener noreferrer" className={`block pl-2 py-1 text-sm ${isDark ? 'text-slate-300' : 'text-gray-700'}`}>DropCard</a>
-            <a href="https://discover.circle.so/product/pentridge-club-ai-automation-emerging-tech-community" target="_blank" rel="noopener noreferrer" className={`block py-1 ${isDark ? 'text-slate-100' : 'text-gray-800'}`}>Community</a>
+            <div className={`${isDark ? 'text-slate-100' : 'text-gray-800'} font-medium py-2`}>Community</div>
+            <a href="https://discover.circle.so/product/pentridge-club-ai-automation-emerging-tech-community" target="_blank" rel="noopener noreferrer" className={`block pl-2 py-1 text-sm ${isDark ? 'text-slate-300' : 'text-gray-700'}`}>Pentridge Club</a>
             <Dialog>
               <DialogTrigger asChild>
                 <button className={`block py-1 text-left w-full ${isDark ? 'text-slate-100' : 'text-gray-800'}`}>Blog</button>

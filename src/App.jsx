@@ -8,6 +8,7 @@ import Blog from './pages/Blog'; // Add this route
 import Resources from './pages/Resources'; // Add this route
 import AIVoiceAgents from './pages/AIVoiceAgents'; // Add this route
 import AIBusinessAutomationGuide from './pages/AIBusinessAutomationGuide'; // Add this route
+import PropertyManagementVoiceAICaseStudy from './pages/PropertyManagementVoiceAICaseStudy';
 import Services from './pages/Services'; // Add services page
 import Footer from './components/Footer'; // Add this import
 import { Toaster } from "@/components/ui/sonner";
@@ -38,6 +39,7 @@ const App = () => {
               <Route path="/resources" element={<Resources />} /> {/* Add this route */}
               <Route path="/services/ai-voice-agents" element={<AIVoiceAgents />} /> {/* Add this route */}
               <Route path="/ai-business-automation-guide" element={<AIBusinessAutomationGuide />} /> {/* Add this route */}
+              <Route path="/case-studies/property-management-voice-ai" element={<PropertyManagementVoiceAICaseStudy />} />
               <Route path="/services" element={<Services />} /> {/* Add services route */}
               <Route path="/terms" element={<TermsAndConditions />} />
               <Route path="/privacy" element={<PrivacyPolicy />} />

@@ -18,9 +18,9 @@ const ServicesSection = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-800">
-      <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <section className="py-16 md:py-20 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-800">
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
           {/* Services Card */}
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
@@ -30,43 +30,53 @@ const ServicesSection = () => {
           >
             <div className="relative dropdown-container">
               <button 
-                className="w-full text-center backdrop-blur-xl bg-white/10 rounded-2xl border border-white/20 shadow-2xl p-8 hover:bg-white/15 transition-all duration-300 group"
+                className="w-full text-center backdrop-blur-xl bg-white/20 rounded-2xl border-2 border-white/30 shadow-2xl p-6 md:p-8 hover:bg-white/30 active:bg-white/40 transition-all duration-300 group touch-manipulation"
                 onClick={toggleServices}
               >
-                <h3 className="text-2xl font-bold text-white">Services</h3>
+                <h3 className="text-xl md:text-2xl font-bold text-white drop-shadow-lg">Services</h3>
               </button>
               {isServicesOpen && (
-                <div className="absolute bottom-full left-0 mb-4 w-full backdrop-blur-xl bg-white/10 rounded-2xl shadow-2xl border border-white/20 z-50">
+                <div className="absolute bottom-full left-0 mb-4 w-full backdrop-blur-xl bg-white/25 rounded-2xl shadow-2xl border-2 border-white/30 z-50">
                   <div className="py-4">
                     <button 
-                      className="w-full text-left px-6 py-4 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 border-b border-white/10 last:border-b-0 cursor-pointer rounded-lg"
+                      className="w-full text-left px-6 py-4 text-white hover:text-purple-200 hover:bg-white/20 transition-all duration-300 border-b border-white/20 last:border-b-0 cursor-pointer rounded-lg font-semibold"
                       onClick={() => {
                         navigate('/services/ai-voice-agents');
                         setIsServicesOpen(false);
                       }}
                     >
-                      <div className="font-medium text-lg">AI Voice Agents</div>
-                      <div className="text-sm text-white/70">24/7 AI phone answering service</div>
+                      <div className="font-bold text-lg text-white">AI Voice Agents</div>
+                      <div className="text-sm text-purple-200 font-medium">24/7 AI phone answering service</div>
                     </button>
                     <button 
-                      className="w-full text-left px-6 py-4 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 border-b border-white/10 last:border-b-0 cursor-pointer rounded-lg"
+                      className="w-full text-left px-6 py-4 text-white hover:text-purple-200 hover:bg-white/20 transition-all duration-300 border-b border-white/20 last:border-b-0 cursor-pointer rounded-lg font-semibold"
                       onClick={() => {
                         navigate('/content-house');
                         setIsServicesOpen(false);
                       }}
                     >
-                      <div className="font-medium text-lg">Content House</div>
-                      <div className="text-sm text-white/70">AI-powered content creation</div>
+                      <div className="font-bold text-lg text-white">Content House</div>
+                      <div className="text-sm text-purple-200 font-medium">AI-powered content creation</div>
                     </button>
                     <button 
-                      className="w-full text-left px-6 py-4 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 cursor-pointer rounded-lg"
+                      className="w-full text-left px-6 py-4 text-white hover:text-purple-200 hover:bg-white/20 transition-all duration-300 cursor-pointer rounded-lg font-semibold"
                       onClick={() => {
                         window.open('https://build.pentridgemedia.com', '_blank');
                         setIsServicesOpen(false);
                       }}
                     >
-                      <div className="font-medium text-lg">Custom Apps</div>
-                      <div className="text-sm text-white/70">Build and validate in 3 weeks</div>
+                      <div className="font-bold text-lg text-white">Custom Apps</div>
+                      <div className="text-sm text-purple-200 font-medium">Build and validate in 3 weeks</div>
+                    </button>
+                    <button 
+                      className="w-full text-left px-6 py-4 text-white hover:text-purple-200 hover:bg-white/20 transition-all duration-300 cursor-pointer rounded-lg font-semibold"
+                      onClick={() => {
+                        navigate('/ai-business-automation-guide');
+                        setIsServicesOpen(false);
+                      }}
+                    >
+                      <div className="font-bold text-lg text-white">AI Business Automation</div>
+                      <div className="text-sm text-purple-200 font-medium">Transform operations with intelligent automation</div>
                     </button>
                   </div>
                 </div>
@@ -83,23 +93,23 @@ const ServicesSection = () => {
           >
             <div className="relative dropdown-container">
               <button 
-                className="w-full text-center backdrop-blur-xl bg-white/10 rounded-2xl border border-white/20 shadow-2xl p-8 hover:bg-white/15 transition-all duration-300 group"
+                className="w-full text-center backdrop-blur-xl bg-white/20 rounded-2xl border-2 border-white/30 shadow-2xl p-6 md:p-8 hover:bg-white/30 active:bg-white/40 transition-all duration-300 group touch-manipulation"
                 onClick={toggleProducts}
               >
-                <h3 className="text-2xl font-bold text-white">Products</h3>
+                <h3 className="text-xl md:text-2xl font-bold text-white drop-shadow-lg">Products</h3>
               </button>
               {isProductsOpen && (
-                <div className="absolute bottom-full left-0 mb-4 w-full backdrop-blur-xl bg-white/10 rounded-2xl shadow-2xl border border-white/20 z-50">
+                <div className="absolute bottom-full left-0 mb-4 w-full backdrop-blur-xl bg-white/25 rounded-2xl shadow-2xl border-2 border-white/30 z-50">
                   <div className="py-4">
                     <button 
-                      className="w-full text-left px-6 py-4 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 cursor-pointer rounded-lg"
+                      className="w-full text-left px-6 py-4 text-white hover:text-purple-200 hover:bg-white/20 transition-all duration-300 cursor-pointer rounded-lg font-semibold"
                       onClick={() => {
                         window.open('https://www.dropcard.app/', '_blank');
                         setIsProductsOpen(false);
                       }}
                     >
-                      <div className="font-medium text-lg">DropCard</div>
-                      <div className="text-sm text-white/70">Your networking, upgraded</div>
+                      <div className="font-bold text-lg text-white">DropCard</div>
+                      <div className="text-sm text-purple-200 font-medium">Your networking, upgraded</div>
                     </button>
                   </div>
                 </div>

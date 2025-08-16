@@ -14,6 +14,19 @@ const Blog = () => {
   const blogPosts = [
     {
       id: 1,
+      title: "The Complete Guide to AI Business Automation",
+      excerpt: "Transform your business operations with AI automation. Learn implementation strategies, calculate ROI, and discover the tools that will revolutionize your workflow in 2025.",
+      author: "Pentridge Media Team",
+      date: "2025-01-15",
+      readTime: "25 min read",
+      category: "AI Technology",
+      image: "/background.png",
+      featured: true,
+      tags: ["AI", "Business Automation", "ROI", "Implementation", "Productivity"],
+      url: "/ai-business-automation-guide"
+    },
+    {
+      id: 2,
       title: "The Future of AI Voice Agents in Customer Service",
       excerpt: "Discover how AI voice technology is revolutionizing customer service and what it means for your business.",
       author: "Sarah Johnson",
@@ -21,11 +34,11 @@ const Blog = () => {
       readTime: "5 min read",
       category: "AI Technology",
       image: "/background.png",
-      featured: true,
+      featured: false,
       tags: ["AI", "Customer Service", "Voice Technology"]
     },
     {
-      id: 2,
+      id: 3,
       title: "10 Ways AI Can Boost Your Marketing ROI",
       excerpt: "Learn proven strategies to leverage AI for better marketing outcomes and higher returns on investment.",
       author: "Michael Chen",
@@ -37,7 +50,7 @@ const Blog = () => {
       tags: ["Marketing", "ROI", "AI Strategy"]
     },
     {
-      id: 3,
+      id: 4,
       title: "Content Automation: A Complete Guide for 2024",
       excerpt: "Everything you need to know about automating your content creation process with AI tools.",
       author: "Emily Rodriguez",
@@ -49,7 +62,7 @@ const Blog = () => {
       tags: ["Content", "Automation", "Productivity"]
     },
     {
-      id: 4,
+      id: 5,
       title: "Building Trust with AI-Powered Customer Interactions",
       excerpt: "How to implement AI solutions while maintaining authentic customer relationships.",
       author: "David Park",
@@ -61,7 +74,7 @@ const Blog = () => {
       tags: ["Trust", "Customer Experience", "AI Ethics"]
     },
     {
-      id: 5,
+      id: 6,
       title: "The ROI of AI Voice Agents: Real Business Results",
       excerpt: "Case studies and data showing the measurable impact of AI voice agents on business growth.",
       author: "Jennifer Liu",
@@ -77,6 +90,7 @@ const Blog = () => {
   const categories = [
     "All",
     "AI Technology",
+    "Business Automation",
     "Marketing",
     "Content Marketing",
     "Customer Experience",
@@ -198,7 +212,11 @@ const Blog = () => {
                       {featuredPost.readTime}
                     </div>
                   </div>
-                  <Button variant="outline" className="text-white border-white hover:bg-white hover:text-purple-600">
+                  <Button 
+                    variant="outline" 
+                    className="text-white border-white hover:bg-white hover:text-purple-600"
+                    onClick={() => window.location.href = featuredPost.url || '#'}
+                  >
                     Read Article <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </div>
@@ -281,9 +299,20 @@ const Blog = () => {
                           </Badge>
                         ))}
                       </div>
-                      <Button variant="ghost" className="p-0 h-auto text-purple-600 hover:text-purple-700">
-                        Read More <ArrowRight className="ml-1 h-3 w-3" />
-                      </Button>
+                                        <Button 
+                    variant="ghost" 
+                    className="p-0 h-auto text-purple-600 hover:text-purple-700"
+                    onClick={() => {
+                      if (post.id === 1) {
+                        window.location.href = '/ai-business-automation-guide';
+                      } else {
+                        // Handle other blog posts
+                        console.log('Navigate to:', post.title);
+                      }
+                    }}
+                  >
+                    Read More <ArrowRight className="ml-1 h-3 w-3" />
+                  </Button>
                     </CardContent>
                   </Card>
                 </motion.div>

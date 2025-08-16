@@ -24,77 +24,12 @@ const Blog = () => {
       featured: true,
       tags: ["AI", "Business Automation", "ROI", "Implementation", "Productivity"],
       url: "/ai-business-automation-guide"
-    },
-    {
-      id: 2,
-      title: "The Future of AI Voice Agents in Customer Service",
-      excerpt: "Discover how AI voice technology is revolutionizing customer service and what it means for your business.",
-      author: "Sarah Johnson",
-      date: "2024-02-15",
-      readTime: "5 min read",
-      category: "AI Technology",
-      image: "/background.png",
-      featured: false,
-      tags: ["AI", "Customer Service", "Voice Technology"]
-    },
-    {
-      id: 3,
-      title: "10 Ways AI Can Boost Your Marketing ROI",
-      excerpt: "Learn proven strategies to leverage AI for better marketing outcomes and higher returns on investment.",
-      author: "Michael Chen",
-      date: "2024-02-10",
-      readTime: "7 min read",
-      category: "Marketing",
-      image: "/background2.png",
-      featured: false,
-      tags: ["Marketing", "ROI", "AI Strategy"]
-    },
-    {
-      id: 4,
-      title: "Content Automation: A Complete Guide for 2024",
-      excerpt: "Everything you need to know about automating your content creation process with AI tools.",
-      author: "Emily Rodriguez",
-      date: "2024-02-08",
-      readTime: "6 min read",
-      category: "Content Marketing",
-      image: "/content automation.png",
-      featured: false,
-      tags: ["Content", "Automation", "Productivity"]
-    },
-    {
-      id: 5,
-      title: "Building Trust with AI-Powered Customer Interactions",
-      excerpt: "How to implement AI solutions while maintaining authentic customer relationships.",
-      author: "David Park",
-      date: "2024-02-05",
-      readTime: "4 min read",
-      category: "Customer Experience",
-      image: "/Social.png",
-      featured: false,
-      tags: ["Trust", "Customer Experience", "AI Ethics"]
-    },
-    {
-      id: 6,
-      title: "The ROI of AI Voice Agents: Real Business Results",
-      excerpt: "Case studies and data showing the measurable impact of AI voice agents on business growth.",
-      author: "Jennifer Liu",
-      date: "2024-02-01",
-      readTime: "8 min read",
-      category: "Case Studies",
-      image: "/productivity.png",
-      featured: false,
-      tags: ["ROI", "Case Studies", "Business Growth"]
     }
   ];
 
   const categories = [
     "All",
-    "AI Technology",
-    "Business Automation",
-    "Marketing",
-    "Content Marketing",
-    "Customer Experience",
-    "Case Studies"
+    "AI Technology"
   ];
 
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -214,7 +149,7 @@ const Blog = () => {
                   </div>
                   <Button 
                     variant="outline" 
-                    className="text-white border-white hover:bg-white hover:text-purple-600"
+                    className="bg-transparent text-white border-white hover:bg-white hover:text-purple-600 font-medium"
                     onClick={() => window.location.href = featuredPost.url || '#'}
                   >
                     Read Article <ArrowRight className="ml-2 h-4 w-4" />
@@ -321,35 +256,8 @@ const Blog = () => {
           )}
         </motion.div>
 
-        {/* Newsletter CTA */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1.0 }}
-          className="mt-16"
-        >
-          <Card className="bg-gradient-to-r from-purple-600 to-blue-600 text-white">
-            <CardContent className="p-8 md:p-12 text-center">
-              <h3 className="text-2xl md:text-3xl font-bold mb-4">
-                Stay Updated with AI Insights
-              </h3>
-              <p className="text-purple-100 mb-6 max-w-2xl mx-auto">
-                Get the latest articles on AI technology, business automation, and growth strategies 
-                delivered to your inbox weekly.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-                <Input 
-                  type="email" 
-                  placeholder="Enter your email"
-                  className="bg-white text-gray-900"
-                />
-                <Button variant="secondary" className="bg-white text-purple-600 hover:bg-gray-100">
-                  Subscribe
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
-        </motion.div>
+
+
       </div>
     </div>
   );

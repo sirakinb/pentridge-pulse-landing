@@ -65,15 +65,13 @@ const Header = () => {
               {isNavOpen && (
                 <div className="absolute top-full right-0 mt-2 w-48 backdrop-blur-xl bg-white/10 rounded-2xl shadow-2xl border border-white/20 z-50">
                   <div className="py-3">
-                    <button 
-                      className="w-full text-left px-4 py-3 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 border-b border-white/10 cursor-pointer rounded-lg"
-                      onClick={() => {
-                        alert('Coming soon');
-                        setIsNavOpen(false);
-                      }}
+                    <Link 
+                      to="/blog"
+                      className="w-full text-left px-4 py-3 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 border-b border-white/10 cursor-pointer rounded-lg block"
+                      onClick={() => setIsNavOpen(false)}
                     >
                       <div className="font-medium">Blog</div>
-                    </button>
+                    </Link>
                     <button 
                       className="w-full text-left px-4 py-3 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 border-b border-white/10 cursor-pointer rounded-lg"
                       onClick={() => {
@@ -119,7 +117,7 @@ const Header = () => {
               <a href="https://www.dropcard.app/" target="_blank" rel="noopener noreferrer" className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">DropCard</a>
               <div className="text-white/90 font-medium py-2">Community</div>
               <a href="https://discover.circle.so/product/pentridge-club-ai-automation-emerging-tech-community" target="_blank" rel="noopener noreferrer" className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">Pentridge Club</a>
-              <button className="text-white/80 block w-full text-left py-2 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300" onClick={() => alert('Coming soon')}>Blog</button>
+              <Link to="/blog" className="text-white/80 block py-2 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">Blog</Link>
               <button className="text-white/80 block w-full text-left py-2 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300" onClick={() => alert('Coming soon')}>Resources</button>
               <Link to="/contact" className="text-white/80 block py-2 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">Contact</Link>
               <Link to="/about" className="text-white/80 block py-2 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">About Us</Link>

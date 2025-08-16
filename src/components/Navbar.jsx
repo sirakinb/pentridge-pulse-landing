@@ -76,17 +76,7 @@ const Navbar = ({ variant = "light" }) => {
           >
             Community
           </a>
-          <Dialog>
-            <DialogTrigger asChild>
-              <button className={`${isDark ? 'hover:text-purple-200' : 'hover:text-purple-200'}`}>Blog</button>
-            </DialogTrigger>
-            <DialogContent className={isDark ? 'bg-slate-900 border-slate-800 text-slate-100' : ''}>
-              <DialogHeader>
-                <DialogTitle>Coming soon</DialogTitle>
-              </DialogHeader>
-              <p className="text-sm opacity-80">Our blog launches shortly. Subscribe on the resources page to get notified.</p>
-            </DialogContent>
-          </Dialog>
+          <Link to="/blog" className={`${isDark ? 'hover:text-purple-200' : 'hover:text-purple-200'}`}>Blog</Link>
           <Dialog>
             <DialogTrigger asChild>
               <button className={`${isDark ? 'hover:text-purple-200' : 'hover:text-purple-200'}`}>Resources</button>
@@ -233,25 +223,19 @@ const Navbar = ({ variant = "light" }) => {
                 <span className="tracking-wide">CONTENT</span>
               </div>
               <div className="ml-2 space-y-2">
-            <Dialog>
-              <DialogTrigger asChild>
-                    <button className="flex items-center gap-3 w-full p-3 rounded-xl bg-purple-700/40 border border-purple-500/30 text-white hover:bg-purple-600/60 hover:border-purple-400/50 hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300">
-                      <div className="p-2 rounded-lg bg-purple-500/40">
-                        <BookOpen className="h-4 w-4 text-purple-200" />
-                      </div>
-                      <div className="text-left">
-                        <span className="font-medium">Blog</span>
-                        <p className="text-xs text-purple-200/80 mt-0.5">Insights & industry updates</p>
-                      </div>
-                    </button>
-              </DialogTrigger>
-                  <DialogContent className="bg-slate-900/95 border-slate-700 text-slate-100 backdrop-blur-xl">
-                <DialogHeader>
-                      <DialogTitle className="text-purple-300">Coming Soon</DialogTitle>
-                </DialogHeader>
-                    <p className="text-sm text-slate-300">Our blog launches shortly. Subscribe on the resources page to get notified.</p>
-              </DialogContent>
-            </Dialog>
+            <Link
+              to="/blog"
+              className="flex items-center gap-3 w-full p-3 rounded-xl bg-purple-700/40 border border-purple-500/30 text-white hover:bg-purple-600/60 hover:border-purple-400/50 hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
+              onClick={() => setIsNavOpen(false)}
+            >
+              <div className="p-2 rounded-lg bg-purple-500/40">
+                <BookOpen className="h-4 w-4 text-purple-200" />
+              </div>
+              <div className="text-left">
+                <span className="font-medium">Blog</span>
+                <p className="text-xs text-purple-200/80 mt-0.5">Insights & industry updates</p>
+              </div>
+            </Link>
             <Dialog>
               <DialogTrigger asChild>
                     <button className="flex items-center gap-3 w-full p-3 rounded-xl bg-purple-700/40 border border-purple-500/30 text-white hover:bg-purple-600/60 hover:border-purple-400/50 hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300">

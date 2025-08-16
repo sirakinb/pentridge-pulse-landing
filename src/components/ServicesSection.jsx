@@ -1,0 +1,132 @@
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
+
+const ServicesSection = () => {
+  const navigate = useNavigate();
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isProductsOpen, setIsProductsOpen] = useState(false);
+
+  const toggleServices = () => {
+    setIsServicesOpen(!isServicesOpen);
+    setIsProductsOpen(false);
+  };
+
+  const toggleProducts = () => {
+    setIsProductsOpen(!isProductsOpen);
+    setIsServicesOpen(false);
+  };
+
+  return (
+    <section className="py-20 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-800">
+      <div className="container mx-auto px-4">
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {/* Services Card */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="relative"
+          >
+            <div className="relative dropdown-container">
+              <button 
+                className="w-full text-center backdrop-blur-xl bg-white/10 rounded-2xl border border-white/20 shadow-2xl p-8 hover:bg-white/15 transition-all duration-300 group"
+                onClick={toggleServices}
+              >
+                <h3 className="text-2xl font-bold text-white">Services</h3>
+              </button>
+              {isServicesOpen && (
+                <div className="absolute bottom-full left-0 mb-4 w-full backdrop-blur-xl bg-white/10 rounded-2xl shadow-2xl border border-white/20 z-50">
+                  <div className="py-4">
+                    <button 
+                      className="w-full text-left px-6 py-4 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 border-b border-white/10 last:border-b-0 cursor-pointer rounded-lg"
+                      onClick={() => {
+                        navigate('/services/ai-voice-agents');
+                        setIsServicesOpen(false);
+                      }}
+                    >
+                      <div className="font-medium text-lg">AI Voice Agents</div>
+                      <div className="text-sm text-white/70">24/7 AI phone answering service</div>
+                    </button>
+                    <button 
+                      className="w-full text-left px-6 py-4 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 border-b border-white/10 last:border-b-0 cursor-pointer rounded-lg"
+                      onClick={() => {
+                        navigate('/content-house');
+                        setIsServicesOpen(false);
+                      }}
+                    >
+                      <div className="font-medium text-lg">Content House</div>
+                      <div className="text-sm text-white/70">AI-powered content creation</div>
+                    </button>
+                    <button 
+                      className="w-full text-left px-6 py-4 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 cursor-pointer rounded-lg"
+                      onClick={() => {
+                        window.open('https://build.pentridgemedia.com', '_blank');
+                        setIsServicesOpen(false);
+                      }}
+                    >
+                      <div className="font-medium text-lg">Custom Apps</div>
+                      <div className="text-sm text-white/70">Build and validate in 3 weeks</div>
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+          </motion.div>
+
+          {/* Products Card */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="relative"
+          >
+            <div className="relative dropdown-container">
+              <button 
+                className="w-full text-center backdrop-blur-xl bg-white/10 rounded-2xl border border-white/20 shadow-2xl p-8 hover:bg-white/15 transition-all duration-300 group"
+                onClick={toggleProducts}
+              >
+                <h3 className="text-2xl font-bold text-white">Products</h3>
+              </button>
+              {isProductsOpen && (
+                <div className="absolute bottom-full left-0 mb-4 w-full backdrop-blur-xl bg-white/10 rounded-2xl shadow-2xl border border-white/20 z-50">
+                  <div className="py-4">
+                    <button 
+                      className="w-full text-left px-6 py-4 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 cursor-pointer rounded-lg"
+                      onClick={() => {
+                        window.open('https://www.dropcard.app/', '_blank');
+                        setIsProductsOpen(false);
+                      }}
+                    >
+                      <div className="font-medium text-lg">DropCard</div>
+                      <div className="text-sm text-white/70">Your networking, upgraded</div>
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+          </motion.div>
+
+          {/* Community Card */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="relative"
+          >
+            <a 
+              href="https://discover.circle.so/product/pentridge-club-ai-automation-emerging-tech-community"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full text-center backdrop-blur-xl bg-white/10 rounded-2xl border border-white/20 shadow-2xl p-8 hover:bg-white/15 transition-all duration-300 group"
+            >
+              <h3 className="text-2xl font-bold text-white">Community</h3>
+            </a>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default ServicesSection;

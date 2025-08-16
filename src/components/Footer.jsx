@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Instagram } from 'lucide-react';
+import { Instagram, Youtube } from 'lucide-react';
 import { scrollToTop } from '../utils/scrollToTop';
 
 const Footer = () => {
@@ -50,6 +50,9 @@ const Footer = () => {
             <div className="mt-4">
               <a href="https://www.instagram.com/pentridgemedia" target="_blank" rel="noopener noreferrer" className="inline-block hover:text-gold transition-colors">
                 <Instagram size={24} />
+              </a>
+              <a href="https://www.youtube.com/@sirakinb" target="_blank" rel="noopener noreferrer" className="inline-block hover:text-gold transition-colors ml-4">
+                <Youtube size={24} />
               </a>
             </div>
           </div>

@@ -1,18 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Header from '../components/Header';
-import Description from '../components/Description';
-import HowItWorks from '../components/HowItWorks';
-import PartnerInAI from '../components/PartnerInAI';
-import { WhyChooseSection } from '../components/WhyChooseSection';
-import OurWork from '../components/OurWork';
-import FAQ from '../components/FAQ';
-import Testimonials from '../components/Testimonials';
-import DiscoveryCallCTA from '../components/DiscoveryCallCTA';
 import PageSchemaMarkup from '../components/PageSchemaMarkup';
 import MetaTags from '../components/MetaTags';
 import { getMetaConfig } from '../lib/meta-config';
-// Remove the Footer import
 
 const Index = () => {
   const pageVariants = {
@@ -50,15 +41,6 @@ const Index = () => {
       <MetaTags {...metaConfig} />
       <PageSchemaMarkup pageType="home" />
       <Header />
-      <Description />
-      <HowItWorks />
-      <PartnerInAI />
-      <WhyChooseSection />
-      <OurWork />
-      <Testimonials />
-      <FAQ />
-      <DiscoveryCallCTA />
-      {/* Remove the Footer component from here */}
     </motion.div>
   );
 };

@@ -4,9 +4,9 @@ import Index from './pages/Index';
 import Contact from './pages/Contact';
 import ContentHouse from './pages/ContentHouse';
 import AboutUs from './pages/AboutUs'; // Add this import
-import Blog from './pages/Blog'; // Add this import
-import Resources from './pages/Resources'; // Add this import
-import AIVoiceAgents from './pages/AIVoiceAgents'; // Add this import
+import Blog from './pages/Blog'; // Add this route
+import Resources from './pages/Resources'; // Add this route
+import AIVoiceAgents from './pages/AIVoiceAgents'; // Add this route
 import Footer from './components/Footer'; // Add this import
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -16,9 +16,7 @@ import { AnimatePresence } from 'framer-motion';
 import TermsAndConditions from './pages/TermsAndConditions';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import SEOTest from './pages/SEOTest';
-import PerformanceTest from './pages/PerformanceTest';
 import SchemaMarkup from './components/SchemaMarkup';
-import PerformanceMonitor from './components/PerformanceMonitor';
 
 const queryClient = new QueryClient();
 
@@ -40,14 +38,12 @@ const App = () => {
               <Route path="/terms" element={<TermsAndConditions />} />
               <Route path="/privacy" element={<PrivacyPolicy />} />
               <Route path="/seo-test" element={<SEOTest />} />
-              <Route path="/performance-test" element={<PerformanceTest />} />
               {/* ... other routes ... */}
             </Routes>
           </AnimatePresence>
         </div>
         <Footer />
       </div>
-      <PerformanceMonitor />
     </Router>
   );
 };

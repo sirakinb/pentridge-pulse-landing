@@ -30,10 +30,10 @@ const ServicesSection = () => {
           >
             <div className="relative dropdown-container">
               <button 
-                className="w-full text-center backdrop-blur-xl bg-white/20 rounded-2xl border-2 border-white/30 shadow-2xl p-6 md:p-8 hover:bg-white/30 active:bg-white/40 transition-all duration-300 group touch-manipulation"
+                className="w-full text-center backdrop-blur-xl mobile-button p-6 md:p-8 transition-all duration-300 group touch-manipulation"
                 onClick={toggleServices}
               >
-                <h3 className="text-xl md:text-2xl font-bold text-white drop-shadow-lg">Services</h3>
+                <h3 className="text-xl md:text-2xl font-bold text-white mobile-text tracking-wide">Services</h3>
               </button>
               {isServicesOpen && (
                 <div className="absolute bottom-full left-0 mb-4 w-full backdrop-blur-xl bg-white/25 rounded-2xl shadow-2xl border-2 border-white/30 z-50">
@@ -93,10 +93,10 @@ const ServicesSection = () => {
           >
             <div className="relative dropdown-container">
               <button 
-                className="w-full text-center backdrop-blur-xl bg-white/20 rounded-2xl border-2 border-white/30 shadow-2xl p-6 md:p-8 hover:bg-white/30 active:bg-white/40 transition-all duration-300 group touch-manipulation"
+                className="w-full text-center backdrop-blur-xl mobile-button p-6 md:p-8 transition-all duration-300 group touch-manipulation"
                 onClick={toggleProducts}
               >
-                <h3 className="text-xl md:text-2xl font-bold text-white drop-shadow-lg">Products</h3>
+                <h3 className="text-xl md:text-2xl font-bold text-white mobile-text tracking-wide">Products</h3>
               </button>
               {isProductsOpen && (
                 <div className="absolute bottom-full left-0 mb-4 w-full backdrop-blur-xl bg-white/25 rounded-2xl shadow-2xl border-2 border-white/30 z-50">
@@ -128,9 +128,9 @@ const ServicesSection = () => {
               href="https://discover.circle.so/product/pentridge-club-ai-automation-emerging-tech-community"
               target="_blank"
               rel="noopener noreferrer"
-              className="block w-full text-center backdrop-blur-xl bg-white/10 rounded-2xl border border-white/20 shadow-2xl p-8 hover:bg-white/15 transition-all duration-300 group"
+              className="block w-full text-center backdrop-blur-xl mobile-button p-6 md:p-8 transition-all duration-300 group touch-manipulation"
             >
-              <h3 className="text-2xl font-bold text-white">Community</h3>
+              <h3 className="text-xl md:text-2xl font-bold text-white mobile-text tracking-wide">Community</h3>
             </a>
           </motion.div>
         </div>

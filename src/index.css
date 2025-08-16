@@ -98,6 +98,47 @@
     @apply px-4 sm:px-6 lg:px-8;
   }
 
+  /* Mobile button enhancements */
+  .mobile-button {
+    @apply bg-white/30 border-2 border-white/50 shadow-2xl;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .mobile-button:hover {
+    @apply bg-white/40 border-white/60;
+  }
+
+  .mobile-button:active {
+    @apply bg-white/50 border-white/70;
+  }
+
+  /* Enhanced text visibility for mobile */
+  .mobile-text {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.1);
+  }
+
+  /* Mobile touch improvements */
+  @media (max-width: 768px) {
+    .mobile-button {
+      @apply bg-white/35 border-2 border-white/60;
+    }
+    
+    .mobile-text {
+      text-shadow: 0 3px 6px rgba(0, 0, 0, 0.6);
+      -webkit-text-stroke: 0.8px rgba(255, 255, 255, 0.15);
+    }
+
+    /* Mobile card enhancements */
+    .mobile-card {
+      @apply bg-white/30 border-2 border-white/50;
+    }
+    
+    .mobile-card:hover {
+      @apply bg-white/40 border-white/60;
+    }
+  }
+
   .text-responsive {
     @apply text-base sm:text-lg md:text-xl;
   }

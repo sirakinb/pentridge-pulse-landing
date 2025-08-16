@@ -127,8 +127,8 @@ const Header = () => {
         )}
         <div className="flex-grow flex flex-col justify-start items-start w-full pt-0 pb-12 z-10 -mt-4"> {/* Removed all top padding and added negative margin */}
           <div className="w-full max-w-4xl mx-auto text-center backdrop-blur-xl bg-white/5 rounded-3xl border border-white/10 shadow-2xl p-12">
-            {/* Services Section Above Header */}
-            <div className="grid md:grid-cols-3 gap-8 mb-12">
+            {/* Services Section Above Header - Hidden on mobile, visible on desktop */}
+            <div className="hidden md:grid md:grid-cols-3 gap-8 mb-12">
               {/* Services Card */}
               <div className="relative">
                 <div className="relative dropdown-container">

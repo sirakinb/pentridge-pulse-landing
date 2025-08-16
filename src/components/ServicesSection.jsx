@@ -30,7 +30,7 @@ const ServicesSection = () => {
           >
             <div className="relative dropdown-container">
               <button 
-                className="w-full text-center backdrop-blur-xl bg-purple-400/30 rounded-2xl border border-purple-300/50 shadow-2xl p-6 md:p-8 hover:bg-purple-400/40 transition-all duration-300 group"
+                className="w-full text-center backdrop-blur-xl purple-frosted-glass rounded-2xl shadow-2xl p-6 md:p-8 transition-all duration-300 group"
                 onClick={toggleServices}
               >
                 <h3 className="text-xl md:text-2xl font-bold text-white">Services</h3>
@@ -93,7 +93,7 @@ const ServicesSection = () => {
           >
             <div className="relative dropdown-container">
               <button 
-                className="w-full text-center backdrop-blur-xl bg-purple-400/30 rounded-2xl border border-purple-300/50 shadow-2xl p-6 md:p-8 hover:bg-purple-400/40 transition-all duration-300 group"
+                className="w-full text-center backdrop-blur-xl purple-frosted-glass rounded-2xl shadow-2xl p-6 md:p-8 transition-all duration-300 group"
                 onClick={toggleProducts}
               >
                 <h3 className="text-xl md:text-2xl font-bold text-white">Products</h3>
@@ -128,7 +128,7 @@ const ServicesSection = () => {
               href="https://discover.circle.so/product/pentridge-club-ai-automation-emerging-tech-community"
               target="_blank"
               rel="noopener noreferrer"
-              className="block w-full text-center backdrop-blur-xl bg-purple-400/30 rounded-2xl border border-purple-300/50 shadow-2xl p-6 md:p-8 hover:bg-purple-400/40 transition-all duration-300 group"
+              className="block w-full text-center backdrop-blur-xl purple-frosted-glass rounded-2xl shadow-2xl p-6 md:p-8 transition-all duration-300 group"
             >
               <h3 className="text-xl md:text-2xl font-bold text-white">Community</h3>
             </a>

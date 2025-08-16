@@ -130,13 +130,23 @@
     }
 
     /* Mobile card enhancements */
-    .mobile-card {
-      @apply bg-white/30 border-2 border-white/50;
-    }
-    
-    .mobile-card:hover {
-      @apply bg-white/40 border-white/60;
-    }
+.mobile-card {
+  @apply bg-white/30 border-2 border-white/50;
+}
+
+.mobile-card:hover {
+  @apply bg-white/40 border-white/60;
+}
+
+/* Force purple frosted glass effect */
+.purple-frosted-glass {
+  background-color: rgba(168, 85, 247, 0.4) !important;
+  border-color: rgba(196, 181, 253, 0.6) !important;
+}
+
+.purple-frosted-glass:hover {
+  background-color: rgba(168, 85, 247, 0.5) !important;
+}
   }
 
   .text-responsive {

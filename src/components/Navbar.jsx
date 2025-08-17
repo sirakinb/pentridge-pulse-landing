@@ -92,7 +92,7 @@ const Navbar = ({ variant = "light" }) => {
           <Link to="/contact" className={`${isDark ? 'hover:text-purple-200' : 'hover:text-purple-200'}`}>Contact</Link>
           <Button 
             variant="outline"
-            className={`${isDark ? 'bg-transparent border-purple-200 text-purple-100 hover:bg-purple-200/20' : 'border-purple-200 text-white hover:bg-purple-200/20'}`}
+            className={`${isDark ? 'bg-transparent border-purple-200 text-purple-100 hover:bg-purple-200/20' : 'bg-white border-purple-200 text-purple-800 hover:bg-purple-100'}`}
             onClick={() => window.open('https://tally.so/r/3NBGBl', '_blank')}
           >
             Book Call

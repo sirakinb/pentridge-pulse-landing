@@ -21,7 +21,7 @@ const PropertyManagementVoiceAICaseStudy = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-white">
       <MetaTags
-        title="AI Voice Agent Case Study: $270K-$809K Revenue from After-Hours Calls | Property Management"
+        title="AI Voice Agent Case Study"
         description="How an AI voice agent captured 641 after-hours calls, generated ~72 qualified leasing leads per week, and unlocked $230K-$692K in annual revenue for a property management company."
         keywords="property management voice AI case study, AI voice agent for property management, automated tenant communication, AI phone agent, after-hours leasing leads"
         canonical="/case-studies/property-management-voice-ai"

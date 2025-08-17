@@ -93,13 +93,13 @@ const PropertyManagementVoiceAICaseStudy = () => {
 
             <div className="bg-gradient-to-r from-violet-50 to-blue-50 border border-violet-200 rounded-xl p-6 mt-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Revenue impact (modeled)</h3>
-              <p className="text-gray-800 mb-3">Assumptions: average rent $1,200/mo, 10% management fee, 12‑month term → <strong>$1,440 net per signed lease per year</strong>. Using qualified <em>after‑hours</em> leads only:</p>
+              <p className="text-gray-800 mb-3">Assumptions: average rent $1,028.02/mo, 10% management fee, 12‑month term → <strong>$1,233.62 net per signed lease per year</strong>. Using qualified <em>after‑hours</em> leads only:</p>
               <ul className="list-disc pl-5 space-y-1 text-gray-800">
-                <li>5% conversion → <strong>+3.60</strong> leases/week, <strong>+187</strong>/year ≈ <strong>$269,751</strong>/year</li>
-                <li>10% conversion → <strong>+7.20</strong> leases/week, <strong>+375</strong>/year ≈ <strong>$539,501</strong>/year</li>
-                <li>15% conversion → <strong>+10.81</strong> leases/week, <strong>+562</strong>/year ≈ <strong>$809,252</strong>/year</li>
+                <li>5% conversion → <strong>+3.60</strong> leases/week, <strong>+187</strong>/year ≈ <strong>$230,787</strong>/year</li>
+                <li>10% conversion → <strong>+7.20</strong> leases/week, <strong>+375</strong>/year ≈ <strong>$461,573</strong>/year</li>
+                <li>15% conversion → <strong>+10.81</strong> leases/week, <strong>+562</strong>/year ≈ <strong>$692,360</strong>/year</li>
               </ul>
-              <p className="text-sm text-gray-600 mt-3">Note: If we model uplift on <em>all</em> qualified leads (not just after‑hours), even a conservative 5% conversion implies ~15+ leases/week and >$1M/year in management revenue.</p>
+              <p className="text-sm text-gray-600 mt-3">Note: If we model uplift on <em>all</em> qualified leads (not just after‑hours), even a conservative 5% conversion implies ~15+ leases/week and >$900K/year in management revenue.</p>
             </div>
           </div>
 

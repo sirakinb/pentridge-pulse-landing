@@ -33,7 +33,7 @@ const PropertyManagementVoiceAICaseStudy = () => {
         <header className="mb-10">
           <div className="inline-block px-3 py-1 rounded-full bg-violet-100 text-violet-800 text-sm font-medium mb-4">Case Study • Property Management</div>
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-            Property Management Voice AI Case Study
+            Voice AI Case Study
           </h1>
           <p className="mt-4 text-lg text-gray-700 max-w-3xl">
             An AI voice agent for property management answered and triaged thousands of inbound calls, captured after-hours leasing opportunities, and created a measurable revenue lift — while delivering faster, more consistent communication to prospective tenants.
@@ -45,7 +45,7 @@ const PropertyManagementVoiceAICaseStudy = () => {
           <Metric icon={PhoneCall} label="Calls handled (~6 weeks)" value="2,296" sub="Jul 2 – Aug 12, 2025" />
           <Metric icon={Clock} label="After-hours share" value="27.9%" sub="641 calls captured after-hours" />
           <Metric icon={BarChart3} label="Qualified after-hours leads" value="~72/wk" sub="422 leasing intents after-hours" />
-          <Metric icon={TrendingUp} label="Revenue potential" value="$270k–$809k/yr" sub="At 5–15% lead→lease conversion" />
+          <Metric icon={TrendingUp} label="Revenue potential" value="$230k–$692k/yr" sub="At 5–15% lead→lease conversion" />
         </section>
 
         {/* Narrative */}

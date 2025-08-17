@@ -21,18 +21,40 @@ const PropertyManagementVoiceAICaseStudy = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-white">
       <MetaTags
-        title="Property Management Voice AI Case Study | AI Voice Agent for Property Management"
-        description="How an AI voice agent handled 2,296 inbound calls in ~6 weeks for a property management company, captured ~72 qualified after-hours leads per week, and unlocked an estimated $270k–$809k in annual revenue."
+        title="AI Voice Agent Case Study: $270K-$809K Revenue from After-Hours Calls | Property Management"
+        description="How an AI voice agent captured 641 after-hours calls, generated ~72 qualified leasing leads per week, and unlocked $230K-$692K in annual revenue for a property management company."
         keywords="property management voice AI case study, AI voice agent for property management, automated tenant communication, AI phone agent, after-hours leasing leads"
         canonical="/case-studies/property-management-voice-ai"
+        ogImage="/background.png"
+        twitterImage="/background.png"
       />
 
       <div className="max-w-6xl mx-auto px-4 py-12">
+        {/* Cover Image Section */}
+        <div className="relative mb-12 rounded-2xl overflow-hidden">
+          <div className="w-full h-64 md:h-80 bg-gradient-to-br from-violet-600 via-purple-700 to-indigo-800 flex items-center justify-center">
+            <div className="text-center text-white">
+              <div className="w-20 h-20 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center">
+                <PhoneCall className="w-10 h-10 text-white" />
+              </div>
+              <h1 className="text-3xl md:text-5xl font-bold mb-4">
+                AI Voice Agent Case Study
+              </h1>
+              <p className="text-xl md:text-2xl text-violet-100 max-w-2xl mx-auto">
+                $270K-$809K Revenue from After-Hours Calls
+              </p>
+              <div className="mt-6 inline-block px-4 py-2 bg-white/20 rounded-full text-sm font-medium">
+                Property Management • 6-Week Results
+              </div>
+            </div>
+          </div>
+        </div>
+
         <header className="mb-10">
           <div className="inline-block px-3 py-1 rounded-full bg-violet-100 text-violet-800 text-sm font-medium mb-4">Case Study • Property Management</div>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-            Property Management Voice AI Case Study
-          </h1>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
+            How an AI Voice Agent Captured After-Hours Leasing Opportunities
+          </h2>
           <p className="mt-4 text-lg text-gray-700 max-w-3xl">
             An AI voice agent for property management answered and triaged thousands of inbound calls, captured after-hours leasing opportunities, and created a measurable revenue lift — while delivering faster, more consistent communication to prospective tenants.
           </p>

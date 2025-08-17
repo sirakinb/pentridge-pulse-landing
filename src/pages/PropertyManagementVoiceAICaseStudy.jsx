@@ -118,17 +118,25 @@ const PropertyManagementVoiceAICaseStudy = () => {
 
         {/* CTA */}
         <section className="mt-12">
-          <div className="bg-violet-600 text-white rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-4">
-            <div>
+          <div className="bg-violet-600 text-white rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-5">
+            <div className="text-center md:text-left">
               <h2 className="text-2xl font-semibold">Ready to implement an AI voice agent in your business?</h2>
               <p className="text-violet-100 mt-1">We design, deploy, and optimize voice agents for property management and service businesses.</p>
             </div>
-            <div className="flex gap-3">
-              <Button size="lg" className="bg-white text-violet-700 hover:bg-violet-50" onClick={() => window.open('https://tally.so/r/3NBGBl', '_blank')}>
+            <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+              <Button
+                size="lg"
+                className="w-full sm:w-auto bg-white text-violet-700 hover:bg-violet-50"
+                onClick={() => window.open('https://tally.so/r/3NBGBl', '_blank')}
+              >
                 Book a discovery call
               </Button>
-              <Link to="/services/ai-voice-agents">
-                <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white/10">
+              <Link to="/services/ai-voice-agents" className="w-full sm:w-auto">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="w-full sm:w-auto bg-transparent border-white text-white hover:bg-white/10"
+                >
                   Explore the voice agent service
                 </Button>
               </Link>

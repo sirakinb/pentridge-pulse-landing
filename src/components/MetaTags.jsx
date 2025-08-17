@@ -40,7 +40,7 @@ const MetaTags = ({
     }
     canonicalLink.href = canonicalUrl;
     
-    // Update Open Graph tags
+    // Force update Open Graph tags by removing and recreating them
     const ogTags = {
       'og:title': title,
       'og:description': description,
@@ -50,16 +50,20 @@ const MetaTags = ({
     };
     
     Object.entries(ogTags).forEach(([property, content]) => {
-      let ogTag = document.querySelector(`meta[property="${property}"]`);
-      if (!ogTag) {
-        ogTag = document.createElement('meta');
-        ogTag.setAttribute('property', property);
-        document.head.appendChild(ogTag);
+      // Remove existing tag first
+      let existingTag = document.querySelector(`meta[property="${property}"]`);
+      if (existingTag) {
+        existingTag.remove();
       }
+      
+      // Create new tag
+      let ogTag = document.createElement('meta');
+      ogTag.setAttribute('property', property);
       ogTag.content = content;
+      document.head.appendChild(ogTag);
     });
     
-    // Update Twitter Card tags
+    // Force update Twitter Card tags by removing and recreating them
     const twitterTags = {
       'twitter:title': title,
       'twitter:description': description,
@@ -67,13 +71,17 @@ const MetaTags = ({
     };
     
     Object.entries(twitterTags).forEach(([name, content]) => {
-      let twitterTag = document.querySelector(`meta[name="${name}"]`);
-      if (!twitterTag) {
-        twitterTag = document.createElement('meta');
-        twitterTag.name = name;
-        document.head.appendChild(twitterTag);
+      // Remove existing tag first
+      let existingTag = document.querySelector(`meta[name="${name}"]`);
+      if (existingTag) {
+        existingTag.remove();
       }
+      
+      // Create new tag
+      let twitterTag = document.createElement('meta');
+      twitterTag.name = name;
       twitterTag.content = content;
+      document.head.appendChild(twitterTag);
     });
     
   }, [title, description, keywords, pageType, canonicalUrl, ogImage, twitterImage]);

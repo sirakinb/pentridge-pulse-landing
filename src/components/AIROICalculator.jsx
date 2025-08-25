@@ -68,16 +68,45 @@ const AIROICalculator = () => {
     }
   };
 
-  const handleDownloadReport = () => {
+  const handleGetReport = () => {
     setShowEmailForm(true);
   };
 
-  const handleEmailSubmit = (e) => {
+  const handleEmailSubmit = async (e) => {
     e.preventDefault();
-    // Here you would typically send the email to your system
-    // For now, we'll just show a success message
-    alert('Thank you! Your detailed ROI report has been sent to your email.');
-    setShowEmailForm(false);
+    
+    try {
+      // Send email to Make.com webhook
+      const response = await fetch('https://hook.us2.make.com/cr5gcenu27h7vhpceaw9rvtc4khymdm9', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          companySize: formData.companySize,
+          currentHours: formData.currentHours,
+          hourlyRate: formData.hourlyRate,
+          automationPotential: formData.automationPotential,
+          implementationCost: formData.implementationCost,
+          calculatedResults: results,
+          timestamp: new Date().toISOString(),
+          source: 'AI ROI Calculator'
+        })
+      });
+
+      if (response.ok) {
+        alert('Thank you! We\'ve received your request. Your detailed ROI report will be prepared and sent to your email shortly.');
+        setShowEmailForm(false);
+        // Reset email field
+        setFormData(prev => ({ ...prev, email: '' }));
+      } else {
+        throw new Error('Failed to submit');
+      }
+    } catch (error) {
+      console.error('Error submitting email:', error);
+      alert('There was an issue submitting your request. Please try again or contact us directly.');
+    }
   };
 
   const results = showResults ? calculateROI() : null;
@@ -266,11 +295,11 @@ const AIROICalculator = () => {
               )}
 
               <button
-                onClick={handleDownloadReport}
+                onClick={handleGetReport}
                 className="w-full bg-green-600 text-white py-3 px-4 rounded-md hover:bg-green-700 transition-colors font-medium flex items-center justify-center"
               >
                 <Download className="w-5 h-5 mr-2" />
-                Download Detailed Report
+                Get Detailed Report
               </button>
             </div>
           ) : (
@@ -293,7 +322,7 @@ const AIROICalculator = () => {
               Get Your Detailed ROI Report
             </h3>
             <p className="text-gray-600 mb-4">
-              Enter your email to receive a comprehensive analysis with actionable insights and implementation recommendations.
+              Enter your email to receive a comprehensive analysis with actionable insights and implementation recommendations. We'll prepare your personalized report and send it shortly.
             </p>
             
             <form onSubmit={handleEmailSubmit} className="space-y-4">

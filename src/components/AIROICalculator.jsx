@@ -30,6 +30,7 @@ const AIROICalculator = () => {
   const calculateROI = () => {
     try {
       const {
+        companySize,
         currentHours,
         hourlyRate,
         automationPotential,
@@ -40,12 +41,35 @@ const AIROICalculator = () => {
         return null;
       }
 
+      // Company size multipliers for more accurate calculations
+      const getCompanySizeMultiplier = (size) => {
+        switch (size) {
+          case '1-10': return { efficiency: 1.2, cost: 0.8, complexity: 0.8 };
+          case '11-50': return { efficiency: 1.0, cost: 1.0, complexity: 1.0 };
+          case '51-200': return { efficiency: 0.9, cost: 1.3, complexity: 1.2 };
+          case '200+': return { efficiency: 0.8, cost: 1.6, complexity: 1.5 };
+          default: return { efficiency: 1.0, cost: 1.0, complexity: 1.0 };
+        }
+      };
+
+      const sizeMultiplier = getCompanySizeMultiplier(companySize);
+      
+      // Base calculations
       const currentCost = parseFloat(currentHours) * parseFloat(hourlyRate) * 52; // Weekly to annual
-      const hoursSaved = (parseFloat(currentHours) * parseFloat(automationPotential)) / 100;
-      const annualSavings = hoursSaved * parseFloat(hourlyRate) * 52;
-      const netSavings = annualSavings - parseFloat(implementationCost || 0);
-      const roi = implementationCost && parseFloat(implementationCost) > 0 ? ((netSavings / parseFloat(implementationCost)) * 100) : 0;
-      const paybackPeriod = implementationCost && parseFloat(implementationCost) > 0 && annualSavings > 0 ? (parseFloat(implementationCost) / annualSavings) * 12 : 0;
+      const baseHoursSaved = (parseFloat(currentHours) * parseFloat(automationPotential)) / 100;
+      
+      // Apply company size efficiency multiplier
+      const adjustedHoursSaved = baseHoursSaved * sizeMultiplier.efficiency;
+      const annualSavings = adjustedHoursSaved * parseFloat(hourlyRate) * 52;
+      
+      // Apply company size cost multiplier to implementation cost if not provided
+      const adjustedImplementationCost = implementationCost 
+        ? parseFloat(implementationCost) 
+        : currentCost * 0.15 * sizeMultiplier.cost; // 15% of current cost as baseline, adjusted by size
+      
+      const netSavings = annualSavings - adjustedImplementationCost;
+      const roi = adjustedImplementationCost > 0 ? ((netSavings / adjustedImplementationCost) * 100) : 0;
+      const paybackPeriod = adjustedImplementationCost > 0 && annualSavings > 0 ? (adjustedImplementationCost / annualSavings) * 12 : 0;
 
       return {
         currentCost: currentCost.toFixed(2),
@@ -53,7 +77,9 @@ const AIROICalculator = () => {
         netSavings: netSavings.toFixed(2),
         roi: roi.toFixed(1),
         paybackPeriod: paybackPeriod.toFixed(1),
-        hoursSaved: hoursSaved.toFixed(1)
+        hoursSaved: adjustedHoursSaved.toFixed(1),
+        estimatedImplementationCost: adjustedImplementationCost.toFixed(2),
+        companySizeMultiplier: sizeMultiplier
       };
     } catch (error) {
       console.error('Error calculating ROI:', error);
@@ -90,6 +116,7 @@ const AIROICalculator = () => {
           automationPotential: formData.automationPotential,
           implementationCost: formData.implementationCost,
           calculatedResults: results,
+          companySizeMultiplier: results?.companySizeMultiplier,
           timestamp: new Date().toISOString(),
           source: 'AI ROI Calculator'
         })
@@ -273,25 +300,29 @@ const AIROICalculator = () => {
                 <p className="text-2xl font-bold text-purple-900">${results.currentCost}</p>
               </div>
 
-              {formData.implementationCost && (
-                <>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-orange-50 p-4 rounded-lg">
-                      <span className="text-sm font-medium text-orange-800">ROI</span>
-                      <p className="text-2xl font-bold text-orange-900">{results.roi}%</p>
-                    </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-orange-50 p-4 rounded-lg">
+                  <span className="text-sm font-medium text-orange-800">ROI</span>
+                  <p className="text-2xl font-bold text-orange-900">{results.roi}%</p>
+                </div>
 
-                    <div className="bg-indigo-50 p-4 rounded-lg">
-                      <span className="text-sm font-medium text-indigo-800">Payback (months)</span>
-                      <p className="text-2xl font-bold text-indigo-900">{results.paybackPeriod}</p>
-                    </div>
-                  </div>
+                <div className="bg-indigo-50 p-4 rounded-lg">
+                  <span className="text-sm font-medium text-indigo-800">Payback (months)</span>
+                  <p className="text-2xl font-bold text-indigo-900">{results.paybackPeriod}</p>
+                </div>
+              </div>
 
-                  <div className="bg-green-50 p-4 rounded-lg">
-                    <span className="text-sm font-medium text-green-800">Net Annual Savings</span>
-                    <p className="text-2xl font-bold text-green-900">${results.netSavings}</p>
-                  </div>
-                </>
+              <div className="bg-green-50 p-4 rounded-lg">
+                <span className="text-sm font-medium text-green-800">Net Annual Savings</span>
+                <p className="text-2xl font-bold text-green-900">${results.netSavings}</p>
+              </div>
+
+              {!formData.implementationCost && (
+                <div className="bg-blue-50 p-4 rounded-lg">
+                  <span className="text-sm font-medium text-blue-800">Estimated Implementation Cost</span>
+                  <p className="text-2xl font-bold text-blue-900">${results.estimatedImplementationCost}</p>
+                  <p className="text-xs text-blue-600 mt-1">Based on company size and current costs</p>
+                </div>
               )}
 
               <button

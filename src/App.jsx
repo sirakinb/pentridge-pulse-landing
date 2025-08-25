@@ -10,6 +10,7 @@ import AIVoiceAgents from './pages/AIVoiceAgents'; // Add this route
 import AIBusinessAutomationGuide from './pages/AIBusinessAutomationGuide'; // Add this route
 import PropertyManagementVoiceAICaseStudy from './pages/PropertyManagementVoiceAICaseStudy';
 import Services from './pages/Services'; // Add services page
+import ROICalculator from './pages/ROICalculator'; // Add ROI Calculator page
 import Footer from './components/Footer'; // Add this import
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -41,6 +42,7 @@ const App = () => {
               <Route path="/ai-business-automation-guide" element={<AIBusinessAutomationGuide />} /> {/* Add this route */}
               <Route path="/case-studies/property-management-voice-ai" element={<PropertyManagementVoiceAICaseStudy />} />
               <Route path="/services" element={<Services />} /> {/* Add services route */}
+              <Route path="/roi-calculator" element={<ROICalculator />} /> {/* Add ROI Calculator route */}
               <Route path="/terms" element={<TermsAndConditions />} />
               <Route path="/privacy" element={<PrivacyPolicy />} />
               <Route path="/seo-test" element={<SEOTest />} />

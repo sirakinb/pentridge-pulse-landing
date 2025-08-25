@@ -101,7 +101,7 @@ const PropertyManagementVoiceAICaseStudy = () => {
                 <li>10% conversion → <strong>+7.20</strong> leases/week, <strong>+375</strong>/year ≈ <strong>$461,573</strong>/year</li>
                 <li>15% conversion → <strong>+10.81</strong> leases/week, <strong>+562</strong>/year ≈ <strong>$692,360</strong>/year</li>
               </ul>
-              <p className="text-sm text-gray-600 mt-3">Note: If we model uplift on <em>all</em> qualified leads (not just after‑hours), even a conservative 5% conversion implies ~15+ leases/week and >$900K/year in management revenue.</p>
+              <p className="text-sm text-gray-600 mt-3">Note: If we model uplift on <em>all</em> qualified leads (not just after‑hours), even a conservative 5% conversion implies ~15+ leases/week and &gt;$900K/year in management revenue.</p>
             </div>
           </div>
 

@@ -113,6 +113,7 @@ const Header = () => {
               <Link to="/services/ai-voice-agents" className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">AI Voice Agents</Link>
               <Link to="/content-house" className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">Content House</Link>
               <a href="https://build.pentridgemedia.com" target="_blank" rel="noopener noreferrer" className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">Custom Apps</a>
+              <Link to="/roi-calculator" className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">AI ROI Calculator</Link>
               <div className="text-white/90 font-medium py-2">Products</div>
               <a href="https://www.dropcard.app/" target="_blank" rel="noopener noreferrer" className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">DropCard</a>
               <div className="text-white/90 font-medium py-2">Community</div>
@@ -166,6 +167,15 @@ const Header = () => {
                           }}
                         >
                           <div className="font-medium text-lg">Custom Apps + Automations</div>
+                        </button>
+                        <button 
+                          className="w-full text-left px-6 py-4 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 cursor-pointer rounded-lg"
+                          onClick={() => {
+                            navigate('/roi-calculator');
+                            setIsServicesOpen(false);
+                          }}
+                        >
+                          <div className="font-medium text-lg">AI ROI Calculator</div>
                         </button>
                       </div>
                     </div>

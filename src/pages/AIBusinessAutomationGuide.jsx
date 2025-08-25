@@ -251,6 +251,18 @@ const AIBusinessAutomationGuide = () => {
               <p className="text-gray-700 text-sm">
                 Lead-to-sale workflows in particular see strong improvements: one set of stats showed workflow automation led to 80% more leads and 75% higher conversions by automating marketing and sales processes. 61% of businesses implementing sales automation see ROI within 6 months.
               </p>
+              
+              <div className="mt-4 p-4 bg-white rounded-lg border border-green-200">
+                <p className="text-gray-700 text-sm mb-3">
+                  <strong>Want to calculate your own potential ROI?</strong> Use our free AI ROI Calculator to estimate time and cost savings for your specific business.
+                </p>
+                <Link 
+                  to="/roi-calculator" 
+                  className="inline-flex items-center px-4 py-2 bg-green-600 text-white text-sm font-medium rounded-md hover:bg-green-700 transition-colors"
+                >
+                  Calculate Your AI ROI →
+                </Link>
+              </div>
             </div>
           </section>
 

@@ -20,33 +20,45 @@ const AIROICalculator = () => {
       ...prev,
       [name]: value
     }));
+    
+    // Reset results when inputs change
+    if (showResults) {
+      setShowResults(false);
+    }
   };
 
   const calculateROI = () => {
-    const {
-      currentHours,
-      hourlyRate,
-      automationPotential,
-      implementationCost
-    } = formData;
+    try {
+      const {
+        currentHours,
+        hourlyRate,
+        automationPotential,
+        implementationCost
+      } = formData;
 
-    if (!currentHours || !hourlyRate) return null;
+      if (!currentHours || !hourlyRate || currentHours <= 0 || hourlyRate <= 0) {
+        return null;
+      }
 
-    const currentCost = parseFloat(currentHours) * parseFloat(hourlyRate) * 52; // Weekly to annual
-    const hoursSaved = (parseFloat(currentHours) * parseFloat(automationPotential)) / 100;
-    const annualSavings = hoursSaved * parseFloat(hourlyRate) * 52;
-    const netSavings = annualSavings - parseFloat(implementationCost || 0);
-    const roi = implementationCost ? ((netSavings / parseFloat(implementationCost)) * 100) : 0;
-    const paybackPeriod = implementationCost ? (parseFloat(implementationCost) / annualSavings) * 12 : 0;
+      const currentCost = parseFloat(currentHours) * parseFloat(hourlyRate) * 52; // Weekly to annual
+      const hoursSaved = (parseFloat(currentHours) * parseFloat(automationPotential)) / 100;
+      const annualSavings = hoursSaved * parseFloat(hourlyRate) * 52;
+      const netSavings = annualSavings - parseFloat(implementationCost || 0);
+      const roi = implementationCost && parseFloat(implementationCost) > 0 ? ((netSavings / parseFloat(implementationCost)) * 100) : 0;
+      const paybackPeriod = implementationCost && parseFloat(implementationCost) > 0 && annualSavings > 0 ? (parseFloat(implementationCost) / annualSavings) * 12 : 0;
 
-    return {
-      currentCost: currentCost.toFixed(2),
-      annualSavings: annualSavings.toFixed(2),
-      netSavings: netSavings.toFixed(2),
-      roi: roi.toFixed(1),
-      paybackPeriod: paybackPeriod.toFixed(1),
-      hoursSaved: hoursSaved.toFixed(1)
-    };
+      return {
+        currentCost: currentCost.toFixed(2),
+        annualSavings: annualSavings.toFixed(2),
+        netSavings: netSavings.toFixed(2),
+        roi: roi.toFixed(1),
+        paybackPeriod: paybackPeriod.toFixed(1),
+        hoursSaved: hoursSaved.toFixed(1)
+      };
+    } catch (error) {
+      console.error('Error calculating ROI:', error);
+      return null;
+    }
   };
 
   const handleCalculate = (e) => {
@@ -68,7 +80,7 @@ const AIROICalculator = () => {
     setShowEmailForm(false);
   };
 
-  const results = calculateROI();
+  const results = showResults ? calculateROI() : null;
 
   return (
     <div className="max-w-4xl mx-auto p-6">
@@ -204,7 +216,7 @@ const AIROICalculator = () => {
                 Enter your business metrics and click "Calculate ROI" to see your potential savings
               </p>
             </div>
-          ) : (
+          ) : results ? (
             <div className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-blue-50 p-4 rounded-lg">
@@ -260,6 +272,14 @@ const AIROICalculator = () => {
                 <Download className="w-5 h-5 mr-2" />
                 Download Detailed Report
               </button>
+            </div>
+          ) : (
+            <div className="text-center py-12">
+              <div className="w-16 h-16 bg-red-100 rounded-full mx-auto mb-4 flex items-center justify-center">
+                <Calculator className="w-8 h-8 text-red-600" />
+              </div>
+              <p className="text-red-600 font-medium">Error calculating results</p>
+              <p className="text-gray-500 text-sm mt-2">Please check your inputs and try again</p>
             </div>
           )}
         </div>

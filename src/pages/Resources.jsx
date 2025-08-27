@@ -165,17 +165,10 @@ const Resources = () => {
                   variant="secondary" 
                   size="lg"
                   className="bg-white text-blue-600 hover:bg-gray-100"
+                  onClick={() => window.open('https://discover.circle.so/product/pentridge-club-ai-automation-emerging-tech-community', '_blank')}
                 >
                   <Users className="w-4 h-4 mr-2" />
                   Join Community
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-                <Button 
-                  variant="outline" 
-                  size="lg"
-                  className="border-white text-white hover:bg-white/10 bg-transparent"
-                >
-                  Learn More
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </div>

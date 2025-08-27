@@ -118,6 +118,41 @@ const PropertyManagementVoiceAICaseStudy = () => {
           </div>
         </section>
 
+        {/* Strategic Interlinking Section */}
+        <section className="mt-12 mb-12">
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Services CTA */}
+            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-xl border border-blue-200">
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Learn More About Our Services</h3>
+              <p className="text-gray-700 mb-4">
+                Discover how our AI voice agent services can transform your business operations 
+                and help you achieve similar results.
+              </p>
+              <Link 
+                to="/services/ai-voice-agents" 
+                className="inline-flex items-center px-4 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
+              >
+                Explore AI Voice Agents →
+              </Link>
+            </div>
+
+            {/* ROI Calculator CTA */}
+            <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-6 rounded-xl border border-green-200">
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Calculate Your Potential ROI</h3>
+              <p className="text-gray-700 mb-4">
+                Use our AI ROI Calculator to estimate the time and cost savings 
+                you could achieve with AI automation in your business.
+              </p>
+              <Link 
+                to="/roi-calculator" 
+                className="inline-flex items-center px-4 py-2 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 transition-colors"
+              >
+                Calculate Your ROI →
+              </Link>
+            </div>
+          </div>
+        </section>
+
         {/* CTA */}
         <section className="mt-12">
           <div className="bg-violet-600 text-white rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-5">

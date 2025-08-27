@@ -135,6 +135,52 @@ const ROICalculator = () => {
           </div>
         </div>
 
+        {/* Strategic Interlinking Section */}
+        <div className="bg-gray-50 py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-gray-900">
+                Ready to Take the Next Step?
+              </h2>
+              <p className="mt-4 text-lg text-gray-600">
+                Now that you've calculated your potential ROI, explore our services and see real results
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Services CTA */}
+              <div className="bg-white p-8 rounded-2xl border border-purple-200 shadow-sm">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Learn More About Our Services</h3>
+                <p className="text-gray-700 mb-6">
+                  Discover how our AI voice agent services can help you achieve the savings you just calculated. 
+                  We specialize in automating customer interactions and lead qualification.
+                </p>
+                <Link 
+                  to="/services/ai-voice-agents" 
+                  className="inline-flex items-center px-6 py-3 bg-purple-600 text-white font-medium rounded-lg hover:bg-purple-700 transition-colors"
+                >
+                  Explore AI Voice Agents →
+                </Link>
+              </div>
+
+              {/* Case Study CTA */}
+              <div className="bg-white p-8 rounded-2xl border border-green-200 shadow-sm">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">See Real Results</h3>
+                <p className="text-gray-700 mb-6">
+                  Learn how we implemented a voice AI agent for a property management company, 
+                  saving them 40+ hours per week and generating $300K+ in additional annual revenue.
+                </p>
+                <Link 
+                  to="/case-studies/property-management-voice-ai" 
+                  className="inline-flex items-center px-6 py-3 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 transition-colors"
+                >
+                  Read the Case Study →
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* CTA Section */}
         <div className="bg-purple-600 py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

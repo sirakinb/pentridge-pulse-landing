@@ -384,6 +384,53 @@ const AIVoiceAgents = () => {
           </div>
         </motion.div>
 
+        {/* Case Study Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.65 }}
+          className="mb-16"
+        >
+          <div className="bg-gradient-to-r from-green-600 to-emerald-600 rounded-2xl p-8 md:p-12 text-white">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl font-bold mb-4">See Real Results in Action</h2>
+              <p className="text-xl text-green-100 max-w-3xl mx-auto">
+                Discover how we implemented a voice AI agent for a property management company, 
+                saving them 40+ hours per week and generating $300K+ in additional annual revenue.
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-3 gap-6 mb-8">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-green-200">40+</div>
+                <div className="text-green-100">Hours Saved Per Week</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-green-200">$300K+</div>
+                <div className="text-green-100">Additional Annual Revenue</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-green-200">80%</div>
+                <div className="text-green-100">Calls Handled by AI</div>
+              </div>
+            </div>
+            
+            <div className="text-center">
+              <Button 
+                size="lg" 
+                variant="secondary"
+                className="bg-white text-green-600 hover:bg-gray-100"
+                onClick={() => window.location.href = '/case-studies/property-management-voice-ai'}
+              >
+                Read the Full Case Study →
+              </Button>
+              <p className="text-sm text-green-200 mt-3">
+                See how we implemented a voice AI agent for a property manager
+              </p>
+            </div>
+          </div>
+        </motion.div>
+
         {/* FAQ Section (between industries and CTA) */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

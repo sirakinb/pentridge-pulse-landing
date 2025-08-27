@@ -55,7 +55,7 @@ const Resources = () => {
                   <FileText className="w-3 h-3 mr-1" />
                   Complete Guide
                 </Badge>
-                <Badge variant="secondary">45 min read</Badge>
+                <Badge variant="secondary">20 min read</Badge>
               </div>
               <CardTitle className="text-xl text-gray-900">Complete Guide to AI Business Automation</CardTitle>
               <CardDescription className="text-gray-600">
@@ -173,9 +173,10 @@ const Resources = () => {
                 <Button 
                   variant="outline" 
                   size="lg"
-                  className="border-white text-white hover:bg-white/10"
+                  className="border-white text-white hover:bg-white/10 bg-transparent"
                 >
                   Learn More
+                  <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </div>
             </CardContent>

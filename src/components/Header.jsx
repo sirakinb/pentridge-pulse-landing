@@ -110,8 +110,7 @@ const Header = () => {
               <div className="text-white/90 font-medium py-2">Services</div>
               <Link to="/services/ai-voice-agents" className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">AI Voice Agents</Link>
               <Link to="/content-house" className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">Content House</Link>
-              <a href="https://build.pentridgemedia.com" target="_blank" rel="noopener noreferrer" className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">Custom Apps</a>
-              <Link to="/roi-calculator" className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">AI ROI Calculator</Link>
+              <Link to="/custom-apps-automations" className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">Custom Apps + Automations</Link>
               <div className="text-white/90 font-medium py-2">Products</div>
               <a href="https://www.dropcard.app/" target="_blank" rel="noopener noreferrer" className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">DropCard</a>
               <div className="text-white/90 font-medium py-2">Community</div>

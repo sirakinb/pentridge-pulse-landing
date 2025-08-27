@@ -388,10 +388,10 @@ const AIBusinessAutomationGuide = () => {
 
               <div className="bg-white/20 rounded-lg p-6 mb-4">
                 <p className="text-gray-800 mb-3">
-                  <strong>Want to see the numbers for your business?</strong> Use our <Link to="/roi-calculator" className="text-purple-200 hover:text-white font-medium underline">AI ROI Calculator</Link> to estimate your potential time and cost savings from automation.
+                  <strong>Want to see the numbers for your business?</strong> Use our <Link to="/roi-calculator" className="text-blue-300 hover:text-white font-semibold underline decoration-2 underline-offset-2">AI ROI Calculator</Link> to estimate your potential time and cost savings from automation.
                 </p>
                 <p className="text-gray-800">
-                  <strong>Ready to implement?</strong> Learn more about our <Link to="/services/ai-voice-agents" className="text-purple-200 hover:text-white font-medium underline">AI voice agent services</Link> and see how we can help you deploy these solutions.
+                  <strong>Ready to implement?</strong> Learn more about our <Link to="/services/ai-voice-agents" className="text-blue-300 hover:text-white font-semibold underline decoration-2 underline-offset-2">AI voice agent services</Link> and see how we can help you deploy these solutions.
                 </p>
               </div>
 

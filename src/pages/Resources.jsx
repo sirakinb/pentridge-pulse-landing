@@ -59,6 +59,17 @@ const Resources = () => {
         tags: ["Customer Service", "AI", "Best Practices"]
       }
     ],
+    usecases: [
+      {
+        id: 11,
+        title: "AI Process Automation Examples (50+ Use Cases)",
+        description: "Browse use cases by function and industry to spark automation ideas.",
+        type: "Resource Hub",
+        accessUrl: "/resources/ai-process-automation-examples",
+        image: "/proposal.png",
+        tags: ["Use Cases", "Automation", "Small Business"]
+      }
+    ],
     templates: [
       {
         id: 4,
@@ -136,6 +147,7 @@ const Resources = () => {
 
   const allResources = [
     ...resources.guides,
+    ...resources.usecases,
     ...resources.templates,
     ...resources.webinars,
     ...resources.tools
@@ -216,7 +228,13 @@ const Resources = () => {
             onClick={() => {
               if (resource.downloadUrl) window.open(resource.downloadUrl, '_blank');
               if (resource.watchUrl) window.open(resource.watchUrl, '_blank');
-              if (resource.accessUrl) window.open(resource.accessUrl, '_blank');
+              if (resource.accessUrl) {
+                if (resource.accessUrl.startsWith('/')) {
+                  window.location.href = resource.accessUrl;
+                } else {
+                  window.open(resource.accessUrl, '_blank');
+                }
+              }
             }}
           >
             {resource.downloadUrl && (
@@ -234,7 +252,7 @@ const Resources = () => {
             {resource.accessUrl && (
               <>
                 <ExternalLink className="w-3 h-3 mr-1" />
-                Access
+                Open
               </>
             )}
           </Button>
@@ -343,8 +361,9 @@ const Resources = () => {
           ) : (
             // Tabbed Resources
             <Tabs defaultValue="guides" className="w-full">
-              <TabsList className="grid w-full grid-cols-4 mb-8">
+              <TabsList className="grid w-full grid-cols-5 mb-8">
                 <TabsTrigger value="guides">Guides</TabsTrigger>
+                <TabsTrigger value="usecases">Use Cases</TabsTrigger>
                 <TabsTrigger value="templates">Templates</TabsTrigger>
                 <TabsTrigger value="webinars">Webinars</TabsTrigger>
                 <TabsTrigger value="tools">Tools</TabsTrigger>
@@ -360,6 +379,21 @@ const Resources = () => {
                       transition={{ duration: 0.6, delay: index * 0.1 }}
                     >
                       <ResourceCard resource={guide} />
+                    </motion.div>
+                  ))}
+                </div>
+              </TabsContent>
+
+              <TabsContent value="usecases">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {resources.usecases.map((hub, index) => (
+                    <motion.div
+                      key={hub.id}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: index * 0.1 }}
+                    >
+                      <ResourceCard resource={hub} />
                     </motion.div>
                   ))}
                 </div>

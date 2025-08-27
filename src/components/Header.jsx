@@ -165,15 +165,6 @@ const Header = () => {
                         >
                           <div className="font-medium text-lg">Custom Apps + Automations</div>
                         </button>
-                        <button 
-                          className="w-full text-left px-6 py-4 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 cursor-pointer rounded-lg"
-                          onClick={() => {
-                            navigate('/roi-calculator');
-                            setIsServicesOpen(false);
-                          }}
-                        >
-                          <div className="font-medium text-lg">AI ROI Calculator</div>
-                        </button>
                       </div>
                     </div>
                   )}

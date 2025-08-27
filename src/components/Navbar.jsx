@@ -77,17 +77,7 @@ const Navbar = ({ variant = "light" }) => {
             Community
           </a>
           <Link to="/blog" className={`${isDark ? 'hover:text-purple-200' : 'hover:text-purple-200'}`}>Blog</Link>
-          <Dialog>
-            <DialogTrigger asChild>
-              <button className={`${isDark ? 'hover:text-purple-200' : 'hover:text-purple-200'}`}>Resources</button>
-            </DialogTrigger>
-            <DialogContent className={isDark ? 'bg-slate-900 border-slate-800 text-slate-100' : ''}>
-              <DialogHeader>
-                <DialogTitle>Coming soon</DialogTitle>
-              </DialogHeader>
-              <p className="text-sm opacity-80">We're polishing our resources hub. Check back soon.</p>
-            </DialogContent>
-          </Dialog>
+          <Link to="/resources" className={`${isDark ? 'hover:text-purple-200' : 'hover:text-purple-200'}`}>Resources</Link>
           <Link to="/about" className={`${isDark ? 'hover:text-purple-200' : 'hover:text-purple-200'}`}>About Us</Link>
           <Link to="/contact" className={`${isDark ? 'hover:text-purple-200' : 'hover:text-purple-200'}`}>Contact</Link>
           <Button 

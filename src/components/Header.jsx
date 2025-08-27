@@ -72,15 +72,13 @@ const Header = () => {
                     >
                       <div className="font-medium">Blog</div>
                     </Link>
-                    <button 
-                      className="w-full text-left px-4 py-3 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 border-b border-white/10 cursor-pointer rounded-lg"
-                      onClick={() => {
-                        alert('Coming soon');
-                        setIsNavOpen(false);
-                      }}
+                    <Link 
+                      to="/resources"
+                      className="w-full text-left px-4 py-3 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 border-b border-white/10 cursor-pointer rounded-lg block"
+                      onClick={() => setIsNavOpen(false)}
                     >
                       <div className="font-medium">Resources</div>
-                    </button>
+                    </Link>
                     <Link 
                       to="/contact"
                       className="w-full text-left px-4 py-3 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 border-b border-white/10 cursor-pointer rounded-lg block"

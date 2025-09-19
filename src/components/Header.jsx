@@ -110,11 +110,41 @@ const Header = () => {
               <div className="text-white/90 font-medium py-2">Services</div>
               <Link to="/services/ai-voice-agents" className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">AI Voice Agents</Link>
               <Link to="/content-house" className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">Content House</Link>
-              <a href="https://build.pentridgemedia.com" target="_blank" rel="noopener noreferrer" className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">Custom Apps + Automations</a>
+              <button 
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  window.open('https://build.pentridgemedia.com', '_blank', 'noopener,noreferrer');
+                  setIsNavOpen(false);
+                }}
+                className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300 w-full text-left"
+              >
+                Custom Apps + Automations
+              </button>
               <div className="text-white/90 font-medium py-2">Products</div>
-              <a href="https://www.dropcard.app/" target="_blank" rel="noopener noreferrer" className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">DropCard</a>
+              <button 
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  window.open('https://www.dropcard.app/', '_blank', 'noopener,noreferrer');
+                  setIsNavOpen(false);
+                }}
+                className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300 w-full text-left"
+              >
+                DropCard
+              </button>
               <div className="text-white/90 font-medium py-2">Community</div>
-              <a href="https://discover.circle.so/product/pentridge-club-ai-automation-emerging-tech-community" target="_blank" rel="noopener noreferrer" className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">Pentridge Club</a>
+              <button 
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  window.open('https://discover.circle.so/product/pentridge-club-ai-automation-emerging-tech-community', '_blank', 'noopener,noreferrer');
+                  setIsNavOpen(false);
+                }}
+                className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300 w-full text-left"
+              >
+                Pentridge Club
+              </button>
               <Link to="/blog" className="text-white/80 block py-2 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">Blog</Link>
               <Link to="/resources" className="text-white/80 block py-2 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">Resources</Link>
               <Link to="/contact" className="text-white/80 block py-2 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">Contact</Link>

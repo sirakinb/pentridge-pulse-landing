@@ -110,13 +110,13 @@ const Header = () => {
               <div className="text-white/90 font-medium py-2">Services</div>
               <Link to="/services/ai-voice-agents" className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">AI Voice Agents</Link>
               <Link to="/content-house" className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">Content House</Link>
-              <Link to="/custom-apps-automations" className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">Custom Apps + Automations</Link>
+              <a href="https://build.pentridgemedia.com" target="_blank" rel="noopener noreferrer" className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">Custom Apps + Automations</a>
               <div className="text-white/90 font-medium py-2">Products</div>
               <a href="https://www.dropcard.app/" target="_blank" rel="noopener noreferrer" className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">DropCard</a>
               <div className="text-white/90 font-medium py-2">Community</div>
               <a href="https://discover.circle.so/product/pentridge-club-ai-automation-emerging-tech-community" target="_blank" rel="noopener noreferrer" className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">Pentridge Club</a>
               <Link to="/blog" className="text-white/80 block py-2 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">Blog</Link>
-              <button className="text-white/80 block w-full text-left py-2 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300" onClick={() => alert('Coming soon')}>Resources</button>
+              <Link to="/resources" className="text-white/80 block py-2 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">Resources</Link>
               <Link to="/contact" className="text-white/80 block py-2 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">Contact</Link>
               <Link to="/about" className="text-white/80 block py-2 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">About Us</Link>
             </div>
@@ -232,6 +232,8 @@ const Header = () => {
               Systems, Software and Community for<br />
               Main Street Businesses
             </h2>
+
+
           </div>
         </div>
       </div>

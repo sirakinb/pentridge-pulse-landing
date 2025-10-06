@@ -11,15 +11,15 @@ const PartnerStrip = () => {
   ];
 
   return (
-    <div className="bg-black/90 py-12 border-t border-gray-800">
+    <div className="bg-gray-600 py-16 pb-24">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-center mb-8"
+          className="text-center mb-12"
         >
-          <h3 className="text-white/60 text-sm font-medium tracking-wider uppercase mb-2">
+          <h3 className="text-white/70 text-sm font-medium tracking-wider uppercase mb-2">
             Trusted by Industry Leaders
           </h3>
         </motion.div>
@@ -28,7 +28,7 @@ const PartnerStrip = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="flex flex-wrap justify-center items-center gap-8 md:gap-12 lg:gap-16"
+          className="flex flex-wrap justify-center items-center gap-12 md:gap-16 lg:gap-20"
         >
           {partners.map((partner, index) => (
             <motion.div
@@ -36,18 +36,12 @@ const PartnerStrip = () => {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-              className="flex-shrink-0 bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+              className="flex-shrink-0 hover:scale-110 transition-transform duration-300"
             >
               <img
                 src={partner.logo}
                 alt={partner.name}
-                className="h-16 md:h-20 w-auto object-contain mx-auto"
-                onError={(e) => {
-                  console.log(`Failed to load: ${partner.logo}`);
-                }}
-                onLoad={(e) => {
-                  console.log(`Successfully loaded: ${partner.logo}`);
-                }}
+                className="h-32 md:h-40 lg:h-48 w-auto object-contain mx-auto hover:opacity-80 transition-all"
               />
             </motion.div>
           ))}

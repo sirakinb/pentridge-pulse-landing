@@ -3,11 +3,11 @@ import { motion } from 'framer-motion';
 
 const PartnerStrip = () => {
   const partners = [
-    { name: 'Partner 1', logo: '/9.png' },
-    { name: 'Partner 2', logo: '/10.png' },
-    { name: 'Partner 3', logo: '/11.png' },
-    { name: 'Partner 4', logo: '/12.png' },
-    { name: 'Partner 5', logo: '/p13.png' }
+    { name: 'Jackson Rental Homes', logo: '/p9.png' },
+    { name: 'FunTimes', logo: '/p10.png' },
+    { name: 'Blue Proma Digital', logo: '/p11.png' },
+    { name: 'Utopos', logo: '/p12.png' },
+    { name: 'Pearls Girl Productions', logo: '/p13.png' }
   ];
 
   return (

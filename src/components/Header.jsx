@@ -138,7 +138,7 @@ const Header = () => {
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
-                  window.open('https://discover.circle.so/product/pentridge-club-ai-automation-emerging-tech-community', '_blank', 'noopener,noreferrer');
+                  window.open('https://www.skool.com/vibecodepioneers/', '_blank', 'noopener,noreferrer');
                   setIsNavOpen(false);
                 }}
                 className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300 w-full text-left"
@@ -231,7 +231,7 @@ const Header = () => {
               {/* Community Card */}
               <div className="relative">
                 <a 
-                  href="https://discover.circle.so/product/pentridge-club-ai-automation-emerging-tech-community"
+                  href="https://www.skool.com/vibecodepioneers/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block w-full text-center backdrop-blur-xl bg-white/10 rounded-2xl border border-white/20 shadow-2xl p-6 hover:bg-white/15 transition-all duration-300 group"

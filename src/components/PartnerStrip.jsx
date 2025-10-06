@@ -36,17 +36,14 @@ const PartnerStrip = () => {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-              className="flex-shrink-0 bg-white/10 rounded-lg p-4 backdrop-blur-sm border border-white/20"
+              className="flex-shrink-0 bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300"
             >
               <img
                 src={partner.logo}
                 alt={partner.name}
-                className="h-12 md:h-16 w-auto object-contain filter brightness-150 contrast-125 hover:filter-none transition-all duration-300 opacity-80 hover:opacity-100"
+                className="h-16 md:h-20 w-auto object-contain mx-auto"
                 onError={(e) => {
                   console.log(`Failed to load: ${partner.logo}`);
-                  e.target.style.display = 'none';
-                  // Show partner name as fallback
-                  e.target.parentElement.innerHTML = `<div class="text-white text-sm">${partner.name}</div>`;
                 }}
                 onLoad={(e) => {
                   console.log(`Successfully loaded: ${partner.logo}`);

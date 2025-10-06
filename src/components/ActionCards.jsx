@@ -23,10 +23,10 @@ const ActionCards = () => {
           className="text-center max-w-3xl mx-auto"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            How We Saved A Property Management Company 500+ Hours With AI Voice Agents
+            How A Property Management Company Is Saving 500+ Hours With AI Voice Agents
           </h2>
           <p className="text-white/70 text-lg mb-10">
-            See the exact system they are using to automate tenant calls and application inquiries
+            See the exact system we implemented to automate tenant calls and application inquiries
           </p>
           <button
             onClick={() => navigate('/case-studies/property-management-voice-ai')}

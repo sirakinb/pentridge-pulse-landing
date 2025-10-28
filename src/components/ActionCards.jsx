@@ -28,13 +28,24 @@ const ActionCards = () => {
           <p className="text-white/70 text-lg mb-10">
             See the exact system we implemented to automate tenant calls and application inquiries
           </p>
-          <button
-            onClick={() => navigate('/case-studies/property-management-voice-ai')}
-            className="inline-flex items-center gap-3 backdrop-blur-xl bg-white/10 hover:bg-white/20 border-2 border-white/30 rounded-full px-8 py-4 text-white font-semibold text-lg transition-all duration-300 shadow-2xl hover:shadow-purple-500/50 hover:scale-105 group"
-          >
-            Read the Case Study
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <button
+              onClick={() => navigate('/case-studies/property-management-voice-ai')}
+              className="inline-flex items-center gap-3 backdrop-blur-xl bg-white/10 hover:bg-white/20 border-2 border-white/30 rounded-full px-8 py-4 text-white font-semibold text-lg transition-all duration-300 shadow-2xl hover:shadow-purple-500/50 hover:scale-105 group"
+            >
+              Read the Case Study
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </button>
+            <a
+              href="https://tally.so/r/3NBGBl"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 backdrop-blur-xl bg-purple-600/80 hover:bg-purple-500/80 border-2 border-purple-400/50 rounded-full px-8 py-4 text-white font-semibold text-lg transition-all duration-300 shadow-2xl hover:shadow-purple-500/50 hover:scale-105 group"
+            >
+              Book A Call
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </a>
+          </div>
         </motion.div>
       </div>
     </div>

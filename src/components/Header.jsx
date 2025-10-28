@@ -110,6 +110,17 @@ const Header = () => {
               <div className="text-white/90 font-medium py-2">Services</div>
               <Link to="/services/ai-voice-agents" className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">AI Voice Agents</Link>
               <Link to="/content-house" className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">Content House</Link>
+              <button 
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  window.open('https://tally.so/r/3NBGBl', '_blank', 'noopener,noreferrer');
+                  setIsNavOpen(false);
+                }}
+                className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300 w-full text-left"
+              >
+                Book a Call
+              </button>
               <div className="text-white/90 font-medium py-2">Products</div>
               <button 
                 onClick={(e) => {
@@ -158,7 +169,7 @@ const Header = () => {
                     <div className="absolute top-full left-0 mt-4 w-full backdrop-blur-xl bg-white/10 rounded-2xl shadow-2xl border border-white/20 z-50">
                       <div className="py-4">
                         <button 
-                          className="w-full text-left px-6 py-4 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 border-b border-white/10 last:border-b-0 cursor-pointer rounded-lg"
+                          className="w-full text-left px-6 py-4 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 border-b border-white/10 cursor-pointer rounded-lg"
                           onClick={() => {
                             navigate('/services/ai-voice-agents');
                             setIsServicesOpen(false);
@@ -167,13 +178,22 @@ const Header = () => {
                           <div className="font-medium text-lg">AI Voice Agents</div>
                         </button>
                         <button 
-                          className="w-full text-left px-6 py-4 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 cursor-pointer rounded-lg"
+                          className="w-full text-left px-6 py-4 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 border-b border-white/10 cursor-pointer rounded-lg"
                           onClick={() => {
                             navigate('/content-house');
                             setIsServicesOpen(false);
                           }}
                         >
                           <div className="font-medium text-lg">Content House</div>
+                        </button>
+                        <button 
+                          className="w-full text-left px-6 py-4 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 cursor-pointer rounded-lg"
+                          onClick={() => {
+                            window.open('https://tally.so/r/3NBGBl', '_blank');
+                            setIsServicesOpen(false);
+                          }}
+                        >
+                          <div className="font-medium text-lg">Book a Call</div>
                         </button>
                       </div>
                     </div>

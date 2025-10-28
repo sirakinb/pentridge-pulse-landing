@@ -45,8 +45,8 @@ const Navbar = ({ variant = "light" }) => {
                 <Link to="/content-house" className={`block px-4 py-3 ${isDark ? 'text-slate-100 hover:bg-slate-800 border-slate-800' : 'text-gray-800 hover:bg-purple-50 border-gray-100'} border-b`}>
                   <div className="font-medium">Content House</div>
                 </Link>
-                <a href="https://build.pentridgemedia.com" target="_blank" rel="noopener noreferrer" className={`block px-4 py-3 ${isDark ? 'text-slate-100 hover:bg-slate-800' : 'text-gray-800 hover:bg-purple-50'}`}>
-                  <div className="font-medium">Custom Apps + Automations</div>
+                <a href="https://tally.so/r/3NBGBl" target="_blank" rel="noopener noreferrer" className={`block px-4 py-3 ${isDark ? 'text-slate-100 hover:bg-slate-800' : 'text-gray-800 hover:bg-purple-50'}`}>
+                  <div className="font-medium">Book a Call</div>
                 </a>
               </div>
             </div>
@@ -69,7 +69,7 @@ const Navbar = ({ variant = "light" }) => {
             </div>
           </div>
           <a 
-            href="https://discover.circle.so/product/pentridge-club-ai-automation-emerging-tech-community" 
+            href="https://www.skool.com/vibecodepioneers/" 
             target="_blank" 
             rel="noopener noreferrer"
             className={`${isDark ? 'hover:text-purple-200' : 'hover:text-purple-200'}`}
@@ -136,17 +136,18 @@ const Navbar = ({ variant = "light" }) => {
                   </div>
                 </Link>
                 <a 
-                  href="https://build.pentridgemedia.com" 
+                  href="https://tally.so/r/3NBGBl" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="flex items-center gap-3 w-full p-3 rounded-xl bg-purple-700/40 border border-purple-500/30 text-white hover:bg-purple-600/60 hover:border-purple-400/50 hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
+                  onClick={() => setIsNavOpen(false)}
                 >
                   <div className="p-2 rounded-lg bg-purple-500/40">
-                    <Zap className="h-4 w-4 text-purple-200" />
+                    <Calendar className="h-4 w-4 text-purple-200" />
                   </div>
                   <div>
-                    <span className="font-medium">Custom Apps + Automations</span>
-                    <p className="text-xs text-purple-200/80 mt-0.5">Bespoke solutions & workflows</p>
+                    <span className="font-medium">Book a Call</span>
+                    <p className="text-xs text-purple-200/80 mt-0.5">Schedule a consultation</p>
                   </div>
                 </a>
               </div>
@@ -188,7 +189,7 @@ const Navbar = ({ variant = "light" }) => {
               </div>
               <div className="ml-2 space-y-2">
                 <a 
-                  href="https://discover.circle.so/product/pentridge-club-ai-automation-emerging-tech-community" 
+                  href="https://www.skool.com/vibecodepioneers/" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="flex items-center gap-3 w-full p-3 rounded-xl bg-purple-700/40 border border-purple-500/30 text-white hover:bg-purple-600/60 hover:border-purple-400/50 hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
@@ -197,7 +198,7 @@ const Navbar = ({ variant = "light" }) => {
                     <Users2 className="h-4 w-4 text-purple-200" />
                   </div>
                   <div>
-                    <span className="font-medium">Pentridge Club</span>
+                    <span className="font-medium">Vibe Code Pioneers</span>
                     <p className="text-xs text-purple-200/80 mt-0.5">AI & automation community</p>
                   </div>
                 </a>

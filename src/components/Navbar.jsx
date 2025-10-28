@@ -199,7 +199,7 @@ const Navbar = ({ variant = "light" }) => {
                   </div>
                   <div>
                     <span className="font-medium">Vibe Code Pioneers</span>
-                    <p className="text-xs text-purple-200/80 mt-0.5">AI & automation community</p>
+                    <p className="text-xs text-purple-200/80 mt-0.5">AI community</p>
                   </div>
                 </a>
               </div>

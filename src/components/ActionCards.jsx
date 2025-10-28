@@ -28,7 +28,7 @@ const ActionCards = () => {
           <p className="text-white/70 text-lg mb-10">
             See the exact system we implemented to automate tenant calls and application inquiries
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col gap-4 justify-center items-center">
             <button
               onClick={() => navigate('/case-studies/property-management-voice-ai')}
               className="inline-flex items-center gap-3 backdrop-blur-xl bg-white/10 hover:bg-white/20 border-2 border-white/30 rounded-full px-8 py-4 text-white font-semibold text-lg transition-all duration-300 shadow-2xl hover:shadow-purple-500/50 hover:scale-105 group"

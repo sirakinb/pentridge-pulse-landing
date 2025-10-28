@@ -110,17 +110,6 @@ const Header = () => {
               <div className="text-white/90 font-medium py-2">Services</div>
               <Link to="/services/ai-voice-agents" className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">AI Voice Agents</Link>
               <Link to="/content-house" className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">Content House</Link>
-              <button 
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  window.open('https://build.pentridgemedia.com', '_blank', 'noopener,noreferrer');
-                  setIsNavOpen(false);
-                }}
-                className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300 w-full text-left"
-              >
-                Custom Apps + Automations
-              </button>
               <div className="text-white/90 font-medium py-2">Products</div>
               <button 
                 onClick={(e) => {
@@ -143,7 +132,7 @@ const Header = () => {
                 }}
                 className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300 w-full text-left"
               >
-                Pentridge Club
+                Vibe Code Pioneers
               </button>
               <Link to="/blog" className="text-white/80 block py-2 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">Blog</Link>
               <Link to="/resources" className="text-white/80 block py-2 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">Resources</Link>
@@ -178,22 +167,13 @@ const Header = () => {
                           <div className="font-medium text-lg">AI Voice Agents</div>
                         </button>
                         <button 
-                          className="w-full text-left px-6 py-4 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 border-b border-white/10 last:border-b-0 cursor-pointer rounded-lg"
+                          className="w-full text-left px-6 py-4 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 cursor-pointer rounded-lg"
                           onClick={() => {
                             navigate('/content-house');
                             setIsServicesOpen(false);
                           }}
                         >
                           <div className="font-medium text-lg">Content House</div>
-                        </button>
-                        <button 
-                          className="w-full text-left px-6 py-4 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 cursor-pointer rounded-lg"
-                          onClick={() => {
-                            window.open('https://build.pentridgemedia.com', '_blank');
-                            setIsServicesOpen(false);
-                          }}
-                        >
-                          <div className="font-medium text-lg">Custom Apps + Automations</div>
                         </button>
                       </div>
                     </div>

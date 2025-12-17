@@ -115,6 +115,7 @@ const Header = () => {
               <a href="https://build.pentridgemedia.com" target="_blank" rel="noopener noreferrer" className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">Custom Apps</a>
               <div className="text-white/90 font-medium py-2">Products</div>
               <a href="https://www.dropcard.app/" target="_blank" rel="noopener noreferrer" className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">DropCard</a>
+              <a href="https://blurapp.us" target="_blank" rel="noopener noreferrer" className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">Blur App</a>
               <div className="text-white/90 font-medium py-2">Community</div>
               <a href="https://discover.circle.so/product/pentridge-club-ai-automation-emerging-tech-community" target="_blank" rel="noopener noreferrer" className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">Pentridge Club</a>
               <Link to="/blog" className="text-white/80 block py-2 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">Blog</Link>
@@ -186,13 +187,22 @@ const Header = () => {
                     <div className="absolute top-full left-0 mt-4 w-full backdrop-blur-xl bg-white/10 rounded-2xl shadow-2xl border border-white/20 z-50">
                       <div className="py-4">
                         <button 
-                          className="w-full text-left px-6 py-4 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 cursor-pointer rounded-lg"
+                          className="w-full text-left px-6 py-4 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 border-b border-white/10 last:border-b-0 cursor-pointer rounded-lg"
                           onClick={() => {
                             window.open('https://www.dropcard.app/', '_blank');
                             setIsProductsOpen(false);
                           }}
                         >
                           <div className="font-medium text-lg">DropCard</div>
+                        </button>
+                        <button 
+                          className="w-full text-left px-6 py-4 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 cursor-pointer rounded-lg"
+                          onClick={() => {
+                            window.open('https://blurapp.us', '_blank');
+                            setIsProductsOpen(false);
+                          }}
+                        >
+                          <div className="font-medium text-lg">Blur App</div>
                         </button>
                       </div>
                     </div>

@@ -104,7 +104,7 @@ const ServicesSection = () => {
                 <div className="absolute bottom-full left-0 mb-4 w-full backdrop-blur-xl bg-purple-400/30 rounded-2xl shadow-2xl border border-purple-300/50 z-50">
                   <div className="py-4">
                     <button 
-                      className="w-full text-left px-6 py-4 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 cursor-pointer rounded-lg"
+                      className="w-full text-left px-6 py-4 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 border-b border-white/10 last:border-b-0 cursor-pointer rounded-lg"
                       onClick={() => {
                         window.open('https://www.dropcard.app/', '_blank');
                         setIsProductsOpen(false);
@@ -112,6 +112,15 @@ const ServicesSection = () => {
                     >
                       <div className="font-medium text-lg">DropCard</div>
                       <div className="text-sm text-white/70">Your networking, upgraded</div>
+                    </button>
+                    <button 
+                      className="w-full text-left px-6 py-4 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 cursor-pointer rounded-lg"
+                      onClick={() => {
+                        window.open('https://blurapp.us', '_blank');
+                        setIsProductsOpen(false);
+                      }}
+                    >
+                      <div className="font-medium text-lg">Blur App</div>
                     </button>
                   </div>
                 </div>

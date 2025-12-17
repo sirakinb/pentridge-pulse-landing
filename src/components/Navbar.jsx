@@ -62,8 +62,11 @@ const Navbar = ({ variant = "light" }) => {
               isDark ? 'bg-slate-900 border-slate-800' : 'bg-white border-gray-100'
             }`}>
               <div className="py-2">
-                <a href="https://www.dropcard.app/" target="_blank" rel="noopener noreferrer" className={`block px-4 py-3 ${isDark ? 'text-slate-100 hover:bg-slate-800' : 'text-gray-800 hover:bg-purple-50'}`}>
+                <a href="https://www.dropcard.app/" target="_blank" rel="noopener noreferrer" className={`block px-4 py-3 ${isDark ? 'text-slate-100 hover:bg-slate-800 border-slate-800' : 'text-gray-800 hover:bg-purple-50 border-gray-100'} border-b`}>
                   <div className="font-medium">DropCard</div>
+                </a>
+                <a href="https://blurapp.us" target="_blank" rel="noopener noreferrer" className={`block px-4 py-3 ${isDark ? 'text-slate-100 hover:bg-slate-800' : 'text-gray-800 hover:bg-purple-50'}`}>
+                  <div className="font-medium">Blur App</div>
                 </a>
               </div>
             </div>
@@ -183,6 +186,19 @@ const Navbar = ({ variant = "light" }) => {
                   <div>
                     <span className="font-medium">DropCard</span>
                     <p className="text-xs text-purple-200/80 mt-0.5">Digital business cards reimagined</p>
+                  </div>
+                </a>
+                <a 
+                  href="https://blurapp.us" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="flex items-center gap-3 w-full p-3 rounded-xl bg-purple-700/40 border border-purple-500/30 text-white hover:bg-purple-600/60 hover:border-purple-400/50 hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
+                >
+                  <div className="p-2 rounded-lg bg-purple-500/40">
+                    <Palette className="h-4 w-4 text-purple-200" />
+                  </div>
+                  <div>
+                    <span className="font-medium">Blur App</span>
                   </div>
                 </a>
               </div>

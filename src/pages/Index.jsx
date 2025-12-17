@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Header from '../components/Header';
+import PartnerStrip from '../components/PartnerStrip';
+import ActionCards from '../components/ActionCards';
 import PageSchemaMarkup from '../components/PageSchemaMarkup';
 import MetaTags from '../components/MetaTags';
 import { getMetaConfig } from '../lib/meta-config';
@@ -41,6 +43,8 @@ const Index = () => {
       <MetaTags {...metaConfig} />
       <PageSchemaMarkup pageType="home" />
       <Header />
+      <PartnerStrip />
+      <ActionCards />
     </motion.div>
   );
 };

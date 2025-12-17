@@ -72,15 +72,13 @@ const Header = () => {
                     >
                       <div className="font-medium">Blog</div>
                     </Link>
-                    <button 
-                      className="w-full text-left px-4 py-3 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 border-b border-white/10 cursor-pointer rounded-lg"
-                      onClick={() => {
-                        alert('Coming soon');
-                        setIsNavOpen(false);
-                      }}
+                    <Link 
+                      to="/resources"
+                      className="w-full text-left px-4 py-3 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 border-b border-white/10 cursor-pointer rounded-lg block"
+                      onClick={() => setIsNavOpen(false)}
                     >
                       <div className="font-medium">Resources</div>
-                    </button>
+                    </Link>
                     <Link 
                       to="/contact"
                       className="w-full text-left px-4 py-3 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 border-b border-white/10 cursor-pointer rounded-lg block"
@@ -112,14 +110,54 @@ const Header = () => {
               <div className="text-white/90 font-medium py-2">Services</div>
               <Link to="/services/ai-voice-agents" className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">AI Voice Agents</Link>
               <Link to="/content-house" className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">Content House</Link>
-              <a href="https://build.pentridgemedia.com" target="_blank" rel="noopener noreferrer" className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">Custom Apps</a>
+              <button 
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  window.open('https://tally.so/r/3NBGBl', '_blank', 'noopener,noreferrer');
+                  setIsNavOpen(false);
+                }}
+                className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300 w-full text-left"
+              >
+                Book a Call
+              </button>
               <div className="text-white/90 font-medium py-2">Products</div>
-              <a href="https://www.dropcard.app/" target="_blank" rel="noopener noreferrer" className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">DropCard</a>
-              <a href="https://blurapp.us" target="_blank" rel="noopener noreferrer" className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">Blur App</a>
+              <button 
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  window.open('https://www.dropcard.app/', '_blank', 'noopener,noreferrer');
+                  setIsNavOpen(false);
+                }}
+                className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300 w-full text-left"
+              >
+                DropCard
+              </button>
+              <button 
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  window.open('https://blurapp.us', '_blank', 'noopener,noreferrer');
+                  setIsNavOpen(false);
+                }}
+                className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300 w-full text-left"
+              >
+                Blur App
+              </button>
               <div className="text-white/90 font-medium py-2">Community</div>
-              <a href="https://discover.circle.so/product/pentridge-club-ai-automation-emerging-tech-community" target="_blank" rel="noopener noreferrer" className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">Pentridge Club</a>
+              <button 
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  window.open('https://www.skool.com/vibecodepioneers/', '_blank', 'noopener,noreferrer');
+                  setIsNavOpen(false);
+                }}
+                className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300 w-full text-left"
+              >
+                Vibe Code Pioneers
+              </button>
               <Link to="/blog" className="text-white/80 block py-2 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">Blog</Link>
-              <button className="text-white/80 block w-full text-left py-2 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300" onClick={() => alert('Coming soon')}>Resources</button>
+              <Link to="/resources" className="text-white/80 block py-2 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">Resources</Link>
               <Link to="/contact" className="text-white/80 block py-2 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">Contact</Link>
               <Link to="/about" className="text-white/80 block py-2 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">About Us</Link>
             </div>
@@ -142,7 +180,7 @@ const Header = () => {
                     <div className="absolute top-full left-0 mt-4 w-full backdrop-blur-xl bg-white/10 rounded-2xl shadow-2xl border border-white/20 z-50">
                       <div className="py-4">
                         <button 
-                          className="w-full text-left px-6 py-4 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 border-b border-white/10 last:border-b-0 cursor-pointer rounded-lg"
+                          className="w-full text-left px-6 py-4 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 border-b border-white/10 cursor-pointer rounded-lg"
                           onClick={() => {
                             navigate('/services/ai-voice-agents');
                             setIsServicesOpen(false);
@@ -151,7 +189,7 @@ const Header = () => {
                           <div className="font-medium text-lg">AI Voice Agents</div>
                         </button>
                         <button 
-                          className="w-full text-left px-6 py-4 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 border-b border-white/10 last:border-b-0 cursor-pointer rounded-lg"
+                          className="w-full text-left px-6 py-4 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 border-b border-white/10 cursor-pointer rounded-lg"
                           onClick={() => {
                             navigate('/content-house');
                             setIsServicesOpen(false);
@@ -162,11 +200,11 @@ const Header = () => {
                         <button 
                           className="w-full text-left px-6 py-4 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 cursor-pointer rounded-lg"
                           onClick={() => {
-                            window.open('https://build.pentridgemedia.com', '_blank');
+                            window.open('https://tally.so/r/3NBGBl', '_blank');
                             setIsServicesOpen(false);
                           }}
                         >
-                          <div className="font-medium text-lg">Custom Apps + Automations</div>
+                          <div className="font-medium text-lg">Book a Call</div>
                         </button>
                       </div>
                     </div>
@@ -213,7 +251,7 @@ const Header = () => {
               {/* Community Card */}
               <div className="relative">
                 <a 
-                  href="https://discover.circle.so/product/pentridge-club-ai-automation-emerging-tech-community"
+                  href="https://www.skool.com/vibecodepioneers/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block w-full text-center backdrop-blur-xl bg-white/10 rounded-2xl border border-white/20 shadow-2xl p-6 hover:bg-white/15 transition-all duration-300 group"
@@ -244,6 +282,8 @@ const Header = () => {
               Systems, Software and Community for<br />
               Main Street Businesses
             </h2>
+
+
           </div>
         </div>
       </div>

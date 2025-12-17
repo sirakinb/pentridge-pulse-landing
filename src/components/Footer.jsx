@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <footer className="bg-black text-white py-8">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-8">
           {/* Logo */}
           <div className="flex items-center">
             <img src="/logonew.png" alt="Pentridge Media" className="h-24" /> {/* Increased height further */}
@@ -27,6 +27,25 @@ const Footer = () => {
             <a href="mailto:info@pentridgemedia.com" className="hover:text-gold transition-colors">
               info@pentridgemedia.com
             </a>
+          </div>
+
+          {/* Tools and Resources */}
+          <div>
+            <h3 className="text-lg font-semibold mb-2">Tools & Resources</h3>
+            <Link 
+              to="/roi-calculator" 
+              className="block hover:text-gold transition-colors mb-2"
+              onClick={scrollToTop}
+            >
+              AI ROI Calculator
+            </Link>
+            <Link 
+              to="/blog" 
+              className="block hover:text-gold transition-colors"
+              onClick={scrollToTop}
+            >
+              Blog & Insights
+            </Link>
           </div>
 
           {/* Links and Social */}

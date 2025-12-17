@@ -251,6 +251,18 @@ const AIBusinessAutomationGuide = () => {
               <p className="text-gray-700 text-sm">
                 Lead-to-sale workflows in particular see strong improvements: one set of stats showed workflow automation led to 80% more leads and 75% higher conversions by automating marketing and sales processes. 61% of businesses implementing sales automation see ROI within 6 months.
               </p>
+              
+              <div className="mt-4 p-4 bg-white rounded-lg border border-green-200">
+                <p className="text-gray-700 text-sm mb-3">
+                  <strong>Want to calculate your own potential ROI?</strong> Use our free AI ROI Calculator to estimate time and cost savings for your specific business.
+                </p>
+                <Link 
+                  to="/roi-calculator" 
+                  className="inline-flex items-center px-4 py-2 bg-green-600 text-white text-sm font-medium rounded-md hover:bg-green-700 transition-colors"
+                >
+                  Calculate Your AI ROI →
+                </Link>
+              </div>
             </div>
           </section>
 
@@ -374,6 +386,15 @@ const AIBusinessAutomationGuide = () => {
                 In conclusion, AI business automation represents a strategic opportunity: it's about working smarter, not harder. Businesses that successfully offload their busywork to AI and connect their processes into unified, intelligent workflows will find themselves saving countless hours, engaging more prospects, and making data-driven decisions that propel growth.
               </p>
 
+              <div className="bg-white/20 rounded-lg p-6 mb-4">
+                <p className="text-gray-800 mb-3">
+                  <strong>Want to see the numbers for your business?</strong> Use our <Link to="/roi-calculator" className="text-blue-300 hover:text-white font-semibold underline decoration-2 underline-offset-2">AI ROI Calculator</Link> to estimate your potential time and cost savings from automation.
+                </p>
+                <p className="text-gray-800">
+                  <strong>Ready to implement?</strong> Learn more about our <Link to="/services/ai-voice-agents" className="text-blue-300 hover:text-white font-semibold underline decoration-2 underline-offset-2">AI voice agent services</Link> and see how we can help you deploy these solutions.
+                </p>
+              </div>
+
               <p className="text-gray-800 mt-6 pt-4 border-t border-purple-200">
                 <strong>Ready to get started?</strong> Contact our team to discuss how AI automation can transform your business operations and drive measurable results.
               </p>
@@ -397,6 +418,49 @@ const AIBusinessAutomationGuide = () => {
             </div>
           </section>
         </article>
+
+        {/* Strategic CTA Section */}
+        <section className="mb-12">
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Services CTA */}
+            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-8 rounded-2xl border border-blue-200">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Ready to Implement AI Automation?</h3>
+              <p className="text-gray-700 mb-6">
+                Our AI voice agent services can help you automate customer interactions, qualify leads, and streamline your business processes. See how we've helped other businesses achieve similar results.
+              </p>
+              <div className="space-y-3">
+                <Link 
+                  to="/services/ai-voice-agents" 
+                  className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
+                >
+                  Learn More About Our Services →
+                </Link>
+                <p className="text-sm text-gray-600">
+                  Discover how AI voice agents can transform your customer service and lead generation.
+                </p>
+              </div>
+            </div>
+
+            {/* Case Study CTA */}
+            <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-8 rounded-2xl border border-green-200">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">See Real Results</h3>
+              <p className="text-gray-700 mb-6">
+                Learn how we implemented a voice AI agent for a property management company, saving them 40+ hours per week and generating $300K+ in additional annual revenue.
+              </p>
+              <div className="space-y-3">
+                <Link 
+                  to="/case-studies/property-management-voice-ai" 
+                  className="inline-flex items-center px-6 py-3 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 transition-colors"
+                >
+                  Read the Case Study →
+                </Link>
+                <p className="text-sm text-gray-600">
+                  See how we implemented a voice AI agent for a property manager.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* CTA Section */}
         <section className="text-center py-12 bg-gradient-to-r from-purple-600 to-blue-600 rounded-2xl text-white">

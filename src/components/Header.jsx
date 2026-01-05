@@ -144,6 +144,17 @@ const Header = () => {
               >
                 Blur App
               </button>
+              <button 
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  window.open('https://stillmeditation.app', '_blank', 'noopener,noreferrer');
+                  setIsNavOpen(false);
+                }}
+                className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300 w-full text-left"
+              >
+                Still Meditation
+              </button>
               <div className="text-white/90 font-medium py-2">Community</div>
               <button 
                 onClick={(e) => {
@@ -234,13 +245,22 @@ const Header = () => {
                           <div className="font-medium text-lg">DropCard</div>
                         </button>
                         <button 
-                          className="w-full text-left px-6 py-4 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 cursor-pointer rounded-lg"
+                          className="w-full text-left px-6 py-4 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 border-b border-white/10 cursor-pointer rounded-lg"
                           onClick={() => {
                             window.open('https://blurapp.us', '_blank');
                             setIsProductsOpen(false);
                           }}
                         >
                           <div className="font-medium text-lg">Blur App</div>
+                        </button>
+                        <button 
+                          className="w-full text-left px-6 py-4 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 cursor-pointer rounded-lg"
+                          onClick={() => {
+                            window.open('https://stillmeditation.app', '_blank');
+                            setIsProductsOpen(false);
+                          }}
+                        >
+                          <div className="font-medium text-lg">Still Meditation</div>
                         </button>
                       </div>
                     </div>

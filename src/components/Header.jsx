@@ -144,6 +144,17 @@ const Header = () => {
               >
                 Blur App
               </button>
+              <button 
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  window.open('https://stillmeditation.app', '_blank', 'noopener,noreferrer');
+                  setIsNavOpen(false);
+                }}
+                className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300 w-full text-left"
+              >
+                Still Meditation
+              </button>
               <div className="text-white/90 font-medium py-2">Community</div>
               <button 
                 onClick={(e) => {
@@ -234,13 +245,22 @@ const Header = () => {
                           <div className="font-medium text-lg">DropCard</div>
                         </button>
                         <button 
-                          className="w-full text-left px-6 py-4 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 cursor-pointer rounded-lg"
+                          className="w-full text-left px-6 py-4 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 border-b border-white/10 cursor-pointer rounded-lg"
                           onClick={() => {
                             window.open('https://blurapp.us', '_blank');
                             setIsProductsOpen(false);
                           }}
                         >
                           <div className="font-medium text-lg">Blur App</div>
+                        </button>
+                        <button 
+                          className="w-full text-left px-6 py-4 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 cursor-pointer rounded-lg"
+                          onClick={() => {
+                            window.open('https://stillmeditation.app', '_blank');
+                            setIsProductsOpen(false);
+                          }}
+                        >
+                          <div className="font-medium text-lg">Still Meditation</div>
                         </button>
                       </div>
                     </div>
@@ -278,12 +298,19 @@ const Header = () => {
             <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-8 mt-0 text-transparent bg-clip-text bg-gradient-to-r from-white via-purple-200 to-blue-200">
               Build With AI
             </h1>
-            <h2 className="text-2xl md:text-3xl font-medium leading-relaxed mb-12 text-white/90">
+            <h2 className="text-2xl md:text-3xl font-medium leading-relaxed mb-10 text-white/90">
               Systems, Software and Community for<br />
-              Main Street Businesses
+              the Modern Business
             </h2>
 
-
+            <a
+              href="https://tally.so/r/3NBGBl"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block backdrop-blur-xl bg-white/10 hover:bg-white/20 border border-white/30 rounded-full px-10 py-4 text-white font-semibold text-lg transition-all duration-300 shadow-2xl hover:shadow-purple-500/30 hover:scale-105"
+            >
+              Book a Call
+            </a>
           </div>
         </div>
       </div>

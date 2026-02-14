@@ -690,7 +690,7 @@ const CTASection = () => {
               {submitted ? (
                 <p className="text-white/70 text-sm font-mono">Subscribed as <span className="text-purple-400">{submittedEmail}</span></p>
               ) : (
-                <form onSubmit={handleSubmit} className="flex gap-2">
+                <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2">
                   <input
                     type="email"
                     value={email}
@@ -701,7 +701,7 @@ const CTASection = () => {
                   />
                   <button
                     type="submit"
-                    className="btn-primary px-6 py-3 text-xs"
+                    className="btn-primary px-6 py-3 text-xs whitespace-nowrap"
                   >
                     Subscribe
                   </button>

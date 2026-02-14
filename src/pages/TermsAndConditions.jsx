@@ -55,10 +55,10 @@ const TermsAndConditions = () => {
           className="text-lg space-y-6"
         >
           <p>
-            Welcome to Pentridge Media! These terms and conditions outline the rules and regulations for the use of Pentridge Media's website, services, and SMS communication.
+            Welcome to Pentridge! These terms and conditions outline the rules and regulations for the use of Pentridge's website, services, and SMS communication.
           </p>
           <p>
-            Upon opting in to SMS messages from Pentridge Media, users will receive notifications and promotional messages. The messages will include appointment confirmations, reminders, and other relevant updates related to our services. Users can expect to receive these messages after they have booked an appointment with Pentridge Media and provided their consent through our opt-in form.
+            Upon opting in to SMS messages from Pentridge, users will receive notifications and promotional messages. The messages will include appointment confirmations, reminders, and other relevant updates related to our services. Users can expect to receive these messages after they have booked an appointment with Pentridge and provided their consent through our opt-in form.
           </p>
           <h2 className="text-2xl font-semibold mt-8 mb-4">Cancellation of SMS Service</h2>
           <p>
@@ -81,7 +81,7 @@ const TermsAndConditions = () => {
             For privacy-related inquiries, please refer to our privacy policy: [link to privacy policy].
           </p>
           <p className="mt-8">
-            By accessing this website and using our services, you accept these terms and conditions in full. Do not continue to use Pentridge Media's website and services if you do not accept all of the terms and conditions stated on this page.
+            By accessing this website and using our services, you accept these terms and conditions in full. Do not continue to use Pentridge's website and services if you do not accept all of the terms and conditions stated on this page.
           </p>
           
           {/* Add the rest of the terms and conditions content here */}
@@ -91,7 +91,7 @@ const TermsAndConditions = () => {
             If you have any questions about these terms and conditions, please contact us at:
           </p>
           <p>
-            Pentridge Media<br />
+            Pentridge<br />
             Akinyemi Bajulaiye<br />
             1034 S. 53rd Street, Philadelphia, PA 19143<br />
             Email: info@pentridgemedia.com

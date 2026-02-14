@@ -5,7 +5,7 @@ const SchemaMarkup = () => {
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Pentridge Media",
+    "name": "Pentridge",
     "url": "https://pentridgemedia.com",
     "logo": {
       "@type": "ImageObject",
@@ -92,7 +92,7 @@ const SchemaMarkup = () => {
     "description": "We Build AI-Powered Growth Systems For Entrepreneurs and Service Businesses. Leverage AI, Automation, and Digital Strategies to save you time and propel your business forward.",
     "provider": {
       "@type": "Organization",
-      "name": "Pentridge Media",
+      "name": "Pentridge",
       "url": "https://pentridgemedia.com"
     },
     "serviceType": [
@@ -221,12 +221,12 @@ const SchemaMarkup = () => {
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "Pentridge Media",
+    "name": "Pentridge",
     "url": "https://pentridgemedia.com",
     "description": "We Build AI-Powered Growth Systems For Entrepreneurs and Service Businesses",
     "publisher": {
       "@type": "Organization",
-      "name": "Pentridge Media",
+      "name": "Pentridge",
       "logo": {
         "@type": "ImageObject",
         "url": "https://pentridgemedia.com/logonew.png"
@@ -246,7 +246,7 @@ const SchemaMarkup = () => {
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "Pentridge Media",
+    "name": "Pentridge",
     "description": "AI-Powered Growth Systems For Entrepreneurs and Service Businesses",
     "url": "https://pentridgemedia.com",
     "logo": {

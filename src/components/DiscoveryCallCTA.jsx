@@ -21,7 +21,7 @@ const DiscoveryCallCTA = () => {
           <Button 
             variant="outline" 
               className="text-white border-white hover:bg-white hover:text-purple-900 bg-transparent text-lg px-8 py-3"
-              onClick={() => window.open('https://tally.so/r/3NBGBl', '_blank')}
+              onClick={() => window.open('https://cal.com/akinyemi-bajulaiye-2jua88/30min', '_blank')}
             >
               Book Discovery Call
           </Button>

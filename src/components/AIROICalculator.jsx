@@ -141,35 +141,35 @@ const AIROICalculator = () => {
   return (
     <div className="max-w-4xl mx-auto p-6">
       <div className="text-center mb-8">
-        <div className="inline-flex items-center justify-center w-16 h-16 bg-purple-100 rounded-full mb-4">
-          <Calculator className="w-8 h-8 text-purple-600" />
+        <div className="inline-flex items-center justify-center w-16 h-16 bg-purple-500/20 rounded-full mb-4">
+          <Calculator className="w-8 h-8 text-purple-400" />
         </div>
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">
+        <h1 className="text-3xl font-bold text-white mb-2">
           AI ROI Calculator
         </h1>
-        <p className="text-lg text-gray-600">
+        <p className="text-lg text-white/60">
           Calculate potential time and cost savings from AI automation for your business
         </p>
       </div>
 
       <div className="grid lg:grid-cols-2 gap-8">
         {/* Input Form */}
-        <div className="bg-white rounded-lg shadow-lg p-6 border border-gray-200">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
-            <Users className="w-5 h-5 mr-2 text-purple-600" />
+        <div className="bg-white/[0.07] rounded-lg p-6 border border-white/10">
+          <h2 className="text-xl font-semibold text-white mb-4 flex items-center">
+            <Users className="w-5 h-5 mr-2 text-purple-400" />
             Your Business Metrics
           </h2>
           
           <form onSubmit={handleCalculate} className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-white/60 mb-2">
                 Company Size (employees)
               </label>
               <select
                 name="companySize"
                 value={formData.companySize}
                 onChange={handleInputChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="w-full px-3 py-2 border border-white/10 bg-white/5 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500/50"
               >
                 <option value="">Select size</option>
                 <option value="1-10">1-10 employees</option>
@@ -180,7 +180,7 @@ const AIROICalculator = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-white/60 mb-2">
                 Current Weekly Hours Spent on Manual Tasks
               </label>
               <input
@@ -189,13 +189,13 @@ const AIROICalculator = () => {
                 value={formData.currentHours}
                 onChange={handleInputChange}
                 placeholder="e.g., 40"
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="w-full px-3 py-2 border border-white/10 bg-white/5 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500/50"
                 required
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-white/60 mb-2">
                 Average Hourly Rate ($)
               </label>
               <input
@@ -204,13 +204,13 @@ const AIROICalculator = () => {
                 value={formData.hourlyRate}
                 onChange={handleInputChange}
                 placeholder="e.g., 25"
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="w-full px-3 py-2 border border-white/10 bg-white/5 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500/50"
                 required
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-white/60 mb-2">
                 Automation Potential (%)
               </label>
               <div className="flex items-center space-x-2">
@@ -223,17 +223,17 @@ const AIROICalculator = () => {
                   onChange={handleInputChange}
                   className="flex-1"
                 />
-                <span className="text-sm font-medium text-gray-600 w-12">
+                <span className="text-sm font-medium text-white/60 w-12">
                   {formData.automationPotential}%
                 </span>
               </div>
-              <p className="text-xs text-gray-500 mt-1">
+              <p className="text-xs text-white/40 mt-1">
                 How much of this work could be automated?
               </p>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-white/60 mb-2">
                 Implementation Cost ($) - Optional
               </label>
               <input
@@ -242,7 +242,7 @@ const AIROICalculator = () => {
                 value={formData.implementationCost}
                 onChange={handleInputChange}
                 placeholder="e.g., 5000"
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="w-full px-3 py-2 border border-white/10 bg-white/5 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500/50"
               />
             </div>
 
@@ -257,71 +257,71 @@ const AIROICalculator = () => {
         </div>
 
         {/* Results Display */}
-        <div className="bg-white rounded-lg shadow-lg p-6 border border-gray-200">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
-            <TrendingUp className="w-5 h-5 mr-2 text-green-600" />
+        <div className="bg-white/[0.07] rounded-lg p-6 border border-white/10">
+          <h2 className="text-xl font-semibold text-white mb-4 flex items-center">
+            <TrendingUp className="w-5 h-5 mr-2 text-green-400" />
             Your Results
           </h2>
 
           {!showResults ? (
             <div className="text-center py-12">
-              <div className="w-16 h-16 bg-gray-100 rounded-full mx-auto mb-4 flex items-center justify-center">
-                <Calculator className="w-8 h-8 text-gray-400" />
+              <div className="w-16 h-16 bg-white/[0.07] rounded-full mx-auto mb-4 flex items-center justify-center">
+                <Calculator className="w-8 h-8 text-white/40" />
               </div>
-              <p className="text-gray-500">
+              <p className="text-white/40">
                 Enter your business metrics and click "Calculate ROI" to see your potential savings
               </p>
             </div>
           ) : results ? (
             <div className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
-                <div className="bg-blue-50 p-4 rounded-lg">
+                <div className="bg-blue-500/10 p-4 rounded-lg">
                   <div className="flex items-center mb-2">
-                    <Clock className="w-5 h-5 text-blue-600 mr-2" />
-                    <span className="text-sm font-medium text-blue-800">Hours Saved/Week</span>
+                    <Clock className="w-5 h-5 text-blue-400 mr-2" />
+                    <span className="text-sm font-medium text-blue-300">Hours Saved/Week</span>
                   </div>
-                  <p className="text-2xl font-bold text-blue-900">{results.hoursSaved}</p>
+                  <p className="text-2xl font-bold text-blue-300">{results.hoursSaved}</p>
                 </div>
 
-                <div className="bg-green-50 p-4 rounded-lg">
+                <div className="bg-green-500/10 p-4 rounded-lg">
                   <div className="flex items-center mb-2">
-                    <DollarSign className="w-5 h-5 text-green-600 mr-2" />
-                    <span className="text-sm font-medium text-green-800">Annual Savings</span>
+                    <DollarSign className="w-5 h-5 text-green-400 mr-2" />
+                    <span className="text-sm font-medium text-green-300">Annual Savings</span>
                   </div>
-                  <p className="text-2xl font-bold text-green-900">${results.annualSavings}</p>
+                  <p className="text-2xl font-bold text-green-300">${results.annualSavings}</p>
                 </div>
               </div>
 
-              <div className="bg-purple-50 p-4 rounded-lg">
+              <div className="bg-purple-500/20 p-4 rounded-lg">
                 <div className="flex items-center mb-2">
-                  <TrendingUp className="w-5 h-5 text-purple-600 mr-2" />
-                  <span className="text-sm font-medium text-purple-800">Current Annual Cost</span>
+                  <TrendingUp className="w-5 h-5 text-purple-400 mr-2" />
+                  <span className="text-sm font-medium text-purple-300">Current Annual Cost</span>
                 </div>
-                <p className="text-2xl font-bold text-purple-900">${results.currentCost}</p>
+                <p className="text-2xl font-bold text-purple-300">${results.currentCost}</p>
               </div>
 
               <div className="grid grid-cols-2 gap-4">
-                <div className="bg-orange-50 p-4 rounded-lg">
-                  <span className="text-sm font-medium text-orange-800">ROI</span>
-                  <p className="text-2xl font-bold text-orange-900">{results.roi}%</p>
+                <div className="bg-orange-500/10 p-4 rounded-lg">
+                  <span className="text-sm font-medium text-orange-300">ROI</span>
+                  <p className="text-2xl font-bold text-orange-300">{results.roi}%</p>
                 </div>
 
-                <div className="bg-indigo-50 p-4 rounded-lg">
-                  <span className="text-sm font-medium text-indigo-800">Payback (months)</span>
-                  <p className="text-2xl font-bold text-indigo-900">{results.paybackPeriod}</p>
+                <div className="bg-indigo-500/10 p-4 rounded-lg">
+                  <span className="text-sm font-medium text-indigo-300">Payback (months)</span>
+                  <p className="text-2xl font-bold text-indigo-300">{results.paybackPeriod}</p>
                 </div>
               </div>
 
-              <div className="bg-green-50 p-4 rounded-lg">
-                <span className="text-sm font-medium text-green-800">Net Annual Savings</span>
-                <p className="text-2xl font-bold text-green-900">${results.netSavings}</p>
+              <div className="bg-green-500/10 p-4 rounded-lg">
+                <span className="text-sm font-medium text-green-300">Net Annual Savings</span>
+                <p className="text-2xl font-bold text-green-300">${results.netSavings}</p>
               </div>
 
               {!formData.implementationCost && (
-                <div className="bg-blue-50 p-4 rounded-lg">
-                  <span className="text-sm font-medium text-blue-800">Estimated Implementation Cost</span>
-                  <p className="text-2xl font-bold text-blue-900">${results.estimatedImplementationCost}</p>
-                  <p className="text-xs text-blue-600 mt-1">Based on company size and current costs</p>
+                <div className="bg-blue-500/10 p-4 rounded-lg">
+                  <span className="text-sm font-medium text-blue-300">Estimated Implementation Cost</span>
+                  <p className="text-2xl font-bold text-blue-300">${results.estimatedImplementationCost}</p>
+                  <p className="text-xs text-blue-400 mt-1">Based on company size and current costs</p>
                 </div>
               )}
 
@@ -335,11 +335,11 @@ const AIROICalculator = () => {
             </div>
           ) : (
             <div className="text-center py-12">
-              <div className="w-16 h-16 bg-red-100 rounded-full mx-auto mb-4 flex items-center justify-center">
-                <Calculator className="w-8 h-8 text-red-600" />
+              <div className="w-16 h-16 bg-red-500/20 rounded-full mx-auto mb-4 flex items-center justify-center">
+                <Calculator className="w-8 h-8 text-red-400" />
               </div>
-              <p className="text-red-600 font-medium">Error calculating results</p>
-              <p className="text-gray-500 text-sm mt-2">Please check your inputs and try again</p>
+              <p className="text-red-400 font-medium">Error calculating results</p>
+              <p className="text-white/40 text-sm mt-2">Please check your inputs and try again</p>
             </div>
           )}
         </div>
@@ -348,17 +348,17 @@ const AIROICalculator = () => {
       {/* Email Collection Modal */}
       {showEmailForm && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-          <div className="bg-white rounded-lg p-6 max-w-md w-full">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">
+          <div className="bg-[#111] border border-white/10 rounded-lg p-6 max-w-md w-full">
+            <h3 className="text-lg font-semibold text-white mb-4">
               Get Your Detailed ROI Report
             </h3>
-            <p className="text-gray-600 mb-4">
+            <p className="text-white/60 mb-4">
               Enter your email to receive a comprehensive analysis with actionable insights and implementation recommendations. We'll prepare your personalized report and send it shortly.
             </p>
             
             <form onSubmit={handleEmailSubmit} className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-white/60 mb-2">
                   Email Address
                 </label>
                 <input
@@ -367,7 +367,7 @@ const AIROICalculator = () => {
                   value={formData.email}
                   onChange={handleInputChange}
                   placeholder="your@email.com"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  className="w-full px-3 py-2 border border-white/10 bg-white/5 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500/50"
                   required
                 />
               </div>
@@ -376,7 +376,7 @@ const AIROICalculator = () => {
                 <button
                   type="button"
                   onClick={() => setShowEmailForm(false)}
-                  className="flex-1 bg-gray-300 text-gray-700 py-2 px-4 rounded-md hover:bg-gray-400 transition-colors"
+                  className="flex-1 bg-white/10 text-white/60 py-2 px-4 rounded-md hover:bg-white/20 transition-colors"
                 >
                   Cancel
                 </button>

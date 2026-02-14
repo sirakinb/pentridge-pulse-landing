@@ -29,10 +29,10 @@ export function WhyChooseSection() {
   return (
     <section className="py-20 bg-gradient-to-br from-[#1A0B2E] to-[#4B2C70] text-white">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-12">Why Choose Pentridge Media</h2>
+        <h2 className="text-4xl font-bold text-center mb-12">Why Choose Pentridge</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <ComparisonColumn 
-            title="Pentridge Media" 
+            title="Pentridge" 
             items={comparisonData.pentridgeMedia} 
             labels={comparisonData.labels}
             isPentridgeMedia={true} 

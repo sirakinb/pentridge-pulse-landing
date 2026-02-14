@@ -24,7 +24,7 @@ const Description = () => {
         >
           <motion.img
             src="/logonew.png"
-            alt="Pentridge Media"
+            alt="Pentridge"
             className="w-full h-full object-contain"
             animate={{ rotate: 360 }}
             transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
@@ -48,7 +48,7 @@ const Description = () => {
           transition={{ duration: 0.8, delay: 1.2 }}
         >
           <p className="text-xl md:text-2xl mb-12 text-center leading-relaxed">
-            <span className="font-semibold">Pentridge Media</span> leverages AI, Automation, and Digital Strategies to{' '}
+            <span className="font-semibold">Pentridge</span> leverages AI, Automation, and Digital Strategies to{' '}
             <motion.span 
               className="inline-block"
               initial={{ opacity: 1 }}

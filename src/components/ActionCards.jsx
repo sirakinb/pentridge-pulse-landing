@@ -35,7 +35,7 @@ const ActionCards = () => {
               Read the Case Study
             </button>
             <a
-              href="https://tally.so/r/3NBGBl"
+              href="https://cal.com/akinyemi-bajulaiye-2jua88/30min"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full text-center backdrop-blur-xl bg-white/10 hover:bg-white/20 border-2 border-white/30 rounded-full px-8 py-4 text-white font-semibold text-lg transition-all duration-300 shadow-2xl hover:shadow-purple-500/50 hover:scale-105 block"

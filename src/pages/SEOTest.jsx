@@ -48,7 +48,7 @@ const SEOTest = () => {
           <div className="text-center mb-8">
             <h1 className="text-4xl font-bold mb-4">SEO Implementation Test</h1>
             <p className="text-xl text-gray-300">
-              Validate and test the schema markup implementation for Pentridge Media
+              Validate and test the schema markup implementation for Pentridge
             </p>
           </div>
 

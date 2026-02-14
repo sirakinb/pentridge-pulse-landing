@@ -135,7 +135,7 @@ const AIVoiceAgents = () => {
     "serviceType": ["Automated phone answering", "AI appointment scheduling"],
     "provider": {
       "@type": "Organization",
-      "name": "Pentridge Media",
+      "name": "Pentridge",
       "url": "https://pentridgemedia.com"
     },
     "areaServed": { "@type": "Country", "name": "United States" },
@@ -174,7 +174,7 @@ const AIVoiceAgents = () => {
             Transform your phone system with automated phone answering, AI appointment scheduling, and 24/7 support with human‑like conversations.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-violet-600 hover:bg-violet-700 text-white" onClick={() => window.open('https://tally.so/r/3NBGBl', '_blank')}>
+            <Button size="lg" className="bg-violet-600 hover:bg-violet-700 text-white" onClick={() => window.open('https://cal.com/akinyemi-bajulaiye-2jua88/30min', '_blank')}>
               Book Call <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
             <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white/10" onClick={() => window.location.href = '/case-studies/property-management-voice-ai'}>
@@ -495,7 +495,7 @@ const AIVoiceAgents = () => {
             <Button 
               size="lg" 
               className="bg-violet-600 hover:bg-violet-700 text-white"
-              onClick={() => window.open('https://tally.so/r/3NBGBl', '_blank')}
+              onClick={() => window.open('https://cal.com/akinyemi-bajulaiye-2jua88/30min', '_blank')}
             >
               Get Started Today <ArrowRight className="ml-2 h-4 w-4" />
             </Button>

@@ -20,7 +20,7 @@ function ComparisonColumn({ title, color = "bg-white", items }: ComparisonColumn
 export function WhyChooseSection() {
   return (
     <section className="my-16 px-4 max-w-7xl mx-auto">
-      <h2 className="text-3xl font-bold text-center mb-8">Why Choose Pentridge Media</h2>
+      <h2 className="text-3xl font-bold text-center mb-8">Why Choose Pentridge</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
         <div className="font-semibold space-y-4 self-end">
           <p>Billing</p>
@@ -30,7 +30,7 @@ export function WhyChooseSection() {
           <p>Unlimited Revisions</p>
         </div>
         <ComparisonColumn 
-          title="Pentridge Media" 
+          title="Pentridge" 
           color="bg-purple-600"
           items={[
             "Fixed Monthly Price",

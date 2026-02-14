@@ -114,7 +114,7 @@ const Header = () => {
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
-                  window.open('https://tally.so/r/3NBGBl', '_blank', 'noopener,noreferrer');
+                  window.open('https://cal.com/akinyemi-bajulaiye-2jua88/30min', '_blank', 'noopener,noreferrer');
                   setIsNavOpen(false);
                 }}
                 className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300 w-full text-left"
@@ -200,7 +200,7 @@ const Header = () => {
                         <button 
                           className="w-full text-left px-6 py-4 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 cursor-pointer rounded-lg"
                           onClick={() => {
-                            window.open('https://tally.so/r/3NBGBl', '_blank');
+                            window.open('https://cal.com/akinyemi-bajulaiye-2jua88/30min', '_blank');
                             setIsServicesOpen(false);
                           }}
                         >
@@ -269,7 +269,7 @@ const Header = () => {
             >
               <motion.img
                 src="/logonew.png"
-                alt="Pentridge Media"
+                alt="Pentridge"
                 className="w-full h-full object-contain drop-shadow-[0_0_30px_rgba(255,255,255,0.3)] filter brightness-110"
                 animate={{ rotate: 360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}

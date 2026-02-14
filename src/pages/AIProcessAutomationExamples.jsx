@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import MetaTags from '../components/MetaTags';
 import Navbar from '../components/Navbar';
 
@@ -78,7 +79,7 @@ const AIProcessAutomationExamples = () => {
         'Personal admin: travel, research, price comparisons, reorders',
         'On-demand tutoring and document explainers (contracts, specs)',
         'Curated industry briefings and research summaries',
-        'Self-analytics: monthly “CEO report” of your business metrics',
+        'Self-analytics: monthly "CEO report" of your business metrics',
         'Network CRM nudges and drafted check‑ins',
         'AI design/video helpers for graphics and social clips',
         'Daily accountability check-ins and habit nudges',
@@ -114,7 +115,7 @@ const AIProcessAutomationExamples = () => {
     }
   ];
 
-  const pageTitle = 'AI Process Automation Examples (50+ Use Cases) | Pentridge Media';
+  const pageTitle = 'AI Process Automation Examples (50+ Use Cases) | Pentridge';
   const pageDescription = 'Explore 50+ AI process automation use cases for solopreneurs and small businesses across marketing, sales, support, operations, and property management. See how to apply AI voice agents, automation workflows, and ROI modeling.';
   const pageKeywords = 'AI process automation, AI automation use cases, AI business automation, AI phone answering system, AI call answering service, AI appointment scheduling, AI customer service automation, AI voice agent for business, automate customer service calls, AI ROI calculator, voice AI consulting';
 
@@ -125,7 +126,7 @@ const AIProcessAutomationExamples = () => {
   })));
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
+    <div className="bg-black text-white min-h-screen">
       <MetaTags
         title={pageTitle}
         description={pageDescription}
@@ -151,44 +152,54 @@ const AIProcessAutomationExamples = () => {
 
       <Navbar />
 
-      <main className="container mx-auto px-4 py-12">
+      <main className="container mx-auto px-4 py-12 pt-28">
         {/* Hero */}
-        <header className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        <motion.header
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <h1 className="text-4xl md:text-5xl font-bold font-display text-[#fafafa] mb-4">
             AI Process Automation Examples (50+ Use Cases)
           </h1>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg text-white/60 max-w-3xl mx-auto">
             A practical hub of AI automation ideas you can deploy today. Explore use cases by
             function and industry, then jump to our guide, calculator, and voice agents to
             implement.
           </p>
-        </header>
+        </motion.header>
 
         {/* Quick links */}
-        <div className="grid md:grid-cols-3 gap-4 mb-12">
-          <Link to="/ai-business-automation-guide" className="block p-5 rounded-lg border border-purple-200 bg-purple-50 hover:bg-purple-100 transition">
-            <div className="text-sm uppercase tracking-wide text-purple-700 font-semibold">Guide</div>
-            <div className="text-gray-900 font-bold">Complete Guide to AI Business Automation</div>
-            <div className="text-sm text-gray-600 mt-1">Deep dive + best practices</div>
+        <motion.div
+          className="grid md:grid-cols-3 gap-4 mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.15 }}
+        >
+          <Link to="/ai-business-automation-guide" className="block p-5 rounded-lg border border-purple-500/30 bg-purple-500/10 hover:bg-purple-500/20 transition">
+            <div className="text-sm uppercase tracking-wide text-purple-400 font-semibold">Guide</div>
+            <div className="text-[#fafafa] font-bold">Complete Guide to AI Business Automation</div>
+            <div className="text-sm text-white/60 mt-1">Deep dive + best practices</div>
           </Link>
-          <Link to="/roi-calculator" className="block p-5 rounded-lg border border-green-200 bg-green-50 hover:bg-green-100 transition">
-            <div className="text-sm uppercase tracking-wide text-green-700 font-semibold">Tool</div>
-            <div className="text-gray-900 font-bold">AI ROI Calculator</div>
-            <div className="text-sm text-gray-600 mt-1">Estimate savings & payback</div>
+          <Link to="/roi-calculator" className="block p-5 rounded-lg border border-green-500/30 bg-green-500/10 hover:bg-green-500/20 transition">
+            <div className="text-sm uppercase tracking-wide text-green-400 font-semibold">Tool</div>
+            <div className="text-[#fafafa] font-bold">AI ROI Calculator</div>
+            <div className="text-sm text-white/60 mt-1">Estimate savings & payback</div>
           </Link>
-          <Link to="/services/ai-voice-agents" className="block p-5 rounded-lg border border-blue-200 bg-blue-50 hover:bg-blue-100 transition">
-            <div className="text-sm uppercase tracking-wide text-blue-700 font-semibold">Service</div>
-            <div className="text-gray-900 font-bold">AI Phone Answering & Voice Agents</div>
-            <div className="text-sm text-gray-600 mt-1">24/7 calls, booking, qualification</div>
+          <Link to="/services/ai-voice-agents" className="block p-5 rounded-lg border border-blue-500/30 bg-blue-500/10 hover:bg-blue-500/20 transition">
+            <div className="text-sm uppercase tracking-wide text-blue-400 font-semibold">Service</div>
+            <div className="text-[#fafafa] font-bold">AI Phone Answering & Voice Agents</div>
+            <div className="text-sm text-white/60 mt-1">24/7 calls, booking, qualification</div>
           </Link>
-        </div>
+        </motion.div>
 
         {/* Anchor nav */}
         <nav className="mb-10">
           <ul className="flex flex-wrap gap-2">
             {sections.map((s) => (
               <li key={s.anchor}>
-                <a href={`#${s.anchor}`} className="px-3 py-2 text-sm rounded-md bg-white border border-gray-200 hover:bg-gray-50">{s.title}</a>
+                <a href={`#${s.anchor}`} className="px-3 py-2 text-sm rounded-md bg-white/[0.07] border border-white/10 hover:bg-white/[0.03] text-white/60 hover:text-[#fafafa] transition">{s.title}</a>
               </li>
             ))}
           </ul>
@@ -196,10 +207,18 @@ const AIProcessAutomationExamples = () => {
 
         {/* Sections */}
         <div className="space-y-12">
-          {sections.map((section) => (
-            <section key={section.anchor} id={section.anchor} className="bg-white rounded-xl border border-gray-200 p-6">
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">{section.title}</h2>
-              <ul className="list-disc pl-6 space-y-2 text-gray-700">
+          {sections.map((section, sectionIdx) => (
+            <motion.section
+              key={section.anchor}
+              id={section.anchor}
+              className="bg-white/[0.07] rounded-xl border border-white/10 p-6"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: sectionIdx * 0.05 }}
+            >
+              <h2 className="text-2xl md:text-3xl font-bold font-display text-[#fafafa] mb-4">{section.title}</h2>
+              <ul className="list-disc pl-6 space-y-2 text-white/60">
                 {section.items.map((it, idx) => (
                   <li key={idx}>{it}</li>
                 ))}
@@ -207,45 +226,49 @@ const AIProcessAutomationExamples = () => {
 
               {/* Contextual internal links */}
               {section.anchor === 'sales-lead-gen' && (
-                <div className="mt-6 p-4 rounded-lg bg-blue-50 border border-blue-200">
-                  <p className="text-sm text-gray-800">
-                    Related: See how <Link className="text-blue-700 font-medium underline" to="/services/ai-voice-agents">AI voice agents</Link> qualify leads and book calls automatically.
+                <div className="mt-6 p-4 rounded-lg bg-blue-500/10 border border-blue-500/20">
+                  <p className="text-sm text-white/60">
+                    Related: See how <Link className="text-blue-400 font-medium underline" to="/services/ai-voice-agents">AI voice agents</Link> qualify leads and book calls automatically.
                   </p>
                 </div>
               )}
               {section.anchor === 'operations-productivity' && (
-                <div className="mt-6 p-4 rounded-lg bg-green-50 border border-green-200">
-                  <p className="text-sm text-gray-800">
-                    Calculate your potential savings with our <Link className="text-green-700 font-medium underline" to="/roi-calculator">AI ROI Calculator</Link>.
+                <div className="mt-6 p-4 rounded-lg bg-green-500/10 border border-green-500/20">
+                  <p className="text-sm text-white/60">
+                    Calculate your potential savings with our <Link className="text-green-400 font-medium underline" to="/roi-calculator">AI ROI Calculator</Link>.
                   </p>
                 </div>
               )}
               {section.anchor === 'marketing-content' && (
-                <div className="mt-6 p-4 rounded-lg bg-purple-50 border border-purple-200">
-                  <p className="text-sm text-gray-800">
-                    New to automation? Start with the <Link className="text-purple-700 font-medium underline" to="/ai-business-automation-guide">AI Business Automation Guide</Link>.
+                <div className="mt-6 p-4 rounded-lg bg-purple-500/10 border border-purple-500/20">
+                  <p className="text-sm text-white/60">
+                    New to automation? Start with the <Link className="text-purple-400 font-medium underline" to="/ai-business-automation-guide">AI Business Automation Guide</Link>.
                   </p>
                 </div>
               )}
-            </section>
+            </motion.section>
           ))}
         </div>
 
         {/* Bottom CTA */}
-        <section className="text-center py-12 mt-12 bg-gradient-to-r from-purple-600 to-blue-600 rounded-2xl text-white">
-          <h2 className="text-3xl font-bold mb-3">Ready to implement AI automation?</h2>
+        <motion.section
+          className="text-center py-12 mt-12 bg-gradient-to-r from-purple-600 to-blue-600 rounded-2xl text-white"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="text-3xl font-bold font-display mb-3">Ready to implement AI automation?</h2>
           <p className="text-lg opacity-90 mb-6">Use the guide to plan, the calculator to model ROI, and voice agents to capture demand 24/7.</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link to="/ai-business-automation-guide" className="px-6 py-3 bg-white text-purple-700 rounded-md font-semibold hover:bg-gray-100">Read the Guide</Link>
             <Link to="/roi-calculator" className="px-6 py-3 bg-white/10 border border-white/30 rounded-md font-semibold hover:bg-white/20">Estimate ROI</Link>
             <Link to="/services/ai-voice-agents" className="px-6 py-3 bg-white/10 border border-white/30 rounded-md font-semibold hover:bg-white/20">Deploy Voice Agents</Link>
           </div>
-        </section>
+        </motion.section>
       </main>
     </div>
   );
 };
 
 export default AIProcessAutomationExamples;
-
-

@@ -6,8 +6,8 @@ const MetaTags = ({
   keywords, 
   pageType = 'website',
   canonicalUrl,
-  ogImage = '/logop.png',
-  twitterImage = '/logop.png'
+  ogImage = 'https://pentridgemedia.com/og-header.png',
+  twitterImage = 'https://pentridgemedia.com/og-header.png'
 }) => {
   useEffect(() => {
     // Update document title

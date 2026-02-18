@@ -54,13 +54,22 @@ const Footer = () => {
                     DropCard
                   </a>
                   <a
+                    href="https://blurapp.us"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block px-4 py-3 text-xs text-white/60 hover:text-white hover:bg-white/5 transition-colors border-t border-white/5"
+                    onClick={() => setProductsOpen(false)}
+                  >
+                    Blur App
+                  </a>
+                  <a
                     href="https://stillmeditation.app"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block px-4 py-3 text-xs text-white/60 hover:text-white hover:bg-white/5 transition-colors border-t border-white/5"
                     onClick={() => setProductsOpen(false)}
                   >
-                    Still App
+                    Still Meditation
                   </a>
                 </div>
               )}

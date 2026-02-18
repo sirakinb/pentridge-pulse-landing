@@ -60,13 +60,22 @@ const Navbar = () => {
                   DropCard
                 </a>
                 <a
+                  href="https://blurapp.us"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block px-4 py-3 font-mono text-xs tracking-[0.1em] uppercase text-white/60 hover:text-white hover:bg-white/5 transition-colors border-t border-white/5"
+                  onClick={() => setProductsOpen(false)}
+                >
+                  Blur App
+                </a>
+                <a
                   href="https://stillmeditation.app"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block px-4 py-3 font-mono text-xs tracking-[0.1em] uppercase text-white/60 hover:text-white hover:bg-white/5 transition-colors border-t border-white/5"
                   onClick={() => setProductsOpen(false)}
                 >
-                  Still App
+                  Still Meditation
                 </a>
               </div>
             )}
@@ -139,13 +148,22 @@ const Navbar = () => {
               DropCard
             </a>
             <a
+              href="https://blurapp.us"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block font-mono text-sm tracking-[0.1em] uppercase text-white/60 hover:text-white transition-colors py-1 pl-3"
+              onClick={() => setIsOpen(false)}
+            >
+              Blur App
+            </a>
+            <a
               href="https://stillmeditation.app"
               target="_blank"
               rel="noopener noreferrer"
               className="block font-mono text-sm tracking-[0.1em] uppercase text-white/60 hover:text-white transition-colors py-1 pl-3"
               onClick={() => setIsOpen(false)}
             >
-              Still App
+              Still Meditation
             </a>
 
             <div className="border-t border-white/5 pt-4">

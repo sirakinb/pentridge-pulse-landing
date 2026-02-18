@@ -374,12 +374,69 @@ const TrustedBySection = () => {
   );
 };
 
-// ─── Section 03: Why Work With Us ─────────────────────────────
+// ─── Section 03: What They Say ───────────────────────────────
+const TestimonialsSection = () => {
+  const testimonials = [
+    {
+      quote:
+        "A true expert in the field. Aki not only understands AI — he is staying up to date on all new trends within the space. During his engagement with us he not only provided us with actionable insights but was able to incorporate a discussion about tech that launched the same day as his presentation. If you need a speaker for your event or an AI consultant, look no further. Thanks again Aki.",
+      name: 'Blake McWilliams',
+      company: 'Keller Williams',
+    },
+    {
+      quote:
+        "I've had the pleasure of working with Aki, and I can confidently say he's exceptional in his field. His communication skills are top-notch, and he truly understands his craft. Aki isn't just your average automation expert — he goes above and beyond by offering valuable insights and suggestions. He meticulously reviewed the workflow creation process, making several adjustments to ensure it met my criteria. Working with Aki has been a pleasure, and I look forward to collaborating with him again in the future.",
+      name: 'Pedro Rodriguez',
+      company: 'Blue Proma Digital',
+    },
+  ];
+
+  return (
+    <section className="bg-black py-24 md:py-32">
+      <div className="max-w-7xl mx-auto px-6">
+        <motion.div {...fadeUp} className="mb-16">
+          <p className="section-label mb-4">07 / What They Say</p>
+          <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] max-w-3xl capitalize">
+            Don't take our word for it.
+          </h2>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {testimonials.map((t, i) => (
+            <motion.div
+              key={i}
+              {...stagger}
+              transition={{ duration: 0.6, delay: i * 0.15 }}
+              className="glass-card rounded-2xl p-10 md:p-12 flex flex-col justify-between"
+            >
+              <div>
+                <span className="text-purple-400 text-4xl leading-none font-display">"</span>
+                <p className="text-white/70 text-sm md:text-base leading-relaxed mt-2">
+                  {t.quote}
+                </p>
+              </div>
+              <div className="mt-8 pt-6 border-t border-white/10">
+                <p className="text-white/90 font-medium text-sm">{t.name}</p>
+                {t.company && (
+                  <p className="font-mono text-xs tracking-[0.1em] text-purple-400/70 mt-1">
+                    {t.company}
+                  </p>
+                )}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// ─── Section 04: Why Work With Us ─ ─────────────────────────────
 const WhyWorkSection = () => {
   const comparisons = [
     {
       before: 'Paying an agency $20k for a landing page',
-      after: 'A partner that builds, iterates, and stays — at a fraction of the cost',
+      after: 'A partner that builds and iterates — at a fraction of the cost',
     },
     {
       before: 'Trying to "figure out AI" on your own',
@@ -658,7 +715,7 @@ const CTASection = () => {
           <div className="absolute bottom-0 left-0 w-48 h-48 bg-pink-600/15 rounded-full blur-[60px] pointer-events-none" />
 
           <div className="relative z-10">
-            <p className="section-label mb-6">07 / Let's Go</p>
+            <p className="section-label mb-6">08 / Let's Go</p>
             <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] mb-6 capitalize">
               Get ahead or get left behind.
             </h2>
@@ -737,6 +794,7 @@ const Index = () => {
       <HowWeBuildSection />
       <ComparisonSection />
       <FAQSection />
+      <TestimonialsSection />
       <CTASection />
     </motion.div>
   );

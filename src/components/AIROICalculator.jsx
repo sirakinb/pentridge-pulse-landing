@@ -32,7 +32,7 @@ const AIROICalculator = () => {
     }));
     
     // Reset results when inputs change
-    if (showResults) {
+    if (showResults && name !== 'email') {
       setShowResults(false);
     }
   };

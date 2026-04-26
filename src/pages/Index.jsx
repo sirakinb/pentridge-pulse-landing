@@ -585,35 +585,46 @@ const ComparisonSection = () => {
   );
 };
 
-// ─── Section 06: Automation Modules ───────────────────────────
-const AutomationModulesSection = () => {
-  const modules = [
-    'AI voice agents and call handling',
-    'Lead capture, qualification, follow-up, and booking',
-    'CRM, calendar, email, SMS, and tool integrations',
-    'Document, proposal, and reporting automation',
-    'Internal operations and admin workflows',
-    'Custom dashboards, portals, and internal tools',
+// ─── Section 06: Tools We Work With ───────────────────────────
+const ToolsSection = () => {
+  const tools = [
+    { name: 'n8n', logo: '/logos/n8n.svg', copy: 'Self-hosted and custom workflow orchestration.' },
+    { name: 'Zapier', logo: '/logos/zapier.svg', copy: 'Fast app-to-app automation across your stack.' },
+    { name: 'Make.com', logo: '/logos/make.svg', copy: 'Visual scenarios for multi-step business workflows.' },
+    { name: 'Claude Code', logo: '/logos/claudecode.svg', copy: 'AI-assisted engineering for reliable implementation.' },
+    { name: 'Codex', logo: '/logos/codex.svg', copy: 'Code generation and review for custom automation logic.' },
+    { name: 'Cursor', logo: '/logos/cursor.svg', copy: 'AI-native development for dashboards, portals, and tools.' },
+    { name: 'OpenAI', logo: '/logos/openai.svg', copy: 'Language, reasoning, and agent capabilities.' },
+    { name: 'Anthropic', logo: '/logos/anthropic.svg', copy: 'Claude-powered analysis, writing, and workflow intelligence.' },
   ];
 
   return (
     <section className="bg-black py-24 md:py-32 border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div {...fadeUp} className="mb-16 text-center">
-          <p className="section-label mb-4">06 / Automation Modules</p>
+          <p className="section-label mb-4">06 / Tools We Work With</p>
           <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] capitalize max-w-3xl mx-auto">
-            Automations that connect the work behind your business.
+            We build with the AI and automation tools your workflows need.
           </h2>
           <p className="text-white/50 text-lg mt-6 max-w-2xl mx-auto leading-relaxed">
-            Voice agents, CRM updates, follow-up, reporting, documents, and internal tools become modules inside one operating-system-style workflow.
+            n8n, Zapier, Make, Codex, Claude Code, Cursor, OpenAI, Anthropic, and custom integrations help us connect your CRM, inbox, calendar, documents, and internal tools.
           </p>
         </motion.div>
 
-        <motion.div {...fadeUp} className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {modules.map((module, i) => (
-            <div key={module} className="glass-card rounded-xl p-7">
-              <p className="font-mono text-xs tracking-[0.15em] uppercase text-purple-400/70 mb-3">{String(i + 1).padStart(2, '0')}</p>
-              <p className="text-white/75 text-sm leading-relaxed">{module}</p>
+        <motion.div {...fadeUp} className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+          {tools.map((tool) => (
+            <div key={tool.name} className="glass-card rounded-xl p-6 min-h-[190px] flex flex-col justify-between">
+              <div className="h-16 flex items-center mb-6">
+                <img
+                  src={tool.logo}
+                  alt={`${tool.name} logo`}
+                  className="max-h-12 max-w-[150px] object-contain"
+                />
+              </div>
+              <div>
+                <h3 className="text-white font-semibold mb-2">{tool.name}</h3>
+                <p className="text-white/50 text-sm leading-relaxed">{tool.copy}</p>
+              </div>
             </div>
           ))}
         </motion.div>
@@ -852,7 +863,7 @@ const Index = () => {
       <ProblemSection />
       <WhyWorkSection />
       <ComparisonSection />
-      <AutomationModulesSection />
+      <ToolsSection />
       <ProcessSection />
       <FAQSection />
       <TestimonialsSection />

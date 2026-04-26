@@ -61,12 +61,38 @@ const AIBusinessAutomationGuide = () => {
           <p className="text-xl text-white/60 max-w-3xl mx-auto leading-relaxed">
             AI-driven business automation is revolutionizing how companies operate – from generating leads and engaging customers, to creating content and streamlining internal workflows.
           </p>
+          <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
+            <a href="https://cal.com/akinyemi-bajulaiye-2jua88/30min" target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-purple-600 text-white rounded-md font-semibold hover:bg-purple-700">
+              Book an Automation Audit
+            </a>
+            <Link to="/resources/ai-process-automation-examples" className="px-6 py-3 bg-white/10 border border-white/20 rounded-md font-semibold hover:bg-white/20">
+              See Automation Examples
+            </Link>
+            <Link to="/roi-calculator" className="px-6 py-3 bg-white/10 border border-white/20 rounded-md font-semibold hover:bg-white/20">
+              Estimate ROI
+            </Link>
+          </div>
           <div className="mt-8 flex flex-wrap justify-center gap-4 text-sm text-white/40">
             <span>August 16, 2025</span>
             <span>20 min read</span>
             <span>AI Business Automation</span>
           </div>
         </header>
+
+        <nav className="mb-12 bg-white/[0.07] border border-white/10 rounded-xl p-6">
+          <p className="font-mono text-xs tracking-[0.2em] uppercase text-white/40 mb-4">Start Here</p>
+          <div className="grid md:grid-cols-3 gap-3">
+            <a href="#workflow-automation" className="rounded-lg bg-black/30 border border-white/10 p-4 text-white/70 hover:text-white hover:bg-white/10 transition">
+              Map your workflow
+            </a>
+            <Link to="/resources/ai-process-automation-examples" className="rounded-lg bg-black/30 border border-white/10 p-4 text-white/70 hover:text-white hover:bg-white/10 transition">
+              Pick automation examples
+            </Link>
+            <Link to="/roi-calculator" className="rounded-lg bg-black/30 border border-white/10 p-4 text-white/70 hover:text-white hover:bg-white/10 transition">
+              Estimate savings
+            </Link>
+          </div>
+        </nav>
 
         {/* Main Content */}
         <article className="prose prose-lg prose-invert max-w-none">
@@ -79,7 +105,7 @@ const AIBusinessAutomationGuide = () => {
           </div>
 
           {/* AI Voice Agents Section */}
-          <section className="mb-12">
+          <section id="workflow-automation" className="mb-12">
             <h2 className="font-display text-3xl leading-[1.2] text-[#fafafa] capitalize mb-6">AI Voice Agents and Conversational Automation</h2>
 
             <div className="text-center mb-6">
@@ -468,15 +494,15 @@ const AIBusinessAutomationGuide = () => {
 
         {/* CTA Section */}
         <section className="text-center py-12 bg-gradient-to-r from-purple-600/20 to-blue-600/20 rounded-2xl border border-white/10">
-          <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] capitalize mb-4">Ready to Transform Your Business with AI?</h2>
+          <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] capitalize mb-4">Ready to map your first automation?</h2>
           <p className="text-xl mb-8 text-white/60">
-            Let's discuss how AI automation can streamline your operations and boost your bottom line.
+            Book an automation audit and we will identify the first workflows worth automating.
           </p>
           <button
             onClick={() => window.open('https://cal.com/akinyemi-bajulaiye-2jua88/30min', '_blank')}
             className="btn-primary inline-flex items-center gap-2"
           >
-            Book Your Free Discovery Call
+            Book an Automation Audit
           </button>
         </section>
       </div>

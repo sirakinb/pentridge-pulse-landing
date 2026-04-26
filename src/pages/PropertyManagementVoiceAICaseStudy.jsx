@@ -159,7 +159,7 @@ const PropertyManagementVoiceAICaseStudy = () => {
             <div className="bg-white/[0.07] p-6 rounded-xl border border-white/10">
               <h3 className="text-xl font-semibold text-[#fafafa] mb-3">Learn More About Our Services</h3>
               <p className="text-white/60 mb-4">
-                Discover how our AI voice agent services can transform your business operations
+                Discover how AI voice agents can connect calls, CRM updates, booking, follow-up, and reporting in one workflow
                 and help you achieve similar results.
               </p>
               <Link

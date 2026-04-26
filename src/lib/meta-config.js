@@ -1,24 +1,24 @@
 // Meta tag configurations based on keyword research and SEO strategy
 export const metaConfig = {
   home: {
-    title: "AI Business Automation Services | Pentridge - Transform Your Business",
-    description: "Transform your business with AI-powered automation. Custom AI solutions, workflow automation, and business process optimization. Get 10x efficiency gains. Book free consultation.",
-    keywords: "AI business automation, AI automation services, business automation agency, AI workflow automation, custom AI solutions, business process automation, AI automation consulting, workflow automation agency",
+    title: "AI Workflow Automation Services for Businesses | Pentridge",
+    description: "Pentridge builds AI workflow automation systems for service businesses. Automate lead follow-up, voice calls, CRM updates, documents, reporting, and internal operations.",
+    keywords: "AI workflow automation services, AI automation for service businesses, lead follow-up automation, CRM automation, AI voice agents, document automation, business workflow automation",
     canonicalUrl: "https://pentridgemedia.com",
     pageType: "website"
   },
   
   about: {
-    title: "About Pentridge | AI Automation Experts | Custom Business Solutions",
-    description: "Meet the AI automation experts at Pentridge. We've helped 100+ businesses automate processes and scale operations. Learn about our proven methodology and success stories.",
+    title: "About Pentridge | AI Workflow Automation Partner",
+    description: "Pentridge helps businesses replace manual workflows with practical AI automation systems that are integrated, maintained, and improved over time.",
     keywords: "AI automation experts, business automation specialists, Pentridge team, AI consulting experts, workflow automation professionals, custom AI development team",
     canonicalUrl: "https://pentridgemedia.com/about",
     pageType: "website"
   },
   
   contact: {
-    title: "Contact AI Automation Experts | Pentridge | Free Consultation",
-    description: "Ready to automate your business? Contact Pentridge for a free AI automation consultation. Get custom solutions for workflow automation, CRM systems, and business process optimization.",
+    title: "Book an AI Workflow Automation Audit | Pentridge",
+    description: "Tell us where your team is losing time. Pentridge will help identify the highest-ROI workflow to automate first across your calls, CRM, documents, and operations.",
     keywords: "AI automation consultation, business automation contact, workflow automation experts, custom AI solutions contact, AI automation services quote, business process automation help",
     canonicalUrl: "https://pentridgemedia.com/contact",
     pageType: "website"
@@ -68,16 +68,16 @@ export const metaConfig = {
 // Service-specific meta configurations for future service pages
 export const serviceMetaConfig = {
   aiAutomation: {
-    title: "AI Business Automation Services | Custom AI Solutions | Pentridge",
-    description: "Custom AI business automation solutions that save time and boost efficiency. From workflow automation to CRM systems, we build AI solutions that scale your business. Get started today.",
-    keywords: "AI business automation, custom AI solutions, workflow automation, business process automation, AI automation consulting, automated workflow solutions",
-    canonicalUrl: "https://pentridgemedia.com/services/ai-automation"
+    title: "AI Workflow Automation Services | Pentridge",
+    description: "Automate manual business workflows with AI voice agents, CRM automation, lead follow-up, document automation, integrations, and custom internal tools.",
+    keywords: "AI workflow automation services, CRM automation, lead follow-up automation, document automation, AI automation consulting, automated workflow solutions",
+    canonicalUrl: "https://pentridgemedia.com/services"
   },
   
   customAI: {
-    title: "Custom AI Development Services | AI Solution Provider | Pentridge",
-    description: "Custom AI development for your business needs. We build AI tools, chatbots, and automation systems tailored to your workflow. Expert AI consulting and development services.",
-    keywords: "custom AI development, AI solution provider, AI consulting services, custom AI tools, AI development agency, AI automation consulting",
+    title: "Custom AI Software & Internal Tools | Pentridge",
+    description: "Need more than off-the-shelf automation? Pentridge builds custom dashboards, portals, MVPs, and internal tools that support your AI workflows.",
+    keywords: "custom AI software, internal tools, custom dashboards, client portals, AI workflow tools, custom AI development",
     canonicalUrl: "https://pentridgemedia.com/services/custom-ai"
   },
   

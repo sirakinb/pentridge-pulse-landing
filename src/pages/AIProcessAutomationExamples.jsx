@@ -125,6 +125,15 @@ const AIProcessAutomationExamples = () => {
     name: `${s.title} – ${label}`
   })));
 
+  const mostRequested = [
+    'AI voice agents that book appointments and update the CRM',
+    'Lead follow-up sequences across SMS, email, and calendar booking',
+    'CRM cleanup from calls, forms, inboxes, and spreadsheets',
+    'Proposal and quote generation from structured intake',
+    'Automated weekly reports with AI-written summaries',
+    'Customer support routing, task creation, and escalation alerts',
+  ];
+
   return (
     <div className="bg-black text-white min-h-screen">
       <MetaTags
@@ -169,6 +178,22 @@ const AIProcessAutomationExamples = () => {
             implement.
           </p>
         </motion.header>
+
+        <motion.section
+          className="mb-12 bg-purple-500/10 border border-purple-500/30 rounded-xl p-6"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
+          <h2 className="text-2xl md:text-3xl font-bold font-display text-[#fafafa] mb-4">Most Requested Automations</h2>
+          <div className="grid md:grid-cols-2 gap-3">
+            {mostRequested.map((item) => (
+              <div key={item} className="rounded-lg bg-white/[0.07] border border-white/10 p-4 text-white/70 text-sm">
+                {item}
+              </div>
+            ))}
+          </div>
+        </motion.section>
 
         {/* Quick links */}
         <motion.div
@@ -259,9 +284,9 @@ const AIProcessAutomationExamples = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl font-bold font-display mb-3">Ready to implement AI automation?</h2>
-          <p className="text-lg opacity-90 mb-6">Use the guide to plan, the calculator to model ROI, and voice agents to capture demand 24/7.</p>
+          <p className="text-lg opacity-90 mb-6">Not sure where to start? Book a 30-minute workflow audit and we'll identify the first 3 automations worth building.</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link to="/ai-business-automation-guide" className="px-6 py-3 bg-white text-purple-700 rounded-md font-semibold hover:bg-gray-100">Read the Guide</Link>
+            <a href="https://cal.com/akinyemi-bajulaiye-2jua88/30min" target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-white text-purple-700 rounded-md font-semibold hover:bg-gray-100">Book an Automation Audit</a>
             <Link to="/roi-calculator" className="px-6 py-3 bg-white/10 border border-white/30 rounded-md font-semibold hover:bg-white/20">Estimate ROI</Link>
             <Link to="/services/ai-voice-agents" className="px-6 py-3 bg-white/10 border border-white/30 rounded-md font-semibold hover:bg-white/20">Deploy Voice Agents</Link>
           </div>

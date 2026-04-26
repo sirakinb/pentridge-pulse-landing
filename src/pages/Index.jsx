@@ -65,13 +65,13 @@ const HeroSection = () => (
         {/* Left: Copy */}
         <motion.div {...fadeUp}>
           <p className="font-mono text-xs tracking-[0.3em] uppercase text-white/40 mb-6">
-            Pentridge / AI Innovation Studio
+            Pentridge / AI Workflow Automation
           </p>
           <h1 className="font-display text-4xl md:text-5xl lg:text-[43px] leading-[1.2] mb-6 text-[#fafafa] capitalize">
-            Every day you wait, your competitors get closer.
+            Automate the workflows slowing your business down.
           </h1>
           <p className="text-lg md:text-xl text-white/60 leading-relaxed mb-10 max-w-xl">
-            We build AI systems that actually work. We become your tech arm — design, develop, deploy.
+            We build AI automation systems that handle repetitive work, connect your tools, and keep your team focused on revenue.
           </p>
           <div className="flex flex-wrap gap-4 mb-12">
             <a
@@ -80,15 +80,13 @@ const HeroSection = () => (
               rel="noopener noreferrer"
               className="btn-primary inline-block"
             >
-              Build AI Systems
+              Book an Automation Audit
             </a>
             <a
-              href="https://cal.com/akinyemi-bajulaiye-2jua88/30min-copy"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/resources/ai-process-automation-examples"
               className="btn-outline inline-block"
             >
-              Build AI Applications
+              See Automation Examples
             </a>
           </div>
           <div className="flex gap-10 font-mono text-sm">
@@ -255,33 +253,32 @@ const HeroSection = () => (
   </section>
 );
 
-// ─── Section 01: Two Ways In ──────────────────────────────────
+// ─── Section 01: Automation Offer ─────────────────────────────
 const TwoWaysSection = () => (
   <section className="bg-black py-24 md:py-32 relative">
     <div className="max-w-7xl mx-auto px-6">
       <motion.div {...fadeUp} className="mb-16">
-        <p className="section-label mb-4">01 / Two Ways In</p>
+        <p className="section-label mb-4">01 / Automation Partner</p>
         <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] max-w-2xl capitalize">
-          Two paths. One partner.
+          One automation partner for the workflows that run your business.
         </h2>
       </motion.div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {/* Card 1 */}
         <motion.div
           {...stagger}
           transition={{ duration: 0.6, delay: 0.1 }}
           className="glass-card-purple rounded-2xl p-10 md:p-12 group hover:border-purple-500/40 transition-all duration-500"
         >
-          <p className="font-mono text-xs tracking-[0.2em] uppercase text-purple-400 mb-4">Path 01</p>
+          <p className="font-mono text-xs tracking-[0.2em] uppercase text-purple-400 mb-4">Primary Offer</p>
           <h3 className="font-display text-2xl md:text-3xl leading-[1.2] text-[#fafafa] mb-4 capitalize">
-            AI Systems & Automation
+            AI Workflow Automation
           </h3>
           <p className="text-white/60 leading-relaxed mb-8">
-            You have a business running on manual work. We audit, build, and deploy AI systems that actually work. Then we stay and keep building.
+            We audit the manual work costing you time, map the highest-ROI workflows, then build and maintain automations across your calls, CRM, calendar, inbox, documents, and internal tools.
           </p>
           <ul className="space-y-3 mb-8">
-            {['AI Voice Agents', 'Workflow Automation', 'Custom AI Tools', 'Ongoing Optimization'].map((item) => (
+            {['Workflow audit and roadmap', 'Lead capture and follow-up', 'CRM, calendar, email, and SMS integrations', 'Ongoing monitoring and optimization'].map((item) => (
               <li key={item} className="flex items-center gap-3 text-white/50 text-sm">
                 <span className="w-1 h-1 bg-purple-500 rounded-full" />
                 {item}
@@ -294,25 +291,24 @@ const TwoWaysSection = () => (
             rel="noopener noreferrer"
             className="btn-outline inline-flex items-center gap-2 group-hover:border-purple-400/60"
           >
-            Get Started <ArrowRight size={14} />
+            Book an Automation Audit <ArrowRight size={14} />
           </a>
         </motion.div>
 
-        {/* Card 2 */}
         <motion.div
           {...stagger}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="glass-card-purple rounded-2xl p-10 md:p-12 group hover:border-purple-500/40 transition-all duration-500"
         >
-          <p className="font-mono text-xs tracking-[0.2em] uppercase text-pink-400 mb-4">Path 02</p>
+          <p className="font-mono text-xs tracking-[0.2em] uppercase text-pink-400 mb-4">Supporting Capability</p>
           <h3 className="font-display text-2xl md:text-3xl leading-[1.2] text-[#fafafa] mb-4 capitalize">
-            Your Tech Partner
+            Need custom software too?
           </h3>
           <p className="text-white/60 leading-relaxed mb-8">
-            You have the idea, the clients, the expertise. You need the builder. We become your tech arm — design, develop, deploy.
+            When automation needs a dashboard, client portal, internal tool, or AI-native app, we can build it. Custom software supports the workflow instead of distracting from the business outcome.
           </p>
           <ul className="space-y-3 mb-8">
-            {['Full-Stack Development', 'Product Design & UX', 'Idea to MVP', 'AI-Native Apps'].map((item) => (
+            {['Custom dashboards and portals', 'MVPs and internal tools', 'AI-native interfaces', 'Product design and full-stack delivery'].map((item) => (
               <li key={item} className="flex items-center gap-3 text-white/50 text-sm">
                 <span className="w-1 h-1 bg-pink-500 rounded-full" />
                 {item}
@@ -325,7 +321,7 @@ const TwoWaysSection = () => (
             rel="noopener noreferrer"
             className="btn-outline inline-flex items-center gap-2 group-hover:border-pink-400/60"
           >
-            Let's Build <ArrowRight size={14} />
+            Discuss Custom Software <ArrowRight size={14} />
           </a>
         </motion.div>
       </div>
@@ -374,6 +370,44 @@ const TrustedBySection = () => {
   );
 };
 
+const ProblemSection = () => {
+  const problems = [
+    'Missed calls and slow lead follow-up',
+    'Duplicate data entry between disconnected tools',
+    'Manual CRM updates after every form, call, or meeting',
+    'Admin reporting that eats into revenue-focused work',
+  ];
+
+  return (
+    <section className="bg-black py-24 md:py-32">
+      <div className="max-w-7xl mx-auto px-6">
+        <motion.div {...fadeUp} className="mb-16">
+          <p className="section-label mb-4">03 / The Problem</p>
+          <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] max-w-3xl capitalize">
+            Manual workflows quietly drain your team every week.
+          </h2>
+          <p className="text-white/50 text-lg mt-6 max-w-2xl leading-relaxed">
+            Most service businesses do not need another disconnected tool. They need the calls, forms, CRM, calendar, inbox, documents, and reports to work together automatically.
+          </p>
+        </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {problems.map((problem, i) => (
+            <motion.div
+              key={problem}
+              {...stagger}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+              className="glass-card rounded-xl p-8"
+            >
+              <p className="font-mono text-xs tracking-[0.15em] uppercase text-red-400/70 mb-3">Manual drag</p>
+              <p className="text-white/75 text-sm leading-relaxed">{problem}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 // ─── Section 03: What They Say ───────────────────────────────
 const TestimonialsSection = () => {
   const testimonials = [
@@ -395,7 +429,7 @@ const TestimonialsSection = () => {
     <section className="bg-black py-24 md:py-32">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div {...fadeUp} className="mb-16">
-          <p className="section-label mb-4">07 / What They Say</p>
+          <p className="section-label mb-4">09 / What They Say</p>
           <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] max-w-3xl capitalize">
             Don't take our word for it.
           </h2>
@@ -435,16 +469,16 @@ const TestimonialsSection = () => {
 const WhyWorkSection = () => {
   const comparisons = [
     {
-      before: 'Paying an agency $20k for a landing page',
-      after: 'A partner that builds and iterates — at a fraction of the cost',
+      before: 'Following up with every lead by hand',
+      after: 'Instant qualification, SMS/email follow-up, booking, and CRM updates',
     },
     {
-      before: 'Trying to "figure out AI" on your own',
-      after: 'AI systems designed, built, and maintained for you',
+      before: 'Trying to "figure out AI" without a workflow map',
+      after: 'A clear automation roadmap tied to hours saved and revenue protected',
     },
     {
       before: 'Cobbling together no-code tools that break',
-      after: 'Production-grade software that scales with your business',
+      after: 'Reliable automations built, integrated, monitored, and improved over time',
     },
   ];
 
@@ -452,9 +486,9 @@ const WhyWorkSection = () => {
     <section className="bg-black py-24 md:py-32">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div {...fadeUp} className="mb-16">
-          <p className="section-label mb-4">03 / Why Work With Us</p>
+          <p className="section-label mb-4">04 / Why Work With Us</p>
           <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] max-w-3xl capitalize">
-            Stop overpaying for underwhelming results.
+            Replace scattered manual work with systems that run.
           </h2>
         </motion.div>
 
@@ -501,13 +535,12 @@ const WhyWorkSection = () => {
 // ─── Section 04: Why Partner? (Comparison Table) ──────────────
 const ComparisonSection = () => {
   const rows = [
-    { label: 'Dedicated team', agency: true, pentridge: true },
-    { label: 'AI-first approach', agency: false, pentridge: true },
-    { label: 'Ongoing partnership', agency: false, pentridge: true },
-    { label: 'Full-stack capability', agency: true, pentridge: true },
-    { label: 'Affordable pricing', agency: false, pentridge: true },
-    { label: 'Fast iteration', agency: false, pentridge: true },
-    { label: 'Strategic guidance', agency: false, pentridge: true },
+    { label: 'Workflow audit before building', agency: false, pentridge: true },
+    { label: 'CRM, calendar, inbox, SMS, and document integrations', agency: false, pentridge: true },
+    { label: 'Automation plus custom software when needed', agency: false, pentridge: true },
+    { label: 'Launch, monitor, and optimize after go-live', agency: false, pentridge: true },
+    { label: 'Business outcome and ROI focus', agency: false, pentridge: true },
+    { label: 'Long-term automation partner', agency: false, pentridge: true },
   ];
 
   const CellIcon = ({ value }) =>
@@ -523,7 +556,7 @@ const ComparisonSection = () => {
         <motion.div {...fadeUp} className="mb-16 text-center">
           <p className="section-label mb-4">05 / Why Partner?</p>
           <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] capitalize">
-            Not all builders are equal.
+            Not all automation partners are equal.
           </h2>
         </motion.div>
 
@@ -552,48 +585,76 @@ const ComparisonSection = () => {
   );
 };
 
-// ─── Section 05: How We Build ────────────────────────────────
-const HowWeBuildSection = () => {
-  const tools = [
-    { name: 'Anthropic', logo: '/logos/anthropic.svg' },
-    { name: 'Zapier', logo: '/logos/zapier.svg' },
-    { name: 'Codex', logo: '/logos/codex.svg' },
-    { name: 'Cursor', logo: '/logos/cursor.svg' },
-    { name: 'n8n', logo: '/logos/n8n.svg' },
-    { name: 'Make.com', logo: '/logos/make.svg' },
+// ─── Section 06: Automation Modules ───────────────────────────
+const AutomationModulesSection = () => {
+  const modules = [
+    'AI voice agents and call handling',
+    'Lead capture, qualification, follow-up, and booking',
+    'CRM, calendar, email, SMS, and tool integrations',
+    'Document, proposal, and reporting automation',
+    'Internal operations and admin workflows',
+    'Custom dashboards, portals, and internal tools',
   ];
 
   return (
     <section className="bg-black py-24 md:py-32 border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div {...fadeUp} className="mb-16 text-center">
-          <p className="section-label mb-4">04 / How We Build</p>
+          <p className="section-label mb-4">06 / Automation Modules</p>
           <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] capitalize max-w-3xl mx-auto">
-            AI-native development. Not a buzzword.
+            Automations that connect the work behind your business.
           </h2>
           <p className="text-white/50 text-lg mt-6 max-w-2xl mx-auto leading-relaxed">
-            We build with AI agents. Claude Code writes alongside us. Codex generates and iterates. n8n and Make.com wire everything together. Mature vibe coding meets production engineering.
+            Voice agents, CRM updates, follow-up, reporting, documents, and internal tools become modules inside one operating-system-style workflow.
           </p>
         </motion.div>
 
-        {/* Tool Strip */}
-        <motion.div {...fadeUp} className="mb-20">
-          <p className="font-mono text-xs tracking-[0.2em] uppercase text-white/30 text-center mb-8">Our Stack</p>
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
-            {tools.map((tool, i) => (
-              <motion.div
-                key={tool.name}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.05 }}
-                className="flex items-center justify-center p-4"
-              >
-                <img src={tool.logo} alt={tool.name} className="w-10 h-10 md:w-12 md:h-12" />
-              </motion.div>
-            ))}
-          </div>
+        <motion.div {...fadeUp} className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {modules.map((module, i) => (
+            <div key={module} className="glass-card rounded-xl p-7">
+              <p className="font-mono text-xs tracking-[0.15em] uppercase text-purple-400/70 mb-3">{String(i + 1).padStart(2, '0')}</p>
+              <p className="text-white/75 text-sm leading-relaxed">{module}</p>
+            </div>
+          ))}
         </motion.div>
+      </div>
+    </section>
+  );
+};
+
+// ─── Section 07: Process ──────────────────────────────────────
+const ProcessSection = () => {
+  const steps = [
+    { title: 'Map workflow', copy: 'Identify where leads, data, tasks, and approvals slow down.' },
+    { title: 'Build automation', copy: 'Create the AI agents, triggers, prompts, rules, and human handoffs.' },
+    { title: 'Integrate tools', copy: 'Connect CRM, calendar, inbox, forms, SMS, documents, and dashboards.' },
+    { title: 'Launch', copy: 'Ship a working system with clear owners, alerts, and fallback paths.' },
+    { title: 'Optimize', copy: 'Monitor outcomes and improve the workflow as your business changes.' },
+  ];
+
+  return (
+    <section className="bg-black py-24 md:py-32 border-t border-white/5">
+      <div className="max-w-7xl mx-auto px-6">
+        <motion.div {...fadeUp} className="mb-16">
+          <p className="section-label mb-4">07 / Process</p>
+          <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] max-w-3xl capitalize">
+            Audit, build, integrate, launch, and keep improving.
+          </h2>
+        </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+          {steps.map((step, i) => (
+            <motion.div
+              key={step.title}
+              {...stagger}
+              transition={{ duration: 0.4, delay: i * 0.06 }}
+              className="glass-card-purple rounded-xl p-6"
+            >
+              <p className="font-mono text-xs tracking-[0.15em] uppercase text-white/40 mb-4">{String(i + 1).padStart(2, '0')}</p>
+              <h3 className="text-white font-semibold mb-3">{step.title}</h3>
+              <p className="text-white/50 text-sm leading-relaxed">{step.copy}</p>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -606,23 +667,23 @@ const FAQSection = () => {
   const faqs = [
     {
       q: 'What kind of projects do you take on?',
-      a: 'Anything from AI voice agents and automation systems to full-stack web apps and MVPs. If it involves technology, we can build it. We specialize in AI-powered solutions for service businesses and entrepreneurs.',
+      a: 'Our primary work is AI workflow automation for service businesses: lead capture, follow-up, voice agents, CRM updates, documents, reporting, and internal operations. We also build custom dashboards, portals, and apps when the workflow requires it.',
     },
     {
       q: 'What does pricing look like?',
-      a: 'Every project is different. We offer project-based pricing for defined scopes and monthly retainers for ongoing partnerships. Book a call and we\'ll give you a transparent breakdown.',
+      a: 'Every automation scope is different. We usually begin with a workflow audit, then price the implementation and any ongoing monitoring based on complexity, integrations, and expected ROI.',
     },
     {
       q: 'How long does a typical project take?',
-      a: 'Most MVPs and automation systems are live within 2-4 weeks. Larger builds take 6-8 weeks. We move fast because we use AI-assisted development and proven frameworks.',
+      a: 'Many focused automations launch within 2-4 weeks. Larger multi-tool workflows or custom internal tools can take 6-8 weeks depending on access, integrations, and review cycles.',
     },
     {
-      q: 'Do you work with early-stage startups?',
-      a: 'Absolutely. Some of our best partnerships started with a napkin sketch. If you have a clear vision and are ready to invest in building it right, we\'re in.',
+      q: 'What happens during an automation audit?',
+      a: 'We identify where manual work slows your team down, review the tools you already use, estimate the highest-ROI opportunities, and map the first workflows worth automating.',
     },
     {
       q: 'What happens after the project is delivered?',
-      a: 'That depends on you. Many clients transition into a monthly partnership where we continue building, optimizing, and maintaining. We don\'t do "set it and forget it."',
+      a: 'Many clients keep us involved for monitoring, optimization, and new workflow builds. We do not treat automation as set-it-and-forget-it software.',
     },
   ];
 
@@ -630,7 +691,7 @@ const FAQSection = () => {
     <section className="bg-black py-24 md:py-32">
       <div className="max-w-3xl mx-auto px-6">
         <motion.div {...fadeUp} className="mb-16">
-          <p className="section-label mb-4">06 / FAQ</p>
+          <p className="section-label mb-4">08 / FAQ</p>
           <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] capitalize">
             Questions? We have answers.
           </h2>
@@ -679,7 +740,7 @@ const FAQSection = () => {
   );
 };
 
-// ─── Section 06: CTA / Apply ──────────────────────────────────
+// ─── Section 10: CTA / Apply ──────────────────────────────────
 const CTASection = () => {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
@@ -715,12 +776,12 @@ const CTASection = () => {
           <div className="absolute bottom-0 left-0 w-48 h-48 bg-pink-600/15 rounded-full blur-[60px] pointer-events-none" />
 
           <div className="relative z-10">
-            <p className="section-label mb-6">08 / Let's Go</p>
+            <p className="section-label mb-6">10 / Let's Go</p>
             <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] mb-6 capitalize">
-              Get ahead or get left behind.
+              Book your AI workflow automation audit.
             </h2>
             <p className="text-white/50 text-lg mb-10 max-w-lg mx-auto">
-              Whether you need AI systems or AI-powered applications built — let's talk.
+              Pick the workflows slowing your team down. We will help identify the first automation worth building and the ROI it could create.
             </p>
             <div className="flex flex-wrap justify-center gap-4 mb-12">
               <a
@@ -729,15 +790,13 @@ const CTASection = () => {
                 rel="noopener noreferrer"
                 className="btn-primary inline-block"
               >
-                Build AI Systems
+                Book an Automation Audit
               </a>
               <a
-                href="https://cal.com/akinyemi-bajulaiye-2jua88/30min-copy"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/resources/ai-process-automation-examples"
                 className="btn-outline inline-block"
               >
-                Build AI Applications
+                See Automation Examples
               </a>
             </div>
 
@@ -790,9 +849,11 @@ const Index = () => {
       <HeroSection />
       <TwoWaysSection />
       <TrustedBySection />
+      <ProblemSection />
       <WhyWorkSection />
-      <HowWeBuildSection />
       <ComparisonSection />
+      <AutomationModulesSection />
+      <ProcessSection />
       <FAQSection />
       <TestimonialsSection />
       <CTASection />

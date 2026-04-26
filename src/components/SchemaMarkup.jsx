@@ -13,7 +13,7 @@ const SchemaMarkup = () => {
       "width": 200,
       "height": 200
     },
-    "description": "We Build AI-Powered Growth Systems For Entrepreneurs and Service Businesses",
+    "description": "Pentridge builds AI workflow automation systems for service businesses.",
     "foundingDate": "2024",
     "contactPoint": {
       "@type": "ContactPoint",
@@ -30,54 +30,54 @@ const SchemaMarkup = () => {
     ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "AI-Powered Growth Services",
+      "name": "AI Workflow Automation Services",
       "itemListElement": [
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Custom AI Solutions",
-            "description": "Customize AI models to suit your specific business needs. Develop and deploy AI chatbots and voice agents to improve customer engagement."
+            "name": "Workflow Automation Audit",
+            "description": "Map manual workflows, estimate automation opportunities, and create an implementation roadmap."
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Web & App Composition",
-            "description": "Quickly build and deploy functional solutions. Compose applications using AI-driven natural language programming. Design and build unique, visually appealing landing pages."
+            "name": "AI Voice Agents",
+            "description": "Answer calls, qualify leads, book appointments, and trigger CRM and follow-up workflows."
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "API & System Integrations",
-            "description": "Seamlessly connect your software with third-party applications. Integrate your business applications to streamline operations."
+            "name": "Lead Capture & Follow-Up Automation",
+            "description": "Automate lead qualification, SMS and email follow-up, booking, and CRM updates."
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Automated Workflow Solutions",
-            "description": "Automate and optimize workflows, streamline proposal and document generation, implement systems to nurture leads, run activation campaigns, and simplify admin processes."
+            "name": "CRM & Operations Automation",
+            "description": "Connect CRM, calendar, inbox, forms, SMS, reporting, and internal task workflows."
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "CRM & Business Management Systems",
-            "description": "Develop and customize CRM systems. Build internal business management applications."
+            "name": "Document, Proposal & Reporting Automation",
+            "description": "Automate document creation, proposal generation, recurring reports, and admin processes."
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "AI-Driven Content Automation",
-            "description": "Develop systems for automated content creation, distribution, and management, enhancing your digital presence and efficiency."
+            "name": "Custom Internal Tools",
+            "description": "Build custom dashboards, portals, MVPs, and internal tools that support AI workflows."
           }
         }
       ]
@@ -88,20 +88,21 @@ const SchemaMarkup = () => {
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "AI-Powered Growth Systems",
-    "description": "We Build AI-Powered Growth Systems For Entrepreneurs and Service Businesses. Leverage AI, Automation, and Digital Strategies to save you time and propel your business forward.",
+    "name": "AI Workflow Automation Services",
+    "description": "Pentridge builds AI workflow automation systems for service businesses. Automate lead follow-up, voice calls, CRM updates, documents, reporting, and internal operations.",
     "provider": {
       "@type": "Organization",
       "name": "Pentridge",
       "url": "https://pentridgemedia.com"
     },
     "serviceType": [
-      "AI Automation",
+      "AI Workflow Automation",
       "Business Process Automation",
-      "Digital Marketing",
-      "Content Creation",
+      "Lead Follow-Up Automation",
+      "AI Voice Agents",
       "System Integration",
-      "CRM Development"
+      "CRM Automation",
+      "Document Automation"
     ],
     "areaServed": {
       "@type": "Country",
@@ -109,41 +110,41 @@ const SchemaMarkup = () => {
     },
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "AI-Powered Growth Services",
+      "name": "AI Workflow Automation Services",
       "itemListElement": [
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Custom AI Solutions",
-            "description": "Customize AI models to suit your specific business needs. Develop and deploy AI chatbots and voice agents to improve customer engagement.",
-            "category": "AI Development"
+            "name": "Workflow Automation Audit",
+            "description": "Map manual workflows, estimate automation opportunities, and create an implementation roadmap.",
+            "category": "AI Workflow Automation"
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Web & App Composition",
-            "description": "Quickly build and deploy functional solutions. Compose applications using AI-driven natural language programming. Design and build unique, visually appealing landing pages.",
-            "category": "Web Development"
+            "name": "AI Voice Agents",
+            "description": "Answer calls, qualify leads, book appointments, and trigger CRM and follow-up workflows.",
+            "category": "AI Workflow Automation"
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "API & System Integrations",
-            "description": "Seamlessly connect your software with third-party applications. Integrate your business applications to streamline operations.",
-            "category": "System Integration"
+            "name": "Lead Capture & Follow-Up Automation",
+            "description": "Automate lead qualification, SMS and email follow-up, booking, and CRM updates.",
+            "category": "AI Workflow Automation"
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Automated Workflow Solutions",
-            "description": "Automate and optimize workflows, streamline proposal and document generation, implement systems to nurture leads, run activation campaigns, and simplify admin processes.",
+            "name": "CRM & Operations Automation",
+            "description": "Connect CRM, calendar, inbox, forms, SMS, reporting, and internal task workflows.",
             "category": "Business Automation"
           }
         },
@@ -151,18 +152,18 @@ const SchemaMarkup = () => {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "CRM & Business Management Systems",
-            "description": "Develop and customize CRM systems. Build internal business management applications.",
-            "category": "CRM Development"
+            "name": "Document, Proposal & Reporting Automation",
+            "description": "Automate document creation, proposal generation, recurring reports, and admin processes.",
+            "category": "Document Automation"
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "AI-Driven Content Automation",
-            "description": "Develop systems for automated content creation, distribution, and management, enhancing your digital presence and efficiency.",
-            "category": "Content Marketing"
+            "name": "Custom Internal Tools",
+            "description": "Build custom dashboards, portals, MVPs, and internal tools that support AI workflows.",
+            "category": "Custom Software"
           }
         }
       ]
@@ -223,7 +224,7 @@ const SchemaMarkup = () => {
     "@type": "WebSite",
     "name": "Pentridge",
     "url": "https://pentridgemedia.com",
-    "description": "We Build AI-Powered Growth Systems For Entrepreneurs and Service Businesses",
+    "description": "Pentridge builds AI workflow automation systems for service businesses.",
     "publisher": {
       "@type": "Organization",
       "name": "Pentridge",
@@ -247,7 +248,7 @@ const SchemaMarkup = () => {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Pentridge",
-    "description": "AI-Powered Growth Systems For Entrepreneurs and Service Businesses",
+    "description": "AI workflow automation systems for service businesses.",
     "url": "https://pentridgemedia.com",
     "logo": {
       "@type": "ImageObject",
@@ -289,7 +290,7 @@ const SchemaMarkup = () => {
     },
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "AI-Powered Growth Services"
+      "name": "AI Workflow Automation Services"
     }
   };
 

@@ -7,13 +7,13 @@ const PageSchemaMarkup = ({ pageType, pageData = {} }) => {
         return {
           "@context": "https://schema.org",
           "@type": "WebPage",
-          "name": "Pentridge - AI-Powered Growth Systems",
-          "description": "We Build AI-Powered Growth Systems For Entrepreneurs and Service Businesses. Leverage AI, Automation, and Digital Strategies to save you time and propel your business forward.",
+          "name": "Pentridge - AI Workflow Automation Services",
+          "description": "Pentridge builds AI workflow automation systems for service businesses. Automate lead follow-up, voice calls, CRM updates, documents, reporting, and internal operations.",
           "url": "https://pentridgemedia.com",
           "mainEntity": {
             "@type": "Organization",
             "name": "Pentridge",
-            "description": "AI-Powered Growth Systems For Entrepreneurs and Service Businesses"
+            "description": "AI workflow automation systems for service businesses"
           },
           "breadcrumb": {
             "@type": "BreadcrumbList",
@@ -33,7 +33,7 @@ const PageSchemaMarkup = ({ pageType, pageData = {} }) => {
           "@context": "https://schema.org",
           "@type": "ContactPage",
           "name": "Contact Pentridge",
-          "description": "Get in touch with our team for AI-powered growth solutions",
+          "description": "Book an AI workflow automation audit with Pentridge",
           "url": "https://pentridgemedia.com/contact",
           "mainEntity": {
             "@type": "Organization",
@@ -104,12 +104,12 @@ const PageSchemaMarkup = ({ pageType, pageData = {} }) => {
           "@context": "https://schema.org",
           "@type": "AboutPage",
           "name": "About Us - Pentridge",
-          "description": "Learn about Pentridge and our mission to build AI-powered growth systems",
+          "description": "Learn about Pentridge and our mission to replace manual workflows with AI automation systems",
           "url": "https://pentridgemedia.com/about",
           "mainEntity": {
             "@type": "Organization",
             "name": "Pentridge",
-            "description": "We Build AI-Powered Growth Systems For Entrepreneurs and Service Businesses",
+            "description": "Pentridge builds practical AI workflow automation systems for businesses",
             "foundingDate": "2024",
             "mission": "To help businesses leverage AI and automation to improve their operations and growth"
           },

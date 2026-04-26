@@ -43,23 +43,23 @@ const AboutUs = () => {
         {/* Story sections */}
         <div className="space-y-16">
           <motion.div {...fadeUp} className="glass-card rounded-2xl p-8 md:p-12">
-            <p className="font-mono text-xs tracking-[0.2em] uppercase text-purple-400 mb-4">01 / The Beginning</p>
+            <p className="font-mono text-xs tracking-[0.2em] uppercase text-purple-400 mb-4">01 / Today</p>
             <p className="text-white/60 leading-relaxed text-base">
-              The Pentridge Brand has come a long way since the inception of Pentridge Manor in 2021, a content creation house for capturing stunning photos and videos. The Pentridge Manor has become a popular destination for photographers, videographers, artists and other creatives looking for a unique and instagram-youtube worthy location to shoot their content. From fashion and music videos to product launches, film productions, and social media campaigns, "the manor" has played host to different functions.
+              Pentridge helps businesses replace manual workflows with AI automation systems that are practical, integrated, and maintained over time. We started in creative production, evolved through software and AI, and now operate as a hands-on automation partner for businesses that want real operational leverage.
             </p>
           </motion.div>
 
           <motion.div {...fadeUp} className="glass-card rounded-2xl p-8 md:p-12">
-            <p className="font-mono text-xs tracking-[0.2em] uppercase text-pink-400 mb-4">02 / The Evolution</p>
+            <p className="font-mono text-xs tracking-[0.2em] uppercase text-pink-400 mb-4">02 / The Origin</p>
             <p className="text-white/60 leading-relaxed text-base">
-              With the evolution of technology and market demands, we recognized a way to provide more value to content creators who occupied our space. As a result, Pentridge was born. Pentridge emerged as an extension of our creative ecosystem, blending the physical space of content creation with digital media services for editing and content management. However, it didn't stop there. With the rise of ChatGPT and Generative AI, we recognized their potential in transforming the digital landscape. Therefore, we evolved further.
+              The Pentridge brand began with Pentridge Manor in 2021, a content creation house for capturing photos and videos. That creative foundation shaped how we think about practical execution, but the business has evolved into software, AI, and workflow automation for modern teams.
             </p>
           </motion.div>
 
           <motion.div {...fadeUp} className="glass-card-purple rounded-2xl p-8 md:p-12">
-            <p className="font-mono text-xs tracking-[0.2em] uppercase text-purple-400 mb-4">03 / Today</p>
+            <p className="font-mono text-xs tracking-[0.2em] uppercase text-purple-400 mb-4">03 / How We Partner</p>
             <p className="text-white/70 leading-relaxed text-base">
-              Today, Pentridge offers a range of solutions tailored to the needs of modern businesses and creators. From cutting-edge AI systems and automation services to full-stack development and product design, we are committed to helping you achieve your goals. We don't just build — we partner. We become your tech arm, with skin in the game, building alongside you for the long term.
+              Today, we focus on AI workflow automation for businesses and teams. We audit, build, integrate, and maintain systems for lead follow-up, voice agents, CRM updates, reporting, documents, and internal operations. We don't just build — we partner. We become your tech arm, with skin in the game, building alongside you for the long term.
             </p>
           </motion.div>
         </div>

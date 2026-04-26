@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, BookOpen, FileText, Users } from 'lucide-react';
+import { ArrowRight, BookOpen, Calculator, FileText } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import { motion } from 'framer-motion';
 
@@ -18,8 +18,8 @@ const Resources = () => {
       badgeColor: 'text-purple-400 border-purple-400/30',
       meta: '20 min read',
       title: 'Complete Guide to AI Business Automation',
-      description: 'Everything you need to know about implementing AI automation in your business.',
-      tags: ['AI Automation', 'Implementation', 'Strategy'],
+      description: 'Start here to understand what AI workflow automation can replace inside your business.',
+      tags: ['Workflow Automation', 'Implementation', 'Strategy'],
       link: '/ai-business-automation-guide',
       cta: 'Read Guide',
       icon: <BookOpen size={16} />,
@@ -40,11 +40,11 @@ const Resources = () => {
       badgeColor: 'text-orange-400 border-orange-400/30',
       meta: 'Free',
       title: 'AI ROI Calculator',
-      description: 'Calculate potential time and cost savings from AI automation.',
+      description: 'Calculate potential time and cost savings from the workflow you want to automate.',
       tags: ['ROI', 'Calculator', 'Planning'],
       link: '/roi-calculator',
       cta: 'Calculate ROI',
-      icon: <FileText size={16} />,
+      icon: <Calculator size={16} />,
     },
   ];
 
@@ -63,6 +63,18 @@ const Resources = () => {
             Access our library of AI guides, case studies, and educational content
             to accelerate your business automation journey.
           </p>
+        </motion.div>
+
+        <motion.div {...fadeUp} className="mb-12 bg-white/[0.07] border border-white/10 rounded-2xl p-8">
+          <p className="font-mono text-xs tracking-[0.2em] uppercase text-white/40 mb-4">Start Here</p>
+          <div className="grid md:grid-cols-4 gap-3">
+            {['Guide', 'Examples', 'ROI Calculator', 'Automation Audit'].map((step, index) => (
+              <div key={step} className="rounded-lg bg-black/30 border border-white/10 p-4">
+                <p className="font-mono text-xs text-purple-400 mb-2">{String(index + 1).padStart(2, '0')}</p>
+                <p className="text-white/70">{step}</p>
+              </div>
+            ))}
+          </div>
         </motion.div>
 
         {/* Resources Grid */}
@@ -101,28 +113,24 @@ const Resources = () => {
           ))}
         </div>
 
-        {/* Community CTA */}
+        {/* Audit CTA */}
         <motion.div {...fadeUp} className="mb-20">
           <div className="glass-card-purple rounded-2xl p-10 md:p-14 text-center relative overflow-hidden">
             <div className="absolute top-0 right-0 w-48 h-48 bg-purple-600/20 rounded-full blur-[80px] pointer-events-none" />
             <div className="relative z-10">
-              <div className="inline-flex items-center justify-center w-14 h-14 bg-white/10 rounded-full mb-6">
-                <Users className="h-6 w-6 text-purple-400" />
-              </div>
               <h3 className="font-display text-2xl md:text-3xl leading-[1.2] text-[#fafafa] capitalize mb-4">
-                Join Vibe Code Pioneers
+                Turn these resources into an automation plan.
               </h3>
               <p className="text-white/50 mb-8 max-w-xl mx-auto">
-                Get access to exclusive templates, tools, scripts, and hands-on resources.
-                Connect with other business owners implementing AI automation.
+                Read the guide, browse examples, estimate savings, then book an audit so we can identify your first three automations.
               </p>
               <a
-                href="https://www.skool.com/vibecodepioneers/"
+                href="https://cal.com/akinyemi-bajulaiye-2jua88/30min"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-outline inline-flex items-center gap-2"
               >
-                <Users size={14} /> Join Community <ArrowRight size={14} />
+                Book an Automation Audit <ArrowRight size={14} />
               </a>
             </div>
           </div>

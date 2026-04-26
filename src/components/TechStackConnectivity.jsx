@@ -26,7 +26,7 @@ const TechStackConnectivity = () => {
         </div>
         <div className="text-center">
           <Button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full text-lg">
-            Free Consultation
+            Book an Automation Audit
           </Button>
         </div>
       </div>

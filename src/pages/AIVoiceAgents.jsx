@@ -77,9 +77,9 @@ const AIVoiceAgents = () => {
   const gaugeMax = 20000; // cap for the dial visualization (monthly)
   const gaugePct = Math.min(100, Math.round((moneySavedPerMonth / gaugeMax) * 100));
 
-  const pageTitle = "AI Phone Answering System | AI Call Answering Service & Appointment Scheduling";
-  const pageDescription = "24/7 AI voice agent for customer calls, automated phone answering, and AI appointment scheduling. Reduce costs and capture more leads.";
-  const pageKeywords = "AI phone answering system, AI call answering service, automated phone answering, AI appointment scheduling, AI customer service automation, voice AI for business";
+  const pageTitle = "AI Voice Agents for Workflow Automation | Pentridge";
+  const pageDescription = "AI voice agents that answer calls, qualify leads, book appointments, update your CRM, send follow-ups, and connect into your broader business workflow.";
+  const pageKeywords = "AI voice agents, AI phone answering system, AI call answering service, automated phone answering, AI appointment scheduling, CRM call automation, voice AI workflow automation";
 
   const faqSchema = {
     "@context": "https://schema.org",
@@ -114,7 +114,7 @@ const AIVoiceAgents = () => {
         "name": "How is pricing calculated?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Pricing is based on call volume and features. Most clients see savings versus staffing a full‑time receptionist. Use the calculator on this page to estimate savings."
+          "text": "Pricing is based on call volume and features. Most clients see savings versus staffing a full-time receptionist. Use the calculator on this page to estimate savings."
         }
       },
       {
@@ -131,8 +131,8 @@ const AIVoiceAgents = () => {
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "AI Phone Answering System & Call Answering Service",
-    "serviceType": ["Automated phone answering", "AI appointment scheduling"],
+    "name": "AI Voice Agents for Workflow Automation",
+    "serviceType": ["Automated phone answering", "AI appointment scheduling", "CRM workflow automation"],
     "provider": {
       "@type": "Organization",
       "name": "Pentridge",
@@ -165,22 +165,50 @@ const AIVoiceAgents = () => {
           className="text-center mb-16"
         >
           <Badge className="mb-4 bg-violet-900/30 text-violet-300 hover:bg-violet-900/40">
-            AI Voice Technology
+            AI Workflow Automation Module
           </Badge>
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            AI Phone Answering System & Call Answering Service
+            AI Voice Agents That Connect to Your Workflow
           </h1>
           <p className="text-xl text-slate-300 mb-8 max-w-3xl mx-auto">
-            Transform your phone system with automated phone answering, AI appointment scheduling, and 24/7 support with human‑like conversations.
+            Your AI voice agent is not just an answering service. It qualifies callers, books appointments, updates your CRM, sends follow-ups, and alerts your team when human support is needed.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-violet-600 hover:bg-violet-700 text-white" onClick={() => window.open('https://cal.com/akinyemi-bajulaiye-2jua88/30min', '_blank')}>
-              Book Call <ArrowRight className="ml-2 h-4 w-4" />
+              Book an Automation Audit <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
             <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white/10" onClick={() => window.location.href = '/case-studies/property-management-voice-ai'}>
               Read the case study
             </Button>
           </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.25 }}
+          className="mb-16"
+        >
+          <Card className="bg-violet-950/40 border-violet-500/30">
+            <CardHeader>
+              <CardTitle className="text-2xl text-white">What Happens After the Call?</CardTitle>
+              <CardDescription className="text-slate-300">
+                The call should trigger the rest of the business workflow automatically.
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p className="text-slate-300 mb-6 leading-relaxed">
+                Your AI voice agent becomes the front door to your workflow: qualifying callers, booking appointments, updating your CRM, sending follow-ups, creating tasks, scoring leads, and alerting your team when human support is needed.
+              </p>
+              <div className="grid md:grid-cols-3 gap-4">
+                {['CRM updates and lead scoring', 'Booking and SMS/email follow-up', 'Tasks, alerts, and reporting'].map((item) => (
+                  <div key={item} className="rounded-lg bg-white/5 border border-white/10 p-4 text-slate-200">
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
         </motion.div>
 
         
@@ -315,17 +343,17 @@ const AIVoiceAgents = () => {
                 </tr>
                 <tr className="border-t border-slate-800">
                   <td className="p-4 text-slate-300">Cost</td>
-                  <td className="p-4 text-white">Low, usage‑based</td>
+                  <td className="p-4 text-white">Low, usage-based</td>
                   <td className="p-4 text-slate-300">High, fixed salary + benefits</td>
                 </tr>
                 <tr className="border-t border-slate-800">
                   <td className="p-4 text-slate-300">Appointment Scheduling</td>
                   <td className="p-4 text-white">Integrated, instant booking</td>
-                  <td className="p-4 text-slate-300">Manual or tool‑assisted</td>
+                  <td className="p-4 text-slate-300">Manual or tool-assisted</td>
                 </tr>
                 <tr className="border-t border-slate-800">
                   <td className="p-4 text-slate-300">Consistency</td>
-                  <td className="p-4 text-white">Always on‑brand</td>
+                  <td className="p-4 text-white">Always on-brand</td>
                   <td className="p-4 text-slate-300">Varies by staff</td>
                 </tr>
                 <tr className="border-t border-slate-800">
@@ -462,11 +490,11 @@ const AIVoiceAgents = () => {
               <AccordionItem value="q4">
                 <AccordionTrigger className="px-4 text-white">How is pricing calculated?</AccordionTrigger>
                 <AccordionContent className="px-4 text-slate-300">
-                  Usage and features determine price. Many clients save compared to staffing a full‑time receptionist.
+                  Usage and features determine price. Many clients save compared to staffing a full-time receptionist.
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="q5">
-                <AccordionTrigger className="px-4 text-white">Best‑fit industries?</AccordionTrigger>
+                <AccordionTrigger className="px-4 text-white">Best-fit industries?</AccordionTrigger>
                 <AccordionContent className="px-4 text-slate-300">
                   Healthcare, property management, and professional services see the strongest ROI.
                 </AccordionContent>
@@ -488,8 +516,7 @@ const AIVoiceAgents = () => {
             Ready to Transform Your Phone System?
           </h2>
           <p className="text-xl text-slate-300 mb-8 max-w-2xl mx-auto">
-            Join hundreds of businesses already using AI voice agents to improve customer service 
-            and capture more leads.
+            Join businesses using AI voice agents to improve customer service, capture more leads, and trigger the next workflow automatically.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
@@ -497,7 +524,7 @@ const AIVoiceAgents = () => {
               className="bg-violet-600 hover:bg-violet-700 text-white"
               onClick={() => window.open('https://cal.com/akinyemi-bajulaiye-2jua88/30min', '_blank')}
             >
-              Get Started Today <ArrowRight className="ml-2 h-4 w-4" />
+              Book an Automation Audit <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
             <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white/10" onClick={() => window.location.href = '/case-studies/property-management-voice-ai'}>
               Read the case study

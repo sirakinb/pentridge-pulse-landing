@@ -40,7 +40,7 @@ const ROICalculator = () => {
                   rel="noopener noreferrer"
                   className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 transition-colors"
                 >
-                  Explore Our Services
+                  Explore Automation Services
                 </a>
                 <a
                   href="https://cal.com/akinyemi-bajulaiye-2jua88/30min"
@@ -48,7 +48,7 @@ const ROICalculator = () => {
                   rel="noopener noreferrer"
                   className="inline-flex items-center px-6 py-3 border border-purple-600 text-base font-medium rounded-md text-purple-400 bg-white/[0.07] hover:border-purple-500/30 transition-colors"
                 >
-                  Schedule a Free Consultation
+                  Book an Automation Audit
                 </a>
               </div>
             </div>
@@ -129,7 +129,7 @@ const ROICalculator = () => {
               <div className="bg-white/[0.07] p-8 rounded-2xl border border-white/10 hover:border-purple-500/30 transition-colors">
                 <h3 className="text-2xl font-bold text-white mb-4">Learn More About Our Services</h3>
                 <p className="text-white/50 mb-6">
-                  Discover how our AI voice agent services can help you achieve the savings you just calculated.
+                  Discover which workflows are best suited for automation and what your first implementation could save.
                   We specialize in automating customer interactions and lead qualification.
                 </p>
                 <Link
@@ -162,11 +162,10 @@ const ROICalculator = () => {
         <div className="bg-purple-600 py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl font-bold text-white mb-4">
-              Ready to Transform Your Business with AI?
+              Ready to map your first automation?
             </h2>
             <p className="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
-              Our team of AI experts can help you implement the right automation solutions
-              to achieve the savings you just calculated.
+              Our team can help identify which workflows are best suited for automation and what your first implementation could save.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
@@ -175,7 +174,7 @@ const ROICalculator = () => {
                 rel="noopener noreferrer"
                 className="inline-flex items-center px-8 py-4 border border-transparent text-lg font-medium rounded-md text-purple-600 bg-white hover:bg-gray-50 transition-colors"
               >
-                Schedule a Free Consultation
+                Book an Automation Audit
               </a>
               <a
                 href="https://pentridgemedia.com"
@@ -183,7 +182,7 @@ const ROICalculator = () => {
                 rel="noopener noreferrer"
                 className="inline-flex items-center px-8 py-4 border border-white text-lg font-medium rounded-md text-white hover:bg-purple-700 transition-colors"
               >
-                Explore Our AI Services
+                Explore Automation Services
               </a>
             </div>
           </div>

@@ -3,6 +3,7 @@ import { Calculator, DollarSign, Clock, Users, TrendingUp, Download, Mail } from
 
 const AIROICalculator = () => {
   const [formData, setFormData] = useState({
+    workflowType: '',
     companySize: '',
     currentHours: '',
     hourlyRate: '',
@@ -13,6 +14,15 @@ const AIROICalculator = () => {
 
   const [showResults, setShowResults] = useState(false);
   const [showEmailForm, setShowEmailForm] = useState(false);
+
+  const workflowPresets = {
+    missedCalls: { label: 'Missed calls', currentHours: '15', hourlyRate: '35', automationPotential: 75, implementationCost: '' },
+    leadFollowUp: { label: 'Lead follow-up', currentHours: '20', hourlyRate: '40', automationPotential: 80, implementationCost: '' },
+    adminReporting: { label: 'Admin reporting', currentHours: '12', hourlyRate: '45', automationPotential: 70, implementationCost: '' },
+    crmCleanup: { label: 'CRM cleanup', currentHours: '10', hourlyRate: '35', automationPotential: 65, implementationCost: '' },
+    proposalGeneration: { label: 'Proposal generation', currentHours: '18', hourlyRate: '55', automationPotential: 70, implementationCost: '' },
+    customerSupport: { label: 'Customer support', currentHours: '25', hourlyRate: '30', automationPotential: 60, implementationCost: '' },
+  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -98,6 +108,20 @@ const AIROICalculator = () => {
     setShowEmailForm(true);
   };
 
+  const applyPreset = (presetKey) => {
+    const preset = workflowPresets[presetKey];
+
+    setFormData(prev => ({
+      ...prev,
+      workflowType: preset.label,
+      currentHours: preset.currentHours,
+      hourlyRate: preset.hourlyRate,
+      automationPotential: preset.automationPotential,
+      implementationCost: preset.implementationCost,
+    }));
+    setShowResults(false);
+  };
+
   const handleEmailSubmit = async (e) => {
     e.preventDefault();
     
@@ -110,6 +134,7 @@ const AIROICalculator = () => {
         },
         body: JSON.stringify({
           email: formData.email,
+          workflowType: formData.workflowType,
           companySize: formData.companySize,
           currentHours: formData.currentHours,
           hourlyRate: formData.hourlyRate,
@@ -157,10 +182,39 @@ const AIROICalculator = () => {
         <div className="bg-white/[0.07] rounded-lg p-6 border border-white/10">
           <h2 className="text-xl font-semibold text-white mb-4 flex items-center">
             <Users className="w-5 h-5 mr-2 text-purple-400" />
-            Your Business Metrics
+            Your Workflow Metrics
           </h2>
           
           <form onSubmit={handleCalculate} className="space-y-4">
+            <div>
+              <label className="block text-sm font-medium text-white/60 mb-2">
+                Workflow Type
+              </label>
+              <select
+                name="workflowType"
+                value={formData.workflowType}
+                onChange={handleInputChange}
+                className="w-full px-3 py-2 border border-white/10 bg-white/5 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500/50"
+              >
+                <option value="">Select workflow</option>
+                {Object.values(workflowPresets).map((preset) => (
+                  <option key={preset.label} value={preset.label}>{preset.label}</option>
+                ))}
+              </select>
+              <div className="grid grid-cols-2 gap-2 mt-3">
+                {Object.entries(workflowPresets).map(([key, preset]) => (
+                  <button
+                    key={key}
+                    type="button"
+                    onClick={() => applyPreset(key)}
+                    className="text-xs text-left px-3 py-2 rounded-md bg-white/[0.07] border border-white/10 text-white/60 hover:text-white hover:bg-white/10 transition-colors"
+                  >
+                    {preset.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
             <div>
               <label className="block text-sm font-medium text-white/60 mb-2">
                 Company Size (employees)
@@ -269,7 +323,7 @@ const AIROICalculator = () => {
                 <Calculator className="w-8 h-8 text-white/40" />
               </div>
               <p className="text-white/40">
-                Enter your business metrics and click "Calculate ROI" to see your potential savings
+                Enter your workflow metrics and click Calculate ROI to see your potential savings
               </p>
             </div>
           ) : results ? (
@@ -353,7 +407,7 @@ const AIROICalculator = () => {
               Get Your Detailed ROI Report
             </h3>
             <p className="text-white/60 mb-4">
-              Enter your email to receive a comprehensive analysis with actionable insights and implementation recommendations. We'll prepare your personalized report and send it shortly.
+              Enter your email to receive a workflow-specific analysis with actionable insights and implementation recommendations. We will prepare your personalized report and send it shortly.
             </p>
             
             <form onSubmit={handleEmailSubmit} className="space-y-4">

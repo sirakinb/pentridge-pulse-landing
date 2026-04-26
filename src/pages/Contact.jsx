@@ -65,14 +65,14 @@ const Contact = () => {
         {/* Header */}
         <motion.div {...fadeUp} className="text-center mb-16">
           <p className="font-mono text-xs tracking-[0.3em] uppercase text-white/40 mb-4">
-            Get In Touch
+            Automation Audit
           </p>
           <h1 className="font-display text-4xl md:text-[43px] leading-[1.2] text-[#fafafa] capitalize mb-6">
-            Contact Pentridge
+            Book an AI workflow automation audit.
           </h1>
           <div className="w-16 h-[2px] bg-gradient-to-r from-purple-500 to-pink-500 mx-auto mb-6" />
           <p className="text-lg text-white/50 max-w-xl mx-auto">
-            Have a project in mind or want to learn more about how we can help? Drop us a message.
+            Tell us where your team is losing time. We will help identify the highest-ROI workflow to automate first.
           </p>
         </motion.div>
 
@@ -108,12 +108,12 @@ const Contact = () => {
                 </div>
                 <div>
                   <label htmlFor="message" className="block font-mono text-xs tracking-[0.15em] uppercase text-white/40 mb-2">
-                    Message *
+                    Workflow to Automate *
                   </label>
                   <textarea
                     id="message"
                     name="message"
-                    placeholder="Tell us about your project"
+                    placeholder="Example: We manually follow up with leads from our website and update HubSpot after calls. We want this automated."
                     required
                     rows={5}
                     className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-purple-500/50 transition-colors resize-none"
@@ -125,7 +125,7 @@ const Contact = () => {
                   disabled={isSubmitting}
                   className="btn-primary w-full flex items-center justify-center gap-2"
                 >
-                  {isSubmitting ? 'Sending...' : 'Send Message'} <Send size={14} />
+                  {isSubmitting ? 'Sending...' : 'Request Automation Audit'} <Send size={14} />
                 </button>
               </form>
 
@@ -145,7 +145,7 @@ const Contact = () => {
                 </div>
                 <h3 className="font-display text-xl text-[#fafafa] capitalize mb-2">Email Us</h3>
                 <p className="text-white/50 mb-4 text-sm">
-                  For general inquiries or project discussions.
+                  For automation audits, implementation questions, or project discussions.
                 </p>
                 <a
                   href="mailto:aki.b@pentridgemedia.com"
@@ -159,7 +159,7 @@ const Contact = () => {
             <div className="glass-card rounded-2xl p-8">
               <p className="font-mono text-xs tracking-[0.15em] uppercase text-purple-400 mb-3">Prefer a call?</p>
               <p className="text-white/50 text-sm leading-relaxed mb-6">
-                Book a time that works for you and let's talk about your project.
+                Book a time that works for you and let's map the workflow you want to automate.
               </p>
               <a
                 href="https://cal.com/akinyemi-bajulaiye-2jua88/30min"
@@ -167,7 +167,7 @@ const Contact = () => {
                 rel="noopener noreferrer"
                 className="btn-outline inline-flex items-center gap-2 text-sm"
               >
-                Build AI Systems <ArrowRight size={14} />
+                Book an Automation Audit <ArrowRight size={14} />
               </a>
             </div>
 

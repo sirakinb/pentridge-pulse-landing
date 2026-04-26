@@ -20,7 +20,7 @@ const AICommandCenter = () => {
   };
 
   const exampleTopics = [
-    "AI Business Automation",
+    "AI Workflow Automation",
     "Voice AI Implementation", 
     "Process Optimization",
     "Cost Reduction Strategies",

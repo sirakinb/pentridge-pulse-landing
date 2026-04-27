@@ -588,14 +588,14 @@ const ComparisonSection = () => {
 // ─── Section 06: Tools We Work With ───────────────────────────
 const ToolsSection = () => {
   const tools = [
-    { name: 'n8n', logo: '/logos/n8n.svg', copy: 'Self-hosted and custom workflow orchestration.' },
-    { name: 'Zapier', logo: '/logos/zapier.svg', copy: 'Fast app-to-app automation across your stack.' },
-    { name: 'Make.com', logo: '/logos/make.svg', copy: 'Visual scenarios for multi-step business workflows.' },
-    { name: 'Claude Code', logo: '/logos/claudecode.svg', copy: 'AI-assisted engineering for reliable implementation.' },
-    { name: 'Codex', logo: '/logos/codex.svg', copy: 'Code generation and review for custom automation logic.' },
-    { name: 'Cursor', logo: '/logos/cursor.svg', copy: 'AI-native development for dashboards, portals, and tools.' },
-    { name: 'OpenAI', logo: '/logos/openai.svg', copy: 'Language, reasoning, and agent capabilities.' },
-    { name: 'Anthropic', logo: '/logos/anthropic.svg', copy: 'Claude-powered analysis, writing, and workflow intelligence.' },
+    { name: 'n8n', logo: '/logos/n8n.svg' },
+    { name: 'Zapier', logo: '/logos/zapier.svg' },
+    { name: 'Make.com', logo: '/logos/make.svg' },
+    { name: 'Claude Code', logo: '/logos/claudecode.svg' },
+    { name: 'Codex', logo: '/logos/codex-blue.png' },
+    { name: 'Cursor', logo: '/logos/cursor.svg' },
+    { name: 'OpenAI', logo: '/logos/openai.svg' },
+    { name: 'Anthropic', logo: '/logos/anthropic.svg' },
   ];
 
   return (
@@ -613,18 +613,15 @@ const ToolsSection = () => {
 
         <motion.div {...fadeUp} className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
           {tools.map((tool) => (
-            <div key={tool.name} className="glass-card rounded-xl p-6 min-h-[190px] flex flex-col justify-between">
-              <div className="h-16 flex items-center mb-6">
+            <div key={tool.name} className="glass-card rounded-xl p-6 min-h-[150px] flex flex-col items-center justify-center text-center">
+              <div className="h-16 flex items-center justify-center mb-5">
                 <img
                   src={tool.logo}
                   alt={`${tool.name} logo`}
                   className="max-h-12 max-w-[150px] object-contain"
                 />
               </div>
-              <div>
-                <h3 className="text-white font-semibold mb-2">{tool.name}</h3>
-                <p className="text-white/50 text-sm leading-relaxed">{tool.copy}</p>
-              </div>
+              <h3 className="text-white font-semibold">{tool.name}</h3>
             </div>
           ))}
         </motion.div>

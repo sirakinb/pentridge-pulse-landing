@@ -84,18 +84,9 @@ const Footer = () => {
               </button>
               {communityOpen && (
                 <div className="absolute bottom-full left-0 mb-2 w-48 bg-black/95 backdrop-blur-md border border-white/10 rounded-lg overflow-hidden">
-                  <a
-                    href="https://www.skool.com/vibecodepioneers/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block px-4 py-3 text-xs text-white/60 hover:text-white hover:bg-white/5 transition-colors"
-                    onClick={() => setCommunityOpen(false)}
-                  >
-                    Vibe Code Pioneers
-                  </a>
                   <Link
                     to="/content-house"
-                    className="block px-4 py-3 text-xs text-white/60 hover:text-white hover:bg-white/5 transition-colors border-t border-white/5"
+                    className="block px-4 py-3 text-xs text-white/60 hover:text-white hover:bg-white/5 transition-colors"
                     onClick={() => { setCommunityOpen(false); scrollToTop(); }}
                   >
                     Content House

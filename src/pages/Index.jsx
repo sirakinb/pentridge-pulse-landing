@@ -73,18 +73,18 @@ const HeroSection = () => (
           <p className="text-lg md:text-xl text-white/60 leading-relaxed mb-10 max-w-xl">
             We build AI automation systems that handle repetitive work, connect your tools, and keep your team focused on revenue.
           </p>
-          <div className="flex flex-wrap gap-4 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12 max-w-xl">
             <a
               href="https://cal.com/akinyemi-bajulaiye-2jua88/30min"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary inline-block w-full sm:w-[290px] text-center"
+              className="btn-primary inline-flex min-h-[76px] items-center justify-center text-center"
             >
               Book an Automation Audit
             </a>
             <a
               href="/resources/ai-process-automation-examples"
-              className="btn-outline inline-block w-full sm:w-[290px] text-center"
+              className="btn-outline inline-flex min-h-[76px] items-center justify-center text-center"
             >
               See Automation Examples
             </a>
@@ -611,10 +611,10 @@ const ToolsSection = () => {
           </p>
         </motion.div>
 
-        <motion.div {...fadeUp} className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+        <motion.div {...fadeUp} className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-12 md:gap-x-12">
           {tools.map((tool) => (
-            <div key={tool.name} className="glass-card rounded-xl p-6 min-h-[150px] flex flex-col items-center justify-center text-center">
-              <div className="h-16 flex items-center justify-center mb-5">
+            <div key={tool.name} className="flex flex-col items-center justify-center text-center">
+              <div className="h-16 flex items-center justify-center mb-4">
                 <img
                   src={tool.logo}
                   alt={`${tool.name} logo`}
@@ -632,14 +632,6 @@ const ToolsSection = () => {
 
 // ─── Section 07: Process ──────────────────────────────────────
 const ProcessSection = () => {
-  const steps = [
-    { title: 'Map workflow', copy: 'Identify where leads, data, tasks, and approvals slow down.' },
-    { title: 'Build automation', copy: 'Create the AI agents, triggers, prompts, rules, and human handoffs.' },
-    { title: 'Integrate tools', copy: 'Connect CRM, calendar, inbox, forms, SMS, documents, and dashboards.' },
-    { title: 'Launch', copy: 'Ship a working system with clear owners, alerts, and fallback paths.' },
-    { title: 'Optimize', copy: 'Monitor outcomes and improve the workflow as your business changes.' },
-  ];
-
   return (
     <section className="bg-black py-24 md:py-32 border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6">
@@ -649,20 +641,16 @@ const ProcessSection = () => {
             Audit, build, integrate, launch, and keep improving.
           </h2>
         </motion.div>
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
-          {steps.map((step, i) => (
-            <motion.div
-              key={step.title}
-              {...stagger}
-              transition={{ duration: 0.4, delay: i * 0.06 }}
-              className="glass-card-purple rounded-xl p-6"
-            >
-              <p className="font-mono text-xs tracking-[0.15em] uppercase text-white/40 mb-4">{String(i + 1).padStart(2, '0')}</p>
-              <h3 className="text-white font-semibold mb-3">{step.title}</h3>
-              <p className="text-white/50 text-sm leading-relaxed">{step.copy}</p>
-            </motion.div>
-          ))}
-        </div>
+        <motion.div {...fadeUp} className="mx-auto w-full max-w-7xl overflow-hidden bg-black">
+          <iframe
+            src="/assembly-line.bundle-2.html?v=contained-fit-2"
+            width="100%"
+            style={{ border: 0, aspectRatio: '16 / 8.5', fontFamily: 'inherit' }}
+            loading="lazy"
+            title="Our process"
+            className="block w-full bg-black"
+          />
+        </motion.div>
       </div>
     </section>
   );

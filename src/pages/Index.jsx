@@ -618,7 +618,7 @@ const ToolsSection = () => {
                 <img
                   src={tool.logo}
                   alt={`${tool.name} logo`}
-                  className="max-h-12 max-w-[150px] object-contain"
+                  className="h-12 w-12 object-contain"
                 />
               </div>
               <h3 className="text-white font-semibold">{tool.name}</h3>

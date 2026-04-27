@@ -78,13 +78,13 @@ const HeroSection = () => (
               href="https://cal.com/akinyemi-bajulaiye-2jua88/30min"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary inline-block"
+              className="btn-primary inline-block w-full sm:w-[290px] text-center"
             >
               Book an Automation Audit
             </a>
             <a
               href="/resources/ai-process-automation-examples"
-              className="btn-outline inline-block"
+              className="btn-outline inline-block w-full sm:w-[290px] text-center"
             >
               See Automation Examples
             </a>
@@ -796,13 +796,13 @@ const CTASection = () => {
                 href="https://cal.com/akinyemi-bajulaiye-2jua88/30min"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary inline-block"
+                className="btn-primary inline-block w-full sm:w-[290px] text-center"
               >
                 Book an Automation Audit
               </a>
               <a
                 href="/resources/ai-process-automation-examples"
-                className="btn-outline inline-block"
+                className="btn-outline inline-block w-full sm:w-[290px] text-center"
               >
                 See Automation Examples
               </a>

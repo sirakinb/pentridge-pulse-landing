@@ -18,6 +18,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import SEOTest from './pages/SEOTest';
 import SchemaMarkup from './components/SchemaMarkup';
 import WallOfLove from './pages/WallOfLove';
+import Labs from './pages/Labs';
 
 const AppContent = () => {
   const location = useLocation();
@@ -44,6 +45,7 @@ const AppContent = () => {
             <Route path="/roi-calculator" element={<ROICalculator />} /> {/* Add ROI Calculator route */}
             <Route path="/terms" element={<TermsAndConditions />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/labs" element={<Labs />} />
             <Route path="/seo-test" element={<SEOTest />} />
             {/* ... other routes ... */}
           </Routes>

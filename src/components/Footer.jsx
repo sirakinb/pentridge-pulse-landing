@@ -1,26 +1,9 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { Instagram, Youtube, ChevronDown } from 'lucide-react';
+import { Instagram, Youtube } from 'lucide-react';
 import { scrollToTop } from '../utils/scrollToTop';
 
 const Footer = () => {
-  const [productsOpen, setProductsOpen] = useState(false);
-  const [communityOpen, setCommunityOpen] = useState(false);
-  const productsRef = useRef(null);
-  const communityRef = useRef(null);
-
-  useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (productsRef.current && !productsRef.current.contains(e.target)) {
-        setProductsOpen(false);
-      }
-      if (communityRef.current && !communityRef.current.contains(e.target)) {
-        setCommunityOpen(false);
-      }
-    };
-    document.addEventListener('click', handleClickOutside);
-    return () => document.removeEventListener('click', handleClickOutside);
-  }, []);
 
   return (
     <footer className="bg-black text-white border-t border-white/10">
@@ -34,66 +17,7 @@ const Footer = () => {
 
           {/* Links */}
           <div className="flex flex-wrap gap-6 text-sm text-white/50 items-center">
-            {/* Products dropdown */}
-            <div className="relative" ref={productsRef}>
-              <button
-                onClick={() => setProductsOpen(!productsOpen)}
-                className="hover:text-white transition-colors flex items-center gap-1"
-              >
-                Products <ChevronDown size={12} className={`transition-transform ${productsOpen ? 'rotate-180' : ''}`} />
-              </button>
-              {productsOpen && (
-                <div className="absolute bottom-full left-0 mb-2 w-40 bg-black/95 backdrop-blur-md border border-white/10 rounded-lg overflow-hidden">
-                  <a
-                    href="https://dropcard.app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block px-4 py-3 text-xs text-white/60 hover:text-white hover:bg-white/5 transition-colors"
-                    onClick={() => setProductsOpen(false)}
-                  >
-                    DropCard
-                  </a>
-                  <a
-                    href="https://blurapp.us"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block px-4 py-3 text-xs text-white/60 hover:text-white hover:bg-white/5 transition-colors border-t border-white/5"
-                    onClick={() => setProductsOpen(false)}
-                  >
-                    Blur App
-                  </a>
-                  <a
-                    href="https://stillmeditation.app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block px-4 py-3 text-xs text-white/60 hover:text-white hover:bg-white/5 transition-colors border-t border-white/5"
-                    onClick={() => setProductsOpen(false)}
-                  >
-                    Still Meditation
-                  </a>
-                </div>
-              )}
-            </div>
-            {/* Community dropdown */}
-            <div className="relative" ref={communityRef}>
-              <button
-                onClick={() => setCommunityOpen(!communityOpen)}
-                className="hover:text-white transition-colors flex items-center gap-1"
-              >
-                Community <ChevronDown size={12} className={`transition-transform ${communityOpen ? 'rotate-180' : ''}`} />
-              </button>
-              {communityOpen && (
-                <div className="absolute bottom-full left-0 mb-2 w-48 bg-black/95 backdrop-blur-md border border-white/10 rounded-lg overflow-hidden">
-                  <Link
-                    to="/content-house"
-                    className="block px-4 py-3 text-xs text-white/60 hover:text-white hover:bg-white/5 transition-colors"
-                    onClick={() => { setCommunityOpen(false); scrollToTop(); }}
-                  >
-                    Content House
-                  </Link>
-                </div>
-              )}
-            </div>
+            <Link to="/labs" className="hover:text-white transition-colors" onClick={scrollToTop}>Labs</Link>
             <Link to="/blog" className="hover:text-white transition-colors" onClick={scrollToTop}>Blog</Link>
             <Link to="/resources" className="hover:text-white transition-colors" onClick={scrollToTop}>Resources</Link>
             <Link to="/about" className="hover:text-white transition-colors" onClick={scrollToTop}>About</Link>

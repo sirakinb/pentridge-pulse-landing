@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" fill="white">
+  <!-- Bull horns -->
+  <path d="M120 45 C120 45 95 20 60 10 C55 9 52 12 55 16 C65 30 80 40 90 45 L85 55 C82 60 83 62 88 62 L120 62 L152 62 C157 62 158 60 155 55 L150 45 C160 40 175 30 185 16 C188 12 185 9 180 10 C145 20 120 45 120 45Z"/>
+  <!-- BRAVE text -->
+  <text x="120" y="130" text-anchor="middle" font-family="'Arial Black', 'Helvetica Neue', sans-serif" font-size="48" font-weight="900" letter-spacing="4" fill="white">BRAVE</text>
+</svg>

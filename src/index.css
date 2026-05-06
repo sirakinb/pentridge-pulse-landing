@@ -152,6 +152,10 @@
   animation: scroll 30s linear infinite;
 }
 
+.animate-scroll-partners {
+  animation: scroll 25s linear infinite;
+}
+
 /* FAQ accordion */
 .faq-item {
   @apply border-b border-white/10;

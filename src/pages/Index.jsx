@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Plus, Minus, ArrowRight, Check, X as XIcon } from 'lucide-react';
+import { Plus, Minus, ArrowRight, Check, X as XIcon, Kanban, Users, Mic, CreditCard } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { scrollToTop } from '../utils/scrollToTop';
 
 // ─── Animated Counter Hook ────────────────────────────────────
 const useCountUp = (end, duration = 2000) => {
@@ -71,7 +73,7 @@ const HeroSection = () => (
             Automate the workflows slowing your business down.
           </h1>
           <p className="text-lg md:text-xl text-white/60 leading-relaxed mb-10 max-w-xl">
-            We build AI automation systems that handle repetitive work, connect your tools, and keep your team focused on revenue.
+            We build AI systems and automated workflows that handle repetitive work, connect your tools, and keep your team focused on revenue.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12 max-w-xl">
             <a
@@ -337,7 +339,12 @@ const TrustedBySection = () => {
     { name: 'Blue Proma Digital', logo: '/p11.png' },
     { name: 'Utopos', logo: '/p12.png' },
     { name: 'Pearls Girl Productions', logo: '/p13.png' },
+    { name: 'White Law PLLC', logo: '/whitelaw-logo.svg', small: true },
+    { name: 'TJ Properties', text: true },
+    { name: 'Brave', logo: '/brave-logo.png', small: true },
   ];
+
+  const doubled = [...partners, ...partners];
 
   return (
     <section className="bg-[#2d1f4e] py-28 md:py-36">
@@ -346,22 +353,19 @@ const TrustedBySection = () => {
           <p className="section-label">02 / Trusted By</p>
         </motion.div>
         <div className="overflow-hidden">
-          <div className="flex items-center justify-center gap-12 md:gap-16 flex-wrap">
-            {partners.map((partner, i) => (
-              <motion.div
-                key={partner.name}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="flex-shrink-0"
-              >
-                <img
-                  src={partner.logo}
-                  alt={partner.name}
-                  className="h-28 md:h-36 w-auto object-contain"
-                />
-              </motion.div>
+          <div className="flex items-center gap-16 md:gap-20 animate-scroll-partners">
+            {doubled.map((partner, i) => (
+              <div key={`${partner.name}-${i}`} className="flex-shrink-0 flex items-center justify-center h-28 md:h-36">
+                {partner.text ? (
+                  <span className="text-2xl md:text-3xl font-bold text-white/90 tracking-wide whitespace-nowrap">{partner.name}</span>
+                ) : (
+                  <img
+                    src={partner.logo}
+                    alt={partner.name}
+                    className={`${partner.small ? 'h-16 md:h-20' : 'h-28 md:h-36'} w-auto object-contain`}
+                  />
+                )}
+              </div>
             ))}
           </div>
         </div>
@@ -630,6 +634,53 @@ const ToolsSection = () => {
   );
 };
 
+// ─── Pentridge Labs Teaser ────────────────────────────────────
+const LabsTeaser = () => {
+  const products = [
+    { name: 'AlignoPM', logo: '/aligno-icon.png', label: 'Aligno PM', iconSize: 'h-10' },
+    { name: 'AlignoCRM', logo: '/aligno-icon.png', label: 'Aligno CRM', iconSize: 'h-10' },
+    { name: 'Voiyce', logo: '/voiyce-icon.png', label: 'Voiyce', iconSize: 'h-10' },
+    { name: 'DropCard', logo: '/dropcard-icon.png', label: 'DropCard', iconSize: 'h-14' },
+  ];
+
+  return (
+    <section className="bg-black py-24 md:py-32 border-t border-white/5 relative overflow-hidden">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-purple-600/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
+        <motion.div {...fadeUp}>
+          <p className="font-mono text-xs tracking-[0.3em] uppercase text-white/40 mb-4">Pentridge Labs</p>
+          <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] capitalize mb-6">
+            We don't just automate businesses.{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
+              We also build the tools to run them.
+            </span>
+          </h2>
+          <p className="text-white/50 text-lg leading-relaxed max-w-2xl mx-auto mb-10">
+            Our product suite gives solopreneurs, coaches, consultants, creators, and agencies the software to manage projects, close deals, capture ideas, and grow their network.
+          </p>
+          <div className="flex justify-center items-center gap-8 md:gap-12 mb-10">
+            {products.map((product) => (
+              <div key={product.name} className={`flex items-center ${product.name === 'DropCard' ? 'gap-1.5' : 'gap-3'}`}>
+                <img src={product.logo} alt={product.name} className={`${product.iconSize} w-auto object-contain`} />
+                {product.label && (
+                  <span className="text-lg font-semibold text-white/80">{product.label}</span>
+                )}
+              </div>
+            ))}
+          </div>
+          <Link
+            to="/labs"
+            onClick={() => window.scrollTo(0, 0)}
+            className="inline-flex items-center gap-2 text-white/60 hover:text-white font-mono text-sm tracking-wider uppercase transition-all duration-300 border-b border-white/20 hover:border-white/50 pb-1"
+          >
+            Explore Pentridge Labs <ArrowRight size={16} />
+          </Link>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
 // ─── Section 07: Process ──────────────────────────────────────
 const ProcessSection = () => {
   return (
@@ -849,6 +900,7 @@ const Index = () => {
       <WhyWorkSection />
       <ComparisonSection />
       <ToolsSection />
+      <LabsTeaser />
       <ProcessSection />
       <FAQSection />
       <TestimonialsSection />

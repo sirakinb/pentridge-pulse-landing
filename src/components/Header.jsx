@@ -9,25 +9,16 @@ const Header = () => {
   const navigate = useNavigate();
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const [isProductsOpen, setIsProductsOpen] = useState(false);
-
   const toggleNavbar = () => {
     setIsNavOpen(!isNavOpen);
   };
 
   const toggleServices = () => {
     setIsServicesOpen(!isServicesOpen);
-    setIsProductsOpen(false);
-  };
-
-  const toggleProducts = () => {
-    setIsProductsOpen(!isProductsOpen);
-    setIsServicesOpen(false);
   };
 
   const closeAllDropdowns = () => {
     setIsServicesOpen(false);
-    setIsProductsOpen(false);
   };
 
   useEffect(() => {
@@ -121,52 +112,7 @@ const Header = () => {
               >
                 Book a Call
               </button>
-              <div className="text-white/90 font-medium py-2">Products</div>
-              <button 
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  window.open('https://www.dropcard.app/', '_blank', 'noopener,noreferrer');
-                  setIsNavOpen(false);
-                }}
-                className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300 w-full text-left"
-              >
-                DropCard
-              </button>
-              <button 
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  window.open('https://blurapp.us', '_blank', 'noopener,noreferrer');
-                  setIsNavOpen(false);
-                }}
-                className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300 w-full text-left"
-              >
-                Blur App
-              </button>
-              <button 
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  window.open('https://stillmeditation.app', '_blank', 'noopener,noreferrer');
-                  setIsNavOpen(false);
-                }}
-                className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300 w-full text-left"
-              >
-                Still Meditation
-              </button>
-              <div className="text-white/90 font-medium py-2">Community</div>
-              <button 
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  window.open('https://www.skool.com/vibecodepioneers/', '_blank', 'noopener,noreferrer');
-                  setIsNavOpen(false);
-                }}
-                className="text-white/80 block pl-4 py-2 text-sm hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300 w-full text-left"
-              >
-                Vibe Code Pioneers
-              </button>
+              <Link to="/labs" className="text-white/90 font-medium py-2 block" onClick={() => setIsNavOpen(false)}>Labs</Link>
               <Link to="/blog" className="text-white/80 block py-2 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">Blog</Link>
               <Link to="/resources" className="text-white/80 block py-2 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">Resources</Link>
               <Link to="/contact" className="text-white/80 block py-2 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">Contact</Link>
@@ -177,7 +123,7 @@ const Header = () => {
         <div className="flex-grow flex flex-col justify-start items-start w-full pt-0 pb-12 z-10 -mt-4"> {/* Removed all top padding and added negative margin */}
           <div className="w-full max-w-4xl mx-auto text-center backdrop-blur-xl bg-white/5 rounded-3xl border border-white/10 shadow-2xl p-12">
             {/* Services Section Above Header - Hidden on mobile, visible on desktop */}
-            <div className="hidden md:grid md:grid-cols-3 gap-8 mb-12">
+            <div className="hidden md:grid md:grid-cols-2 gap-8 mb-12 max-w-lg mx-auto">
               {/* Services Card */}
               <div className="relative">
                 <div className="relative dropdown-container">
@@ -223,61 +169,14 @@ const Header = () => {
                 </div>
               </div>
 
-              {/* Products Card */}
+              {/* Labs Card */}
               <div className="relative">
-                <div className="relative dropdown-container">
-                  <button 
-                    className="w-full text-center backdrop-blur-xl bg-white/10 rounded-2xl border border-white/20 shadow-2xl p-6 hover:bg-white/15 transition-all duration-300 group"
-                    onClick={() => setIsProductsOpen(!isProductsOpen)}
-                  >
-                    <h3 className="text-xl font-bold text-white">Products</h3>
-                  </button>
-                  {isProductsOpen && (
-                    <div className="absolute top-full left-0 mt-4 w-full backdrop-blur-xl bg-white/10 rounded-2xl shadow-2xl border border-white/20 z-50">
-                      <div className="py-4">
-                        <button 
-                          className="w-full text-left px-6 py-4 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 border-b border-white/10 last:border-b-0 cursor-pointer rounded-lg"
-                          onClick={() => {
-                            window.open('https://www.dropcard.app/', '_blank');
-                            setIsProductsOpen(false);
-                          }}
-                        >
-                          <div className="font-medium text-lg">DropCard</div>
-                        </button>
-                        <button 
-                          className="w-full text-left px-6 py-4 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 border-b border-white/10 cursor-pointer rounded-lg"
-                          onClick={() => {
-                            window.open('https://blurapp.us', '_blank');
-                            setIsProductsOpen(false);
-                          }}
-                        >
-                          <div className="font-medium text-lg">Blur App</div>
-                        </button>
-                        <button 
-                          className="w-full text-left px-6 py-4 text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 cursor-pointer rounded-lg"
-                          onClick={() => {
-                            window.open('https://stillmeditation.app', '_blank');
-                            setIsProductsOpen(false);
-                          }}
-                        >
-                          <div className="font-medium text-lg">Still Meditation</div>
-                        </button>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </div>
-
-              {/* Community Card */}
-              <div className="relative">
-                <a 
-                  href="https://www.skool.com/vibecodepioneers/"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  to="/labs"
                   className="block w-full text-center backdrop-blur-xl bg-white/10 rounded-2xl border border-white/20 shadow-2xl p-6 hover:bg-white/15 transition-all duration-300 group"
                 >
-                  <h3 className="text-xl font-bold text-white">Community</h3>
-                </a>
+                  <h3 className="text-xl font-bold text-white">Labs</h3>
+                </Link>
               </div>
             </div>
 

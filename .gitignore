@@ -18,7 +18,7 @@ dist-ssr
 !.env.example
 
 # Local artifacts
-scripts/last-test-email.html
+scripts/last-*-email.html
 
 # Editor directories and files
 .vscode/*

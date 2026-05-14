@@ -748,19 +748,23 @@ const CTASection = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (email) {
-      try {
-        await fetch('https://hook.us1.make.com/95h6co6hol3lnf0dsyxmy7agn9vdyrm5', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email }),
-        });
-        setSubmittedEmail(email);
-        setSubmitted(true);
-        setEmail('');
-      } catch (err) {
-        console.error('Webhook error:', err);
+    if (!email) return;
+    try {
+      const res = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        console.error('Newsletter error:', data);
+        return;
       }
+      setSubmittedEmail(email);
+      setSubmitted(true);
+      setEmail('');
+    } catch (err) {
+      console.error('Newsletter error:', err);
     }
   };
 

@@ -124,14 +124,16 @@ const AIROICalculator = () => {
 
   const handleEmailSubmit = async (e) => {
     e.preventDefault();
-    
+
+    if (!results) {
+      alert('Please calculate your ROI first, then request the report.');
+      return;
+    }
+
     try {
-      // Send email to Make.com webhook
-      const response = await fetch('https://hook.us2.make.com/cr5gcenu27h7vhpceaw9rvtc4khymdm9', {
+      const response = await fetch('/api/roi-report', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           email: formData.email,
           workflowType: formData.workflowType,
@@ -139,25 +141,21 @@ const AIROICalculator = () => {
           currentHours: formData.currentHours,
           hourlyRate: formData.hourlyRate,
           automationPotential: formData.automationPotential,
-          implementationCost: formData.implementationCost,
-          calculatedResults: results,
-          companySizeMultiplier: results?.companySizeMultiplier,
-          timestamp: new Date().toISOString(),
-          source: 'AI ROI Calculator'
-        })
+          results,
+        }),
       });
 
       if (response.ok) {
-        alert('Thank you! We\'ve received your request. Your detailed ROI report will be prepared and sent to your email shortly.');
+        alert("Sent. Check your inbox — your personalized ROI report is on the way.");
         setShowEmailForm(false);
-        // Reset email field
         setFormData(prev => ({ ...prev, email: '' }));
       } else {
-        throw new Error('Failed to submit');
+        const data = await response.json().catch(() => ({}));
+        throw new Error(data.error || 'Failed to send report');
       }
     } catch (error) {
       console.error('Error submitting email:', error);
-      alert('There was an issue submitting your request. Please try again or contact us directly.');
+      alert('There was an issue sending your report. Please try again or contact us directly.');
     }
   };
 

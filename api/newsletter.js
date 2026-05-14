@@ -1,5 +1,5 @@
 import { Resend } from 'resend';
-import { FROM_ADDRESS, SUBJECT, buildHtml, buildText } from '../lib/waitlist-email.js';
+import { FROM_ADDRESS, SUBJECT, buildHtml, buildText } from '../lib/newsletter-email.js';
 import { addContact } from '../lib/resend-audiences.js';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -39,12 +39,11 @@ export default async function handler(req, res) {
       return res.status(502).json({ error: 'Could not send confirmation email.' });
     }
 
-    // Fire-and-forget contact add; email already sent successfully.
-    await addContact(resend, { email: email.trim(), source: 'waitlist' });
+    await addContact(resend, { email: email.trim(), source: 'newsletter' });
 
     return res.status(200).json({ ok: true, id: data?.id });
   } catch (err) {
-    console.error('Waitlist handler error:', err);
+    console.error('Newsletter handler error:', err);
     return res.status(500).json({ error: 'Unexpected error.' });
   }
 }

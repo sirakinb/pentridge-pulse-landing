@@ -420,13 +420,6 @@ const Labs = () => {
             {errorMsg && !submitted && (
               <p className="text-center text-sm text-pink-400 mt-4">{errorMsg}</p>
             )}
-
-            {!submitted && (
-              <p className="text-center text-white/30 text-xs font-mono mt-6">
-                Products still in development. Voiyce, Still, and DropCard are live now —
-                we'll link to each in your confirmation email.
-              </p>
-            )}
           </motion.div>
         </div>
       </section>

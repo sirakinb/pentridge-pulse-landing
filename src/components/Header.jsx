@@ -112,7 +112,7 @@ const Header = () => {
               >
                 Book a Call
               </button>
-              <Link to="/labs" className="text-white/90 font-medium py-2 block" onClick={() => setIsNavOpen(false)}>Labs</Link>
+              <Link to="/content-house" className="text-white/90 font-medium py-2 block" onClick={() => setIsNavOpen(false)}>Pentridge Manor</Link>
               <Link to="/blog" className="text-white/80 block py-2 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">Blog</Link>
               <Link to="/resources" className="text-white/80 block py-2 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">Resources</Link>
               <Link to="/contact" className="text-white/80 block py-2 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300">Contact</Link>
@@ -169,13 +169,13 @@ const Header = () => {
                 </div>
               </div>
 
-              {/* Labs Card */}
+              {/* Pentridge Manor Card */}
               <div className="relative">
                 <Link
-                  to="/labs"
+                  to="/content-house"
                   className="block w-full text-center backdrop-blur-xl bg-white/10 rounded-2xl border border-white/20 shadow-2xl p-6 hover:bg-white/15 transition-all duration-300 group"
                 >
-                  <h3 className="text-xl font-bold text-white">Labs</h3>
+                  <h3 className="text-xl font-bold text-white">Pentridge Manor</h3>
                 </Link>
               </div>
             </div>

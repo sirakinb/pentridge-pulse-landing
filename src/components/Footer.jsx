@@ -17,7 +17,7 @@ const Footer = () => {
 
           {/* Links */}
           <div className="flex flex-wrap gap-6 text-sm text-white/50 items-center">
-            <Link to="/labs" className="hover:text-white transition-colors" onClick={scrollToTop}>Labs</Link>
+            <Link to="/content-house" className="hover:text-white transition-colors" onClick={scrollToTop}>Pentridge Manor</Link>
             <Link to="/blog" className="hover:text-white transition-colors" onClick={scrollToTop}>Blog</Link>
             <Link to="/resources" className="hover:text-white transition-colors" onClick={scrollToTop}>Resources</Link>
             <Link to="/about" className="hover:text-white transition-colors" onClick={scrollToTop}>About</Link>

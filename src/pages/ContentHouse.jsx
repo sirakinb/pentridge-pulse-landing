@@ -39,7 +39,7 @@ const ContentHouse = () => {
       <div className="max-w-7xl mx-auto px-6 pt-28 pb-16">
         <motion.div {...fadeUp} className="text-center mb-16">
           <p className="font-mono text-xs tracking-[0.3em] uppercase text-white/40 mb-4">
-            Pentridge Manor
+            Content House
           </p>
           <h1 className="font-display text-4xl md:text-[43px] leading-[1.2] text-[#fafafa] capitalize mb-6">
             Your Canvas for Content Creation

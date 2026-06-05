@@ -7,7 +7,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { label: 'Pentridge Manor', to: '/content-house' },
+    { label: 'Content House', to: '/content-house' },
     { label: 'Use Cases', to: '/resources/ai-process-automation-examples' },
     { label: 'ROI Calculator', to: '/roi-calculator' },
     { label: 'Resources', to: '/resources' },

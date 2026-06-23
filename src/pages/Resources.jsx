@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, BookOpen, Calculator, FileText } from 'lucide-react';
+import { ArrowRight, BookOpen, Calculator, FileText, PlayCircle } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import MetaTags from '../components/MetaTags';
 import { motion } from 'framer-motion';
@@ -46,6 +46,27 @@ const Resources = () => {
       link: '/roi-calculator',
       cta: 'Calculate ROI',
       icon: <Calculator size={16} />,
+    },
+  ];
+
+  const videoResources = [
+    {
+      eyebrow: 'Property Management',
+      title: 'Property Management Automation Walkthrough',
+      description:
+        'A practical walkthrough of how AI workflow automation can support property management operations, handoffs, and follow-up.',
+      videoId: 'zyaW6qqGqXU',
+      start: 478,
+      youtubeUrl: 'https://www.youtube.com/watch?v=zyaW6qqGqXU&t=478s',
+    },
+    {
+      eyebrow: 'Agent Skills',
+      title: 'Building Agent Skills for AI-Native Operations',
+      description:
+        'A deeper look at how reusable agent skills can support repeatable workflows, implementation speed, and service-business operations.',
+      videoId: 'FETkcI0gL5Y',
+      start: 1119,
+      youtubeUrl: 'https://www.youtube.com/watch?v=FETkcI0gL5Y&t=1119s',
     },
   ];
 
@@ -143,23 +164,59 @@ const Resources = () => {
           </div>
         </motion.div>
 
-        {/* Coming Soon */}
-        <motion.div {...fadeUp} className="text-center">
-          <div className="bg-white/[0.03] border border-white/5 rounded-2xl p-10">
-            <h3 className="font-display text-xl text-[#fafafa] capitalize mb-3">
-              More Resources Coming Soon
-            </h3>
-            <p className="text-white/40 mb-6 text-sm">
-              We're working on additional guides, case studies, and educational content.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4 font-mono text-xs text-white/30">
-              <span>Implementation Case Studies</span>
-              <span>Video Tutorials</span>
-              <span>Best Practice Guides</span>
-              <span>Industry-Specific Content</span>
+        {/* Video Resources */}
+        <motion.section {...fadeUp} aria-labelledby="video-resources-heading">
+          <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="font-mono text-xs tracking-[0.3em] uppercase text-white/40 mb-3">Video Resources</p>
+              <h2 id="video-resources-heading" className="font-display text-2xl md:text-3xl leading-[1.2] text-[#fafafa] capitalize">
+                Practical automation walkthroughs
+              </h2>
             </div>
+            <p className="text-white/45 text-sm leading-relaxed max-w-xl">
+              Watch how Pentridge thinks through workflows, implementation patterns, and AI-native operations for service businesses.
+            </p>
           </div>
-        </motion.div>
+
+          <div className="grid lg:grid-cols-2 gap-8">
+            {videoResources.map((video) => (
+              <article
+                key={video.videoId}
+                className="bg-white/[0.04] border border-white/10 rounded-xl overflow-hidden hover:border-purple-500/30 transition-all duration-300"
+              >
+                <div className="aspect-video bg-black">
+                  <iframe
+                    className="h-full w-full"
+                    src={`https://www.youtube-nocookie.com/embed/${video.videoId}?start=${video.start}&rel=0&modestbranding=1`}
+                    title={video.title}
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                  />
+                </div>
+                <div className="p-6">
+                  <div className="flex items-center justify-between gap-3 mb-4">
+                    <span className="font-mono text-[10px] tracking-[0.16em] uppercase text-purple-300 border border-purple-400/20 bg-purple-400/10 px-3 py-1 rounded-full">
+                      {video.eyebrow}
+                    </span>
+                    <PlayCircle size={17} className="text-white/35 shrink-0" aria-hidden="true" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-white mb-3">{video.title}</h3>
+                  <p className="text-white/50 text-sm leading-relaxed mb-5">{video.description}</p>
+                  <a
+                    href={video.youtubeUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-mono text-xs tracking-[0.14em] uppercase text-white/55 hover:text-white inline-flex items-center gap-2 transition-colors"
+                  >
+                    Open on YouTube <ArrowRight size={14} />
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </motion.section>
       </div>
     </div>
   );

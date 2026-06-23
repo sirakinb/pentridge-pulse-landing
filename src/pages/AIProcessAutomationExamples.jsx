@@ -141,7 +141,7 @@ const AIProcessAutomationExamples = () => {
         description={pageDescription}
         keywords={pageKeywords}
         pageType="website"
-        canonicalUrl="/resources/ai-process-automation-examples"
+        canonicalUrl="https://www.pentridgemedia.com/resources/ai-process-automation-examples"
         ogImage="/og-image.svg"
         twitterImage="/og-image.svg"
       />

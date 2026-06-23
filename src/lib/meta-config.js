@@ -2,9 +2,9 @@
 export const metaConfig = {
   home: {
     title: "AI Workflow Automation Services for Businesses | Pentridge",
-    description: "Pentridge builds AI workflow automation systems for service businesses. Automate lead follow-up, voice calls, CRM updates, documents, reporting, and internal operations.",
+    description: "Pentridge builds AI workflow automation systems for service businesses: lead follow-up, voice calls, CRM updates, documents, and reporting.",
     keywords: "AI workflow automation services, AI automation for service businesses, lead follow-up automation, CRM automation, AI voice agents, document automation, business workflow automation",
-    canonicalUrl: "https://pentridgemedia.com",
+    canonicalUrl: "https://www.pentridgemedia.com",
     pageType: "website"
   },
   
@@ -12,7 +12,7 @@ export const metaConfig = {
     title: "About Pentridge | AI Workflow Automation Partner",
     description: "Pentridge helps businesses replace manual workflows with practical AI automation systems that are integrated, maintained, and improved over time.",
     keywords: "AI automation experts, business automation specialists, Pentridge team, AI consulting experts, workflow automation professionals, custom AI development team",
-    canonicalUrl: "https://pentridgemedia.com/about",
+    canonicalUrl: "https://www.pentridgemedia.com/about",
     pageType: "website"
   },
   
@@ -20,7 +20,7 @@ export const metaConfig = {
     title: "Book an AI Workflow Automation Audit | Pentridge",
     description: "Tell us where your team is losing time. Pentridge will help identify the highest-ROI workflow to automate first across your calls, CRM, documents, and operations.",
     keywords: "AI automation consultation, business automation contact, workflow automation experts, custom AI solutions contact, AI automation services quote, business process automation help",
-    canonicalUrl: "https://pentridgemedia.com/contact",
+    canonicalUrl: "https://www.pentridgemedia.com/contact",
     pageType: "website"
   },
   
@@ -28,7 +28,7 @@ export const metaConfig = {
     title: "AI Content Automation Services | Pentridge | Automated Content Creation",
     description: "Automate your content creation with AI. Generate blogs, social media posts, and marketing content 10x faster. Custom AI content automation solutions for businesses. Start saving time today.",
     keywords: "AI content automation, automated content creation, AI content generation, content automation services, AI-powered content marketing, automated blog writing, AI content tools",
-    canonicalUrl: "https://pentridgemedia.com/content-house",
+    canonicalUrl: "https://www.pentridgemedia.com/content-house",
     pageType: "website"
   },
   
@@ -36,7 +36,7 @@ export const metaConfig = {
     title: "Terms and Conditions | Pentridge | AI Automation Services",
     description: "Terms and conditions for Pentridge AI automation services. Read our service agreements, privacy policies, and client responsibilities for business automation projects.",
     keywords: "Pentridge terms, AI automation terms, business automation agreement, service terms and conditions, AI consulting terms",
-    canonicalUrl: "https://pentridgemedia.com/terms",
+    canonicalUrl: "https://www.pentridgemedia.com/terms",
     pageType: "website"
   },
   
@@ -44,7 +44,7 @@ export const metaConfig = {
     title: "Privacy Policy | Pentridge | AI Automation Data Protection",
     description: "Privacy policy for Pentridge AI automation services. Learn how we protect your business data and maintain confidentiality in all automation projects and consultations.",
     keywords: "Pentridge privacy policy, AI automation privacy, business data protection, automation services privacy, client data security",
-    canonicalUrl: "https://pentridgemedia.com/privacy",
+    canonicalUrl: "https://www.pentridgemedia.com/privacy",
     pageType: "website"
   },
   
@@ -52,16 +52,18 @@ export const metaConfig = {
     title: "SEO Test Page | Pentridge | Schema Markup Validation",
     description: "Test and validate schema markup implementation for Pentridge. Check organization schema, service schema, and FAQ schema for optimal SEO performance.",
     keywords: "schema markup test, SEO validation, structured data testing, organization schema, service schema, FAQ schema",
-    canonicalUrl: "https://pentridgemedia.com/seo-test",
-    pageType: "website"
+    canonicalUrl: "https://www.pentridgemedia.com/seo-test",
+    pageType: "website",
+    robots: "noindex, nofollow"
   },
 
   performanceTest: {
     title: "Performance Test | Pentridge - Core Web Vitals & Speed Testing",
     description: "Test and optimize your website performance with Pentridge's comprehensive performance testing tools. Monitor Core Web Vitals and page speed metrics.",
     keywords: "performance testing, Core Web Vitals, page speed, website optimization, load time testing, performance metrics, Pentridge",
-    canonicalUrl: "https://pentridgemedia.com/performance-test",
-    pageType: "webpage"
+    canonicalUrl: "https://www.pentridgemedia.com/performance-test",
+    pageType: "webpage",
+    robots: "noindex, nofollow"
   }
 };
 
@@ -71,42 +73,42 @@ export const serviceMetaConfig = {
     title: "AI Workflow Automation Services | Pentridge",
     description: "Automate manual business workflows with AI voice agents, CRM automation, lead follow-up, document automation, integrations, and custom internal tools.",
     keywords: "AI workflow automation services, CRM automation, lead follow-up automation, document automation, AI automation consulting, automated workflow solutions",
-    canonicalUrl: "https://pentridgemedia.com/services"
+    canonicalUrl: "https://www.pentridgemedia.com/services"
   },
   
   customAI: {
     title: "Custom AI Software & Internal Tools | Pentridge",
     description: "Need more than off-the-shelf automation? Pentridge builds custom dashboards, portals, MVPs, and internal tools that support your AI workflows.",
     keywords: "custom AI software, internal tools, custom dashboards, client portals, AI workflow tools, custom AI development",
-    canonicalUrl: "https://pentridgemedia.com/services/custom-ai"
+    canonicalUrl: "https://www.pentridgemedia.com/services/custom-ai"
   },
   
   webAppDevelopment: {
     title: "AI-Powered Web App Development | Custom App Solutions | Pentridge",
     description: "AI-powered web app development with automation features. Build custom web applications that streamline your business processes. Expert app development with AI integration.",
     keywords: "AI web app development, custom app development, AI-powered applications, business app development, web app automation, AI integration services",
-    canonicalUrl: "https://pentridgemedia.com/services/web-app-development"
+    canonicalUrl: "https://www.pentridgemedia.com/services/web-app-development"
   },
   
   apiIntegration: {
     title: "API Integration Services | System Integration | Pentridge",
     description: "Expert API integration services for business automation. Connect your CRM, tools, and systems with AI-powered automation. Streamline workflows with seamless integrations.",
     keywords: "API integration services, system integration, business automation API, CRM integration, workflow automation, API consulting",
-    canonicalUrl: "https://pentridgemedia.com/services/api-integration"
+    canonicalUrl: "https://www.pentridgemedia.com/services/api-integration"
   },
   
   workflowAutomation: {
     title: "Workflow Automation Solutions | Business Process Automation | Pentridge",
     description: "Complete workflow automation solutions for businesses. Automate repetitive tasks, streamline processes, and boost productivity with AI-powered workflow automation.",
     keywords: "workflow automation, business process automation, automated workflow solutions, process automation agency, workflow optimization, business automation services",
-    canonicalUrl: "https://pentridgemedia.com/services/workflow-automation"
+    canonicalUrl: "https://www.pentridgemedia.com/services/workflow-automation"
   },
   
   crmSystems: {
     title: "AI-Powered CRM Systems | Business Management Automation | Pentridge",
     description: "AI-powered CRM systems that automate customer management and sales processes. Custom CRM solutions with automation features to boost your business efficiency.",
     keywords: "AI-powered CRM, business management systems, CRM automation, customer relationship management, AI CRM solutions, business automation CRM",
-    canonicalUrl: "https://pentridgemedia.com/services/crm-systems"
+    canonicalUrl: "https://www.pentridgemedia.com/services/crm-systems"
   }
 };
 
@@ -116,28 +118,28 @@ export const industryMetaConfig = {
     title: "Legal Process Automation | Law Firm AI Solutions | Pentridge",
     description: "AI automation solutions for law firms and legal practices. Automate document processing, client intake, and case management with custom legal automation systems.",
     keywords: "legal process automation, law firm automation, legal AI solutions, legal workflow automation, law practice automation, legal document automation",
-    canonicalUrl: "https://pentridgemedia.com/industries/legal"
+    canonicalUrl: "https://www.pentridgemedia.com/industries/legal"
   },
   
   healthcare: {
     title: "Healthcare Workflow Automation | Medical Practice AI | Pentridge",
     description: "Healthcare workflow automation solutions for medical practices. Streamline patient management, appointment scheduling, and administrative tasks with AI automation.",
     keywords: "healthcare workflow automation, medical practice automation, healthcare AI solutions, medical workflow optimization, healthcare process automation",
-    canonicalUrl: "https://pentridgemedia.com/industries/healthcare"
+    canonicalUrl: "https://www.pentridgemedia.com/industries/healthcare"
   },
   
   realEstate: {
     title: "Real Estate Automation Solutions | Property Management AI | Pentridge",
     description: "Real estate automation solutions for property management and real estate agencies. Automate lead management, property listings, and client communication.",
     keywords: "real estate automation, property management automation, real estate AI solutions, property management AI, real estate workflow automation",
-    canonicalUrl: "https://pentridgemedia.com/industries/real-estate"
+    canonicalUrl: "https://www.pentridgemedia.com/industries/real-estate"
   },
   
   finance: {
     title: "Finance Automation Agency | Financial Services AI | Pentridge",
     description: "Finance automation solutions for financial services companies. Automate compliance, reporting, and client management with AI-powered financial automation.",
     keywords: "finance automation, financial services automation, finance AI solutions, financial workflow automation, banking automation, fintech automation",
-    canonicalUrl: "https://pentridgemedia.com/industries/finance"
+    canonicalUrl: "https://www.pentridgemedia.com/industries/finance"
   }
 };
 
@@ -147,27 +149,32 @@ export const toolMetaConfig = {
     title: "Make.com Automation Agency | Make.com Workflow Solutions | Pentridge",
     description: "Expert Make.com automation services. We build custom Make.com workflows, integrate systems, and optimize your automation processes. Get Make.com consulting and implementation.",
     keywords: "Make.com automation, Make.com workflow solutions, Make.com integration, Make.com consulting, Make.com agency, Make.com automation services",
-    canonicalUrl: "https://pentridgemedia.com/tools/make"
+    canonicalUrl: "https://www.pentridgemedia.com/tools/make"
   },
   
   zapier: {
     title: "Zapier Integration Experts | Zapier Automation Services | Pentridge",
     description: "Zapier integration experts for business automation. We build custom Zapier workflows, integrate your tools, and optimize your automation processes. Expert Zapier consulting.",
     keywords: "Zapier integration, Zapier automation, Zapier consulting, Zapier experts, Zapier workflow automation, Zapier for business automation",
-    canonicalUrl: "https://pentridgemedia.com/tools/zapier"
+    canonicalUrl: "https://www.pentridgemedia.com/tools/zapier"
   },
   
   chatgpt: {
     title: "ChatGPT Business Automation | AI Workflow Integration | Pentridge",
     description: "ChatGPT business automation solutions. Integrate ChatGPT into your workflows, automate content creation, and boost productivity with AI-powered automation.",
     keywords: "ChatGPT business automation, ChatGPT workflow automation, ChatGPT integration, AI automation ChatGPT, ChatGPT consulting, ChatGPT automation services",
-    canonicalUrl: "https://pentridgemedia.com/tools/chatgpt"
+    canonicalUrl: "https://www.pentridgemedia.com/tools/chatgpt"
   }
 };
 
 // Helper function to get meta config for a page
 export const getMetaConfig = (pageKey) => {
-  return metaConfig[pageKey] || metaConfig.home;
+  const aliases = {
+    'seo-test': 'seoTest',
+    'performance-test': 'performanceTest'
+  };
+
+  return metaConfig[pageKey] || metaConfig[aliases[pageKey]] || metaConfig.home;
 };
 
 // Helper function to get service meta config
@@ -183,4 +190,4 @@ export const getIndustryMetaConfig = (industryKey) => {
 // Helper function to get tool meta config
 export const getToolMetaConfig = (toolKey) => {
   return toolMetaConfig[toolKey] || toolMetaConfig.make;
-}; 
+};

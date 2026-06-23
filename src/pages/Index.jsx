@@ -295,6 +295,17 @@ const TwoWaysSection = () => (
           >
             Book an Automation Audit <ArrowRight size={14} />
           </a>
+          <p className="mt-5 text-sm leading-relaxed text-white/45">
+            For independent firms, see our{' '}
+            <Link
+              to="/law-firm-automation/"
+              onClick={scrollToTop}
+              className="text-purple-200 underline underline-offset-4 hover:text-white"
+            >
+              law firm automation workflow
+            </Link>
+            .
+          </p>
         </motion.div>
 
         <motion.div

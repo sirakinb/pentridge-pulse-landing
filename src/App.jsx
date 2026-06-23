@@ -18,8 +18,9 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import SEOTest from './pages/SEOTest';
 import SchemaMarkup from './components/SchemaMarkup';
 import WallOfLove from './pages/WallOfLove';
+import LawFirmAutomationPage from './pages/LawFirmAutomationPage';
 
-const AppContent = () => {
+export const AppContent = () => {
   const location = useLocation();
   const hideFooter = location.pathname === '/wall-of-love';
 
@@ -41,6 +42,13 @@ const AppContent = () => {
             <Route path="/case-studies/property-management-voice-ai" element={<PropertyManagementVoiceAICaseStudy />} />
             <Route path="/resources/ai-process-automation-examples" element={<AIProcessAutomationExamples />} />
             <Route path="/services" element={<Services />} /> {/* Add services route */}
+            <Route path="/law-firm-automation/" element={<LawFirmAutomationPage pageId="hub" />} />
+            <Route path="/law-firm-client-intake-automation/" element={<LawFirmAutomationPage pageId="intake" />} />
+            <Route path="/law-firm-ai-receptionist/" element={<LawFirmAutomationPage pageId="aiReceptionist" />} />
+            <Route path="/law-firm-crm-automation/" element={<LawFirmAutomationPage pageId="crm" />} />
+            <Route path="/law-firm-document-collection-scheduling-automation/" element={<LawFirmAutomationPage pageId="documents" />} />
+            <Route path="/law-firm-automation-workflow-video/" element={<LawFirmAutomationPage pageId="video" />} />
+            <Route path="/law-firm-automation-readiness-checklist/" element={<LawFirmAutomationPage pageId="checklist" />} />
             <Route path="/roi-calculator" element={<ROICalculator />} /> {/* Add ROI Calculator route */}
             <Route path="/terms" element={<TermsAndConditions />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />

@@ -26,7 +26,7 @@ const PropertyManagementVoiceAICaseStudy = () => {
         title="AI Voice Agent Case Study"
         description="How an AI voice agent captured 641 after-hours calls, generated ~72 qualified leasing leads per week, and unlocked $230K-$692K in annual revenue for a property management company."
         keywords="property management voice AI case study, AI voice agent for property management, automated tenant communication, AI phone agent, after-hours leasing leads"
-        canonical="/case-studies/property-management-voice-ai"
+        canonicalUrl="https://www.pentridgemedia.com/case-studies/property-management-voice-ai"
         ogImage="/background.png"
         twitterImage="/background.png"
       />

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, BookOpen, Calculator, FileText } from 'lucide-react';
 import Navbar from '../components/Navbar';
+import MetaTags from '../components/MetaTags';
 import { motion } from 'framer-motion';
 
 const fadeUp = {
@@ -50,6 +51,12 @@ const Resources = () => {
 
   return (
     <div className="min-h-screen bg-black text-white">
+      <MetaTags
+        title="AI Automation Resources, Guides & Calculators | Pentridge"
+        description="Explore Pentridge resources for AI workflow automation, including guides, use cases, ROI calculators, and implementation ideas for service businesses."
+        keywords="AI automation resources, AI workflow automation guide, AI process automation examples, automation ROI calculator"
+        canonicalUrl="https://www.pentridgemedia.com/resources"
+      />
       <Navbar />
 
       <div className="max-w-7xl mx-auto px-6 pt-28 pb-20">

@@ -136,10 +136,10 @@ const AIVoiceAgents = () => {
     "provider": {
       "@type": "Organization",
       "name": "Pentridge",
-      "url": "https://pentridgemedia.com"
+      "url": "https://www.pentridgemedia.com"
     },
     "areaServed": { "@type": "Country", "name": "United States" },
-    "url": "https://pentridgemedia.com/services/ai-voice-agents",
+    "url": "https://www.pentridgemedia.com/services/ai-voice-agents",
     "description": pageDescription
   };
 
@@ -150,7 +150,7 @@ const AIVoiceAgents = () => {
         description={pageDescription}
         keywords={pageKeywords}
         pageType="website"
-        canonicalUrl="https://pentridgemedia.com/services/ai-voice-agents"
+        canonicalUrl="https://www.pentridgemedia.com/services/ai-voice-agents"
       />
       <Navbar variant="dark" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />

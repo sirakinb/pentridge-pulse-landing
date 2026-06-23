@@ -7,6 +7,8 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
+    { label: 'Services', to: '/services' },
+    { label: 'Law Firms', to: '/law-firm-automation/' },
     { label: 'Content House', to: '/content-house' },
     { label: 'Use Cases', to: '/resources/ai-process-automation-examples' },
     { label: 'ROI Calculator', to: '/roi-calculator' },

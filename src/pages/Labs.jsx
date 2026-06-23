@@ -150,7 +150,7 @@ const Labs = () => {
         title="Pentridge Labs | Product Suite for Modern Businesses"
         description="Software tools built for solopreneurs, freelancers, coaches, consultants, creators, and agencies. AlignoPM, AlignoCRM, Voiyce, and DropCard."
         keywords="Pentridge Labs, AlignoPM, AlignoCRM, Voiyce, DropCard, project management, CRM, voice to text, digital business card, solopreneur tools"
-        canonicalUrl="https://pentridgemedia.com/labs"
+        canonicalUrl="https://www.pentridgemedia.com/labs"
       />
       <Navbar />
 

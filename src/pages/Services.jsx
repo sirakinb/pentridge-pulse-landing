@@ -68,7 +68,7 @@ const Services = () => {
         title="AI Workflow Automation Services | Pentridge"
         description="Automate manual business workflows with AI voice agents, CRM automation, lead follow-up, document automation, integrations, and custom internal tools."
         keywords="AI workflow automation services, AI voice agents, CRM automation, lead follow-up automation, document automation, custom internal tools"
-        canonicalUrl="https://pentridgemedia.com/services"
+        canonicalUrl="https://www.pentridgemedia.com/services"
       />
       <Navbar />
 

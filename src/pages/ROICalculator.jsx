@@ -12,10 +12,11 @@ const ROICalculator = () => {
         title="AI ROI Calculator - Calculate Your Business Automation Savings"
         description="Use our free AI ROI Calculator to estimate potential time and cost savings from AI automation. Input your business metrics and get projected annual savings, ROI, and payback period."
         keywords="AI ROI calculator, business automation savings, AI implementation cost, automation ROI, business efficiency calculator"
+        canonicalUrl="https://www.pentridgemedia.com/roi-calculator"
+        pageType="website"
         ogTitle="AI ROI Calculator - Calculate Your Business Automation Savings"
         ogDescription="Use our free AI ROI Calculator to estimate potential time and cost savings from AI automation. Input your business metrics and get projected annual savings, ROI, and payback period."
         ogImage="/background.png"
-        ogUrl="https://www.pentridgemedia.com/roi-calculator"
       />
 
       <Navbar />
@@ -35,7 +36,7 @@ const ROICalculator = () => {
               </p>
               <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
                 <a
-                  href="https://pentridgemedia.com"
+                  href="https://www.pentridgemedia.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 transition-colors"
@@ -177,7 +178,7 @@ const ROICalculator = () => {
                 Book an Automation Audit
               </a>
               <a
-                href="https://pentridgemedia.com"
+                href="https://www.pentridgemedia.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center px-8 py-4 border border-white text-lg font-medium rounded-md text-white hover:bg-purple-700 transition-colors"

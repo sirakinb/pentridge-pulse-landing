@@ -19,6 +19,12 @@ dist-ssr
 
 # Local artifacts
 scripts/last-*-email.html
+Pentridge AI Search Sprint/
+Pentridge_30_Day_AI_Search_Playbook.docx
+architecture-diagram.html
+.codex/
+.cursor/
+.hermes/
 
 # Editor directories and files
 .vscode/*

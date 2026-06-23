@@ -6,10 +6,10 @@ const SchemaMarkup = () => {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Pentridge",
-    "url": "https://pentridgemedia.com",
+    "url": "https://www.pentridgemedia.com",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://pentridgemedia.com/logonew.png",
+      "url": "https://www.pentridgemedia.com/logonew.png",
       "width": 200,
       "height": 200
     },
@@ -26,7 +26,7 @@ const SchemaMarkup = () => {
       "addressCountry": "US"
     },
     "sameAs": [
-      "https://pentridgemedia.com"
+      "https://www.pentridgemedia.com"
     ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
@@ -93,7 +93,7 @@ const SchemaMarkup = () => {
     "provider": {
       "@type": "Organization",
       "name": "Pentridge",
-      "url": "https://pentridgemedia.com"
+      "url": "https://www.pentridgemedia.com"
     },
     "serviceType": [
       "AI Workflow Automation",
@@ -223,21 +223,21 @@ const SchemaMarkup = () => {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Pentridge",
-    "url": "https://pentridgemedia.com",
+    "url": "https://www.pentridgemedia.com",
     "description": "Pentridge builds AI workflow automation systems for service businesses.",
     "publisher": {
       "@type": "Organization",
       "name": "Pentridge",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://pentridgemedia.com/logonew.png"
+        "url": "https://www.pentridgemedia.com/logonew.png"
       }
     },
     "potentialAction": {
       "@type": "SearchAction",
       "target": {
         "@type": "EntryPoint",
-        "urlTemplate": "https://pentridgemedia.com/search?q={search_term_string}"
+        "urlTemplate": "https://www.pentridgemedia.com/search?q={search_term_string}"
       },
       "query-input": "required name=search_term_string"
     }
@@ -249,14 +249,14 @@ const SchemaMarkup = () => {
     "@type": "LocalBusiness",
     "name": "Pentridge",
     "description": "AI workflow automation systems for service businesses.",
-    "url": "https://pentridgemedia.com",
+    "url": "https://www.pentridgemedia.com",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://pentridgemedia.com/logonew.png"
+      "url": "https://www.pentridgemedia.com/logonew.png"
     },
     "image": {
       "@type": "ImageObject",
-      "url": "https://pentridgemedia.com/logop.png"
+      "url": "https://www.pentridgemedia.com/logop.png"
     },
     "telephone": "+1-XXX-XXX-XXXX",
     "email": "aki.b@pentridgemedia.com",
@@ -303,25 +303,25 @@ const SchemaMarkup = () => {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://pentridgemedia.com"
+        "item": "https://www.pentridgemedia.com"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Content House",
-        "item": "https://pentridgemedia.com/content-house"
+        "item": "https://www.pentridgemedia.com/content-house"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "Contact",
-        "item": "https://pentridgemedia.com/contact"
+        "item": "https://www.pentridgemedia.com/contact"
       },
       {
         "@type": "ListItem",
         "position": 4,
         "name": "About Us",
-        "item": "https://pentridgemedia.com/about"
+        "item": "https://www.pentridgemedia.com/about"
       }
     ]
   };

@@ -4,6 +4,86 @@
   "framework": "vite",
   "rewrites": [
     {
+      "source": "/services",
+      "destination": "/services/index.html"
+    },
+    {
+      "source": "/law-firm-automation",
+      "destination": "/law-firm-automation/index.html"
+    },
+    {
+      "source": "/law-firm-client-intake-automation",
+      "destination": "/law-firm-client-intake-automation/index.html"
+    },
+    {
+      "source": "/law-firm-ai-receptionist",
+      "destination": "/law-firm-ai-receptionist/index.html"
+    },
+    {
+      "source": "/law-firm-crm-automation",
+      "destination": "/law-firm-crm-automation/index.html"
+    },
+    {
+      "source": "/law-firm-document-collection-scheduling-automation",
+      "destination": "/law-firm-document-collection-scheduling-automation/index.html"
+    },
+    {
+      "source": "/law-firm-automation-workflow-video",
+      "destination": "/law-firm-automation-workflow-video/index.html"
+    },
+    {
+      "source": "/law-firm-automation-readiness-checklist",
+      "destination": "/law-firm-automation-readiness-checklist/index.html"
+    },
+    {
+      "source": "/services/ai-voice-agents",
+      "destination": "/services/ai-voice-agents/index.html"
+    },
+    {
+      "source": "/resources/ai-process-automation-examples",
+      "destination": "/resources/ai-process-automation-examples/index.html"
+    },
+    {
+      "source": "/ai-business-automation-guide",
+      "destination": "/ai-business-automation-guide/index.html"
+    },
+    {
+      "source": "/roi-calculator",
+      "destination": "/roi-calculator/index.html"
+    },
+    {
+      "source": "/case-studies/property-management-voice-ai",
+      "destination": "/case-studies/property-management-voice-ai/index.html"
+    },
+    {
+      "source": "/resources",
+      "destination": "/resources/index.html"
+    },
+    {
+      "source": "/blog",
+      "destination": "/blog/index.html"
+    },
+    {
+      "source": "/content-house",
+      "destination": "/content-house/index.html"
+    },
+    {
+      "source": "/about",
+      "destination": "/about/index.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact/index.html"
+    },
+    {
+      "source": "/terms",
+      "destination": "/terms/index.html"
+    },
+    {
+      "source": "/privacy",
+      "destination": "/privacy/index.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }

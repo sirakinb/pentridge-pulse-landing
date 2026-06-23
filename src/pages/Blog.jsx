@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Clock, User, Search } from 'lucide-react';
 import Navbar from '../components/Navbar';
+import MetaTags from '../components/MetaTags';
 import { motion } from 'framer-motion';
 
 const fadeUp = {
@@ -39,6 +40,12 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen bg-black text-white">
+      <MetaTags
+        title="AI Workflow Automation Blog | Pentridge"
+        description="Read Pentridge insights on AI workflow automation, lead follow-up, CRM automation, AI voice agents, and practical business automation strategy."
+        keywords="AI workflow automation blog, business automation insights, AI voice agents, CRM automation, lead follow-up automation"
+        canonicalUrl="https://www.pentridgemedia.com/blog"
+      />
       <Navbar />
 
       <div className="max-w-7xl mx-auto px-6 pt-28 pb-20">

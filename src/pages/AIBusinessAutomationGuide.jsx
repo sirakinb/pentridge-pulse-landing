@@ -13,7 +13,7 @@ const AIBusinessAutomationGuide = () => {
         description="Master AI business automation with our comprehensive guide covering AI voice agents, lead generation, content creation, workflow automation, and sales/CRM automation for entrepreneurs and service businesses."
         keywords="AI business automation, AI voice agents, lead generation automation, content creation automation, workflow automation, sales automation, CRM automation"
         pageType="article"
-        canonicalUrl="/ai-business-automation-guide"
+        canonicalUrl="https://www.pentridgemedia.com/ai-business-automation-guide"
         ogImage="/og-image.svg"
         twitterImage="/og-image.svg"
       />
@@ -44,7 +44,7 @@ const AIBusinessAutomationGuide = () => {
             "dateModified": "2025-08-16",
             "mainEntityOfPage": {
               "@type": "WebPage",
-              "@id": "https://pentridgemedia.com/ai-business-automation-guide"
+              "@id": "https://www.pentridgemedia.com/ai-business-automation-guide"
             }
           })
         }}

@@ -9,7 +9,7 @@ const PageSchemaMarkup = ({ pageType, pageData = {} }) => {
           "@type": "WebPage",
           "name": "Pentridge - AI Workflow Automation Services",
           "description": "Pentridge builds AI workflow automation systems for service businesses. Automate lead follow-up, voice calls, CRM updates, documents, reporting, and internal operations.",
-          "url": "https://pentridgemedia.com",
+          "url": "https://www.pentridgemedia.com",
           "mainEntity": {
             "@type": "Organization",
             "name": "Pentridge",
@@ -22,7 +22,7 @@ const PageSchemaMarkup = ({ pageType, pageData = {} }) => {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Home",
-                "item": "https://pentridgemedia.com"
+                "item": "https://www.pentridgemedia.com"
               }
             ]
           }
@@ -34,7 +34,7 @@ const PageSchemaMarkup = ({ pageType, pageData = {} }) => {
           "@type": "ContactPage",
           "name": "Contact Pentridge",
           "description": "Book an AI workflow automation audit with Pentridge",
-          "url": "https://pentridgemedia.com/contact",
+          "url": "https://www.pentridgemedia.com/contact",
           "mainEntity": {
             "@type": "Organization",
             "name": "Pentridge",
@@ -52,13 +52,13 @@ const PageSchemaMarkup = ({ pageType, pageData = {} }) => {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Home",
-                "item": "https://pentridgemedia.com"
+                "item": "https://www.pentridgemedia.com"
               },
               {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Contact",
-                "item": "https://pentridgemedia.com/contact"
+                "item": "https://www.pentridgemedia.com/contact"
               }
             ]
           }
@@ -70,7 +70,7 @@ const PageSchemaMarkup = ({ pageType, pageData = {} }) => {
           "@type": "WebPage",
           "name": "Content House - Pentridge",
           "description": "AI-driven content automation and management solutions for businesses",
-          "url": "https://pentridgemedia.com/content-house",
+          "url": "https://www.pentridgemedia.com/content-house",
           "mainEntity": {
             "@type": "Service",
             "name": "AI-Driven Content Automation",
@@ -87,13 +87,13 @@ const PageSchemaMarkup = ({ pageType, pageData = {} }) => {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Home",
-                "item": "https://pentridgemedia.com"
+                "item": "https://www.pentridgemedia.com"
               },
               {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Content House",
-                "item": "https://pentridgemedia.com/content-house"
+                "item": "https://www.pentridgemedia.com/content-house"
               }
             ]
           }
@@ -105,7 +105,7 @@ const PageSchemaMarkup = ({ pageType, pageData = {} }) => {
           "@type": "AboutPage",
           "name": "About Us - Pentridge",
           "description": "Learn about Pentridge and our mission to replace manual workflows with AI automation systems",
-          "url": "https://pentridgemedia.com/about",
+          "url": "https://www.pentridgemedia.com/about",
           "mainEntity": {
             "@type": "Organization",
             "name": "Pentridge",
@@ -120,13 +120,13 @@ const PageSchemaMarkup = ({ pageType, pageData = {} }) => {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Home",
-                "item": "https://pentridgemedia.com"
+                "item": "https://www.pentridgemedia.com"
               },
               {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "About Us",
-                "item": "https://pentridgemedia.com/about"
+                "item": "https://www.pentridgemedia.com/about"
               }
             ]
           }

@@ -1,0 +1,35 @@
+# Local secrets
+.env
+.env.*
+!.env.example
+
+# Local agent/workspace files
+.codex/
+.cursor/
+.hermes/
+.agent/
+.agents/
+.claude/
+.cline/
+.insforge/
+
+# Sprint/project management artifacts
+Pentridge AI Search Sprint/
+Pentridge_30_Day_AI_Search_Playbook.docx
+architecture-diagram.html
+
+# Local generated or unrelated helper folders
+functions/
+skills/
+
+# Dependencies and build output are rebuilt by Vercel
+node_modules/
+dist/
+dist-ssr/
+
+# Logs and OS/editor files
+logs/
+*.log
+.DS_Store
+.vscode/
+.idea/

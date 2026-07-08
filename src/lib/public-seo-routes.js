@@ -3,9 +3,9 @@ export const SITE_URL = 'https://www.pentridgemedia.com';
 export const publicSeoRoutes = [
   {
     path: '/',
-    title: 'AI Workflow Automation Services for Businesses | Pentridge',
-    description: 'Pentridge builds AI workflow automation systems for service businesses: lead follow-up, voice calls, CRM updates, documents, and reporting.',
-    keywords: 'AI workflow automation services, AI automation for service businesses, lead follow-up automation, CRM automation, AI voice agents, document automation, business workflow automation',
+    title: 'Deploy AI Agents Into Your Business Operations | Pentridge',
+    description: 'Pentridge gets your company AI-ready, centralizes your business data into one Agent Workspace, and deploys AI agents into your marketing and operations.',
+    keywords: 'deploy AI agents, AI agents for business operations, AI agent deployment, agent workspace, MCP server for business, marketing AI agents, operations automation',
     priority: '1.0',
     changefreq: 'weekly'
   },

@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Plus, Minus, ArrowRight, Check, X as XIcon, Kanban, Users, Mic, CreditCard } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import { scrollToTop } from '../utils/scrollToTop';
 
 // ─── Animated Counter Hook ────────────────────────────────────
 const useCountUp = (end, duration = 2000) => {
@@ -67,35 +65,19 @@ const HeroSection = () => (
         {/* Left: Copy */}
         <motion.div {...fadeUp}>
           <p className="font-mono text-xs tracking-[0.3em] uppercase text-white/40 mb-6">
-            Pentridge / AI Workflow Automation
+            Pentridge / AI Agent Deployment
           </p>
-          <h1 className="font-display text-4xl md:text-5xl lg:text-[43px] leading-[1.2] mb-6 text-[#fafafa] capitalize">
-            Automate the workflows slowing your business down.
+          <h1 className="font-display text-4xl md:text-5xl lg:text-[43px] leading-[1.2] mb-6 text-[#fafafa]">
+            Deploy AI agents into your business operations.
           </h1>
           <p className="text-lg md:text-xl text-white/60 leading-relaxed mb-10 max-w-xl">
-            We build AI systems and automated workflows that handle repetitive work, connect your tools, and keep your team focused on revenue.
+            We get your company AI-ready and streamline your marketing, intake, and internal operations.
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12 max-w-xl">
-            <a
-              href="https://cal.com/akinyemi-bajulaiye-2jua88/30min"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary inline-flex min-h-[76px] items-center justify-center text-center"
-            >
-              Book an Automation Audit
-            </a>
-            <a
-              href="/resources/ai-process-automation-examples"
-              className="btn-outline inline-flex min-h-[76px] items-center justify-center text-center"
-            >
-              See Automation Examples
-            </a>
-          </div>
-          <div className="flex gap-10 font-mono text-sm">
-            <StatCounter end={50} label="Projects Delivered" />
-            <StatCounter end={12} label="Active Partners" />
-            <StatCounter end={500} label="Hours Automated" />
-          </div>
+          <img
+            src="/agent-workspace-activity.jpg"
+            alt="Agent Workspace activity feed showing live status updates: intake agent updating the voice agent on available properties for the week, marketing agent drafted and sent an email campaign, workspace agent scheduled to send the monthly intake analytics recap, ops agent billed all tenants for their water bill"
+            className="w-full max-w-xl rounded-2xl"
+          />
         </motion.div>
 
         {/* Right: 3D Planetary System */}
@@ -103,7 +85,7 @@ const HeroSection = () => (
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.3 }}
-          className="flex justify-center lg:justify-end"
+          className="flex flex-col items-center gap-14"
         >
           {/* CSS Keyframes for 3D orbits */}
           <style>{`
@@ -249,8 +231,27 @@ const HeroSection = () => (
 
             </div>
           </div>
+
+          <a
+            href="https://cal.com/akinyemi-bajulaiye-2jua88/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary inline-flex min-h-[76px] w-full sm:w-auto sm:px-16 items-center justify-center text-center"
+          >
+            Book Demo
+          </a>
         </motion.div>
       </div>
+
+      {/* Stats stripe */}
+      <motion.div
+        {...fadeUp}
+        className="mt-20 pt-10 border-t border-white/10 flex flex-wrap justify-center gap-12 md:gap-24 font-mono text-sm text-center"
+      >
+        <StatCounter end={50} label="Projects Delivered" />
+        <StatCounter end={12} label="Active Partners" />
+        <StatCounter end={500} label="Hours Automated" />
+      </motion.div>
     </div>
   </section>
 );
@@ -260,9 +261,9 @@ const TwoWaysSection = () => (
   <section className="bg-black py-24 md:py-32 relative">
     <div className="max-w-7xl mx-auto px-6">
       <motion.div {...fadeUp} className="mb-16">
-        <p className="section-label mb-4">01 / Automation Partner</p>
-        <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] max-w-2xl capitalize">
-          One automation partner for the workflows that run your business.
+        <p className="section-label mb-4">01 / What We Do</p>
+        <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] max-w-2xl">
+          We make your company AI-ready. Then we deploy agents.
         </h2>
       </motion.div>
 
@@ -272,15 +273,15 @@ const TwoWaysSection = () => (
           transition={{ duration: 0.6, delay: 0.1 }}
           className="glass-card-purple rounded-2xl p-10 md:p-12 group hover:border-purple-500/40 transition-all duration-500"
         >
-          <p className="font-mono text-xs tracking-[0.2em] uppercase text-purple-400 mb-4">Primary Offer</p>
+          <p className="font-mono text-xs tracking-[0.2em] uppercase text-purple-400 mb-4">Step One</p>
           <h3 className="font-display text-2xl md:text-3xl leading-[1.2] text-[#fafafa] mb-4 capitalize">
-            AI Workflow Automation
+            Get AI-Ready
           </h3>
           <p className="text-white/60 leading-relaxed mb-8">
-            We audit the manual work costing you time, map the highest-ROI workflows, then build and maintain automations across your calls, CRM, calendar, inbox, documents, and internal tools.
+            We audit how your business runs, streamline your intake and internal operations, and pipe your CRM, project management, and marketing data into one Agent Workspace — the single source of context your agents will work from.
           </p>
           <ul className="space-y-3 mb-8">
-            {['Workflow audit and roadmap', 'Lead capture and follow-up', 'CRM, calendar, email, and SMS integrations', 'Ongoing monitoring and optimization'].map((item) => (
+            {['Operations audit and roadmap', 'Intake and follow-up automation', 'Internal operations streamlining', 'Data pipeline into your Agent Workspace'].map((item) => (
               <li key={item} className="flex items-center gap-3 text-white/50 text-sm">
                 <span className="w-1 h-1 bg-purple-500 rounded-full" />
                 {item}
@@ -293,19 +294,8 @@ const TwoWaysSection = () => (
             rel="noopener noreferrer"
             className="btn-outline inline-flex items-center gap-2 group-hover:border-purple-400/60"
           >
-            Book an Automation Audit <ArrowRight size={14} />
+            Book Demo <ArrowRight size={14} />
           </a>
-          <p className="mt-5 text-sm leading-relaxed text-white/45">
-            For independent firms, see our{' '}
-            <Link
-              to="/law-firm-automation/"
-              onClick={scrollToTop}
-              className="text-purple-200 underline underline-offset-4 hover:text-white"
-            >
-              law firm automation workflow
-            </Link>
-            .
-          </p>
         </motion.div>
 
         <motion.div
@@ -313,15 +303,15 @@ const TwoWaysSection = () => (
           transition={{ duration: 0.6, delay: 0.2 }}
           className="glass-card-purple rounded-2xl p-10 md:p-12 group hover:border-purple-500/40 transition-all duration-500"
         >
-          <p className="font-mono text-xs tracking-[0.2em] uppercase text-pink-400 mb-4">Supporting Capability</p>
+          <p className="font-mono text-xs tracking-[0.2em] uppercase text-pink-400 mb-4">Step Two</p>
           <h3 className="font-display text-2xl md:text-3xl leading-[1.2] text-[#fafafa] mb-4 capitalize">
-            Need custom software too?
+            Deploy AI Agents
           </h3>
           <p className="text-white/60 leading-relaxed mb-8">
-            When automation needs a dashboard, client portal, internal tool, or AI-native app, we can build it. Custom software supports the workflow instead of distracting from the business outcome.
+            With your context centralized, we deploy agents into your marketing and operations. Through Pentridge MCP, any agent can run your workflows — and status updates flow back into your workspace, so you have a live understanding of what your agents are doing.
           </p>
           <ul className="space-y-3 mb-8">
-            {['Custom dashboards and portals', 'MVPs and internal tools', 'AI-native interfaces', 'Product design and full-stack delivery'].map((item) => (
+            {['Marketing and operations agents', 'Company context and agent skills in one workspace', 'Pentridge MCP: any agent can run your workflows', 'Live status updates on agent activity'].map((item) => (
               <li key={item} className="flex items-center gap-3 text-white/50 text-sm">
                 <span className="w-1 h-1 bg-pink-500 rounded-full" />
                 {item}
@@ -334,7 +324,7 @@ const TwoWaysSection = () => (
             rel="noopener noreferrer"
             className="btn-outline inline-flex items-center gap-2 group-hover:border-pink-400/60"
           >
-            Discuss Custom Software <ArrowRight size={14} />
+            Discuss Agent Deployment <ArrowRight size={14} />
           </a>
         </motion.div>
       </div>
@@ -385,24 +375,94 @@ const TrustedBySection = () => {
   );
 };
 
+// ─── Section 03: The Infrastructure ───────────────────────────
+const InfrastructureSection = () => {
+  const layers = [
+    {
+      label: 'Data Pipeline',
+      accent: 'text-purple-400',
+      dot: 'bg-purple-500',
+      description:
+        'Your CRM, project management, marketing, and operations tools feed into one place through a managed data pipeline. No exports, no stale spreadsheets — live business data, centralized.',
+    },
+    {
+      label: 'Agent Workspace',
+      accent: 'text-pink-400',
+      dot: 'bg-pink-500',
+      description:
+        'The single source of context for your company. Your workspace holds your business data, documents, and agent skills — and gives you status updates and a live understanding of what your agents are doing.',
+    },
+    {
+      label: 'Pentridge MCP',
+      accent: 'text-violet-400',
+      dot: 'bg-violet-500',
+      description:
+        'The MCP/API layer built into your workspace. It connects your company context to agentic platforms like Claude Code, Codex, and Cursor — so any agent can run your workflows, with updates flowing back to the workspace.',
+    },
+  ];
+
+  return (
+    <section className="bg-black py-24 md:py-32 border-t border-white/5">
+      <div className="max-w-7xl mx-auto px-6">
+        <motion.div {...fadeUp} className="mb-16">
+          <p className="section-label mb-4">03 / The Infrastructure</p>
+          <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] max-w-3xl">
+            All of your business data. One Agent Workspace.
+          </h2>
+          <p className="text-white/50 text-lg mt-6 max-w-2xl leading-relaxed">
+            Agents are only as good as the context they can reach. We build and host the AI infrastructure that gives them your company's context — and gives you live visibility into what they're doing. Data pipeline and workspace included.
+          </p>
+        </motion.div>
+
+        <motion.div {...fadeUp} className="mb-14">
+          <img
+            src="/agent-infrastructure-diagram.jpg"
+            alt="Pentridge AI infrastructure diagram: CRM, project management, marketing, and intake data flow through a data pipeline into the Agent Workspace, connected via Pentridge MCP to Claude Code, Codex, and Cursor with status updates flowing back"
+            loading="lazy"
+            className="w-full rounded-2xl border border-white/5"
+          />
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {layers.map((layer, i) => (
+            <motion.div
+              key={layer.label}
+              {...stagger}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="glass-card-purple rounded-2xl p-8 md:p-10 hover:border-purple-500/40 transition-all duration-500"
+            >
+              <div className="flex items-center gap-3 mb-5">
+                <span className="font-mono text-xs text-white/30">{String(i + 1).padStart(2, '0')}</span>
+                <span className={`w-1.5 h-1.5 rounded-full ${layer.dot}`} />
+                <p className={`font-mono text-xs tracking-[0.2em] uppercase ${layer.accent}`}>{layer.label}</p>
+              </div>
+              <p className="text-white/60 text-sm leading-relaxed">{layer.description}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const ProblemSection = () => {
   const problems = [
-    'Missed calls and slow lead follow-up',
-    'Duplicate data entry between disconnected tools',
-    'Manual CRM updates after every form, call, or meeting',
-    'Admin reporting that eats into revenue-focused work',
+    'CRM, project management, and marketing data locked in separate tools',
+    'Manual intake, follow-up, and data entry between disconnected systems',
+    'AI experiments that stall because they have no access to real company context',
+    'No visibility into what AI is actually doing for the business',
   ];
 
   return (
     <section className="bg-black py-24 md:py-32">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div {...fadeUp} className="mb-16">
-          <p className="section-label mb-4">03 / The Problem</p>
-          <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] max-w-3xl capitalize">
-            Manual workflows quietly drain your team every week.
+          <p className="section-label mb-4">04 / The Problem</p>
+          <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] max-w-3xl">
+            Your business data is scattered. That's why AI hasn't worked yet.
           </h2>
           <p className="text-white/50 text-lg mt-6 max-w-2xl leading-relaxed">
-            Most service businesses do not need another disconnected tool. They need the calls, forms, CRM, calendar, inbox, documents, and reports to work together automatically.
+            Most companies don't need another disconnected tool. They need their CRM, project management, marketing, and operations in one place an agent can actually work from.
           </p>
         </motion.div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -413,7 +473,7 @@ const ProblemSection = () => {
               transition={{ duration: 0.5, delay: i * 0.08 }}
               className="glass-card rounded-xl p-8"
             >
-              <p className="font-mono text-xs tracking-[0.15em] uppercase text-red-400/70 mb-3">Manual drag</p>
+              <p className="font-mono text-xs tracking-[0.15em] uppercase text-red-400/70 mb-3">The blocker</p>
               <p className="text-white/75 text-sm leading-relaxed">{problem}</p>
             </motion.div>
           ))}
@@ -444,7 +504,7 @@ const TestimonialsSection = () => {
     <section className="bg-black py-24 md:py-32">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div {...fadeUp} className="mb-16">
-          <p className="section-label mb-4">09 / What They Say</p>
+          <p className="section-label mb-4">10 / What They Say</p>
           <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] max-w-3xl capitalize">
             Don't take our word for it.
           </h2>
@@ -484,16 +544,16 @@ const TestimonialsSection = () => {
 const WhyWorkSection = () => {
   const comparisons = [
     {
-      before: 'Following up with every lead by hand',
-      after: 'Instant qualification, SMS/email follow-up, booking, and CRM updates',
+      before: 'Copy-pasting context into ChatGPT one task at a time',
+      after: 'Any agent can run your workflows with your full company context, through Pentridge MCP',
     },
     {
-      before: 'Trying to "figure out AI" without a workflow map',
-      after: 'A clear automation roadmap tied to hours saved and revenue protected',
+      before: 'Manual intake, follow-up, and data entry between tools',
+      after: 'Streamlined intake and internal operations, from first contact to booked work',
     },
     {
-      before: 'Cobbling together no-code tools that break',
-      after: 'Reliable automations built, integrated, monitored, and improved over time',
+      before: 'AI pilots that stall after the demo',
+      after: 'Agents deployed into daily operations — with live status updates in your workspace',
     },
   ];
 
@@ -501,9 +561,9 @@ const WhyWorkSection = () => {
     <section className="bg-black py-24 md:py-32">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div {...fadeUp} className="mb-16">
-          <p className="section-label mb-4">04 / Why Work With Us</p>
-          <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] max-w-3xl capitalize">
-            Replace scattered manual work with systems that run.
+          <p className="section-label mb-4">05 / Why Work With Us</p>
+          <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] max-w-3xl">
+            Replace scattered manual work with AI you can actually see working.
           </h2>
         </motion.div>
 
@@ -550,12 +610,12 @@ const WhyWorkSection = () => {
 // ─── Section 04: Why Partner? (Comparison Table) ──────────────
 const ComparisonSection = () => {
   const rows = [
-    { label: 'Workflow audit before building', agency: false, pentridge: true },
-    { label: 'CRM, calendar, inbox, SMS, and document integrations', agency: false, pentridge: true },
-    { label: 'Automation plus custom software when needed', agency: false, pentridge: true },
-    { label: 'Launch, monitor, and optimize after go-live', agency: false, pentridge: true },
+    { label: 'Operations audit before deploying anything', agency: false, pentridge: true },
+    { label: 'Data pipeline and Agent Workspace — included and hosted by us', agency: false, pentridge: true },
+    { label: 'MCP layer connecting to Claude Code, Codex, and Cursor', agency: false, pentridge: true },
+    { label: 'Live visibility into what your agents are doing', agency: false, pentridge: true },
     { label: 'Business outcome and ROI focus', agency: false, pentridge: true },
-    { label: 'Long-term automation partner', agency: false, pentridge: true },
+    { label: 'Long-term AI operations partner', agency: false, pentridge: true },
   ];
 
   const CellIcon = ({ value }) =>
@@ -569,9 +629,9 @@ const ComparisonSection = () => {
     <section className="bg-black py-24 md:py-32">
       <div className="max-w-3xl mx-auto px-6">
         <motion.div {...fadeUp} className="mb-16 text-center">
-          <p className="section-label mb-4">05 / Why Partner?</p>
+          <p className="section-label mb-4">06 / Why Partner?</p>
           <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] capitalize">
-            Not all automation partners are equal.
+            Not all AI partners are equal.
           </h2>
         </motion.div>
 
@@ -600,46 +660,56 @@ const ComparisonSection = () => {
   );
 };
 
-// ─── Section 06: Tools We Work With ───────────────────────────
-const ToolsSection = () => {
-  const tools = [
-    { name: 'n8n', logo: '/logos/n8n.svg' },
-    { name: 'Zapier', logo: '/logos/zapier.svg' },
-    { name: 'Make.com', logo: '/logos/make.svg' },
+// ─── Section 07: Pentridge MCP ────────────────────────────────
+const PentridgeMCPSection = () => {
+  const platforms = [
     { name: 'Claude Code', logo: '/logos/claudecode.svg' },
     { name: 'Codex', logo: '/logos/codex-blue.png' },
     { name: 'Cursor', logo: '/logos/cursor.svg' },
-    { name: 'OpenAI', logo: '/logos/openai.svg' },
-    { name: 'Anthropic', logo: '/logos/anthropic.svg' },
+    { name: 'Hermes', logo: '/logos/hermes.png', rounded: true },
+    { name: 'OpenClaw', logo: '/logos/openclaw.svg' },
   ];
 
   return (
     <section className="bg-black py-24 md:py-32 border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div {...fadeUp} className="mb-16 text-center">
-          <p className="section-label mb-4">06 / Tools We Work With</p>
-          <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] capitalize max-w-3xl mx-auto">
-            We build with the AI and automation tools your workflows need.
+          <p className="section-label mb-4">07 / Pentridge MCP</p>
+          <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] max-w-3xl mx-auto">
+            One MCP layer. Any agentic platform.
           </h2>
           <p className="text-white/50 text-lg mt-6 max-w-2xl mx-auto leading-relaxed">
-            n8n, Zapier, Make, Codex, Claude Code, Cursor, OpenAI, Anthropic, and custom integrations help us connect your CRM, inbox, calendar, documents, and internal tools.
+            Pentridge MCP connects your Agent Workspace to any agentic platform or personal agent — so your workflows and company context are available wherever your agents live, with updates flowing back to the workspace.
           </p>
         </motion.div>
 
-        <motion.div {...fadeUp} className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-12 md:gap-x-12">
-          {tools.map((tool) => (
-            <div key={tool.name} className="flex flex-col items-center justify-center text-center">
+        <motion.div {...fadeUp} className="mb-16 flex justify-center">
+          <img
+            src="/pentridge-mcp-hub.jpg"
+            alt="Pentridge MCP hub diagram: a central Pentridge MCP node connects the Agent Workspace to Claude Code, Codex, Cursor, Hermes, and OpenClaw"
+            loading="lazy"
+            className="w-full max-w-4xl rounded-2xl"
+          />
+        </motion.div>
+
+        <motion.div {...fadeUp} className="grid grid-cols-2 md:grid-cols-5 gap-x-8 gap-y-12 md:gap-x-12 max-w-4xl mx-auto">
+          {platforms.map((platform) => (
+            <div key={platform.name} className="flex flex-col items-center justify-center text-center">
               <div className="h-16 flex items-center justify-center mb-4">
                 <img
-                  src={tool.logo}
-                  alt={`${tool.name} logo`}
-                  className="h-12 w-12 object-contain"
+                  src={platform.logo}
+                  alt={`${platform.name} logo`}
+                  className={`h-12 w-12 object-contain ${platform.rounded ? 'rounded-xl' : ''}`}
                 />
               </div>
-              <h3 className="text-white font-semibold">{tool.name}</h3>
+              <h3 className="text-white font-semibold">{platform.name}</h3>
             </div>
           ))}
         </motion.div>
+
+        <motion.p {...fadeUp} className="text-center font-mono text-xs tracking-[0.2em] uppercase text-white/30 mt-14">
+          + any MCP-compatible platform or personal agent
+        </motion.p>
       </div>
     </section>
   );
@@ -651,9 +721,9 @@ const ProcessSection = () => {
     <section className="bg-black py-24 md:py-32 border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div {...fadeUp} className="mb-16">
-          <p className="section-label mb-4">07 / Process</p>
+          <p className="section-label mb-4">08 / Process</p>
           <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] max-w-3xl capitalize">
-            Audit, build, integrate, launch, and keep improving.
+            Audit, centralize, deploy, and keep improving.
           </h2>
         </motion.div>
         <motion.div {...fadeUp} className="mx-auto w-full max-w-7xl overflow-hidden bg-black">
@@ -677,24 +747,28 @@ const FAQSection = () => {
 
   const faqs = [
     {
-      q: 'What kind of projects do you take on?',
-      a: 'Our primary work is AI workflow automation for service businesses: lead capture, follow-up, voice agents, CRM updates, documents, reporting, and internal operations. We also build custom dashboards, portals, and apps when the workflow requires it.',
+      q: 'What does Pentridge actually do?',
+      a: 'We get your company AI-ready, then deploy AI agents into your marketing and operations. In practice that means streamlining your intake and internal operations, centralizing your business data into an Agent Workspace, and connecting agents to your workflows — with live visibility into what they are doing.',
+    },
+    {
+      q: 'What is the Agent Workspace?',
+      a: 'It is the single source of context for your company. A managed data pipeline brings your CRM, project management, marketing, and operations data into one workspace, alongside your documents and agent skills. It also gives you status updates and a live understanding of what your agents are doing. Both the pipeline and the workspace are included and hosted by us.',
+    },
+    {
+      q: 'What is Pentridge MCP?',
+      a: 'Pentridge MCP is the MCP/API layer built into your workspace. It connects your company context to agentic platforms like Claude Code, Codex, and Cursor — so any agent can run your workflows, with updates flowing back into the workspace.',
     },
     {
       q: 'What does pricing look like?',
-      a: 'Every automation scope is different. We usually begin with a workflow audit, then price the implementation and any ongoing monitoring based on complexity, integrations, and expected ROI.',
+      a: 'Every deployment is different. We usually begin with a discovery call, then scope the infrastructure, agents, and any ongoing monitoring based on complexity, integrations, and expected ROI.',
     },
     {
-      q: 'How long does a typical project take?',
-      a: 'Many focused automations launch within 2-4 weeks. Larger multi-tool workflows or custom internal tools can take 6-8 weeks depending on access, integrations, and review cycles.',
+      q: 'How long does a typical deployment take?',
+      a: 'Focused automations and first agents often launch within 2-4 weeks. Full workspace builds with multiple data sources and agents can take 6-8 weeks depending on access, integrations, and review cycles.',
     },
     {
-      q: 'What happens during an automation audit?',
-      a: 'We identify where manual work slows your team down, review the tools you already use, estimate the highest-ROI opportunities, and map the first workflows worth automating.',
-    },
-    {
-      q: 'What happens after the project is delivered?',
-      a: 'Many clients keep us involved for monitoring, optimization, and new workflow builds. We do not treat automation as set-it-and-forget-it software.',
+      q: 'What happens after agents are deployed?',
+      a: 'Most clients keep us involved to monitor agents, improve their skills, and expand into new parts of the business. We do not treat AI as set-it-and-forget-it software.',
     },
   ];
 
@@ -702,7 +776,7 @@ const FAQSection = () => {
     <section className="bg-black py-24 md:py-32">
       <div className="max-w-3xl mx-auto px-6">
         <motion.div {...fadeUp} className="mb-16">
-          <p className="section-label mb-4">08 / FAQ</p>
+          <p className="section-label mb-4">09 / FAQ</p>
           <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] capitalize">
             Questions? We have answers.
           </h2>
@@ -779,44 +853,68 @@ const CTASection = () => {
     }
   };
 
+  const commitments = [
+    'First workflows live within weeks',
+    'Data pipeline and Agent Workspace included — hosted by us',
+    'Hands-on setup for your data sources, agents, and workflows',
+    'Pricing scoped after we understand your setup',
+  ];
+
   return (
     <section className="bg-black py-24 md:py-32">
       <div className="max-w-4xl mx-auto px-6">
+        <motion.div {...fadeUp} className="text-center mb-14">
+          <p className="section-label mb-6">11 / Let's Go</p>
+          <h2 className="font-display text-3xl md:text-5xl leading-[1.15] text-[#fafafa]">
+            AI agents in your operations,{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">live in weeks.</span>
+          </h2>
+          <p className="text-white/50 text-lg mt-6 max-w-2xl mx-auto leading-relaxed">
+            We embed with your team, wire your business data into one Agent Workspace, and deploy agents across your marketing, intake, and internal operations — scoped to your business, not a generic playbook.
+          </p>
+        </motion.div>
+
         <motion.div
           {...fadeUp}
-          className="glass-card-purple rounded-3xl p-10 md:p-16 text-center relative overflow-hidden"
+          className="glass-card-purple rounded-3xl p-10 md:p-14 relative overflow-hidden"
         >
           {/* Ambient glow */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-purple-600/20 rounded-full blur-[80px] pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-48 h-48 bg-pink-600/15 rounded-full blur-[60px] pointer-events-none" />
 
           <div className="relative z-10">
-            <p className="section-label mb-6">10 / Let's Go</p>
-            <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] mb-6 capitalize">
-              Book your AI workflow automation audit.
-            </h2>
-            <p className="text-white/50 text-lg mb-10 max-w-lg mx-auto">
-              Pick the workflows slowing your team down. We will help identify the first automation worth building and the ROI it could create.
+            <h3 className="font-display text-2xl md:text-3xl text-[#fafafa] mb-4">
+              Book a discovery call
+            </h3>
+            <p className="text-white/60 leading-relaxed mb-8 max-w-2xl">
+              A 30-minute conversation with our team. We'll learn how your business runs and map the first workflows worth building.
             </p>
-            <div className="flex flex-wrap justify-center gap-4 mb-12">
-              <a
-                href="https://cal.com/akinyemi-bajulaiye-2jua88/30min"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary inline-block w-full sm:w-[290px] text-center"
-              >
-                Book an Automation Audit
-              </a>
-              <a
-                href="/resources/ai-process-automation-examples"
-                className="btn-outline inline-block w-full sm:w-[290px] text-center"
-              >
-                See Automation Examples
-              </a>
-            </div>
+
+            <ul className="space-y-4 mb-10">
+              {commitments.map((item) => (
+                <li key={item} className="flex items-start gap-3 text-white/70 text-sm md:text-base">
+                  <span className="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full border border-purple-500/40 flex items-center justify-center">
+                    <Check size={12} className="text-purple-400" />
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+
+            <a
+              href="https://cal.com/akinyemi-bajulaiye-2jua88/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary inline-flex min-h-[64px] w-full items-center justify-center text-center mb-5"
+            >
+              Book Demo
+            </a>
+            <p className="text-center text-white/40 text-sm mb-12">
+              No commitment required. We'll follow up with a tailored proposal if there's a fit.
+            </p>
 
             {/* Newsletter */}
-            <div className="max-w-md mx-auto">
+            <div className="max-w-md mx-auto text-center border-t border-white/10 pt-10">
               <p className="font-mono text-xs tracking-[0.15em] uppercase text-white/30 mb-4">Stay in the loop</p>
               {submitted ? (
                 <p className="text-white/70 text-sm font-mono">Subscribed as <span className="text-purple-400">{submittedEmail}</span></p>
@@ -864,10 +962,11 @@ const Index = () => {
       <HeroSection />
       <TwoWaysSection />
       <TrustedBySection />
+      <InfrastructureSection />
       <ProblemSection />
       <WhyWorkSection />
       <ComparisonSection />
-      <ToolsSection />
+      <PentridgeMCPSection />
       <ProcessSection />
       <FAQSection />
       <TestimonialsSection />

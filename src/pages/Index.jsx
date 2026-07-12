@@ -113,7 +113,7 @@ const HeroSection = () => (
 
           <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96" style={{ perspective: '1000px' }}>
             {/* Deep ambient glow */}
-            <div className="absolute inset-0 bg-purple-600/25 rounded-full blur-[120px] scale-[1.8]" />
+            <div className="absolute inset-0 bg-purple-600/25 rounded-full blur-[120px] scale-[1.8] pointer-events-none" />
 
             {/* 3D Stage */}
             <div className="absolute inset-0" style={{ transformStyle: 'preserve-3d' }}>

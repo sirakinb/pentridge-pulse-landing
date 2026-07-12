@@ -41,6 +41,24 @@ export default async function handler(req, res) {
 
     await addContact(resend, { email: email.trim(), source: 'newsletter' });
 
+    // Also add the subscriber to the CRM (AlignoCRM → Pentridge Media),
+    // tagged source:newsletter. Best-effort — never fail the signup over it.
+    try {
+      const crmUrl =
+        process.env.CRM_CONTACT_URL ||
+        'https://uvf4r7ds.function2.insforge.app/crm-contact';
+      const crmRes = await fetch(crmUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email.trim(), source: 'newsletter' }),
+      });
+      if (!crmRes.ok) {
+        console.warn('CRM contact add failed:', crmRes.status, await crmRes.text());
+      }
+    } catch (crmErr) {
+      console.warn('CRM contact add threw:', crmErr);
+    }
+
     return res.status(200).json({ ok: true, id: data?.id });
   } catch (err) {
     console.error('Newsletter handler error:', err);

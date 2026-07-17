@@ -231,7 +231,7 @@ const LabsAuth = ({ initialMode }) => {
                 <div className="space-y-3">
                   <button
                     onClick={() => { setShowEmailForm(true); setError(''); }}
-                    className="w-full bg-purple-600 hover:bg-purple-500 px-6 py-3 text-white font-medium transition-all duration-300 flex items-center justify-center gap-3"
+                    className="w-full rounded-full bg-purple-600 hover:bg-purple-500 px-6 py-3 text-white font-medium transition-all duration-300 flex items-center justify-center gap-3"
                   >
                     <span className="flex items-center justify-center w-6 h-6 rounded-full bg-white flex-shrink-0">
                       <img src="/pentridge-p.png" alt="" className="h-3.5 w-auto" />

@@ -5,7 +5,7 @@ import { scrollToTop } from '../utils/scrollToTop';
 
 const navLinks = [
   { label: 'Content House', to: '/content-house' },
-  { label: 'Labs', to: '/labs' },
+  { label: 'Products', to: '/labs' },
   { label: 'Resources', to: '/resources' },
   { label: 'About', to: '/about' },
 ];

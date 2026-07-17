@@ -5,16 +5,6 @@ import { scrollToTop } from '../utils/scrollToTop';
 
 const columns = [
   {
-    heading: 'Labs',
-    links: [
-      { label: 'Pentridge Labs', to: '/labs' },
-      { label: 'AlignoPM', href: 'https://aligno-project-management.vercel.app/landing' },
-      { label: 'AlignoCRM', href: 'https://crm-app-build-26.vercel.app/' },
-      { label: 'Voiyce', href: 'https://voiyce.us/' },
-      { label: 'DropCard', href: 'https://www.dropcard.app/' },
-    ],
-  },
-  {
     heading: 'Resources',
     links: [
       { label: 'Use Cases', to: '/resources/ai-process-automation-examples' },
@@ -40,7 +30,7 @@ const Footer = () => {
   return (
     <footer className="bg-black text-white border-t border-white/10">
       <div className="max-w-7xl mx-auto px-6 py-14">
-        <div className="grid grid-cols-1 md:grid-cols-[1.5fr_repeat(3,1fr)] gap-10 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-[1.5fr_repeat(2,1fr)] gap-10 mb-12">
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-4">

@@ -153,7 +153,7 @@ const Labs = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
               <Link
                 to="/labs/signup"
-                className="pixel-btn px-8 py-3 text-white font-medium hover:scale-[1.02]"
+                className="bg-purple-600 hover:bg-purple-500 px-8 py-3 text-white font-medium transition-all duration-300 hover:scale-[1.02]"
               >
                 Create your free account
               </Link>

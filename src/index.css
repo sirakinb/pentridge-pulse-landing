@@ -68,20 +68,6 @@
   font-family: 'Geist Pixel Grid', sans-serif;
   letter-spacing: -0.04em;
 }
-
-/* Pixel-grid button background — purple→pink mosaic matching the Labs display font */
-.pixel-btn {
-  background-image:
-    repeating-linear-gradient(0deg, rgba(10, 4, 20, 0.55) 0 2px, transparent 2px 8px),
-    repeating-linear-gradient(90deg, rgba(10, 4, 20, 0.55) 0 2px, transparent 2px 8px),
-    linear-gradient(100deg, #a855f7, #ec4899);
-  transition: filter 0.3s ease, transform 0.3s ease;
-}
-
-.pixel-btn:hover {
-  filter: brightness(1.2);
-}
-
 @layer utilities {
   /* Purple glow effects */
   .glow-purple {

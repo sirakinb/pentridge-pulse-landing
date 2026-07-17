@@ -193,6 +193,9 @@ const Labs = () => {
                 <p className="text-white/50 max-w-md mx-auto">
                   Welcome to Pentridge Labs. Your entire suite is ready — pick a product and start building.
                 </p>
+                <p className="text-white/40 text-sm max-w-md mx-auto mt-3">
+                  Sign in to each app with the same email you used at checkout — that's how your subscription is recognized.
+                </p>
               </div>
 
               {/* Product launch cards */}

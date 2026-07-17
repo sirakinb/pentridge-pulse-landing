@@ -62,8 +62,8 @@ export default async function(req: Request): Promise<Response> {
     params.append("line_items[0][price]", priceId);
     params.append("line_items[0][quantity]", "1");
     params.append("allow_promotion_codes", "true");
-    params.append("success_url", "https://pentridgemedia.com/labs?checkout=success");
-    params.append("cancel_url", "https://pentridgemedia.com/labs?checkout=canceled");
+    params.append("success_url", "https://pentridgemedia.com/labs/workspace?checkout=success");
+    params.append("cancel_url", "https://pentridgemedia.com/labs/workspace?checkout=canceled");
     if (customerEmail) {
       params.append("customer_email", customerEmail);
     }

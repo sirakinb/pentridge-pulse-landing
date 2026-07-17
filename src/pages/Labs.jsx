@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowUpRight, X, Sparkles, Check } from 'lucide-react';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { ArrowUpRight, Check } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import MetaTags from '../components/MetaTags';
 
@@ -98,40 +99,12 @@ const audiences = [
   'Agencies',
 ];
 
-const INSFORGE_URL = 'https://3nm75tby.us-east.insforge.app';
-
 const Labs = () => {
-  const [showSuccess, setShowSuccess] = useState(false);
+  const navigate = useNavigate();
   const [isAnnual, setIsAnnual] = useState(false);
-  const [checkoutLoading, setCheckoutLoading] = useState(null);
 
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    if (params.get('checkout') === 'success') {
-      setShowSuccess(true);
-      window.history.replaceState({}, '', window.location.pathname);
-    }
-  }, []);
-
-  const handleCheckout = async (tier) => {
-    setCheckoutLoading(tier);
-    try {
-      const res = await fetch(`${INSFORGE_URL}/functions/create-checkout`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ tier, period: isAnnual ? 'annual' : 'monthly' }),
-      });
-      const data = await res.json();
-      if (data.url) {
-        window.location.href = data.url;
-      } else {
-        console.error('Checkout error:', data.error);
-        setCheckoutLoading(null);
-      }
-    } catch (err) {
-      console.error('Checkout error:', err);
-      setCheckoutLoading(null);
-    }
+  const handleGetStarted = (tier) => {
+    navigate(`/labs/signup?plan=${tier}&period=${isAnnual ? 'annual' : 'monthly'}`);
   };
 
   return (
@@ -149,91 +122,6 @@ const Labs = () => {
         canonicalUrl="https://www.pentridgemedia.com/labs"
       />
       <Navbar />
-
-      {/* Success Modal */}
-      <AnimatePresence>
-        {showSuccess && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4"
-          >
-            {/* Backdrop */}
-            <div
-              className="absolute inset-0 bg-black/80 backdrop-blur-sm"
-              onClick={() => setShowSuccess(false)}
-            />
-
-            {/* Modal */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              transition={{ duration: 0.4, ease: 'easeOut' }}
-              className="relative w-full max-w-2xl rounded-2xl border border-white/10 bg-[#0a0a0a] p-8 md:p-10 overflow-y-auto max-h-[90vh]"
-              style={{ boxShadow: '0 0 80px rgba(139, 92, 246, 0.15), 0 0 40px rgba(236, 72, 153, 0.1)' }}
-            >
-              {/* Close button */}
-              <button
-                onClick={() => setShowSuccess(false)}
-                className="absolute top-4 right-4 text-white/30 hover:text-white/70 transition-colors"
-              >
-                <X className="w-5 h-5" />
-              </button>
-
-              {/* Header */}
-              <div className="text-center mb-8">
-                <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-500/30 mb-5">
-                  <Sparkles className="w-7 h-7 text-purple-400" />
-                </div>
-                <h2 className="font-display text-3xl md:text-4xl text-[#fafafa] mb-3">
-                  You're in.
-                </h2>
-                <p className="text-white/50 max-w-md mx-auto">
-                  Welcome to Pentridge Labs. Your entire suite is ready — pick a product and start building.
-                </p>
-                <p className="text-white/40 text-sm max-w-md mx-auto mt-3">
-                  Sign in to each app with the same email you used at checkout — that's how your subscription is recognized.
-                </p>
-              </div>
-
-              {/* Product launch cards */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
-                {products.map((product) => (
-                  <a
-                    key={product.name}
-                    href={product.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex items-center gap-4 rounded-xl border border-white/10 bg-white/[0.03] p-4 hover:border-white/20 hover:bg-white/[0.06] transition-all duration-300"
-                  >
-                    <div className="relative flex-shrink-0">
-                      <img src={product.logo} alt={product.name} className="h-9 w-auto object-contain" />
-                      {product.badge && (
-                        <span className="absolute -bottom-1 -right-2 text-[8px] font-bold text-white font-mono tracking-wider">{product.badge}</span>
-                      )}
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <p className="text-sm font-semibold text-white">{product.name}</p>
-                      <p className="text-xs text-white/40 font-mono truncate">{product.tagline}</p>
-                    </div>
-                    <ArrowUpRight className="w-4 h-4 text-white/20 group-hover:text-white/60 transition-colors flex-shrink-0" />
-                  </a>
-                ))}
-              </div>
-
-              {/* Dismiss */}
-              <button
-                onClick={() => setShowSuccess(false)}
-                className="block w-full text-center bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 rounded-full px-6 py-3 text-white font-medium transition-all duration-300 hover:scale-[1.02]"
-              >
-                Explore the Suite
-              </button>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
 
       {/* Hero */}
       <section className="relative pt-28 pb-20 overflow-hidden">
@@ -260,6 +148,22 @@ const Labs = () => {
             <p className="text-lg md:text-xl text-white/50 max-w-2xl mx-auto mb-10">
               Tools built for the people building businesses. Manage projects, close deals, capture ideas, and grow your network — all from one product suite.
             </p>
+
+            {/* CTAs */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
+              <Link
+                to="/labs/signup"
+                className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 rounded-full px-8 py-3 text-white font-medium transition-all duration-300 hover:scale-[1.02]"
+              >
+                Create your free account
+              </Link>
+              <Link
+                to="/labs/signin"
+                className="rounded-full border border-white/15 bg-white/[0.04] hover:bg-white/[0.08] px-8 py-3 text-white/70 font-medium transition-all duration-300"
+              >
+                Sign in
+              </Link>
+            </div>
 
             {/* Audience list */}
             <p className="font-mono text-sm tracking-wider text-white/30">
@@ -418,11 +322,10 @@ const Labs = () => {
                 ))}
               </ul>
               <button
-                onClick={() => handleCheckout('standard')}
-                disabled={checkoutLoading === 'standard'}
-                className="block w-full text-center backdrop-blur-xl bg-white/10 hover:bg-white/20 border border-white/20 rounded-full px-6 py-3 text-white font-medium transition-all duration-300 disabled:opacity-50 disabled:cursor-wait"
+                onClick={() => handleGetStarted('standard')}
+                className="block w-full text-center backdrop-blur-xl bg-white/10 hover:bg-white/20 border border-white/20 rounded-full px-6 py-3 text-white font-medium transition-all duration-300"
               >
-                {checkoutLoading === 'standard' ? 'Redirecting...' : 'Get Started'}
+                Get Started
               </button>
             </motion.div>
 
@@ -457,11 +360,10 @@ const Labs = () => {
                 ))}
               </ul>
               <button
-                onClick={() => handleCheckout('pro')}
-                disabled={checkoutLoading === 'pro'}
-                className="block w-full text-center bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 rounded-full px-6 py-3 text-white font-medium transition-all duration-300 hover:scale-[1.02] disabled:opacity-50 disabled:cursor-wait"
+                onClick={() => handleGetStarted('pro')}
+                className="block w-full text-center bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 rounded-full px-6 py-3 text-white font-medium transition-all duration-300 hover:scale-[1.02]"
               >
-                {checkoutLoading === 'pro' ? 'Redirecting...' : 'Get Started'}
+                Get Started
               </button>
             </motion.div>
           </div>

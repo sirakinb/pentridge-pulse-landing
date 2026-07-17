@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, useLocation, Outlet } from 'react-router-dom';
 import Index from './pages/Index';
 import Contact from './pages/Contact';
 import ContentHouse from './pages/ContentHouse';
@@ -20,6 +20,15 @@ import SchemaMarkup from './components/SchemaMarkup';
 import WallOfLove from './pages/WallOfLove';
 import LawFirmAutomationPage from './pages/LawFirmAutomationPage';
 import Labs from './pages/Labs';
+import LabsAuth from './pages/LabsAuth';
+import LabsWorkspace from './pages/LabsWorkspace';
+import { LabsAuthProvider } from './contexts/LabsAuthContext';
+
+const LabsLayout = () => (
+  <LabsAuthProvider>
+    <Outlet />
+  </LabsAuthProvider>
+);
 
 export const AppContent = () => {
   const location = useLocation();
@@ -53,7 +62,12 @@ export const AppContent = () => {
             <Route path="/roi-calculator" element={<ROICalculator />} /> {/* Add ROI Calculator route */}
             <Route path="/terms" element={<TermsAndConditions />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
-            <Route path="/labs" element={<Labs />} />
+            <Route element={<LabsLayout />}>
+              <Route path="/labs" element={<Labs />} />
+              <Route path="/labs/signup" element={<LabsAuth initialMode="signup" />} />
+              <Route path="/labs/signin" element={<LabsAuth initialMode="signin" />} />
+              <Route path="/labs/workspace" element={<LabsWorkspace />} />
+            </Route>
             <Route path="/seo-test" element={<SEOTest />} />
             {/* ... other routes ... */}
           </Routes>

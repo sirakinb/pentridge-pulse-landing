@@ -141,6 +141,14 @@ export const publicSeoRoutes = [
     changefreq: 'monthly'
   },
   {
+    path: '/labs',
+    title: 'Pentridge Labs | Product Suite for Modern Businesses',
+    description: 'Software tools built for solopreneurs, freelancers, coaches, consultants, creators, and agencies. AlignoPM, AlignoCRM, Voiyce, and DropCard.',
+    keywords: 'Pentridge Labs, AlignoPM, AlignoCRM, Voiyce, DropCard, project management, CRM, voice to text, digital business card, solopreneur tools',
+    priority: '0.6',
+    changefreq: 'monthly'
+  },
+  {
     path: '/about',
     title: 'About Pentridge | AI Workflow Automation Partner',
     description: 'Pentridge helps businesses replace manual workflows with practical AI automation systems that are integrated, maintained, and improved over time.',

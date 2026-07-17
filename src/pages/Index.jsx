@@ -238,7 +238,7 @@ const HeroSection = () => (
             rel="noopener noreferrer"
             className="btn-primary inline-flex min-h-[76px] w-full sm:w-auto sm:px-16 items-center justify-center text-center"
           >
-            Book Demo
+            Book A Call
           </a>
         </motion.div>
       </div>
@@ -258,7 +258,7 @@ const HeroSection = () => (
 
 // ─── Section 01: Automation Offer ─────────────────────────────
 const TwoWaysSection = () => (
-  <section className="bg-black py-24 md:py-32 relative">
+  <section id="what-we-do" className="bg-black py-24 md:py-32 relative scroll-mt-20">
     <div className="max-w-7xl mx-auto px-6">
       <motion.div {...fadeUp} className="mb-16">
         <p className="section-label mb-4">01 / What We Do</p>
@@ -294,7 +294,7 @@ const TwoWaysSection = () => (
             rel="noopener noreferrer"
             className="btn-outline inline-flex items-center gap-2 group-hover:border-purple-400/60"
           >
-            Book Demo <ArrowRight size={14} />
+            Book A Call <ArrowRight size={14} />
           </a>
         </motion.div>
 
@@ -907,7 +907,7 @@ const CTASection = () => {
               rel="noopener noreferrer"
               className="btn-primary inline-flex min-h-[64px] w-full items-center justify-center text-center mb-5"
             >
-              Book Demo
+              Book A Call
             </a>
             <p className="text-center text-white/40 text-sm mb-12">
               No commitment required. We'll follow up with a tailored proposal if there's a fit.
@@ -947,6 +947,14 @@ const CTASection = () => {
 // ─── Main Index Page ──────────────────────────────────────────
 const Index = () => {
   const metaConfig = getMetaConfig('home');
+
+  useEffect(() => {
+    if (window.location.hash === '#what-we-do') {
+      setTimeout(() => {
+        document.getElementById('what-we-do')?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+  }, []);
 
   return (
     <motion.div

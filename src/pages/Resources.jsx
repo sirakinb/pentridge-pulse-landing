@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, BookOpen, Calculator, FileText, PlayCircle } from 'lucide-react';
+import { ArrowRight, BookOpen, Calculator, FileText, PlayCircle, Workflow, Phone, Scale } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import MetaTags from '../components/MetaTags';
 import { motion } from 'framer-motion';
@@ -46,6 +46,39 @@ const Resources = () => {
       link: '/roi-calculator',
       cta: 'Calculate ROI',
       icon: <Calculator size={16} />,
+    },
+    {
+      badge: 'What We Do',
+      badgeColor: 'text-pink-400 border-pink-400/30',
+      meta: 'Overview',
+      title: 'AI Workflow Automation Services',
+      description: 'See how we automate manual workflows — voice agents, CRM automation, follow-up, documents, and custom internal tools.',
+      tags: ['Services', 'Automation', 'Integrations'],
+      link: '/services',
+      cta: 'Explore Services',
+      icon: <Workflow size={16} />,
+    },
+    {
+      badge: 'Service',
+      badgeColor: 'text-blue-400 border-blue-400/30',
+      meta: 'Deep Dive',
+      title: 'AI Voice Agents',
+      description: 'Voice agents that answer calls, qualify leads, book appointments, and update your CRM around the clock.',
+      tags: ['Voice AI', 'Phone Answering', 'CRM'],
+      link: '/services/ai-voice-agents',
+      cta: 'Learn More',
+      icon: <Phone size={16} />,
+    },
+    {
+      badge: 'Industry',
+      badgeColor: 'text-yellow-400 border-yellow-400/30',
+      meta: 'Law Firms',
+      title: 'AI Automation for Law Firms',
+      description: 'Automate intake, CRM updates, scheduling, documents, and lead follow-up for independent law firms.',
+      tags: ['Legal', 'Intake', 'Automation'],
+      link: '/law-firm-automation/',
+      cta: 'See Law Firm Automation',
+      icon: <Scale size={16} />,
     },
   ];
 

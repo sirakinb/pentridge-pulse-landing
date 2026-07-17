@@ -3,44 +3,95 @@ import { Link } from 'react-router-dom';
 import { Instagram, Youtube } from 'lucide-react';
 import { scrollToTop } from '../utils/scrollToTop';
 
-const Footer = () => {
+const columns = [
+  {
+    heading: 'Labs',
+    links: [
+      { label: 'Pentridge Labs', to: '/labs' },
+      { label: 'AlignoPM', href: 'https://aligno-project-management.vercel.app/landing' },
+      { label: 'AlignoCRM', href: 'https://crm-app-build-26.vercel.app/' },
+      { label: 'Voiyce', href: 'https://voiyce.us/' },
+      { label: 'DropCard', href: 'https://www.dropcard.app/' },
+    ],
+  },
+  {
+    heading: 'Resources',
+    links: [
+      { label: 'Use Cases', to: '/resources/ai-process-automation-examples' },
+      { label: 'ROI Calculator', to: '/roi-calculator' },
+      { label: 'AI Guide', to: '/ai-business-automation-guide' },
+      { label: 'Blog', to: '/blog' },
+      { label: 'All Resources', to: '/resources' },
+    ],
+  },
+  {
+    heading: 'Company',
+    links: [
+      { label: 'About', to: '/about' },
+      { label: 'Content House', to: '/content-house' },
+      { label: 'Contact', to: '/contact' },
+      { label: 'Terms', to: '/terms' },
+      { label: 'Privacy', to: '/privacy' },
+    ],
+  },
+];
 
+const Footer = () => {
   return (
     <footer className="bg-black text-white border-t border-white/10">
-      <div className="max-w-7xl mx-auto px-6 py-12">
-        <div className="flex flex-col md:flex-row justify-between items-start gap-8 mb-8">
-          {/* Logo */}
-          <div className="flex items-center gap-3">
-            <span className="font-mono text-xl tracking-wider">[P]</span>
-            <span className="font-mono text-sm text-white/50 tracking-wider uppercase">Pentridge</span>
+      <div className="max-w-7xl mx-auto px-6 py-14">
+        <div className="grid grid-cols-1 md:grid-cols-[1.5fr_repeat(3,1fr)] gap-10 mb-12">
+          {/* Brand */}
+          <div>
+            <div className="flex items-center gap-3 mb-4">
+              <span className="font-mono text-xl tracking-wider">[P]</span>
+              <span className="font-mono text-sm text-white/50 tracking-wider uppercase">Pentridge</span>
+            </div>
+            <p className="text-sm text-white/40 leading-relaxed mb-6 max-w-xs">
+              We get your company AI-ready and deploy AI agents into your business operations. We build our own software products too.
+            </p>
+            <div className="flex items-center gap-4">
+              <a href="https://www.instagram.com/pentridgemedia" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-white transition-colors">
+                <Instagram size={18} />
+              </a>
+              <a href="https://www.youtube.com/@sirakinb" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-white transition-colors">
+                <Youtube size={18} />
+              </a>
+            </div>
           </div>
 
-          {/* Links */}
-          <div className="flex flex-wrap gap-6 text-sm text-white/50 items-center">
-            <Link to="/services" className="hover:text-white transition-colors" onClick={scrollToTop}>Services</Link>
-            <Link to="/law-firm-automation/" className="hover:text-white transition-colors" onClick={scrollToTop}>Law Firms</Link>
-            <Link to="/services/ai-voice-agents" className="hover:text-white transition-colors" onClick={scrollToTop}>AI Voice Agents</Link>
-            <Link to="/resources/ai-process-automation-examples" className="hover:text-white transition-colors" onClick={scrollToTop}>Use Cases</Link>
-            <Link to="/ai-business-automation-guide" className="hover:text-white transition-colors" onClick={scrollToTop}>AI Guide</Link>
-            <Link to="/roi-calculator" className="hover:text-white transition-colors" onClick={scrollToTop}>ROI Calculator</Link>
-            <Link to="/content-house" className="hover:text-white transition-colors" onClick={scrollToTop}>Content House</Link>
-            <Link to="/blog" className="hover:text-white transition-colors" onClick={scrollToTop}>Blog</Link>
-            <Link to="/resources" className="hover:text-white transition-colors" onClick={scrollToTop}>Resources</Link>
-            <Link to="/about" className="hover:text-white transition-colors" onClick={scrollToTop}>About</Link>
-            <Link to="/contact" className="hover:text-white transition-colors" onClick={scrollToTop}>Contact</Link>
-            <Link to="/terms" className="hover:text-white transition-colors" onClick={scrollToTop}>Terms</Link>
-            <Link to="/privacy" className="hover:text-white transition-colors" onClick={scrollToTop}>Privacy</Link>
-          </div>
-
-          {/* Social */}
-          <div className="flex items-center gap-4">
-            <a href="https://www.instagram.com/pentridgemedia" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-white transition-colors">
-              <Instagram size={18} />
-            </a>
-            <a href="https://www.youtube.com/@sirakinb" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-white transition-colors">
-              <Youtube size={18} />
-            </a>
-          </div>
+          {/* Link columns */}
+          {columns.map((column) => (
+            <div key={column.heading}>
+              <p className="font-mono text-xs tracking-[0.2em] uppercase text-white/30 mb-4">
+                {column.heading}
+              </p>
+              <ul className="space-y-3">
+                {column.links.map((link) => (
+                  <li key={link.label}>
+                    {link.to ? (
+                      <Link
+                        to={link.to}
+                        className="text-sm text-white/50 hover:text-white transition-colors"
+                        onClick={scrollToTop}
+                      >
+                        {link.label}
+                      </Link>
+                    ) : (
+                      <a
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-white/50 hover:text-white transition-colors"
+                      >
+                        {link.label}
+                      </a>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
         {/* Copyright */}

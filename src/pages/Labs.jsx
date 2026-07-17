@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowUpRight, X, Sparkles, Loader2 } from 'lucide-react';
+import { ArrowUpRight, X, Sparkles, Check } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import MetaTags from '../components/MetaTags';
 
@@ -98,12 +98,12 @@ const audiences = [
   'Agencies',
 ];
 
+const INSFORGE_URL = 'https://3nm75tby.us-east.insforge.app';
+
 const Labs = () => {
   const [showSuccess, setShowSuccess] = useState(false);
-  const [email, setEmail] = useState('');
-  const [submitting, setSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-  const [errorMsg, setErrorMsg] = useState('');
+  const [isAnnual, setIsAnnual] = useState(false);
+  const [checkoutLoading, setCheckoutLoading] = useState(null);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -113,28 +113,24 @@ const Labs = () => {
     }
   }, []);
 
-  const handleWaitlist = async (e) => {
-    e.preventDefault();
-    setErrorMsg('');
-    setSubmitting(true);
+  const handleCheckout = async (tier) => {
+    setCheckoutLoading(tier);
     try {
-      const res = await fetch('/api/waitlist', {
+      const res = await fetch(`${INSFORGE_URL}/functions/create-checkout`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ tier, period: isAnnual ? 'annual' : 'monthly' }),
       });
       const data = await res.json();
-      if (!res.ok) {
-        setErrorMsg(data.error || 'Something went wrong. Try again.');
+      if (data.url) {
+        window.location.href = data.url;
       } else {
-        setSubmitted(true);
-        setEmail('');
+        console.error('Checkout error:', data.error);
+        setCheckoutLoading(null);
       }
     } catch (err) {
-      console.error('Waitlist error:', err);
-      setErrorMsg('Network error. Try again.');
-    } finally {
-      setSubmitting(false);
+      console.error('Checkout error:', err);
+      setCheckoutLoading(null);
     }
   };
 
@@ -278,7 +274,7 @@ const Labs = () => {
               The Suite
             </p>
             <h2 className="font-display text-3xl md:text-5xl text-[#fafafa]">
-              Four products. One mission.
+              One subscription. One mission. Four products.
             </h2>
           </motion.div>
 
@@ -353,74 +349,119 @@ const Labs = () => {
         </div>
       </section>
 
-      {/* Waitlist Section */}
+      {/* Pricing Section */}
       <section className="py-20 border-t border-white/5">
-        <div className="max-w-3xl mx-auto px-6">
-          <motion.div {...fadeUp} className="text-center mb-12">
+        <div className="max-w-5xl mx-auto px-6">
+          <motion.div {...fadeUp} className="text-center mb-16">
             <p className="font-mono text-xs tracking-[0.3em] uppercase text-white/40 mb-4">
-              Waitlist
+              Pricing
             </p>
             <h2 className="font-display text-3xl md:text-5xl text-[#fafafa] mb-4">
-              One subscription is coming.{' '}
+              One subscription.{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
-                Get in early.
+                Every tool.
               </span>
             </h2>
             <p className="text-white/50 max-w-xl mx-auto">
-              We're building a single plan that unlocks the entire Pentridge Labs suite. Join the waitlist and we'll share more soon — including a few products that are already live.
+              One subscription unlocks the entire Pentridge Labs suite. No per-tool fees.
             </p>
           </motion.div>
 
-          <motion.div
-            {...fadeUp}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="relative rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm p-8 md:p-10"
-            style={{ boxShadow: '0 0 40px rgba(139, 92, 246, 0.08)' }}
-          >
-            {submitted ? (
-              <div className="text-center py-6">
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-500/30 mb-5">
-                  <Sparkles className="w-6 h-6 text-purple-400" />
-                </div>
-                <h3 className="font-display text-2xl md:text-3xl text-[#fafafa] mb-3">
-                  You're on the list.
-                </h3>
-                <p className="text-white/50 max-w-md mx-auto">
-                  Check your inbox — we just sent over what's already live in the suite.
-                </p>
-              </div>
-            ) : (
-              <form onSubmit={handleWaitlist} className="flex flex-col sm:flex-row gap-3">
-                <input
-                  type="email"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="you@yourbusiness.com"
-                  disabled={submitting}
-                  className="flex-1 rounded-full border border-white/10 bg-black/40 px-5 py-3 text-white placeholder-white/30 focus:outline-none focus:border-purple-400/50 focus:bg-black/60 transition-all duration-300 disabled:opacity-50"
-                />
-                <button
-                  type="submit"
-                  disabled={submitting}
-                  className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 rounded-full px-6 py-3 text-white font-medium transition-all duration-300 hover:scale-[1.02] disabled:opacity-50 disabled:cursor-wait disabled:hover:scale-100"
-                >
-                  {submitting ? (
-                    <>
-                      <Loader2 className="w-4 h-4 animate-spin" />
-                      Joining...
-                    </>
-                  ) : (
-                    'Join the Waitlist'
-                  )}
-                </button>
-              </form>
-            )}
+          {/* Billing toggle */}
+          <div className="flex justify-center mb-12">
+            <div className="inline-flex items-center gap-3 bg-white/5 border border-white/10 rounded-full p-1">
+              <button
+                className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${!isAnnual ? 'bg-white/10 text-white' : 'text-white/40'}`}
+                onClick={() => setIsAnnual(false)}
+              >
+                Monthly
+              </button>
+              <button
+                className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${isAnnual ? 'bg-white/10 text-white' : 'text-white/40'}`}
+                onClick={() => setIsAnnual(true)}
+              >
+                Annual <span className="text-xs text-purple-400 ml-1">Save 20%</span>
+              </button>
+            </div>
+          </div>
 
-            {errorMsg && !submitted && (
-              <p className="text-center text-sm text-pink-400 mt-4">{errorMsg}</p>
-            )}
-          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            {/* Standard Plan */}
+            <motion.div
+              {...stagger}
+              transition={{ duration: 0.5 }}
+              className="rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm p-8"
+            >
+              <p className="font-mono text-xs tracking-[0.2em] uppercase text-white/40 mb-2">Standard</p>
+              <div className="mb-6">
+                <span className="text-4xl font-bold text-white">{isAnnual ? '$16' : '$20'}</span>
+                <span className="text-white/40 ml-1">/month</span>
+                {isAnnual && <p className="text-xs text-purple-400 mt-1">Save 20% vs monthly</p>}
+              </div>
+              <p className="text-white/50 text-sm mb-8">Everything you need to run your business with the full Labs suite.</p>
+              <ul className="space-y-3 mb-8">
+                {[
+                  'Full access to AlignoPM & AlignoCRM',
+                  'Voiyce — 10,000 words/month',
+                  'DropCard — unlimited profiles',
+                  'Pipeline & deal tracking',
+                  'Time tracking & focus mode',
+                  'Community support',
+                ].map((feature) => (
+                  <li key={feature} className="flex items-start gap-3 text-sm text-white/50">
+                    <Check className="w-4 h-4 text-purple-400 flex-shrink-0 mt-0.5" />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              <button
+                onClick={() => handleCheckout('standard')}
+                disabled={checkoutLoading === 'standard'}
+                className="block w-full text-center backdrop-blur-xl bg-white/10 hover:bg-white/20 border border-white/20 rounded-full px-6 py-3 text-white font-medium transition-all duration-300 disabled:opacity-50 disabled:cursor-wait"
+              >
+                {checkoutLoading === 'standard' ? 'Redirecting...' : 'Get Started'}
+              </button>
+            </motion.div>
+
+            {/* Pro Plan */}
+            <motion.div
+              {...stagger}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="relative rounded-2xl border border-purple-500/30 bg-white/[0.03] backdrop-blur-sm p-8"
+              style={{ boxShadow: '0 0 40px rgba(139, 92, 246, 0.15)' }}
+            >
+              <span className="absolute -top-3 left-8 font-mono text-xs tracking-wider uppercase bg-gradient-to-r from-purple-500 to-pink-500 text-white px-3 py-1 rounded-full">
+                Popular
+              </span>
+              <p className="font-mono text-xs tracking-[0.2em] uppercase text-white/40 mb-2">Pro</p>
+              <div className="mb-6">
+                <span className="text-4xl font-bold text-white">{isAnnual ? '$40' : '$50'}</span>
+                <span className="text-white/40 ml-1">/month</span>
+                {isAnnual && <p className="text-xs text-purple-400 mt-1">Save 20% vs monthly</p>}
+              </div>
+              <p className="text-white/50 text-sm mb-8">For operators who need unlimited power across every tool.</p>
+              <ul className="space-y-3 mb-8">
+                {[
+                  'Everything in Standard',
+                  'Voiyce — unlimited dictation',
+                  'Priority support',
+                  'Early access to new Labs products',
+                ].map((feature) => (
+                  <li key={feature} className="flex items-start gap-3 text-sm text-white/50">
+                    <Check className="w-4 h-4 text-purple-400 flex-shrink-0 mt-0.5" />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              <button
+                onClick={() => handleCheckout('pro')}
+                disabled={checkoutLoading === 'pro'}
+                className="block w-full text-center bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 rounded-full px-6 py-3 text-white font-medium transition-all duration-300 hover:scale-[1.02] disabled:opacity-50 disabled:cursor-wait"
+              >
+                {checkoutLoading === 'pro' ? 'Redirecting...' : 'Get Started'}
+              </button>
+            </motion.div>
+          </div>
         </div>
       </section>
     </motion.div>

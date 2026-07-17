@@ -6,6 +6,15 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "Authorization, Content-Type",
 };
 
+// Grace window covers renewal-webhook lag before treating a row as lapsed
+const PERIOD_END_GRACE_MS = 3 * 24 * 60 * 60 * 1000;
+
+function isCurrent(sub: { current_period_end?: string | null } | null): boolean {
+  if (!sub) return false;
+  if (!sub.current_period_end) return true;
+  return new Date(sub.current_period_end).getTime() + PERIOD_END_GRACE_MS > Date.now();
+}
+
 export default async function(req: Request): Promise<Response> {
   if (req.method === "OPTIONS") {
     return new Response(null, { status: 204, headers: corsHeaders });
@@ -69,12 +78,13 @@ export default async function(req: Request): Promise<Response> {
       }
     }
 
+    const active = isCurrent(subscription);
     return new Response(
       JSON.stringify({
-        has_subscription: !!subscription,
+        has_subscription: active,
         tier: subscription?.tier || null,
         billing_period: subscription?.billing_period || null,
-        status: subscription?.status || null,
+        status: active ? subscription?.status || null : subscription ? "expired" : null,
         current_period_end: subscription?.current_period_end || null,
       }),
       {

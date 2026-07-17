@@ -163,21 +163,30 @@ export default async function(req: Request): Promise<Response> {
           : subscription.status === "trialing" ? "trialing"
           : "canceled";
 
-        const productId = subscription.items.data[0]?.price?.product;
-        const priceId = subscription.items.data[0]?.price?.id;
+        const firstItem = subscription.items?.data?.[0];
+        const productId = firstItem?.price?.product;
+        const priceId = firstItem?.price?.id;
         const tier = TIER_MAP[productId] || "standard";
-        const billingPeriod = PERIOD_MAP[priceId] || "monthly";
+        const billingPeriod = PERIOD_MAP[priceId]
+          || (firstItem?.price?.recurring?.interval === "year" ? "annual" : "monthly");
+
+        // Newer Stripe API versions moved period fields from the subscription
+        // object onto its items — read both so renewals never throw
+        const periodStart = subscription.current_period_start ?? firstItem?.current_period_start;
+        const periodEnd = subscription.current_period_end ?? firstItem?.current_period_end;
+
+        const updates: Record<string, string> = {
+          tier,
+          billing_period: billingPeriod,
+          status,
+          updated_at: new Date().toISOString(),
+        };
+        if (periodStart) updates.current_period_start = new Date(periodStart * 1000).toISOString();
+        if (periodEnd) updates.current_period_end = new Date(periodEnd * 1000).toISOString();
 
         await insforge.database
           .from("pentridge_subscriptions")
-          .update({
-            tier,
-            billing_period: billingPeriod,
-            status,
-            current_period_start: new Date(subscription.current_period_start * 1000).toISOString(),
-            current_period_end: new Date(subscription.current_period_end * 1000).toISOString(),
-            updated_at: new Date().toISOString(),
-          })
+          .update(updates)
           .eq("stripe_subscription_id", subscriptionId);
 
         break;

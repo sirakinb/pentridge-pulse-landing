@@ -153,13 +153,13 @@ const Labs = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
               <Link
                 to="/labs/signup"
-                className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 rounded-full px-8 py-3 text-white font-medium transition-all duration-300 hover:scale-[1.02]"
+                className="bg-purple-600 hover:bg-purple-500 px-8 py-3 text-white font-medium transition-all duration-300 hover:scale-[1.02]"
               >
                 Create your free account
               </Link>
               <Link
                 to="/labs/signin"
-                className="rounded-full border border-white/15 bg-white/[0.04] hover:bg-white/[0.08] px-8 py-3 text-white/70 font-medium transition-all duration-300"
+                className="border border-white/15 bg-white/[0.04] hover:bg-white/[0.08] px-8 py-3 text-white/70 font-medium transition-all duration-300"
               >
                 Sign in
               </Link>

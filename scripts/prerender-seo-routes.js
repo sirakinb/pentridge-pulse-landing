@@ -32,7 +32,7 @@ const removeSeoTags = (html) => {
 const routeSeoBlock = (route) => {
   const canonicalUrl = canonicalForPath(route.path);
   const pageType = route.pageType || 'website';
-  const imageUrl = `${SITE_URL}/og-header.png`;
+  const imageUrl = `${SITE_URL}${route.ogImage || '/og-header.png'}`;
 
   return [
     `<title>${escapeHtml(route.title)}</title>`,

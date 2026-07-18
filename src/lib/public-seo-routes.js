@@ -142,7 +142,8 @@ export const publicSeoRoutes = [
   },
   {
     path: '/labs',
-    title: 'Pentridge Labs | Product Suite for Modern Businesses',
+    title: 'Pentridge Labs | Product Suite for Service Businesses',
+    ogImage: '/og-labs.png',
     description: 'Software tools built for solopreneurs, freelancers, coaches, consultants, creators, and agencies. AlignoPM, AlignoCRM, Voiyce, and DropCard.',
     keywords: 'Pentridge Labs, AlignoPM, AlignoCRM, Voiyce, DropCard, project management, CRM, voice to text, digital business card, solopreneur tools',
     priority: '0.6',

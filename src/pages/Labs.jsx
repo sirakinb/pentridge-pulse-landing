@@ -116,7 +116,8 @@ const Labs = () => {
       className="bg-black text-white min-h-screen"
     >
       <MetaTags
-        title="Pentridge Labs | Product Suite for Modern Businesses"
+        title="Pentridge Labs | Product Suite for Service Businesses"
+        ogImage="https://www.pentridgemedia.com/og-labs.png"
         description="Software tools built for solopreneurs, freelancers, coaches, consultants, creators, and agencies. AlignoPM, AlignoCRM, Voiyce, and DropCard."
         keywords="Pentridge Labs, AlignoPM, AlignoCRM, Voiyce, DropCard, project management, CRM, voice to text, digital business card, solopreneur tools"
         canonicalUrl="https://www.pentridgemedia.com/labs"

@@ -45,7 +45,7 @@ const TermsAndConditions = () => {
           transition={{ duration: 0.5 }}
           className="text-4xl font-bold text-center mb-8"
         >
-          TERMS AND CONDITIONS
+          TERMS OF SERVICE
         </motion.h1>
         
         <motion.div
@@ -66,7 +66,7 @@ const TermsAndConditions = () => {
           </p>
           <h2 className="text-2xl font-semibold mt-8 mb-4">Help with Messaging Program</h2>
           <p>
-            If you experience issues with the messaging program, reply with the keyword HELP for more assistance, or reach out directly to info@pentridgemedia.com.
+            If you experience issues with the messaging program, reply with the keyword HELP for more assistance, or reach out directly to <a href="mailto:aki.b@pentridgemedia.com" className="text-violet-300 underline hover:text-violet-200">aki.b@pentridgemedia.com</a>.
           </p>
           <h2 className="text-2xl font-semibold mt-8 mb-4">Carrier Responsibility</h2>
           <p>
@@ -78,7 +78,11 @@ const TermsAndConditions = () => {
           </p>
           <h2 className="text-2xl font-semibold mt-8 mb-4">Privacy Inquiries</h2>
           <p>
-            For privacy-related inquiries, please refer to our privacy policy: [link to privacy policy].
+            For privacy-related inquiries, please refer to our <a href="/privacy" className="text-violet-300 underline hover:text-violet-200">Privacy Policy</a>.
+          </p>
+          <h2 className="text-2xl font-semibold mt-8 mb-4">Thought Social and Apple Standard EULA</h2>
+          <p>
+            Your use of Thought Social on Apple platforms is also subject to Apple's Standard Licensed Application End User License Agreement, which is incorporated into these Terms of Service by reference and is available on <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noreferrer" className="text-violet-300 underline hover:text-violet-200">Apple's website</a>.
           </p>
           <p className="mt-8">
             By accessing this website and using our services, you accept these terms and conditions in full. Do not continue to use Pentridge's website and services if you do not accept all of the terms and conditions stated on this page.
@@ -86,7 +90,7 @@ const TermsAndConditions = () => {
           
           {/* Add the rest of the terms and conditions content here */}
           
-          <h2 className="text-2xl font-semibold mt-8 mb-4">11. Contact Information</h2>
+          <h2 className="text-2xl font-semibold mt-8 mb-4">Contact Information</h2>
           <p>
             If you have any questions about these terms and conditions, please contact us at:
           </p>
@@ -94,7 +98,8 @@ const TermsAndConditions = () => {
             Pentridge<br />
             Akinyemi Bajulaiye<br />
             1034 S. 53rd Street, Philadelphia, PA 19143<br />
-            Email: info@pentridgemedia.com
+            Email: <a href="mailto:aki.b@pentridgemedia.com" className="text-violet-300 underline hover:text-violet-200">aki.b@pentridgemedia.com</a><br />
+            Support requests are accepted 24 hours a day, 7 days a week. Response times may vary.
           </p>
         </motion.div>
       </div>

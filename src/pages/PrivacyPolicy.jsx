@@ -105,7 +105,8 @@ const PrivacyPolicy = () => {
             Akinyemi Bajulaiye<br />
             1034 S. 53rd Street,<br />
             Philadelphia, PA 19143<br />
-            Email: info@pentridgemedia.com
+            Email: <a href="mailto:aki.b@pentridgemedia.com" className="text-violet-300 underline hover:text-violet-200">aki.b@pentridgemedia.com</a><br />
+            Support requests are accepted 24 hours a day, 7 days a week. Response times may vary.
           </p>
         </motion.div>
       </div>

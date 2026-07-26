@@ -33,8 +33,8 @@ export const metaConfig = {
   },
   
   terms: {
-    title: "Terms and Conditions | Pentridge | AI Automation Services",
-    description: "Terms and conditions for Pentridge AI automation services. Read our service agreements, privacy policies, and client responsibilities for business automation projects.",
+    title: "Terms of Service | Pentridge",
+    description: "Terms of Service for Pentridge websites, services, communications, and Thought Social.",
     keywords: "Pentridge terms, AI automation terms, business automation agreement, service terms and conditions, AI consulting terms",
     canonicalUrl: "https://www.pentridgemedia.com/terms",
     pageType: "website"

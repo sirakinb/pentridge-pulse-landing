@@ -22,8 +22,14 @@ const AmbientAudio = () => {
   // only show the control if a track is actually present
   useEffect(() => {
     let cancelled = false;
+    // r.ok is not enough: this SPA serves index.html with a 200 for any
+    // missing path, so a absent track still "exists" and we render a button
+    // that can never play. Require an actual audio content-type.
     fetch(SRC, { method: 'HEAD' })
-      .then((r) => { if (!cancelled) setAvailable(r.ok); })
+      .then((r) => {
+        const type = r.headers.get('content-type') || '';
+        if (!cancelled) setAvailable(r.ok && type.startsWith('audio'));
+      })
       .catch(() => { if (!cancelled) setAvailable(false); });
     return () => { cancelled = true; };
   }, []);

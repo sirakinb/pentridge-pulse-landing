@@ -53,10 +53,32 @@ export async function createWorld({ host, agent = 'adzo', onHoverChange, onSelec
     `${A}/${agent}.webp`, `${A}/adzo-meditate.webp`, `${A}/adzo-pullup.webp`,
     HUB.art,
   ];
+  // Load textures with plain Image elements instead of Pixi's Assets pipeline.
+  //
+  // Assets.load hangs under this Vite production build — not rejects, hangs —
+  // so nothing ever settles and no catch fires. It works in dev, which makes it
+  // the worst failure shape: invisible until deployed. Disabling the worker
+  // decoder (preferWorkers: false) did not help.
+  //
+  // For 44 static sprites the Assets resolver, cache and worker buy us nothing.
+  // An <img> always terminates: onload, onerror, or our timeout. No silent hang
+  // is possible.
+  function loadTexture(url) {
+    return new Promise((resolve) => {
+      let settled = false;
+      const finish = (t) => { if (!settled) { settled = true; resolve(t); } };
+      const img = new Image();
+      img.onload = () => {
+        try { finish(Texture.from(img)); } catch { finish(Texture.EMPTY); }
+      };
+      img.onerror = () => finish(Texture.EMPTY);
+      setTimeout(() => finish(Texture.EMPTY), 9000);
+      img.src = url;
+    });
+  }
+
   const tex = {};
-  await Promise.all(manifest.map(async (url) => {
-    try { tex[url] = await Assets.load(url); } catch { tex[url] = Texture.EMPTY; }
-  }));
+  await Promise.all(manifest.map(async (url) => { tex[url] = await loadTexture(url); }));
 
   // ---- layers -------------------------------------------------------------
   const root = new Container();

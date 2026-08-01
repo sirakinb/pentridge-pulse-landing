@@ -70,12 +70,16 @@ const LabsWorld = ({ user, sub, subError, onCheckout }) => {
       try {
         const { createWorld } = await import('./engine/world');
         if (cancelled || !hostRef.current) return;
+        // Hard ceiling on boot. Anything that stalls falls back to the card
+        // grid instead of leaving the user staring at a spinner.
+        const boot = setTimeout(() => { if (!cancelled) setEngineState('failed'); }, 15000);
         const w = await createWorld({
           host: hostRef.current,
           agent: 'adzo',
           onHoverChange: setHover,
           onSelect: handleSelect,
         });
+        clearTimeout(boot);
         if (cancelled) { w?.destroy(); return; }
         worldRef.current = w;
         setEngineState(w ? 'ready' : 'failed');

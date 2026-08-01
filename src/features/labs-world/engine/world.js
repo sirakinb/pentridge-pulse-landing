@@ -3,7 +3,7 @@
 // all interaction *semantics*; this file owns pixels only.
 
 import { TILE_W, TILE_H, toScreen, depthOf, stepToward } from './iso';
-import { paletteAt, localHour } from './daylight';
+import { paletteAt } from './daylight';
 import {
   ESTABLISHMENTS, SELECTABLE, INSTALLATIONS, PROPS, NPC_SPOTS, HUB, AGENT_HOME,
 } from '../data/establishments';
@@ -26,7 +26,7 @@ function mixHex(a, b, t) {
 
 export async function createWorld({ host, agent = 'adzo', onHoverChange, onSelect }) {
   const PIXI = await import('pixi.js');
-  const { Application, Assets, Container, Sprite, Graphics, Texture, BlurFilter } = PIXI;
+  const { Application, Container, Sprite, Graphics, Texture, BlurFilter } = PIXI;
 
   const app = new Application();
   await app.init({

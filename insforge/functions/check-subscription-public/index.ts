@@ -1,4 +1,12 @@
-import { createClient } from 'npm:@insforge/sdk';
+import { createAdminClient } from 'npm:@insforge/sdk';
+
+// SECURITY: this endpoint is intentionally unauthenticated so sibling apps can
+// check entitlement by email, and it responds to any origin. That means anyone
+// can probe whether a given email has a Pentridge Labs subscription and at what
+// tier. It deliberately returns no PII beyond that (no Stripe IDs, no user id),
+// but if the sibling apps can be moved onto a shared key it should be gated the
+// same way check-subscription-by-email is.
+
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -35,9 +43,11 @@ export default async function(req: Request): Promise<Response> {
       });
     }
 
-    const insforge = createClient({
+    const insforge = createAdminClient({
+      // Uses the admin key for a cross-user lookup by email.
+    // NOTE: this endpoint is unauthenticated by design — see SECURITY note at top.
       baseUrl: Deno.env.get("INSFORGE_BASE_URL")!,
-      anonKey: Deno.env.get("ANON_KEY")!,
+      apiKey: Deno.env.get("API_KEY")!,
     });
 
     const { data: subscription } = await insforge.database

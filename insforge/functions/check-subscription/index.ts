@@ -1,4 +1,4 @@
-import { createClient } from 'npm:@insforge/sdk';
+import { createClient, createAdminClient } from 'npm:@insforge/sdk';
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -29,6 +29,8 @@ export default async function(req: Request): Promise<Response> {
       });
     }
 
+    // Identity is established with the caller's own token — never trust an
+    // email supplied by the client.
     const userToken = authHeader.replace("Bearer ", "");
     const insforge = createClient({
       baseUrl: Deno.env.get("INSFORGE_BASE_URL")!,
@@ -43,7 +45,18 @@ export default async function(req: Request): Promise<Response> {
       });
     }
 
-    let { data: subscription } = await insforge.database
+    // Subscription rows are read/written with the admin key so that RLS on
+    // pentridge_subscriptions can stay locked to `auth.uid() = user_id`.
+    // The email-claim path below needs to see rows whose user_id is still
+    // null, and the backfill needs UPDATE — neither is possible under the
+    // caller's own token. Every query here is scoped to the *verified*
+    // identity above, so this widens nothing the caller couldn't already see.
+    const db = createAdminClient({
+      baseUrl: Deno.env.get("INSFORGE_BASE_URL")!,
+      apiKey: Deno.env.get("API_KEY")!,
+    });
+
+    let { data: subscription } = await db.database
       .from("pentridge_subscriptions")
       .select("*")
       .eq("user_id", userData.user.id)
@@ -55,7 +68,7 @@ export default async function(req: Request): Promise<Response> {
     // Fallback: subscriptions purchased before the account existed have
     // user_id null but a verified email — claim and backfill on first check
     if (!subscription && userData.user.email) {
-      const { data: byEmailRows } = await insforge.database
+      const { data: byEmailRows } = await db.database
         .from("pentridge_subscriptions")
         .select("*")
         .eq("email", userData.user.email.toLowerCase())
@@ -70,10 +83,13 @@ export default async function(req: Request): Promise<Response> {
       if (unclaimed) {
         subscription = unclaimed;
         if (!unclaimed.user_id) {
-          await insforge.database
+          const { error: claimError } = await db.database
             .from("pentridge_subscriptions")
             .update({ user_id: userData.user.id, updated_at: new Date().toISOString() })
             .eq("id", unclaimed.id);
+          // Non-fatal: access is already granted from `unclaimed`. Log it so a
+          // silently failing backfill can't hide again the way it did under RLS.
+          if (claimError) console.error("user_id backfill failed:", claimError);
         }
       }
     }

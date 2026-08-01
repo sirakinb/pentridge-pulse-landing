@@ -1,4 +1,4 @@
-import { createClient } from 'npm:@insforge/sdk';
+import { createAdminClient } from 'npm:@insforge/sdk';
 
 const TIER_MAP: Record<string, string> = {
   "prod_UTclIQnYOzE14k": "standard",
@@ -58,6 +58,17 @@ async function verifyStripeSignature(payload: string, sigHeader: string | null, 
   });
 }
 
+// A rejected write must not look like success. These calls previously ignored
+// their result, so an RLS denial still returned 200 to Stripe and the event was
+// never retried. Throwing here surfaces it and lets Stripe redeliver.
+function assertWritten(label: string, res: { error?: unknown } | null | undefined) {
+  const err = res?.error;
+  if (err) {
+    const msg = (err as { message?: string })?.message ?? String(err);
+    throw new Error(`${label} failed: ${msg}`);
+  }
+}
+
 export default async function(req: Request): Promise<Response> {
   if (req.method === "OPTIONS") {
     return new Response(null, { status: 204, headers: corsHeaders });
@@ -89,9 +100,14 @@ export default async function(req: Request): Promise<Response> {
 
     const event = JSON.parse(body);
 
-    const insforge = createClient({
+    // Must be the admin key: RLS on pentridge_subscriptions has no INSERT or
+    // UPDATE policy, so under the anon key every write here was rejected with
+    // "new row violates row-level security policy" — and because the results
+    // were never checked, Stripe still got a 200 and the customer silently
+    // never got provisioned.
+    const insforge = createAdminClient({
       baseUrl: Deno.env.get("INSFORGE_BASE_URL")!,
-      anonKey: Deno.env.get("ANON_KEY")!,
+      apiKey: Deno.env.get("API_KEY")!,
     });
 
     const stripeKey = Deno.env.get("STRIPE_SECRET_KEY")!;
@@ -139,7 +155,7 @@ export default async function(req: Request): Promise<Response> {
           periodEnd.setMonth(periodEnd.getMonth() + 1);
         }
 
-        await insforge.database.from("pentridge_subscriptions").upsert({
+        assertWritten("checkout.session.completed upsert", await insforge.database.from("pentridge_subscriptions").upsert({
           user_id: userId,
           email: customerEmail.toLowerCase(),
           stripe_customer_id: stripeCustomerId,
@@ -150,7 +166,7 @@ export default async function(req: Request): Promise<Response> {
           current_period_start: now.toISOString(),
           current_period_end: periodEnd.toISOString(),
           updated_at: now.toISOString(),
-        }, { onConflict: "stripe_subscription_id" });
+        }, { onConflict: "stripe_subscription_id" }));
 
         break;
       }
@@ -184,20 +200,20 @@ export default async function(req: Request): Promise<Response> {
         if (periodStart) updates.current_period_start = new Date(periodStart * 1000).toISOString();
         if (periodEnd) updates.current_period_end = new Date(periodEnd * 1000).toISOString();
 
-        await insforge.database
+        assertWritten("customer.subscription.updated", await insforge.database
           .from("pentridge_subscriptions")
           .update(updates)
-          .eq("stripe_subscription_id", subscriptionId);
+          .eq("stripe_subscription_id", subscriptionId));
 
         break;
       }
 
       case "customer.subscription.deleted": {
         const subscription = event.data.object;
-        await insforge.database
+        assertWritten("customer.subscription.deleted", await insforge.database
           .from("pentridge_subscriptions")
           .update({ status: "canceled", updated_at: new Date().toISOString() })
-          .eq("stripe_subscription_id", subscription.id);
+          .eq("stripe_subscription_id", subscription.id));
 
         break;
       }

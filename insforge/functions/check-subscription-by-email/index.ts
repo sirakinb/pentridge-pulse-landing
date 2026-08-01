@@ -1,4 +1,4 @@
-import { createClient } from 'npm:@insforge/sdk';
+import { createAdminClient } from 'npm:@insforge/sdk';
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -46,9 +46,11 @@ export default async function(req: Request): Promise<Response> {
       });
     }
 
-    const insforge = createClient({
+    const insforge = createAdminClient({
+      // Gated by DROPCARD_API_KEY above. Uses the admin key because a cross-user
+    // lookup by email cannot be expressed under the caller-scoped RLS policy.
       baseUrl: Deno.env.get("INSFORGE_BASE_URL")!,
-      anonKey: Deno.env.get("ANON_KEY")!,
+      apiKey: Deno.env.get("API_KEY")!,
     });
 
     // Query the subscription's own email column directly — the join through

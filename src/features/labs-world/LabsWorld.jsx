@@ -117,6 +117,15 @@ const LabsWorld = ({ user, sub, subError, onCheckout }) => {
     worldRef.current?.setActivity(
       Object.fromEntries(SELECTABLE.map((e) => [e.id, activityOf(signals, e.id)])),
     );
+    // Short, legible strings for the pins above each building — the world
+    // showing its numbers instead of the numbers living in UI chrome.
+    const c = signals.crm;
+    worldRef.current?.setSignals({
+      crm: c ? (c.open_deals ? `${c.open_deals} open deals` : 'pipeline clear') : '',
+      pm: signals.pm?.active_projects ? `${signals.pm.active_projects} projects` : '',
+      dropcard: signals.dropcard?.connections ? `${signals.dropcard.connections} new` : '',
+      voiyce: signals.voiyce?.online ? 'online' : '',
+    });
   }, [signals, engineState]);
 
   // rotate through whatever the apps actually reported

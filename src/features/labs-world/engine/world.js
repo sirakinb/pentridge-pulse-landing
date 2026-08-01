@@ -26,7 +26,7 @@ function mixHex(a, b, t) {
 
 export async function createWorld({ host, agent = 'adzo', onHoverChange, onSelect }) {
   const PIXI = await import('pixi.js');
-  const { Application, Container, Sprite, Graphics, Texture, BlurFilter } = PIXI;
+  const { Application, Container, Sprite, Graphics, Texture, BlurFilter, Text } = PIXI;
 
   const app = new Application();
   await app.init({
@@ -86,7 +86,8 @@ export async function createWorld({ host, agent = 'adzo', onHoverChange, onSelec
   const groundLayer = new Container();
   const sortLayer = new Container();   // everything depth-sorted
   const weatherLayer = new Container();
-  root.addChild(skyLayer, groundLayer, sortLayer, weatherLayer);
+  const markerLayer = new Container();   // always above the world
+  root.addChild(skyLayer, groundLayer, sortLayer, markerLayer, weatherLayer);
   app.stage.addChild(root);
 
   // ---- sky + distant city -------------------------------------------------
@@ -210,6 +211,28 @@ export async function createWorld({ host, agent = 'adzo', onHoverChange, onSelec
   // hub
   place(tex[HUB.art], HUB.gx, HUB.gy, { scale: 1 })?.sprite.scale.set(0.42);
 
+  // Contact shadows. Without these every sprite floats on the plate and the
+  // scene reads as stickers on a background rather than objects on a surface.
+  const shadows = new Graphics();
+  // Blurred and light. A hard black ellipse reads as a hole in the ground
+  // rather than a shadow — the softness is what sells contact.
+  const shadowBox = new Container();
+  shadowBox.filters = [new BlurFilter({ strength: 7, quality: 2 })];
+  shadowBox.alpha = 0.5;
+  shadowBox.addChild(shadows);
+  groundLayer.addChild(shadowBox);
+  function drawShadows() {
+    shadows.clear();
+    entities.forEach((rec) => {
+      if (rec.noShadow) return;
+      const p = toScreen(rec.gx, rec.gy);
+      // footprint, not sprite height — a tall tower still sits on a small base
+      const w = Math.min((rec.sprite.width || 40) * 0.34, 96);
+      shadows.ellipse(cx + p.x, cy + p.y + TILE_H / 2 - 1, w, w * 0.40)
+             .fill({ color: 0x05040a, alpha: 0.5 });
+    });
+  }
+
   // agent glow ring, drawn under her
   const ring = new Graphics();
   groundLayer.addChild(ring);
@@ -244,12 +267,70 @@ export async function createWorld({ host, agent = 'adzo', onHoverChange, onSelec
     pullup: tex[`${A}/adzo-pullup.webp`],
   };
 
+
+  // ---- in-world markers ---------------------------------------------------
+  // Rally's world reads as alive largely because information lives IN the
+  // scene — status pins above each site, names under each character — instead
+  // of being pushed out into UI chrome. These are the same idea.
+
+  const MONO = 'ui-monospace, SFMono-Regular, Menlo, monospace';
+
+  function makePin(label, sub, accent) {
+    const c = new Container();
+    const t1 = new Text({ text: label, style: { fontFamily: MONO, fontSize: 15, fontWeight: '700', fill: 0xffffff } });
+    const t2 = new Text({ text: sub, style: { fontFamily: MONO, fontSize: 13, fill: accent } });
+    t1.x = 12; t1.y = 7;
+    t2.x = 12; t2.y = 25;
+    const w = Math.max(t1.width, t2.width) + 24;
+    const h = sub ? 46 : 28;
+    const bg = new Graphics();
+    bg.roundRect(0, 0, w, h, 8).fill({ color: 0x0b0a14, alpha: 0.9 })
+      .stroke({ color: accent, alpha: 0.5, width: 1 });
+    bg.moveTo(w / 2 - 6, h).lineTo(w / 2 + 6, h).lineTo(w / 2, h + 8).fill({ color: 0x0b0a14, alpha: 0.9 });
+    c.addChild(bg, t1, t2);
+    c.pivot.set(w / 2, h + 8);
+    return c;
+  }
+
+  const pins = new Map();
+  function refreshPins() {
+    pins.forEach((p) => markerLayer.removeChild(p));
+    pins.clear();
+    ESTABLISHMENTS.forEach((e) => {
+      const rec = buildings.get(e.id);
+      if (!rec) return;
+      const st = state.access[e.id];
+      let sub = '';
+      let accent = 0x8b7bf0;
+      if (e.reserved) { sub = 'reserved'; accent = 0x5a5a72; }
+      else if (st === 'dormant') { sub = 'locked'; accent = 0x6c5aa8; }
+      else {
+        const a = state.signals[e.id];
+        sub = a || 'open';
+        accent = a ? 0x22d3ee : 0x8b7bf0;
+      }
+      const pin = makePin(e.name, sub, accent);
+      const p = toScreen(e.gx, e.gy + (e.gyNudge || 0));
+      pin.x = cx + p.x;
+      pin.y = cy + p.y + TILE_H / 2 - rec.sprite.height - 16;
+      pin.alpha = 0.94;
+      markerLayer.addChild(pin);
+      pins.set(e.id, pin);
+    });
+  }
+
+  // name plate under the agent, the way Rally labels "Riley / AI Employee"
+  const namePlate = makePin('Adzo', 'AI agent', 0xd6aaff);
+  namePlate.scale.set(0.82);
+  markerLayer.addChild(namePlate);
+
   // ---- state --------------------------------------------------------------
   const state = {
     access: Object.fromEntries(ESTABLISHMENTS.map((e) => [e.id, 'active'])),
     // 0 = neutral baseline (quiet, still lit), 1 = busy. Never darkens a
     // building — dark is reserved for dormant, so quiet can't read as locked.
     activity: Object.fromEntries(ESTABLISHMENTS.map((e) => [e.id, 0])),
+    signals: {},   // short human strings shown on each pin
     error: false,
     hourOverride: null,
     hovered: null,
@@ -311,13 +392,18 @@ export async function createWorld({ host, agent = 'adzo', onHoverChange, onSelec
 
   // ---- camera -------------------------------------------------------------
   let parallax = { x: 0, y: 0 };
+  // Camera sits IN the plaza rather than above the whole diorama. Framing the
+  // entire scene made every building small and unreadable; overscanning past
+  // the frame edge is what makes it feel like a place you're standing in.
+  const ZOOM = 1.46;
+  const FOCUS_Y = 0.60; // bias downward: the ring matters more than empty sky
   function layout() {
     const w = host.clientWidth || 1;
     const h = host.clientHeight || 1;
-    const scale = Math.min(w / SCENE_W, h / SCENE_H) * 1.02;
+    const scale = Math.min(w / SCENE_W, h / SCENE_H) * ZOOM;
     root.scale.set(scale);
     root.x = (w - SCENE_W * scale) / 2 + parallax.x;
-    root.y = (h - SCENE_H * scale) / 2 + parallax.y;
+    root.y = (h - SCENE_H * scale) * FOCUS_Y + parallax.y;
   }
   layout();
   const ro = new ResizeObserver(layout);
@@ -438,6 +524,23 @@ export async function createWorld({ host, agent = 'adzo', onHoverChange, onSelec
         .fill({ color: 0xa855f7, alpha: 0.16 + pulse * 0.1 })
         .stroke({ color: 0xd6aaff, alpha: 0.55, width: 2 });
 
+    drawShadows();
+
+    // name plate tracks the agent, just under her feet
+    namePlate.x = cx + p.x;
+    namePlate.y = cy + p.y + TILE_H / 2 + 58;
+
+    // pins ride their building's hover lift
+    pins.forEach((pin, id) => {
+      const rec = buildings.get(id);
+      if (!rec) return;
+      const on = state.hovered === id || state.focused === id;
+      pin.scale.set(on ? 1.06 : 1);
+      pin.alpha = on ? 1 : 0.9;
+      pin.y += ((cy + toScreen(rec.gx, rec.gy + (rec.est.gyNudge || 0)).y + TILE_H / 2
+                 - rec.sprite.height - 16 - (on ? 10 : 0)) - pin.y) * Math.min(1, dt * 9);
+    });
+
     // hovered building lifts and brightens
     buildings.forEach((rec, id) => {
       const on = state.hovered === id || state.focused === id;
@@ -477,12 +580,14 @@ export async function createWorld({ host, agent = 'adzo', onHoverChange, onSelec
   }
 
   applyAccess();
+  refreshPins();
   drawConduits(0);
 
   // ---- public API ---------------------------------------------------------
   return {
-    setAccess(map) { Object.assign(state.access, map); applyAccess(); },
+    setAccess(map) { Object.assign(state.access, map); applyAccess(); refreshPins(); },
     setActivity(map) { Object.assign(state.activity, map); },
+    setSignals(map) { Object.assign(state.signals, map); refreshPins(); },
     setError(on) { state.error = !!on; },
     setHour(h) { state.hourOverride = h; lastClock = -99; },
     setFocus(id) { state.focused = id; emitHover(); },

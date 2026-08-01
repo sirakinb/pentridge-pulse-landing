@@ -184,7 +184,7 @@ const LabsWorld = ({ user, sub, subError, onCheckout }) => {
                 {hover.access === 'dormant'
                   ? <span className="text-purple-300">Unlock with Pentridge Labs</span>
                   : hover.est.url
-                    ? <span className="text-white/35">Enter ↗</span>
+                    ? <span className="text-white/35">Visit {hover.est.url.replace(/^https?:\/\//, '')} ↗</span>
                     : <span className="text-white/35">Coming soon</span>}
               </p>
             </div>
@@ -202,9 +202,13 @@ const LabsWorld = ({ user, sub, subError, onCheckout }) => {
         )}
 
         {/* Real focusable controls. The canvas is aria-hidden; these are what
-            keyboard and screen-reader users actually operate. */}
+            keyboard and screen-reader users actually operate.
+            pointer-events-none is load-bearing: this layer sits above the
+            canvas, and Pixi only receives pointerdown/up on the canvas itself
+            (move it hears on the document). Without this, hover worked and
+            clicks silently died here. Keyboard focus is unaffected. */}
         <div
-          className="absolute inset-0 z-10 outline-none"
+          className="absolute inset-0 z-10 outline-none pointer-events-none"
           tabIndex={0}
           role="application"
           aria-label="Pentridge Labs world. Use arrow keys to move between apps, Enter to open."

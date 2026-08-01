@@ -2,9 +2,10 @@
 // five occupied, one held for the content apps so the ring never has to be
 // re-composed when they ship.
 //
-// `url` is the existing product URL from the workspace; this file must stay the
-// single source of truth for where a building sends you, so routing never
-// diverges between the world and the card-grid fallback.
+// `url` is the app's public landing page — clicking a building goes there.
+// These are the real domains, not the Vercel preview URLs the old tile grid
+// used. This file is the single source of truth for where a building sends
+// you, so the world and the card-grid fallback can never diverge.
 
 const ASSET = '/labs-world';
 
@@ -20,7 +21,7 @@ export const ESTABLISHMENTS = [
     gx: 0,
     gy: -4,
     art: `${ASSET}/pm.webp`,
-    url: 'https://aligno-project-management.vercel.app/landing',
+    url: 'https://alignopm.com',
     signal: 'projects',
     // its cyan glass is by far the brightest surface in the world; pull it
     // back so it sits in the ring instead of dominating it
@@ -34,7 +35,7 @@ export const ESTABLISHMENTS = [
     gy: -2,
     art: `${ASSET}/crm.webp`,
     artDormant: `${ASSET}/crm-dormant.webp`,
-    url: 'https://crm-app-build-26.vercel.app/',
+    url: 'https://alignocrm.com',
     signal: 'deals',
   },
   {
@@ -64,7 +65,7 @@ export const ESTABLISHMENTS = [
     gx: -4,
     gy: 2,
     art: `${ASSET}/dropcard.webp`,
-    url: 'https://www.dropcard.app/',
+    url: 'https://dropcard.app',
     signal: 'connections',
   },
   {

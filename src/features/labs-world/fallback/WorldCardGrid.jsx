@@ -39,7 +39,7 @@ const WorldCardGrid = ({ subscribed, email, onCheckout, reason }) => (
               </div>
               {unlocked ? (
                 <span className="inline-flex items-center gap-1.5 text-sm font-mono text-white/40 group-hover:text-white/80 transition-colors">
-                  Open <ArrowUpRight className="w-4 h-4" />
+                  Visit <ArrowUpRight className="w-4 h-4" />
                 </span>
               ) : e.url ? (
                 <Lock className="w-4 h-4 text-white/20" />

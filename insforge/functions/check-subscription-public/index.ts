@@ -2,10 +2,14 @@ import { createAdminClient } from 'npm:@insforge/sdk';
 
 // SECURITY: this endpoint is intentionally unauthenticated so sibling apps can
 // check entitlement by email, and it responds to any origin. That means anyone
-// can probe whether a given email has a Pentridge Labs subscription and at what
-// tier. It deliberately returns no PII beyond that (no Stripe IDs, no user id),
-// but if the sibling apps can be moved onto a shared key it should be gated the
-// same way check-subscription-by-email is.
+// can probe whether a given email has a Pentridge Labs subscription. The
+// response is deliberately a bare boolean — no tier, billing cadence, renewal
+// date, Stripe IDs or user id — so a probe learns nothing beyond yes/no.
+//
+// A shared key would NOT fix the remaining exposure: the sibling apps call this
+// from the browser (AlignoCRM's subscription-context.tsx is "use client"), so
+// any key would ship in their JS bundle. The real fix is a per-app server-side
+// proxy to check-subscription-by-email, the way DropCard already does it.
 
 
 const corsHeaders = {
@@ -38,36 +42,43 @@ export default async function(req: Request): Promise<Response> {
   try {
     const { email } = await req.json();
     if (!email || typeof email !== "string") {
-      return new Response(JSON.stringify({ has_subscription: false, tier: null, billing_period: null, status: null, current_period_end: null }), {
+      return new Response(JSON.stringify({ has_subscription: false }), {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
     }
 
+    // Admin key: a cross-user lookup by email cannot be expressed under the
+    // caller-scoped RLS policy. This endpoint is unauthenticated by design —
+    // see the SECURITY note at the top of this file.
     const insforge = createAdminClient({
-      // Uses the admin key for a cross-user lookup by email.
-    // NOTE: this endpoint is unauthenticated by design — see SECURITY note at top.
       baseUrl: Deno.env.get("INSFORGE_BASE_URL")!,
       apiKey: Deno.env.get("API_KEY")!,
     });
 
+    // current_period_end is still selected because isCurrent() needs it to
+    // decide active-vs-expired — it is just no longer echoed to the caller.
     const { data: subscription } = await insforge.database
       .from("pentridge_subscriptions")
-      .select("tier, billing_period, status, current_period_end")
+      .select("status, current_period_end")
       .eq("email", email.toLowerCase().trim())
       .eq("status", "active")
       .order("created_at", { ascending: false })
       .limit(1)
       .single();
 
+    // Minimised response: a bare boolean.
+    //
+    // Anyone can call this with any email, so it is an entitlement oracle by
+    // construction — that much is inherent to the email-bridge design. What it
+    // no longer does is enrich a probe with tier, billing cadence, renewal
+    // date, or ever-subscribed ("expired") state.
+    //
+    // Safe to reduce this far because no caller branches on the extra fields:
+    // AlignoCRM stores tier but never reads it, DropCard uses the keyed
+    // check-subscription-by-email instead, and Voiyce is single-tier.
     const active = isCurrent(subscription);
     return new Response(
-      JSON.stringify({
-        has_subscription: active,
-        tier: subscription?.tier || null,
-        billing_period: subscription?.billing_period || null,
-        status: active ? subscription?.status || null : subscription ? "expired" : null,
-        current_period_end: subscription?.current_period_end || null,
-      }),
+      JSON.stringify({ has_subscription: active }),
       {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       }
@@ -75,7 +86,7 @@ export default async function(req: Request): Promise<Response> {
   } catch (err) {
     console.error("Check subscription public error:", err);
     return new Response(
-      JSON.stringify({ has_subscription: false, tier: null, billing_period: null, status: null, current_period_end: null }),
+      JSON.stringify({ has_subscription: false }),
       {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       }

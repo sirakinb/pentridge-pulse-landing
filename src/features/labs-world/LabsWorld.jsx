@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Loader2, Sparkles } from 'lucide-react';
 import { SELECTABLE, ESTABLISHMENTS } from './data/establishments';
 import WorldCardGrid from './fallback/WorldCardGrid';
+import AmbientAudio from './overlay/AmbientAudio';
 import { useWorldSignals, signalLines, activityOf } from './data/useWorldSignals';
 
 // Presentation layer only. Every entitlement decision arrives as a prop from
@@ -229,6 +230,8 @@ const LabsWorld = ({ user, sub, subError, onCheckout }) => {
             </div>
           </div>
         )}
+
+        {engineState === 'ready' && <AmbientAudio />}
 
         {/* Real focusable controls. The canvas is aria-hidden; these are what
             keyboard and screen-reader users actually operate.

@@ -318,7 +318,7 @@ export async function createWorld({ host, agent = 'adzo', onHoverChange, onSelec
       const pin = makePin(e.name, sub, accent);
       const p = toScreen(e.gx, e.gy + (e.gyNudge || 0));
       pin.x = cx + p.x;
-      pin.y = cy + p.y + TILE_H / 2 - rec.sprite.height - 16;
+      pin.y = Math.max(cy + p.y + TILE_H / 2 - rec.sprite.height - 16, view.top + 46);
       pin.alpha = 0.94;
       markerLayer.addChild(pin);
       pins.set(e.id, pin);
@@ -403,6 +403,10 @@ export async function createWorld({ host, agent = 'adzo', onHoverChange, onSelec
   // the frame edge is what makes it feel like a place you're standing in.
   const ZOOM = 1.20;
   const FOCUS_Y = 0.50; // centred: sky above and park below must both survive the crop
+  // Markers must stay inside the frame. The camera overscans, so anything
+  // pinned to a sprite near an edge — a status pin on the far building, the
+  // name plate when the agent walks to the foreground — runs off screen.
+  const view = { top: 0, bottom: SCENE_H };
   function layout() {
     const w = host.clientWidth || 1;
     const h = host.clientHeight || 1;
@@ -410,6 +414,8 @@ export async function createWorld({ host, agent = 'adzo', onHoverChange, onSelec
     root.scale.set(scale);
     root.x = (w - SCENE_W * scale) / 2 + parallax.x;
     root.y = (h - SCENE_H * scale) * FOCUS_Y + parallax.y;
+    view.top = -root.y / scale;
+    view.bottom = (h - root.y) / scale;
   }
   layout();
   const ro = new ResizeObserver(layout);
@@ -567,7 +573,11 @@ export async function createWorld({ host, agent = 'adzo', onHoverChange, onSelec
 
     // name plate tracks the agent, just under her feet
     namePlate.x = cx + p.x;
-    namePlate.y = cy + p.y + TILE_H / 2 + 58;
+    const feet = cy + p.y + TILE_H / 2;
+    const below = feet + 58;
+    namePlate.y = below > view.bottom - 26
+      ? feet - agentRec.sprite.height - 10   // flip above her head near the edge
+      : below;
 
     // pins ride their building's hover lift
     pins.forEach((pin, id) => {
@@ -576,8 +586,9 @@ export async function createWorld({ host, agent = 'adzo', onHoverChange, onSelec
       const on = state.hovered === id || state.focused === id;
       pin.scale.set(on ? 1.06 : 1);
       pin.alpha = on ? 1 : 0.9;
-      pin.y += ((cy + toScreen(rec.gx, rec.gy + (rec.est.gyNudge || 0)).y + TILE_H / 2
-                 - rec.sprite.height - 16 - (on ? 10 : 0)) - pin.y) * Math.min(1, dt * 9);
+      const want = cy + toScreen(rec.gx, rec.gy + (rec.est.gyNudge || 0)).y + TILE_H / 2
+                 - rec.sprite.height - 16 - (on ? 10 : 0);
+      pin.y += (Math.max(want, view.top + 46) - pin.y) * Math.min(1, dt * 9);
     });
 
     // hovered building lifts and brightens

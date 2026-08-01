@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Loader2, Sparkles } from 'lucide-react';
 import { SELECTABLE, ESTABLISHMENTS } from './data/establishments';
 import WorldCardGrid from './fallback/WorldCardGrid';
+import { useWorldSignals, signalLines, activityOf } from './data/useWorldSignals';
 
 // Presentation layer only. Every entitlement decision arrives as a prop from
 // LabsWorkspace — this component never fetches subscription state, never talks
@@ -27,6 +28,7 @@ const LabsWorld = ({ user, sub, subError, onCheckout }) => {
 
   const subscribed = sub?.has_subscription === true;
   const email = user?.email;
+  const signals = useWorldSignals({ enabled: subscribed && !subError });
 
   const accessMap = useMemo(() => {
     const m = {};
@@ -92,6 +94,21 @@ const LabsWorld = ({ user, sub, subError, onCheckout }) => {
   useEffect(() => { worldRef.current?.setAccess(accessMap); }, [accessMap, engineState]);
   useEffect(() => { worldRef.current?.setError(!!subError); }, [subError, engineState]);
   useEffect(() => { worldRef.current?.setFocus(focusId); }, [focusId, engineState]);
+  useEffect(() => {
+    if (!signals) return;
+    worldRef.current?.setActivity(
+      Object.fromEntries(SELECTABLE.map((e) => [e.id, activityOf(signals, e.id)])),
+    );
+  }, [signals, engineState]);
+
+  // rotate through whatever the apps actually reported
+  const lines = signalLines(signals);
+  const [lineIdx, setLineIdx] = useState(0);
+  useEffect(() => {
+    if (lines.length < 2) return undefined;
+    const t = setInterval(() => setLineIdx((i) => (i + 1) % lines.length), 6000);
+    return () => clearInterval(t);
+  }, [lines.length]);
 
   const onKeyDown = (e) => {
     const ids = SELECTABLE.map((s) => s.id);
@@ -131,7 +148,9 @@ const LabsWorld = ({ user, sub, subError, onCheckout }) => {
       ? 'Most of the district is dark. Unlock it to move in.'
       : hover
         ? `${hover.est.name} — ${hover.est.subtitle}`
-        : `Welcome back${user?.profile?.name ? `, ${user.profile.name.split(' ')[0]}` : ''}.`;
+        : lines.length
+          ? lines[lineIdx % lines.length]
+          : `Welcome back${user?.profile?.name ? `, ${user.profile.name.split(' ')[0]}` : ''}.`;
 
   return (
     <div className="relative">

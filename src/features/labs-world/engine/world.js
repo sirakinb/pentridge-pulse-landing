@@ -131,8 +131,9 @@ export async function createWorld({ host, agent = 'adzo', onHoverChange, onSelec
         const px = cx + x; const py = cy + y;
         let alpha = st === 'active' ? 0.14 + 0.3 * t : 0.05;
         if (st === 'active') {
-          const wave = Math.sin(pulse * 2 - t * 5);
-          alpha += Math.max(0, wave) * 0.28;
+          const act = state.activity[e.id] || 0;
+          const wave = Math.sin(pulse * (1.4 + act * 1.8) - t * 5);
+          alpha += Math.max(0, wave) * (0.16 + act * 0.22);
         }
         conduits.poly([px, py - TILE_H / 2, px + TILE_W / 2, py, px, py + TILE_H / 2, px - TILE_W / 2, py])
                 .fill({ color: 0x5b43d6, alpha });
@@ -197,6 +198,9 @@ export async function createWorld({ host, agent = 'adzo', onHoverChange, onSelec
   // ---- state --------------------------------------------------------------
   const state = {
     access: Object.fromEntries(ESTABLISHMENTS.map((e) => [e.id, 'active'])),
+    // 0 = neutral baseline (quiet, still lit), 1 = busy. Never darkens a
+    // building — dark is reserved for dormant, so quiet can't read as locked.
+    activity: Object.fromEntries(ESTABLISHMENTS.map((e) => [e.id, 0])),
     error: false,
     hovered: null,
     focused: null,
@@ -339,7 +343,13 @@ export async function createWorld({ host, agent = 'adzo', onHoverChange, onSelec
       rec.sprite.y += (want - rec.sprite.y) * Math.min(1, dt * 9);
       if (state.access[id] === 'active' && !rec.est.reserved) {
         const base = rec.est.baseTint ?? 0xe8e4ff;
-        rec.sprite.tint = on ? lighten(base) : base;
+        const act = state.activity[id] || 0;
+        // busier buildings sit brighter, and breathe very slightly
+        const breathe = act > 0 && !reduced ? Math.sin(elapsed * 1.4 + rec.depth) * 0.02 * act : 0;
+        let tint = base;
+        for (let k = 0; k < Math.round(act * 3); k++) tint = lighten(tint, 10);
+        rec.sprite.tint = on ? lighten(tint) : tint;
+        rec.sprite.alpha = 1 + breathe;
       }
     });
 
@@ -351,10 +361,10 @@ export async function createWorld({ host, agent = 'adzo', onHoverChange, onSelec
   });
 
   // nudge a tint toward white without blowing it out
-  function lighten(c) {
-    const r = Math.min(255, ((c >> 16) & 255) + 34);
-    const g = Math.min(255, ((c >> 8) & 255) + 34);
-    const b = Math.min(255, (c & 255) + 34);
+  function lighten(c, amt = 34) {
+    const r = Math.min(255, ((c >> 16) & 255) + amt);
+    const g = Math.min(255, ((c >> 8) & 255) + amt);
+    const b = Math.min(255, (c & 255) + amt);
     return (r << 16) | (g << 8) | b;
   }
 
@@ -370,6 +380,7 @@ export async function createWorld({ host, agent = 'adzo', onHoverChange, onSelec
   // ---- public API ---------------------------------------------------------
   return {
     setAccess(map) { Object.assign(state.access, map); applyAccess(); },
+    setActivity(map) { Object.assign(state.activity, map); },
     setError(on) { state.error = !!on; },
     setFocus(id) { state.focused = id; emitHover(); },
     getSelectable: () => SELECTABLE,

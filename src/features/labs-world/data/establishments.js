@@ -17,7 +17,7 @@ export const ESTABLISHMENTS = [
   {
     id: 'pm',
     name: 'AlignoPM',
-    subtitle: 'AI-Native Project Management',
+    subtitle: 'Project Management',
     gx: 0,
     gy: -4,
     art: `${ASSET}/pm.webp`,
@@ -30,7 +30,7 @@ export const ESTABLISHMENTS = [
   {
     id: 'crm',
     name: 'AlignoCRM',
-    subtitle: 'AI-Native Pipeline & Workflow',
+    subtitle: 'Customer Relationships Management',
     gx: 4,
     gy: -2,
     art: `${ASSET}/crm.webp`,

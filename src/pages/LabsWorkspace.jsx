@@ -1,56 +1,12 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Check, Loader2, Lock, LogOut, Sparkles } from 'lucide-react';
+import { Check, Loader2, LogOut, Sparkles } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import MetaTags from '../components/MetaTags';
 import { labsInsforge } from '../lib/labsInsforge';
 import { useLabsAuth } from '../contexts/LabsAuthContext';
-
-const products = [
-  {
-    name: 'AlignoPM',
-    tagline: 'AI-Native Project Management',
-    logo: '/aligno-icon.png',
-    badge: null,
-    url: 'https://aligno-project-management.vercel.app/landing',
-    gradient: 'from-purple-500 to-violet-600',
-    glow: 'rgba(139, 92, 246, 0.3)',
-  },
-  {
-    name: 'AlignoCRM',
-    tagline: 'AI-Native Pipeline & Workflow Automation',
-    logo: '/aligno-icon.png',
-    badge: 'CRM',
-    url: 'https://crm-app-build-26.vercel.app/',
-    gradient: 'from-violet-500 to-pink-600',
-    glow: 'rgba(168, 85, 247, 0.3)',
-  },
-  {
-    name: 'Voiyce',
-    tagline: 'Write at the Speed of Thought',
-    logo: '/voiyce-icon.png',
-    badge: null,
-    url: 'https://voiyce.us/',
-    gradient: 'from-pink-500 to-rose-600',
-    glow: 'rgba(236, 72, 153, 0.3)',
-  },
-  {
-    name: 'DropCard',
-    tagline: 'Your Networking. Upgraded.',
-    logo: '/dropcard-icon.png',
-    badge: null,
-    url: 'https://www.dropcard.app/',
-    gradient: 'from-blue-500 to-purple-600',
-    glow: 'rgba(59, 130, 246, 0.3)',
-  },
-];
-
-const appUrlWithEmail = (url, email) => {
-  if (!email) return url;
-  const sep = url.includes('?') ? '&' : '?';
-  return `${url}${sep}email=${encodeURIComponent(email)}`;
-};
+import LabsWorld from '../features/labs-world/LabsWorld';
 
 const LabsWorkspace = () => {
   const navigate = useNavigate();
@@ -181,7 +137,7 @@ const LabsWorkspace = () => {
           <div className="absolute bottom-0 right-1/4 w-[400px] h-[300px] bg-pink-600/10 rounded-full blur-[100px]" />
         </div>
 
-        <div className="relative z-10 max-w-5xl mx-auto px-6">
+        <div className="relative z-10 max-w-7xl mx-auto px-6">
           {/* Header */}
           <div className="flex items-start justify-between mb-12">
             <div>
@@ -245,54 +201,16 @@ const LabsWorkspace = () => {
             </div>
           )}
 
-          {/* App grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-16">
-            {products.map((product) => {
-              const unlocked = subscribed;
-              const Tile = unlocked ? 'a' : 'div';
-              return (
-                <Tile
-                  key={product.name}
-                  {...(unlocked
-                    ? {
-                        href: appUrlWithEmail(product.url, user.email),
-                        target: '_blank',
-                        rel: 'noopener noreferrer',
-                      }
-                    : {})}
-                  className={`group relative rounded-2xl border p-6 transition-all duration-300 ${
-                    unlocked
-                      ? 'border-white/10 bg-white/[0.03] hover:border-white/25 hover:bg-white/[0.06] cursor-pointer'
-                      : 'border-white/5 bg-white/[0.02]'
-                  }`}
-                  style={unlocked ? { boxShadow: `0 0 0px ${product.glow}` } : undefined}
-                >
-                  <div className="flex items-center justify-between">
-                    <div className={`flex items-center gap-4 ${unlocked ? '' : 'opacity-40'}`}>
-                      <div className="relative flex-shrink-0">
-                        <img src={product.logo} alt={product.name} className="h-10 w-auto object-contain" />
-                        {product.badge && (
-                          <span className="absolute -bottom-1 -right-2 text-[8px] font-bold text-white font-mono tracking-wider">
-                            {product.badge}
-                          </span>
-                        )}
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-bold text-white">{product.name}</h3>
-                        <p className="text-xs text-white/40 font-mono">{product.tagline}</p>
-                      </div>
-                    </div>
-                    {unlocked ? (
-                      <span className="inline-flex items-center gap-1.5 text-sm font-mono text-white/40 group-hover:text-white/80 transition-colors">
-                        Open <ArrowUpRight className="w-4 h-4" />
-                      </span>
-                    ) : (
-                      <Lock className="w-4 h-4 text-white/20" />
-                    )}
-                  </div>
-                </Tile>
-              );
-            })}
+          {/* The world replaces the tile grid. Presentation only — it receives
+              entitlement as props and calls the same startCheckout used below,
+              so auth, subscription and routing logic are untouched. */}
+          <div className="mb-16">
+            <LabsWorld
+              user={user}
+              sub={sub}
+              subError={subError}
+              onCheckout={() => startCheckout('pro', isAnnual ? 'annual' : 'monthly')}
+            />
           </div>
 
           {/* Pricing (only when locked) */}

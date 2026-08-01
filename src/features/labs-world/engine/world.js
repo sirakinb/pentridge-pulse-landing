@@ -3,6 +3,7 @@
 // all interaction *semantics*; this file owns pixels only.
 
 import { TILE_W, TILE_H, toScreen, depthOf, stepToward } from './iso';
+import { paletteAt, localHour } from './daylight';
 import {
   ESTABLISHMENTS, SELECTABLE, INSTALLATIONS, PROPS, NPC_SPOTS, HUB, AGENT_HOME,
 } from '../data/establishments';
@@ -13,6 +14,15 @@ const GROUND_R = 8;
 const WALK_SPEED = 2.6; // grid units per second
 
 const A = '/labs-world';
+const SKY_GRAD_H = 520;
+
+function mixHex(a, b, t) {
+  const ar = (a >> 16) & 255; const ag = (a >> 8) & 255; const ab = a & 255;
+  const br = (b >> 16) & 255; const bg = (b >> 8) & 255; const bb = b & 255;
+  return (Math.round(ar + (br - ar) * t) << 16)
+       | (Math.round(ag + (bg - ag) * t) << 8)
+       | Math.round(ab + (bb - ab) * t);
+}
 
 export async function createWorld({ host, agent = 'adzo', onHoverChange, onSelect }) {
   const PIXI = await import('pixi.js');
@@ -59,16 +69,29 @@ export async function createWorld({ host, agent = 'adzo', onHoverChange, onSelec
 
   // ---- sky + distant city -------------------------------------------------
   const sky = new Graphics();
-  for (let i = 0; i < 460; i++) {
-    sky.rect(0, i, SCENE_W, 1).fill({ color: 0x1a1638, alpha: 0.36 * (1 - i / 460) });
-  }
-  for (let i = 0; i < 420; i++) {
-    const x = Math.random() * SCENE_W;
-    const y = Math.random() * 330;
-    sky.circle(x, y, Math.random() < 0.85 ? 1 : 1.6)
-       .fill({ color: 0xced2ff, alpha: 0.25 + Math.random() * 0.6 });
-  }
   skyLayer.addChild(sky);
+  const starField = Array.from({ length: 420 }, () => ({
+    x: Math.random() * SCENE_W,
+    y: Math.random() * 330,
+    r: Math.random() < 0.85 ? 1 : 1.6,
+    a: 0.25 + Math.random() * 0.6,
+  }));
+  const stars = new Graphics();
+  skyLayer.addChild(stars);
+  function drawSky(pal) {
+    sky.clear();
+    for (let i = 0; i < SKY_GRAD_H; i++) {
+      const t = i / SKY_GRAD_H;
+      const c = mixHex(pal.skyTop, pal.skyBottom, t);
+      sky.rect(0, i, SCENE_W, 1).fill({ color: c, alpha: 1 });
+    }
+    stars.clear();
+    if (pal.starAlpha > 0.01) {
+      starField.forEach((st) => {
+        stars.circle(st.x, st.y, st.r).fill({ color: 0xced2ff, alpha: st.a * pal.starAlpha });
+      });
+    }
+  }
 
   const auroraBox = new Container();
   auroraBox.filters = [new BlurFilter({ strength: 26, quality: 3 })];
@@ -87,7 +110,7 @@ export async function createWorld({ host, agent = 'adzo', onHoverChange, onSelec
     for (let x = 0; x < SCENE_W + skyTex.width * scale; x += skyTex.width * scale - 4) {
       const s = new Sprite(skyTex);
       s.scale.set(scale); s.x = x; s.y = skylineY - 300;
-      s.tint = 0x8f8fb4; s.alpha = 0.5;
+      s.tint = 0x8f8fb4; s.alpha = 0.5; s.__skyline = true;
       skyLayer.addChild(s);
     }
   }
@@ -206,6 +229,7 @@ export async function createWorld({ host, agent = 'adzo', onHoverChange, onSelec
     // building — dark is reserved for dormant, so quiet can't read as locked.
     activity: Object.fromEntries(ESTABLISHMENTS.map((e) => [e.id, 0])),
     error: false,
+    hourOverride: null,
     hovered: null,
     focused: null,
     agent: { gx: AGENT_HOME.gx, gy: AGENT_HOME.gy, target: null, pose: 'idle', poseT: 0 },
@@ -229,6 +253,14 @@ export async function createWorld({ host, agent = 'adzo', onHoverChange, onSelec
   }
 
   // "Couldn't load" is weather, not an alert: an overcast layer dims the world.
+  // Daylight wash. Deliberately a LIFT, not a grey flatten — the "couldn't
+  // load" state is the only thing allowed to drain the world of colour, and
+  // the two must never be confusable.
+  const daylight = new Graphics();
+  daylight.rect(0, 0, SCENE_W, SCENE_H).fill({ color: 0xffffff });
+  daylight.alpha = 0;
+  weatherLayer.addChild(daylight);
+
   const overcast = new Graphics();
   overcast.rect(0, 0, SCENE_W, SCENE_H).fill({ color: 0x0a0a18 });
   overcast.alpha = 0;
@@ -281,11 +313,29 @@ export async function createWorld({ host, agent = 'adzo', onHoverChange, onSelec
   // ---- tick ---------------------------------------------------------------
   let elapsed = 0;
   let idleTimer = 0;
+  let lastClock = -99;
+  let pal = null;
   const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
 
   app.ticker.add((ticker) => {
     const dt = ticker.deltaMS / 1000;
     elapsed += dt;
+
+    // time of day — recomputed lazily, it only moves once a minute
+    if (elapsed - lastClock > 2 || pal === null) {
+      lastClock = elapsed;
+      // null override => stay at night. See the note in LabsWorld.jsx.
+      const h = state.hourOverride ?? 22;
+      pal = paletteAt(h);
+      drawSky(pal);
+      auroraBox.alpha = pal.auroraAlpha;
+      skyLayer.children.forEach((c) => {
+        if (c.__skyline) c.alpha = 0.5 * (0.45 + 0.55 * (1 - pal.starAlpha) * 0 + pal.starAlpha * 0.55 + 0.45);
+      });
+      daylight.tint = pal.ambient;
+      daylight.alpha = pal.ambientAlpha;
+      groundLayer.alpha = 0.55 + 0.45 * pal.glow;
+    }
 
     if (!reduced) {
       drawConduits(elapsed);
@@ -412,6 +462,7 @@ export async function createWorld({ host, agent = 'adzo', onHoverChange, onSelec
     setAccess(map) { Object.assign(state.access, map); applyAccess(); },
     setActivity(map) { Object.assign(state.activity, map); },
     setError(on) { state.error = !!on; },
+    setHour(h) { state.hourOverride = h; lastClock = -99; },
     setFocus(id) { state.focused = id; emitHover(); },
     getSelectable: () => SELECTABLE,
     destroy() {

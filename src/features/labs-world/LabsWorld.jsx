@@ -93,6 +93,20 @@ const LabsWorld = ({ user, sub, subError, onCheckout }) => {
 
   useEffect(() => { worldRef.current?.setAccess(accessMap); }, [accessMap, engineState]);
   useEffect(() => { worldRef.current?.setError(!!subError); }, [subError, engineState]);
+
+  // Time-of-day is OPT-IN, not live. ?tod=<hour> pins the clock for review.
+  //
+  // It is not on by default because every asset is painted for night — lit
+  // windows, dark glass, violet glow pools, lamps throwing light. Those are
+  // baked into the pixels, so at midday the sky brightens while the buildings
+  // keep glowing at the sun. Until daylit building art exists this reads as a
+  // rendering fault rather than a time of day. Passing nothing keeps the world
+  // at its night palette, which is what the brand brief asks for anyway.
+  const todParam = typeof window !== 'undefined'
+    ? new URLSearchParams(window.location.search).get('tod') : null;
+  useEffect(() => {
+    worldRef.current?.setHour(todParam === null ? null : Number(todParam));
+  }, [todParam, engineState]);
   useEffect(() => { worldRef.current?.setFocus(focusId); }, [focusId, engineState]);
   useEffect(() => {
     if (!signals) return;

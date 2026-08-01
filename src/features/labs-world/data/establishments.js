@@ -30,7 +30,7 @@ export const ESTABLISHMENTS = [
   {
     id: 'crm',
     name: 'AlignoCRM',
-    subtitle: 'Customer Relationships Management',
+    subtitle: 'Customer Relationship Management',
     gx: 4,
     gy: -2,
     art: `${ASSET}/crm.webp`,

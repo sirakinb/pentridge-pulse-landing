@@ -2,9 +2,11 @@ import { createAdminClient } from 'npm:@insforge/sdk';
 
 // SECURITY: this endpoint is intentionally unauthenticated so sibling apps can
 // check entitlement by email, and it responds to any origin. That means anyone
-// can probe whether a given email has a Pentridge Labs subscription. The
-// response is deliberately a bare boolean — no tier, billing cadence, renewal
-// date, Stripe IDs or user id — so a probe learns nothing beyond yes/no.
+// can probe whether a given email has a Pentridge Labs subscription and at
+// what tier. Tier has to stay: apps have no plans of their own and inherit
+// the subscriber's Labs tier, so it is load-bearing entitlement data. What
+// the response does NOT carry is billing metadata — billing cadence, renewal
+// date, ever-subscribed state, Stripe IDs or user id.
 //
 // A shared key would NOT fix the remaining exposure: the sibling apps call this
 // from the browser (AlignoCRM's subscription-context.tsx is "use client"), so
@@ -42,7 +44,7 @@ export default async function(req: Request): Promise<Response> {
   try {
     const { email } = await req.json();
     if (!email || typeof email !== "string") {
-      return new Response(JSON.stringify({ has_subscription: false }), {
+      return new Response(JSON.stringify({ has_subscription: false, tier: null }), {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
     }
@@ -59,26 +61,36 @@ export default async function(req: Request): Promise<Response> {
     // decide active-vs-expired — it is just no longer echoed to the caller.
     const { data: subscription } = await insforge.database
       .from("pentridge_subscriptions")
-      .select("status, current_period_end")
+      .select("tier, status, current_period_end")
       .eq("email", email.toLowerCase().trim())
       .eq("status", "active")
       .order("created_at", { ascending: false })
       .limit(1)
       .single();
 
-    // Minimised response: a bare boolean.
+    // Minimised response: entitlement only.
     //
-    // Anyone can call this with any email, so it is an entitlement oracle by
-    // construction — that much is inherent to the email-bridge design. What it
-    // no longer does is enrich a probe with tier, billing cadence, renewal
-    // date, or ever-subscribed ("expired") state.
+    // `tier` is required, not optional. Tiers are a Pentridge Labs concept —
+    // the individual apps have no plan structure of their own, they grant
+    // whatever the subscriber's Labs tier entitles them to. So Standard vs Pro
+    // is exactly what an app needs to apply the right limits (e.g. Voiyce's
+    // 10k words/month on Standard vs unlimited dictation on Pro). Removing it
+    // would silently collapse every app to a single behaviour.
     //
-    // Safe to reduce this far because no caller branches on the extra fields:
-    // AlignoCRM stores tier but never reads it, DropCard uses the keyed
-    // check-subscription-by-email instead, and Voiyce is single-tier.
+    // Dropped instead: billing_period, current_period_end, and the
+    // active-vs-"expired" distinction. Those are billing metadata, not
+    // entitlement — no app gates on them, and they are the parts that turn a
+    // probe into a profile (renewal date, cadence, ever-subscribed).
+    //
+    // Anyone can still call this with any email, so it remains an oracle by
+    // construction; that is inherent to the email-bridge design and is fixed
+    // properly by a per-app server-side proxy, not by trimming fields.
     const active = isCurrent(subscription);
     return new Response(
-      JSON.stringify({ has_subscription: active }),
+      JSON.stringify({
+        has_subscription: active,
+        tier: active ? subscription?.tier ?? null : null,
+      }),
       {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       }
@@ -86,7 +98,7 @@ export default async function(req: Request): Promise<Response> {
   } catch (err) {
     console.error("Check subscription public error:", err);
     return new Response(
-      JSON.stringify({ has_subscription: false }),
+      JSON.stringify({ has_subscription: false, tier: null }),
       {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       }

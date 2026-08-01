@@ -189,6 +189,9 @@ export async function createWorld({ host, agent = 'adzo', onHoverChange, onSelec
   // agent
   const agentRec = place(tex[`${A}/${agent}.webp`], AGENT_HOME.gx, AGENT_HOME.gy, { bias: 0.02 });
   agentRec.sprite.anchor.set(0.5, 1); // pivot at the feet: squash and lean hinge there
+  // Rest scale is captured once. Deriving it from sprite.scale each frame makes
+  // the squash multiplier compound and the agent grows off-screen within seconds.
+  const AGENT_SCALE = { x: agentRec.sprite.scale.x, y: agentRec.sprite.scale.y };
   const poses = {
     walk: tex[`${A}/${agent}.webp`],
     idle: tex[`${A}/${agent}.webp`],
@@ -347,9 +350,8 @@ export async function createWorld({ host, agent = 'adzo', onHoverChange, onSelec
     } else {
       ag.lean = (ag.lean || 0) * 0.9;
     }
-    const baseScaleX = Math.abs(agentRec.sprite.scale.x) || 1;
-    agentRec.sprite.scale.x = baseScaleX * (ag.flip || 1) * (1 + land * 0.05);
-    agentRec.sprite.scale.y = (1 - land * 0.06);
+    agentRec.sprite.scale.x = AGENT_SCALE.x * (ag.flip || 1) * (1 + land * 0.05);
+    agentRec.sprite.scale.y = AGENT_SCALE.y * (1 - land * 0.06);
     agentRec.sprite.rotation = ag.pose === 'walk' ? (ag.lean || 0) : (ag.lean || 0) * 0.4;
 
     const poseDy = ag.pose === 'meditate' ? -30 : ag.pose === 'pullup' ? -62 : 0;

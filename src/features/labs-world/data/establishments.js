@@ -88,10 +88,12 @@ export const SELECTABLE = ESTABLISHMENTS.filter((e) => !e.reserved);
 // walks to these and does something, but they never navigate anywhere. Their
 // silhouette (no walls, no roof, no door) is what tells the user that.
 export const INSTALLATIONS = [
-  { id: 'deck', art: `${ASSET}/deck.webp`, gx: 1.9, gy: 2.6, pose: 'meditate', poseDy: -30 },
-  { id: 'rig', art: `${ASSET}/rig.webp`, gx: 2.5, gy: 3.4, pose: 'pullup', poseDy: -62 },
-  { id: 'zen', art: `${ASSET}/zen.webp`, gx: 3.1, gy: 2.4 },
-  { id: 'pool', art: `${ASSET}/pool.webp`, gx: 1.2, gy: 3.2 },
+  { id: 'deck', art: `${ASSET}/deck.webp`, gx: 1.2, gy: 2.0, pose: 'meditate', poseDy: -26 },
+  // scale 1.6: the agent sprite is 132px with arms raised, taller than the
+  // 124px rig, so the bar has to sit above her hands for the pose to read
+  { id: 'rig', art: `${ASSET}/rig.webp`, gx: 2.2, gy: 3.9, scale: 1.6, pose: 'pullup', poseDy: -30 },
+  { id: 'zen', art: `${ASSET}/zen.webp`, gx: 3.3, gy: 2.1 },
+  { id: 'pool', art: `${ASSET}/pool.webp`, gx: 0.3, gy: 3.1 },
 ];
 
 // Scenery. Never hit-tested, never focusable.

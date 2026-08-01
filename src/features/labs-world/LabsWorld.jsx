@@ -78,6 +78,8 @@ const LabsWorld = ({ user, sub, subError, onCheckout }) => {
           agent: 'adzo',
           onHoverChange: setHover,
           onSelect: handleSelect,
+          // ?pose=meditate|pullup pins her to that installation for review
+          pinPose: new URLSearchParams(window.location.search).get('pose'),
         });
         clearTimeout(boot);
         if (cancelled) { w?.destroy(); return; }

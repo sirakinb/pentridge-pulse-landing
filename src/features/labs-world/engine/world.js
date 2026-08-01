@@ -14,7 +14,7 @@ const GROUND_R = 8;
 const WALK_SPEED = 2.6; // grid units per second
 
 const A = '/labs-world';
-const SKY_GRAD_H = 520;
+const SKY_GRAD_H = 1150;   // full scene height — a short gradient leaves a seam
 
 function mixHex(a, b, t) {
   const ar = (a >> 16) & 255; const ag = (a >> 8) & 255; const ab = a & 255;
@@ -24,7 +24,7 @@ function mixHex(a, b, t) {
        | Math.round(ab + (bb - ab) * t);
 }
 
-export async function createWorld({ host, agent = 'adzo', onHoverChange, onSelect }) {
+export async function createWorld({ host, agent = 'adzo', onHoverChange, onSelect, pinPose = null }) {
   const PIXI = await import('pixi.js');
   const { Application, Container, Sprite, Graphics, Texture, BlurFilter, Text } = PIXI;
 
@@ -103,10 +103,13 @@ export async function createWorld({ host, agent = 'adzo', onHoverChange, onSelec
   skyLayer.addChild(stars);
   function drawSky(pal) {
     sky.clear();
-    for (let i = 0; i < SKY_GRAD_H; i++) {
-      const t = i / SKY_GRAD_H;
-      const c = mixHex(pal.skyTop, pal.skyBottom, t);
-      sky.rect(0, i, SCENE_W, 1).fill({ color: c, alpha: 1 });
+    // banded rather than per-pixel: 1150 draw calls per redraw is wasteful and
+    // the banding is invisible at this contrast
+    const BANDS = 128;
+    const bh = SKY_GRAD_H / BANDS;
+    for (let i = 0; i < BANDS; i++) {
+      const c = mixHex(pal.skyTop, pal.skyBottom, i / BANDS);
+      sky.rect(0, i * bh, SCENE_W, bh + 1).fill({ color: c, alpha: 1 });
     }
     stars.clear();
     if (pal.starAlpha > 0.01) {
@@ -205,7 +208,10 @@ export async function createWorld({ host, agent = 'adzo', onHoverChange, onSelec
   }
 
   PROPS.forEach((p) => place(tex[`${A}/${p.art}.webp`], p.gx, p.gy));
-  INSTALLATIONS.forEach((i) => place(tex[i.art], i.gx, i.gy));
+  INSTALLATIONS.forEach((i) => {
+    const rec = place(tex[i.art], i.gx, i.gy);
+    if (rec && i.scale) rec.sprite.scale.set(i.scale);
+  });
   NPC_SPOTS.forEach(([gx, gy], i) => place(tex[`${A}/npc-${i}.webp`], gx, gy));
 
   // hub
@@ -466,28 +472,61 @@ export async function createWorld({ host, agent = 'adzo', onHoverChange, onSelec
     const ag = state.agent;
     if (ag.target) {
       idleTimer = 0;
+      ag.idleTarget = null; ag.dwell = 0; ag.poseDy = 0;
       if (ag.pose !== 'walk') { ag.pose = 'walk'; agentRec.sprite.texture = poses.walk; }
       const next = stepToward(ag, ag.target, WALK_SPEED * dt);
       ag.gx = next.gx; ag.gy = next.gy;
-    } else {
-      idleTimer += dt;
-      const home = idleTimer > 14 ? pickIdleSpot() : AGENT_HOME;
-      const next = stepToward(ag, home, WALK_SPEED * dt);
-      ag.gx = next.gx; ag.gy = next.gy;
-      if (next.arrived) {
-        const inst = INSTALLATIONS.find((i) => i.pose && Math.hypot(i.gx - ag.gx, i.gy - ag.gy) < 0.35);
-        const want = inst ? inst.pose : 'idle';
-        if (ag.pose !== want) {
-          ag.pose = want;
-          agentRec.sprite.texture = poses[want] || poses.idle;
-          agentRec.sprite.y = toScreen(ag.gx, ag.gy).y + cy + TILE_H / 2 + (inst?.poseDy || 0);
+    } else if (pinPose) {
+      // debug: hold the agent at one installation so its pose offset can be
+      // eyeballed without waiting out the idle cycle
+      const inst = INSTALLATIONS.find((i) => i.pose === pinPose);
+      if (inst) {
+        ag.gx = inst.gx; ag.gy = inst.gy;
+        if (ag.pose !== inst.pose) {
+          ag.pose = inst.pose;
+          ag.poseDy = inst.poseDy || 0;
+          agentRec.sprite.texture = poses[inst.pose] || poses.idle;
         }
       }
+    } else {
+      idleTimer += dt;
+      // Pick an idle spot ONCE and stay there. Recomputing the destination
+      // every frame from elapsed time made it flip mid-walk, so she never
+      // arrived long enough to hold a pose and just drifted between props.
+      if (idleTimer > 12 && !ag.idleTarget) {
+        const spots = INSTALLATIONS.filter((i) => i.pose);
+        ag.idleTarget = spots[Math.floor(Math.random() * spots.length)];
+        ag.dwell = 0;
+      }
+      const dest = ag.idleTarget || AGENT_HOME;
+      const next = stepToward(ag, dest, WALK_SPEED * dt);
+      ag.gx = next.gx; ag.gy = next.gy;
+
+      if (next.arrived) {
+        const want = ag.idleTarget?.pose || 'idle';
+        if (ag.pose !== want) {
+          ag.pose = want;
+          ag.poseDy = ag.idleTarget?.poseDy || 0;
+          agentRec.sprite.texture = poses[want] || poses.idle;
+        }
+        if (ag.idleTarget) {
+          ag.dwell += dt;
+          if (ag.dwell > 16) {          // finish the activity, then head home
+            ag.idleTarget = null;
+            ag.dwell = 0;
+            idleTimer = 0;
+            ag.pose = 'idle';
+            ag.poseDy = 0;
+            agentRec.sprite.texture = poses.idle;
+          }
+        }
+      } else if (ag.pose !== 'walk') {
+        ag.pose = 'walk';
+        ag.poseDy = 0;
+        agentRec.sprite.texture = poses.walk;
+      }
     }
-    // Procedural animation on the hand-drawn sprite. A voxel rig would give a
-    // true 8-direction walk cycle, but at ~130px it cost the character her face
-    // and read as a mannequin, so the sprite stays and the motion is faked —
-    // which is legible at this size and keeps her recognisably Adzo.
+
     const p = toScreen(ag.gx, ag.gy);
     agentRec.sprite.x = cx + p.x;
 
@@ -512,7 +551,7 @@ export async function createWorld({ host, agent = 'adzo', onHoverChange, onSelec
     agentRec.sprite.scale.y = AGENT_SCALE.y * (1 - land * 0.06);
     agentRec.sprite.rotation = ag.pose === 'walk' ? (ag.lean || 0) : (ag.lean || 0) * 0.4;
 
-    const poseDy = ag.pose === 'meditate' ? -30 : ag.pose === 'pullup' ? -62 : 0;
+    const poseDy = ag.pose === 'idle' || ag.pose === 'walk' ? 0 : (ag.poseDy || 0);
     agentRec.sprite.y = cy + p.y + TILE_H / 2 + bob + poseDy;
     agentRec.depth = depthOf(ag.gx, ag.gy) + 0.02;
 
@@ -571,12 +610,6 @@ export async function createWorld({ host, agent = 'adzo', onHoverChange, onSelec
     const g = Math.min(255, ((c >> 8) & 255) + amt);
     const b = Math.min(255, (c & 255) + amt);
     return (r << 16) | (g << 8) | b;
-  }
-
-  function pickIdleSpot() {
-    const withPose = INSTALLATIONS.filter((i) => i.pose);
-    const pick = withPose[Math.floor(elapsed / 14) % withPose.length];
-    return { gx: pick.gx, gy: pick.gy };
   }
 
   applyAccess();

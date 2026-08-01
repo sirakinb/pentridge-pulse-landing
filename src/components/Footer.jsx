@@ -38,7 +38,7 @@ const Footer = () => {
               <span className="font-mono text-sm text-white/50 tracking-wider uppercase">Pentridge</span>
             </div>
             <p className="text-sm text-white/40 leading-relaxed mb-6 max-w-xs">
-              We get your company AI-ready and deploy AI agents into your business operations. We build our own software products too.
+              We get your company AI-ready and deploy AI agents into your business operations.
             </p>
             <div className="flex items-center gap-4">
               <a href="https://www.instagram.com/pentridgemedia" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-white transition-colors">

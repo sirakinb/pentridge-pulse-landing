@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Check } from 'lucide-react';
 import Navbar from '../components/Navbar';
@@ -21,37 +20,37 @@ const stagger = {
 const products = [
   {
     name: 'AlignoPM',
-    tagline: 'AI-Native Project Management',
+    tagline: 'Project Management',
     description:
-      'Stop managing tasks. Start getting work done. AI breaks down your projects, plans your sprints, and keeps your team focused on what actually moves the needle.',
+      'Stop managing tasks. Start getting work done. Clients, projects, tasks and billable hours in one place, so your team stays focused on what actually moves the needle.',
     features: [
-      'AI task breakdown from plain English',
-      'AI sprint planning from your backlog',
-      'Built-in time tracking & focus mode',
-      'Client & project hierarchy',
+      'Client, project and task hierarchy',
+      'Weekly planner with non-negotiables',
+      'Kanban board with priorities and labels',
+      'Built-in time tracking and focus mode',
     ],
     logo: '/aligno-icon.png',
     badge: null,
     iconSize: 'h-10',
-    url: 'https://aligno-project-management.vercel.app/landing',
+    url: 'https://alignopm.com',
     gradient: 'from-purple-500 to-violet-600',
     glow: 'rgba(139, 92, 246, 0.3)',
   },
   {
     name: 'AlignoCRM',
-    tagline: 'AI-Native Pipeline & Workflow Automation',
+    tagline: 'Customer Relationship Management',
     description:
-      'Turn every lead into the next right follow-up. One focused place to manage pipeline, automate follow-up, and use AI without losing operator control.',
+      'Turn every lead into the next right follow-up. The CRM for service businesses — one focused place to manage contacts, track pipeline and never let a lead go cold.',
     features: [
-      'Visual deal pipeline tracking',
-      'Automated workflow triggers',
-      'AI-assisted follow-up with approval gates',
-      'Full audit trails on every automation',
+      'See every deal in motion by stage and value',
+      'Contacts, tags and notes in one place',
+      'Next step attached to every deal',
+      'Capture leads from any form or tool',
     ],
     logo: '/aligno-icon.png',
     badge: 'CRM',
     iconSize: 'h-10',
-    url: 'https://crm-app-build-26.vercel.app/',
+    url: 'https://alignocrm.com',
     gradient: 'from-violet-500 to-pink-600',
     glow: 'rgba(168, 85, 247, 0.3)',
   },
@@ -85,9 +84,45 @@ const products = [
     ],
     logo: '/dropcard-icon.png',
     iconSize: 'h-16',
-    url: 'https://www.dropcard.app/',
+    url: 'https://dropcard.app',
     gradient: 'from-blue-500 to-purple-600',
     glow: 'rgba(59, 130, 246, 0.3)',
+  },
+  {
+    name: 'Thought Social',
+    tagline: 'The content engine for business owners building authority',
+    description:
+      'Takes a short from idea to posted-ready on your phone. Research what is working, generate an on-brand script in your voice, record with a teleprompter, then trim, caption and export.',
+    features: [
+      'Scripts written in your own voice',
+      'Research what is already performing',
+      'Built-in teleprompter recording',
+      'Four-control editor — never a general editor',
+    ],
+    logo: '/thoughtsocial-icon.png',
+    badge: null,
+    iconSize: 'h-10',
+    url: 'https://thoughtsocial.xyz',
+    gradient: 'from-indigo-500 to-purple-600',
+    glow: 'rgba(99, 102, 241, 0.3)',
+  },
+  {
+    name: 'Post Social',
+    tagline: 'Post your content across social media',
+    description:
+      'Connect your accounts once and publish everywhere from a single place — as a person, an app, or an AI agent. Same engine behind the web composer, the API and the MCP server.',
+    features: [
+      'TikTok, Instagram and Facebook Pages',
+      'Publish by app, API or AI agent',
+      'Approve each post, or run autonomously',
+      'Scheduling with full delivery history',
+    ],
+    logo: '/postsocial-icon.png',
+    badge: null,
+    iconSize: 'h-10',
+    url: 'https://postsocial.xyz',
+    gradient: 'from-violet-500 to-fuchsia-600',
+    glow: 'rgba(139, 92, 246, 0.3)',
   },
 ];
 
@@ -99,12 +134,52 @@ const audiences = [
   'Agencies',
 ];
 
-const Labs = () => {
-  const navigate = useNavigate();
-  const [isAnnual, setIsAnnual] = useState(false);
+const inputClass =
+  'w-full bg-white/[0.04] border border-white/15 px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-purple-500/60 focus:bg-white/[0.06] transition-colors';
 
-  const handleGetStarted = (tier) => {
-    navigate(`/labs/signup?plan=${tier}&period=${isAnnual ? 'annual' : 'monthly'}`);
+const Labs = () => {
+  const [isAnnual, setIsAnnual] = useState(false);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [status, setStatus] = useState('idle'); // idle | submitting | success | error
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const scrollToWaitlist = () => {
+    document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  };
+
+  const handleWaitlistSubmit = async (e) => {
+    e.preventDefault();
+    if (!name.trim() || !email.trim()) return;
+
+    setStatus('submitting');
+    setErrorMessage('');
+
+    try {
+      const res = await fetch('/api/waitlist', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: name.trim(),
+          email: email.trim(),
+          phone: phone.trim() || undefined,
+        }),
+      });
+
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || 'Something went wrong. Please try again.');
+      }
+
+      setStatus('success');
+      setName('');
+      setEmail('');
+      setPhone('');
+    } catch (err) {
+      setStatus('error');
+      setErrorMessage(err.message || 'Something went wrong. Please try again.');
+    }
   };
 
   return (
@@ -150,20 +225,63 @@ const Labs = () => {
               Tools built for the people building businesses. Manage projects, close deals, capture ideas, and grow your network — all from one product suite.
             </p>
 
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
-              <Link
-                to="/labs/signup"
-                className="bg-purple-600 hover:bg-purple-500 px-8 py-3 text-white font-medium transition-all duration-300 hover:scale-[1.02]"
-              >
-                Create your free account
-              </Link>
-              <Link
-                to="/labs/signin"
-                className="border border-white/15 bg-white/[0.04] hover:bg-white/[0.08] px-8 py-3 text-white/70 font-medium transition-all duration-300"
-              >
-                Sign in
-              </Link>
+            {/* Waitlist */}
+            <div id="waitlist" className="max-w-md mx-auto mb-10 text-left">
+              {status === 'success' ? (
+                <div className="border border-purple-500/30 bg-purple-500/10 px-6 py-8 text-center">
+                  <p className="font-mono text-xs tracking-[0.2em] uppercase text-purple-300 mb-3">
+                    You're on the list
+                  </p>
+                  <p className="text-white/70 text-sm leading-relaxed">
+                    Thanks for joining. We'll email you when Pentridge Labs opens up.
+                  </p>
+                </div>
+              ) : (
+                <form onSubmit={handleWaitlistSubmit} className="space-y-3">
+                  <p className="font-mono text-xs tracking-[0.2em] uppercase text-white/40 text-center mb-4">
+                    Join the waitlist
+                  </p>
+                  <input
+                    type="text"
+                    name="name"
+                    autoComplete="name"
+                    required
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="Name"
+                    className={inputClass}
+                  />
+                  <input
+                    type="email"
+                    name="email"
+                    autoComplete="email"
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Email"
+                    className={inputClass}
+                  />
+                  <input
+                    type="tel"
+                    name="phone"
+                    autoComplete="tel"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    placeholder="Phone (optional)"
+                    className={inputClass}
+                  />
+                  <button
+                    type="submit"
+                    disabled={status === 'submitting'}
+                    className="w-full bg-purple-600 hover:bg-purple-500 disabled:opacity-60 disabled:cursor-not-allowed px-8 py-3 text-white font-medium transition-all duration-300 hover:scale-[1.02]"
+                  >
+                    {status === 'submitting' ? 'Joining…' : 'Join the waitlist'}
+                  </button>
+                  {status === 'error' && (
+                    <p className="text-sm text-pink-400 text-center">{errorMessage}</p>
+                  )}
+                </form>
+              )}
             </div>
 
             {/* Audience list */}
@@ -182,20 +300,24 @@ const Labs = () => {
               The Suite
             </p>
             <h2 className="font-display text-3xl md:text-5xl text-[#fafafa]">
-              One subscription. One mission. Four products.
+              One subscription. One mission. Six products.
             </h2>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {products.map((product, index) => (
-              <motion.a
+            {products.map((product, index) => {
+              // Unreleased products have no destination yet, so they render as
+              // a plain card rather than an anchor pointing nowhere.
+              const Card = product.url ? motion.a : motion.div;
+              return (
+              <Card
                 key={product.name}
-                href={product.url}
-                target="_blank"
-                rel="noopener noreferrer"
+                {...(product.url
+                  ? { href: product.url, target: '_blank', rel: 'noopener noreferrer' }
+                  : {})}
                 {...stagger}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group relative rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm p-8 hover:border-white/20 hover:bg-white/[0.06] transition-all duration-300 cursor-pointer"
+                className={`group relative rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm p-8 hover:border-white/20 hover:bg-white/[0.06] transition-all duration-300 ${product.url ? 'cursor-pointer' : ''}`}
                 style={{
                   boxShadow: `0 0 0px ${product.glow}`,
                 }}
@@ -247,12 +369,19 @@ const Labs = () => {
                 {/* Visit link */}
                 <div className="mt-6 pt-6 border-t border-white/5">
                   <span className="text-sm font-mono text-white/30 group-hover:text-white/60 transition-colors duration-300 flex items-center gap-2">
-                    Visit {product.name}
-                    <ArrowUpRight className="w-3 h-3" />
+                    {product.url ? (
+                      <>
+                        Visit {product.name}
+                        <ArrowUpRight className="w-3 h-3" />
+                      </>
+                    ) : (
+                      'Coming soon'
+                    )}
                   </span>
                 </div>
-              </motion.a>
-            ))}
+              </Card>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -323,10 +452,10 @@ const Labs = () => {
                 ))}
               </ul>
               <button
-                onClick={() => handleGetStarted('standard')}
+                onClick={scrollToWaitlist}
                 className="block w-full text-center backdrop-blur-xl bg-white/10 hover:bg-white/20 border border-white/20 rounded-full px-6 py-3 text-white font-medium transition-all duration-300"
               >
-                Get Started
+                Join the waitlist
               </button>
             </motion.div>
 
@@ -361,10 +490,10 @@ const Labs = () => {
                 ))}
               </ul>
               <button
-                onClick={() => handleGetStarted('pro')}
+                onClick={scrollToWaitlist}
                 className="block w-full text-center bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 rounded-full px-6 py-3 text-white font-medium transition-all duration-300 hover:scale-[1.02]"
               >
-                Get Started
+                Join the waitlist
               </button>
             </motion.div>
           </div>

@@ -395,8 +395,8 @@ export async function createWorld({ host, agent = 'adzo', onHoverChange, onSelec
   // Camera sits IN the plaza rather than above the whole diorama. Framing the
   // entire scene made every building small and unreadable; overscanning past
   // the frame edge is what makes it feel like a place you're standing in.
-  const ZOOM = 1.46;
-  const FOCUS_Y = 0.60; // bias downward: the ring matters more than empty sky
+  const ZOOM = 1.20;
+  const FOCUS_Y = 0.50; // centred: sky above and park below must both survive the crop
   function layout() {
     const w = host.clientWidth || 1;
     const h = host.clientHeight || 1;

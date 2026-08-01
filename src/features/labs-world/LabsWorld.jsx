@@ -32,7 +32,10 @@ const LabsWorld = ({ user, sub, subError, onCheckout }) => {
     const m = {};
     ESTABLISHMENTS.forEach((e) => {
       if (e.reserved) m[e.id] = 'reserved';
-      else if (!e.url) m[e.id] = 'active';          // not shipped → neutral baseline
+      // Access gates everything, including apps that haven't shipped. Leaving an
+      // unshipped building lit while the rest of the district is dark reads as
+      // "that one's open" — the neutral-active baseline is about missing
+      // *activity data*, not about entitlement.
       else m[e.id] = subscribed ? 'active' : 'dormant';
     });
     return m;

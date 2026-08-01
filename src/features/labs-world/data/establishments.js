@@ -22,6 +22,9 @@ export const ESTABLISHMENTS = [
     art: `${ASSET}/pm.webp`,
     url: 'https://aligno-project-management.vercel.app/landing',
     signal: 'projects',
+    // its cyan glass is by far the brightest surface in the world; pull it
+    // back so it sits in the ring instead of dominating it
+    baseTint: 0xa9a2cc,
   },
   {
     id: 'crm',
@@ -73,6 +76,8 @@ export const ESTABLISHMENTS = [
     art: `${ASSET}/reserved.webp`,
     url: null,
     reserved: true, // never interactive, never "locked" — just held
+    scale: 1.5,     // low + dark, so it needs help to read at camera distance
+    gyNudge: 0.4,   // pulled a little toward the plaza for the same reason
   },
 ];
 

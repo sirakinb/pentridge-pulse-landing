@@ -171,8 +171,9 @@ export async function createWorld({ host, agent = 'adzo', onHoverChange, onSelec
   // buildings — the only hit-testable things in the scene
   const buildings = new Map();
   ESTABLISHMENTS.forEach((e) => {
-    const rec = place(tex[e.art], e.gx, e.gy);
+    const rec = place(tex[e.art], e.gx, e.gy + (e.gyNudge || 0));
     if (!rec) return;
+    if (e.scale) rec.sprite.scale.set(e.scale);
     rec.est = e;
     rec.baseY = rec.sprite.y;
     buildings.set(e.id, rec);
@@ -206,7 +207,7 @@ export async function createWorld({ host, agent = 'adzo', onHoverChange, onSelec
     buildings.forEach((rec, id) => {
       const st = state.access[id];
       const e = rec.est;
-      if (e.reserved) { rec.sprite.tint = 0x5b5b78; rec.sprite.alpha = 0.72; return; }
+      if (e.reserved) { rec.sprite.tint = 0x8f88b8; rec.sprite.alpha = 0.9; return; }
       if (st === 'dormant') {
         if (e.artDormant && tex[e.artDormant]) rec.sprite.texture = tex[e.artDormant];
         rec.sprite.tint = 0x4a4a68;   // pull it back so it recedes, never advances
@@ -337,8 +338,8 @@ export async function createWorld({ host, agent = 'adzo', onHoverChange, onSelec
       const want = on && !rec.est.reserved ? rec.baseY - 8 : rec.baseY;
       rec.sprite.y += (want - rec.sprite.y) * Math.min(1, dt * 9);
       if (state.access[id] === 'active' && !rec.est.reserved) {
-        const target = on ? 0xffffff : 0xe8e4ff;
-        rec.sprite.tint = target;
+        const base = rec.est.baseTint ?? 0xe8e4ff;
+        rec.sprite.tint = on ? lighten(base) : base;
       }
     });
 
@@ -348,6 +349,14 @@ export async function createWorld({ host, agent = 'adzo', onHoverChange, onSelec
       return (ra?.depth ?? 0) - (rb?.depth ?? 0);
     });
   });
+
+  // nudge a tint toward white without blowing it out
+  function lighten(c) {
+    const r = Math.min(255, ((c >> 16) & 255) + 34);
+    const g = Math.min(255, ((c >> 8) & 255) + 34);
+    const b = Math.min(255, (c & 255) + 34);
+    return (r << 16) | (g << 8) | b;
+  }
 
   function pickIdleSpot() {
     const withPose = INSTALLATIONS.filter((i) => i.pose);

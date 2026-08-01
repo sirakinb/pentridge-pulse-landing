@@ -188,6 +188,7 @@ export async function createWorld({ host, agent = 'adzo', onHoverChange, onSelec
 
   // agent
   const agentRec = place(tex[`${A}/${agent}.webp`], AGENT_HOME.gx, AGENT_HOME.gy, { bias: 0.02 });
+  agentRec.sprite.anchor.set(0.5, 1); // pivot at the feet: squash and lean hinge there
   const poses = {
     walk: tex[`${A}/${agent}.webp`],
     idle: tex[`${A}/${agent}.webp`],
@@ -322,9 +323,35 @@ export async function createWorld({ host, agent = 'adzo', onHoverChange, onSelec
         }
       }
     }
+    // Procedural animation on the hand-drawn sprite. A voxel rig would give a
+    // true 8-direction walk cycle, but at ~130px it cost the character her face
+    // and read as a mannequin, so the sprite stays and the motion is faked —
+    // which is legible at this size and keeps her recognisably Adzo.
     const p = toScreen(ag.gx, ag.gy);
     agentRec.sprite.x = cx + p.x;
-    const bob = ag.pose === 'walk' && !reduced ? Math.abs(Math.sin(elapsed * 7)) * -3 : 0;
+
+    const moving = ag.pose === 'walk' && !reduced;
+    const stride = elapsed * 7.4;
+
+    // footfall: two bounces per cycle, with a matching squash on landing
+    const bob = moving ? Math.abs(Math.sin(stride)) * -4 : 0;
+    const land = moving ? Math.max(0, -Math.cos(stride * 2)) : 0;
+
+    // flip to face travel, and lean slightly into it
+    if (moving) {
+      const dx = (ag.target?.gx ?? ag.gx) - ag.gx;
+      const dy = (ag.target?.gy ?? ag.gy) - ag.gy;
+      const screenDir = dx - dy;
+      if (Math.abs(screenDir) > 0.05) ag.flip = screenDir < 0 ? -1 : 1;
+      ag.lean = Math.max(-0.07, Math.min(0.07, screenDir * 0.02));
+    } else {
+      ag.lean = (ag.lean || 0) * 0.9;
+    }
+    const baseScaleX = Math.abs(agentRec.sprite.scale.x) || 1;
+    agentRec.sprite.scale.x = baseScaleX * (ag.flip || 1) * (1 + land * 0.05);
+    agentRec.sprite.scale.y = (1 - land * 0.06);
+    agentRec.sprite.rotation = ag.pose === 'walk' ? (ag.lean || 0) : (ag.lean || 0) * 0.4;
+
     const poseDy = ag.pose === 'meditate' ? -30 : ag.pose === 'pullup' ? -62 : 0;
     agentRec.sprite.y = cy + p.y + TILE_H / 2 + bob + poseDy;
     agentRec.depth = depthOf(ag.gx, ag.gy) + 0.02;
@@ -332,8 +359,9 @@ export async function createWorld({ host, agent = 'adzo', onHoverChange, onSelec
     // hero ring follows her
     ring.clear();
     const rp = toScreen(ag.gx, ag.gy);
-    ring.ellipse(cx + rp.x, cy + rp.y + TILE_H / 2, 52, 26)
-        .fill({ color: 0xa855f7, alpha: 0.16 })
+    const pulse = ag.pose === 'walk' && !reduced ? Math.max(0, -Math.cos(elapsed * 14.8)) : 0;
+    ring.ellipse(cx + rp.x, cy + rp.y + TILE_H / 2, 52 + pulse * 7, 26 + pulse * 3.5)
+        .fill({ color: 0xa855f7, alpha: 0.16 + pulse * 0.1 })
         .stroke({ color: 0xd6aaff, alpha: 0.55, width: 2 });
 
     // hovered building lifts and brightens

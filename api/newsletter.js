@@ -19,11 +19,15 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { email } = req.body || {};
+  const { email, phone, sms_consent } = req.body || {};
 
   if (!isValidEmail(email)) {
     return res.status(400).json({ error: 'A valid email address is required.' });
   }
+
+  const cleanPhone =
+    typeof phone === 'string' && phone.trim() ? phone.trim() : null;
+  const smsConsent = sms_consent === true;
 
   try {
     const { data, error } = await resend.emails.send({
@@ -42,7 +46,10 @@ export default async function handler(req, res) {
     await addContact(resend, { email: email.trim(), source: 'newsletter' });
 
     // Also add the subscriber to the CRM (AlignoCRM → Pentridge Media),
-    // tagged source:newsletter. Best-effort — never fail the signup over it.
+    // tagged source:newsletter, WITH the phone + SMS consent so the CRM can
+    // text them later. sms_consent is the record of opt-in (required by the
+    // form) and is what makes toll-free/A2P sending to this number compliant.
+    // Best-effort — never fail the signup over it.
     try {
       const crmUrl =
         process.env.CRM_CONTACT_URL ||
@@ -50,7 +57,12 @@ export default async function handler(req, res) {
       const crmRes = await fetch(crmUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email.trim(), source: 'newsletter' }),
+        body: JSON.stringify({
+          email: email.trim(),
+          source: 'newsletter',
+          ...(cleanPhone ? { phone: cleanPhone } : {}),
+          ...(smsConsent ? { sms_consent: true, sms_consent_at: new Date().toISOString() } : {}),
+        }),
       });
       if (!crmRes.ok) {
         console.warn('CRM contact add failed:', crmRes.status, await crmRes.text());

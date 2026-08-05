@@ -828,17 +828,20 @@ const FAQSection = () => {
 // ─── Section 10: CTA / Apply ──────────────────────────────────
 const CTASection = () => {
   const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [smsConsent, setSmsConsent] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [submittedEmail, setSubmittedEmail] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!email) return;
+    if (!smsConsent) return; // SMS consent is required to subscribe
     try {
       const res = await fetch('/api/newsletter', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, phone, sms_consent: smsConsent }),
       });
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
@@ -848,6 +851,8 @@ const CTASection = () => {
       setSubmittedEmail(email);
       setSubmitted(true);
       setEmail('');
+      setPhone('');
+      setSmsConsent(false);
     } catch (err) {
       console.error('Newsletter error:', err);
     }
@@ -919,15 +924,37 @@ const CTASection = () => {
               {submitted ? (
                 <p className="text-white/70 text-sm font-mono">Subscribed as <span className="text-purple-400">{submittedEmail}</span></p>
               ) : (
-                <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2">
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="your@email.com"
-                    className="flex-1 bg-white/5 border border-white/10 rounded-none px-4 py-3 text-sm text-white placeholder-white/30 focus:outline-none focus:border-purple-500/50 font-mono"
-                    required
-                  />
+                <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+                  <div className="flex flex-col sm:flex-row gap-2">
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="your@email.com"
+                      className="flex-1 bg-white/5 border border-white/10 rounded-none px-4 py-3 text-sm text-white placeholder-white/30 focus:outline-none focus:border-purple-500/50 font-mono"
+                      required
+                    />
+                    <input
+                      type="tel"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      placeholder="(555) 555-5555"
+                      className="flex-1 bg-white/5 border border-white/10 rounded-none px-4 py-3 text-sm text-white placeholder-white/30 focus:outline-none focus:border-purple-500/50 font-mono"
+                      required
+                    />
+                  </div>
+                  <label className="flex items-start gap-2 text-left cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={smsConsent}
+                      onChange={(e) => setSmsConsent(e.target.checked)}
+                      required
+                      className="mt-0.5 accent-purple-500 shrink-0"
+                    />
+                    <span className="font-mono text-[11px] leading-relaxed text-white/40">
+                      By checking this box, you agree to receive SMS messages from Pentridge Media at the number provided. Msg &amp; data rates may apply. Msg frequency varies. Reply STOP to opt out, HELP for help. See our <a href="/privacy" className="underline hover:text-white/60">Privacy Policy</a> and <a href="/terms" className="underline hover:text-white/60">Terms</a>.
+                    </span>
+                  </label>
                   <button
                     type="submit"
                     className="btn-primary px-6 py-3 text-xs whitespace-nowrap"

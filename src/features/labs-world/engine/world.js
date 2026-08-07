@@ -635,6 +635,10 @@ export async function createWorld({ host, agent = 'adzo', onHoverChange, onSelec
     setError(on) { state.error = !!on; },
     setHour(h) { state.hourOverride = h; lastClock = -99; },
     setFocus(id) { state.focused = id; emitHover(); },
+    // Marketing pages mount the world inside a long scroll. Stopping the ticker
+    // while it is off-screen keeps a landing page from animating a scene nobody
+    // is looking at; the workspace never calls this.
+    setPaused(on) { if (on) app.ticker.stop(); else app.ticker.start(); },
     getSelectable: () => SELECTABLE,
     destroy() {
       ro.disconnect();

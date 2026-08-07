@@ -3,6 +3,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { resolve } from "path";
 import { compression } from 'vite-plugin-compression2';
+import devApi from './scripts/vite-dev-api.js';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -12,6 +13,8 @@ export default defineConfig({
   },
   plugins: [
     react(),
+    // dev only: runs the /api serverless handlers under `npm run dev`
+    devApi(),
     compression({
       algorithm: 'gzip',
       exclude: [/\.(br)$ /, /\.(gz)$/],

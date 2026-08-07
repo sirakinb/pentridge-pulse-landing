@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowUpRight, Check } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import MetaTags from '../components/MetaTags';
+import WorldPreview from '../features/labs-world/WorldPreview';
 
 const fadeUp = {
   initial: { opacity: 0, y: 30 },
@@ -112,7 +113,7 @@ const products = [
     description:
       'Connect your accounts once and publish everywhere from a single place — as a person, an app, or an AI agent. Same engine behind the web composer, the API and the MCP server.',
     features: [
-      'TikTok, Instagram and Facebook Pages',
+      'TikTok, Instagram, Facebook Pages, LinkedIn, X, Threads and Bluesky',
       'Publish by app, API or AI agent',
       'Approve each post, or run autonomously',
       'Scheduling with full delivery history',
@@ -386,8 +387,13 @@ const Labs = () => {
         </div>
       </section>
 
+      {/* Workspace preview — the same isometric world the signed-in workspace
+          renders. Loads its engine only when scrolled near, and renders nothing
+          on narrow screens or without WebGL. */}
+      <WorldPreview />
+
       {/* Pricing Section */}
-      <section className="py-20 border-t border-white/5">
+      <section id="pricing" className="py-20 border-t border-white/5">
         <div className="max-w-5xl mx-auto px-6">
           <motion.div {...fadeUp} className="text-center mb-16">
             <p className="font-mono text-xs tracking-[0.3em] uppercase text-white/40 mb-4">
@@ -441,6 +447,8 @@ const Labs = () => {
                   'Full access to AlignoPM & AlignoCRM',
                   'Voiyce — 10,000 words/month',
                   'DropCard — unlimited profiles',
+                  'Thought Social — full access',
+                  'Post Social — 2 connected accounts',
                   'Pipeline & deal tracking',
                   'Time tracking & focus mode',
                   'Community support',
@@ -480,6 +488,7 @@ const Labs = () => {
                 {[
                   'Everything in Standard',
                   'Voiyce — unlimited dictation',
+                  'Post Social — unlimited connected accounts',
                   'Priority support',
                   'Early access to new Labs products',
                 ].map((feature) => (

@@ -2,121 +2,87 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
-const projects = [
-  {
-    tags: ['AI-Driven Content Automation', 'Custom AI Solutions'],
-    title: 'Content Automation System',
-    description: 'Simplify your content creation and distribution with our AI-powered system. Using tools like Make.com and Airtable, we automate everything from content generation to scheduling across multiple platforms.',
-    image: '/content automation.png',
-    link: 'https://www.youtube.com/watch?v=BnFGCPIO_V4&t=3813s'
-  },
-  {
-    tags: ['Business Process Automation', 'API & System Integrations'],
-    title: 'Social Media Funnel',
-    description: 'Automate your lead capture using tools like ManyChat, Go High Level, Google Sheets, and Zapier. Build an efficient funnel to capture and manage leads seamlessly.',
-    image: '/Social.png',
-    link: 'https://www.youtube.com/watch?v=5kX73FzKzXQ&t=277s'
-  },
-  {
-    tags: ['Automated Workflow Solutions', 'Business Process Automation'],
-    title: 'Proposal Automation Workflow',
-    description: 'Save time on creating proposals with our AI-driven system. Using Zoom, ChatGPT, and Make.com, we automate the process of creating tailored proposals from prospect calls.',
-    image: '/proposal.png',
-    link: 'https://www.youtube.com/watch?v=uj_k8dxqP00&t=1s'
-  },
-  {
-    tags: ['Web & App Composition'],
-    title: 'Productivity Tool',
-    description: 'Build web apps with natural language prompts using tools like Cursor, Replit, and Firebase. Leverage AI models like ChatGPT and Claude to develop both front-end and back-end, and streamline the coding process from start to finish.',
-    image: '/productivity.png',
-    link: 'https://www.youtube.com/watch?v=nM33ZrEmFRQ&t=778s'
-  },
-  {
-    tags: ['Business Process Automation'],
-    title: 'A2P 10DLC Registration',
-    description: 'For U.S. based businesses, successfully register for A2P 10DLC, a system requiring businesses to register local phone numbers for SMS marketing. Ensure your submission gets approved and streamline your communications.',
-    image: '/A2P.png',
-    link: 'https://www.youtube.com/watch?v=j1dP2l-jC5A&t=2s'
-  }
-];
+const whiteLaw = {
+  tags: ['Legal operations', 'Intake and follow-up'],
+  title: 'White Law',
+  description: 'Structured intake, qualification, booking, follow-up, and the handoff from lead to client.',
+  image: 'https://lh3.googleusercontent.com/d/1RTy3oLLuvejanvD0XTEQBVqgwNRPMU8c=w1800',
+  link: 'https://pentridge-white-law-case-study.vercel.app',
+};
 
 const OurWork = () => {
   return (
-    <section className="py-20 relative bg-fixed bg-cover bg-center" style={{ backgroundImage: 'url(/background2.png)' }}>
-      <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-      <div className="container mx-auto px-4 relative z-10">
-        <motion.h2 
-          className="text-5xl font-bold text-center mb-16 text-white"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+    <section className="bg-black py-24 md:py-32 border-t border-white/5">
+      <div className="max-w-7xl mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-14"
         >
-          Check Out Some of <span className="text-gold">Our Work</span>
-        </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.slice(0, 3).map((project, index) => (
-            <ProjectCard key={index} project={project} index={index} />
-          ))}
-        </div>
-        <div className="mt-8 flex justify-center">
-          <div className="w-full md:w-2/3 flex flex-col md:flex-row justify-center -mx-4">
-            {projects.slice(3).map((project, index) => (
-              <div key={index} className="w-full md:w-1/2 px-4 mb-8 md:mb-0">
-                <ProjectCard project={project} index={index + 3} />
-              </div>
-            ))}
+          <p className="section-label mb-4">04 / Some of our work</p>
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+            <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] max-w-2xl">
+              Real systems built for real businesses.
+            </h2>
+            <p className="text-white/50 max-w-md leading-relaxed">
+              A look at the workflows, systems, and operating improvements we have built with clients.
+            </p>
           </div>
-        </div>
+        </motion.div>
+
+        <motion.article
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="grid grid-cols-1 lg:grid-cols-[1.25fr_.75fr] bg-[#101014] border border-white/10 overflow-hidden rounded-2xl"
+        >
+          <a
+            href={whiteLaw.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative min-h-[300px] lg:min-h-[420px] overflow-hidden bg-[#17101f] group"
+          >
+            <img
+              src={whiteLaw.image}
+              alt="White Law intake and booking workflow"
+              loading="lazy"
+              className="absolute inset-0 w-full h-full object-cover object-bottom transition-transform duration-700 group-hover:scale-[1.03]"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+          </a>
+
+          <div className="p-8 md:p-12 flex flex-col justify-between">
+            <div>
+              <div className="flex flex-wrap gap-2 mb-8">
+                {whiteLaw.tags.map((tag) => (
+                  <span key={tag} className="px-3 py-1.5 text-xs rounded-full border border-purple-400/30 text-purple-300 bg-purple-500/10">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <h3 className="font-display text-3xl md:text-4xl text-[#fafafa] mb-5">
+                {whiteLaw.title}
+              </h3>
+              <p className="text-white/60 text-base leading-relaxed max-w-lg">
+                {whiteLaw.description}
+              </p>
+            </div>
+            <a
+              href={whiteLaw.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-purple-300 hover:text-white transition-colors mt-10 w-fit"
+            >
+              View case study <ArrowRight size={16} />
+            </a>
+          </div>
+        </motion.article>
       </div>
     </section>
   );
-}
-
-const ProjectCard = ({ project, index }) => (
-  <motion.div 
-    className="relative group h-full"
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.5, delay: index * 0.1 }}
-  >
-    <div className="bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 relative z-10 card-glow h-full flex flex-col">
-      <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 glow-effect"></div>
-      <div className="relative z-20 flex flex-col h-full">
-        <a 
-          href={project.link} 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="relative overflow-hidden"
-        >
-          <img 
-            src={project.image} 
-            alt={project.title} 
-            className="w-full h-55 object-cover transition-transform duration-300 group-hover:scale-105" 
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
-        </a>
-        <div className="p-6 flex flex-col flex-grow">
-          <div className="flex flex-wrap gap-2 mb-4">
-            {project.tags.map((tag, tagIndex) => (
-              <span key={tagIndex} className="px-2 py-1 text-xs rounded-full bg-purple-700 text-white">
-                {tag}
-              </span>
-            ))}
-          </div>
-          <h3 className="text-2xl font-bold mb-4 text-white">{project.title}</h3>
-          <p className="text-gray-300 mb-4 flex-grow">{project.description}</p>
-          <a 
-            href={project.link} 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="inline-flex items-center text-purple-400 hover:text-purple-300 transition-colors duration-300 mt-auto"
-          >
-            Learn More <ArrowRight className="ml-2 h-4 w-4" />
-          </a>
-        </div>
-      </div>
-    </div>
-  </motion.div>
-);
+};
 
 export default OurWork;

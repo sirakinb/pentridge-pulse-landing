@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react';
 
 const whiteLaw = {
   tags: ['Legal operations', 'Intake and follow-up'],
-  title: 'Law firm intake and follow-up',
+  title: 'Michigan-based full-service law firm',
   description: 'Structured intake, qualification, booking, follow-up, and the handoff from lead to client.',
   image: 'https://lh3.googleusercontent.com/d/1RTy3oLLuvejanvD0XTEQBVqgwNRPMU8c=w1800',
   link: 'https://pentridge-white-law-case-study-kped7suow-app-build-26.vercel.app',

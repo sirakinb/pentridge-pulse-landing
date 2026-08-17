@@ -3,37 +3,16 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
 const projects = [
-  {
-    tags: ['Legal operations', 'Intake and follow-up'],
-    title: 'Michigan-based full-service law firm',
-    description: 'Structured intake, qualification, booking, follow-up, and the handoff from lead to client.',
-    image: 'https://lh3.googleusercontent.com/d/1RTy3oLLuvejanvD0XTEQBVqgwNRPMU8c=w1800',
-    link: 'https://pentridge-white-law-case-study-kped7suow-app-build-26.vercel.app',
-    alt: 'Law firm intake and booking workflow',
-  },
-  {
-    tags: ['Property management', 'Voice agent and operations'],
-    title: 'Philadelphia-based full-service Property Management Company',
-    description: 'A voice agent, applicant follow-up, utility workflows, and a connected operating layer for property management.',
-    image: 'https://lh3.googleusercontent.com/d/1xDxxidlvYQnI5tSHMrOCft3Cto8a3YoU=w1800',
-    link: 'https://pentridge-jackson-rental-homes-case-study-exgi6st95.vercel.app',
-    alt: 'Property management voice agent workflow',
-  },
+  { tags: ['Legal operations', 'Intake and follow-up'], title: 'Michigan-based full-service law firm', description: 'Structured intake, qualification, booking, follow-up, and the handoff from lead to client.', image: 'https://lh3.googleusercontent.com/d/1RTy3oLLuvejanvD0XTEQBVqgwNRPMU8c=w1800', link: 'https://pentridge-white-law-case-study-kped7suow-app-build-26.vercel.app', alt: 'Law firm intake and booking workflow' },
+  { tags: ['Property management', 'Voice agent and operations'], title: 'Philadelphia-based full-service Property Management Company', description: 'A voice agent, applicant follow-up, utility workflows, and a connected operating layer for property management.', image: 'https://lh3.googleusercontent.com/d/1xDxxidlvYQnI5tSHMrOCft3Cto8a3YoU=w1800', link: 'https://pentridge-jackson-rental-homes-case-study-exgi6st95.vercel.app', alt: 'Property management voice agent workflow' },
 ];
 
 const OurWork = () => (
   <section className="bg-black py-24 md:py-32 border-t border-white/5">
     <div className="max-w-7xl mx-auto px-6">
-      <motion.div initial={{opacity:0,y:24}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{duration:.6}} className="mb-14">
-        <p className="section-label mb-4">04 / Some of our work</p>
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6"><h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] max-w-2xl">Real systems built for real businesses.</h2><p className="text-white/50 max-w-md leading-relaxed">A look at the workflows, systems, and operating improvements we have built with clients.</p></div>
-      </motion.div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {projects.map((project, index) => <motion.article key={project.title} initial={{opacity:0,y:24}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{duration:.6,delay:index*.1}} className="bg-[#101014] border border-white/10 overflow-hidden rounded-2xl flex flex-col">
-          <a href={project.link} target="_blank" rel="noopener noreferrer" className="relative min-h-[280px] overflow-hidden bg-[#17101f] group"><img src={project.image} alt={project.alt} loading="lazy" className="absolute inset-0 w-full h-full object-cover object-bottom transition-transform duration-700 group-hover:scale-[1.03]"/><div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"/></a>
-          <div className="p-8 md:p-10 flex flex-col justify-between flex-1"><div><div className="flex flex-wrap gap-2 mb-7">{project.tags.map(tag=><span key={tag} className="px-3 py-1.5 text-xs rounded-full border border-purple-400/30 text-purple-300 bg-purple-500/10">{tag}</span>)}</div><h3 className="font-display text-3xl text-[#fafafa] mb-5">{project.title}</h3><p className="text-white/60 text-base leading-relaxed">{project.description}</p></div><a href={project.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-purple-300 hover:text-white transition-colors mt-9 w-fit">View case study <ArrowRight size={16}/></a></div>
-        </motion.article>)}
-      </div>
+      <motion.div initial={{opacity:0,y:24}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{duration:.6}} className="mb-14"><p className="section-label mb-4">04 / Some of our work</p><div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6"><h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] max-w-2xl">Real systems built for real businesses.</h2><p className="text-white/50 max-w-md leading-relaxed">A look at the workflows, systems, and operating improvements we have built with clients.</p></div></motion.div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">{projects.map((project,index)=><motion.article key={project.title} initial={{opacity:0,y:24}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{duration:.6,delay:index*.1}} className="bg-[#101014] border border-white/10 overflow-hidden rounded-2xl flex flex-col"><a href={project.link} target="_blank" rel="noopener noreferrer" className="relative min-h-[280px] overflow-hidden bg-[#17101f] group"><img src={project.image} alt={project.alt} loading="lazy" className="absolute inset-0 w-full h-full object-cover object-bottom transition-transform duration-700 group-hover:scale-[1.03]"/><div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"/></a><div className="p-8 md:p-10 flex flex-col justify-between flex-1"><div><div className="flex flex-wrap gap-2 mb-7">{project.tags.map(tag=><span key={tag} className="px-3 py-1.5 text-xs rounded-full border border-purple-400/30 text-purple-300 bg-purple-500/10">{tag}</span>)}</div><h3 className="font-display text-3xl text-[#fafafa] mb-5">{project.title}</h3><p className="text-white/60 text-base leading-relaxed">{project.description}</p></div><a href={project.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-purple-300 hover:text-white transition-colors mt-9 w-fit">View case study <ArrowRight size={16}/></a></div></motion.article>)}</div>
+      <motion.div initial={{opacity:0,y:24}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{duration:.6}} className="mt-20 pt-16 border-t border-white/10"><div className="grid grid-cols-1 lg:grid-cols-[.75fr_1.25fr] gap-10 items-center"><div><p className="section-label mb-4">Agent Workspace / In practice</p><h3 className="font-display text-3xl md:text-4xl text-[#fafafa] mb-5">The operating layer behind the workflows.</h3><p className="text-white/60 leading-relaxed">A live Jackson Workspace view showing connected workers for call logging, social monitoring, email tracking, leasing sync, utilities, agent activity, and agent skills.</p><p className="text-white/35 text-sm leading-relaxed mt-5">The individual workflows handle the work. The Workspace shows what is running, what happened, and what needs attention.</p></div><div className="bg-[#101014] border border-white/10 rounded-2xl overflow-hidden"><img src="https://lh3.googleusercontent.com/d/1_xEC6_w-BRCxmC7O9VI89D31fkYNyoHZ=w2400" alt="Jackson Workspace showing connected property management agents and activity" loading="lazy" className="w-full h-auto"/><p className="px-5 py-4 text-xs text-white/40 font-mono">Jackson Workspace / Agent activity view</p></div></div></motion.div>
     </div>
   </section>
 );

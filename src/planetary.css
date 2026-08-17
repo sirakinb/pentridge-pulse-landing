@@ -1,0 +1,5 @@
+@keyframes pentridge-planet-orbit{from{transform:rotate(0deg) translateX(184px) rotate(0deg)}to{transform:rotate(360deg) translateX(184px) rotate(-360deg)}}
+@keyframes pentridge-planet-orbit-inner{from{transform:rotate(60deg) translateX(140px) rotate(-60deg)}to{transform:rotate(420deg) translateX(140px) rotate(-420deg)}}
+[class~="w-64"][class~="h-64"] > div:nth-child(3)::before{content:"";position:absolute;top:50%;left:50%;width:18px;height:18px;border-radius:9999px;background:#a855f7;box-shadow:0 0 18px #a855f7,0 0 42px rgba(168,85,247,.65);animation:pentridge-planet-orbit 16s linear infinite;z-index:20}
+[class~="w-64"][class~="h-64"] > div:nth-child(4)::before{content:"";position:absolute;top:50%;left:50%;width:12px;height:12px;border-radius:9999px;background:#ec4899;box-shadow:0 0 14px #ec4899,0 0 32px rgba(236,72,153,.55);animation:pentridge-planet-orbit-inner 10s linear infinite;z-index:20}
+@media(max-width:768px){[class~="w-64"][class~="h-64"] > div:nth-child(3)::before{animation-name:pentridge-planet-orbit;transform-origin:center;}.relative.w-64.h-64{transform:scale(.9)}}

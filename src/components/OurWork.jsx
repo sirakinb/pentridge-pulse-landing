@@ -13,7 +13,7 @@ const projects = [
   },
   {
     tags: ['Property management', 'Voice agent and operations'],
-    title: 'Jackson Rental Homes',
+    title: 'Philadelphia-based full-service Property Management Company',
     description: 'A voice agent, applicant follow-up, utility workflows, and a connected operating layer for property management.',
     image: 'https://lh3.googleusercontent.com/d/1xDxxidlvYQnI5tSHMrOCft3Cto8a3YoU=w1800',
     link: 'https://pentridge-jackson-rental-homes-case-study-exgi6st95.vercel.app',

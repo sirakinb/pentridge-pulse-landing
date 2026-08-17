@@ -1,6 +1,7 @@
 import { createRoot, hydrateRoot } from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
+import "./planetary.css";
 
 // Register service worker for caching
 if ('serviceWorker' in navigator) {

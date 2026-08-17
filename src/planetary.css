@@ -1,5 +1,15 @@
-@keyframes pentridge-planet-orbit{from{transform:rotate(0deg) translateX(184px) rotate(0deg)}to{transform:rotate(360deg) translateX(184px) rotate(-360deg)}}
-@keyframes pentridge-planet-orbit-inner{from{transform:rotate(60deg) translateX(140px) rotate(-60deg)}to{transform:rotate(420deg) translateX(140px) rotate(-420deg)}}
-[class~="w-64"][class~="h-64"] > div:nth-child(3)::before{content:"";position:absolute;top:50%;left:50%;width:18px;height:18px;border-radius:9999px;background:#a855f7;box-shadow:0 0 18px #a855f7,0 0 42px rgba(168,85,247,.65);animation:pentridge-planet-orbit 16s linear infinite;z-index:20}
-[class~="w-64"][class~="h-64"] > div:nth-child(4)::before{content:"";position:absolute;top:50%;left:50%;width:12px;height:12px;border-radius:9999px;background:#ec4899;box-shadow:0 0 14px #ec4899,0 0 32px rgba(236,72,153,.55);animation:pentridge-planet-orbit-inner 10s linear infinite;z-index:20}
-@media(max-width:768px){[class~="w-64"][class~="h-64"] > div:nth-child(3)::before{animation-name:pentridge-planet-orbit;transform-origin:center;}.relative.w-64.h-64{transform:scale(.9)}}
+@keyframes pentridge-orbit-main{from{transform:rotateX(70deg) rotateZ(0deg)}to{transform:rotateX(70deg) rotateZ(360deg)}}
+@keyframes pentridge-orbit-inner{from{transform:rotateX(80deg) rotateZ(60deg)}to{transform:rotateX(80deg) rotateZ(420deg)}}
+@keyframes pentridge-planet-main{from{transform:rotate(0deg) translateX(184px) rotate(0deg)}to{transform:rotate(360deg) translateX(184px) rotate(-360deg)}}
+@keyframes pentridge-planet-inner{from{transform:rotate(60deg) translateX(140px) rotate(-60deg)}to{transform:rotate(420deg) translateX(140px) rotate(-420deg)}}
+@keyframes pentridge-planet-third{from{transform:rotate(-25deg) translateX(155px) rotate(25deg)}to{transform:rotate(335deg) translateX(155px) rotate(-335deg)}}
+@keyframes pentridge-globe-shimmer{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+[class~="w-64"][class~="h-64"] > div:nth-child(2){box-shadow:0 0 80px rgba(168,85,247,.55),inset -24px -24px 65px rgba(0,0,0,.75),inset 18px 18px 42px rgba(168,85,247,.14),0 0 150px rgba(168,85,247,.18);transform-style:preserve-3d}
+[class~="w-64"][class~="h-64"] > div:nth-child(2)::before{content:"";position:absolute;inset:0;border-radius:9999px;z-index:20;pointer-events:none;background:radial-gradient(ellipse at 28% 18%,rgba(255,255,255,.28),transparent 42%),radial-gradient(ellipse at 76% 82%,rgba(0,0,0,.65),transparent 52%),radial-gradient(ellipse at 50% 0%,rgba(168,85,247,.16),transparent 32%)}
+[class~="w-64"][class~="h-64"] > div:nth-child(2)::after{content:"";position:absolute;inset:0;border-radius:9999px;z-index:21;pointer-events:none;opacity:.3;background:conic-gradient(from 0deg,transparent,rgba(168,85,247,.24),transparent,rgba(139,92,246,.18),transparent,rgba(236,72,153,.18),transparent);mix-blend-mode:screen;animation:pentridge-globe-shimmer 20s linear infinite}
+[class~="w-64"][class~="h-64"] > div:nth-child(3){animation:pentridge-orbit-main 16s linear infinite!important;transform-style:preserve-3d}
+[class~="w-64"][class~="h-64"] > div:nth-child(4){animation:pentridge-orbit-inner 10s linear infinite!important;transform-style:preserve-3d}
+[class~="w-64"][class~="h-64"] > div:nth-child(3)::before{content:"";position:absolute;top:50%;left:50%;width:18px;height:18px;border-radius:9999px;background:#a855f7;box-shadow:0 0 18px #a855f7,0 0 42px rgba(168,85,247,.65);animation:pentridge-planet-main 16s linear infinite;z-index:22}
+[class~="w-64"][class~="h-64"] > div:nth-child(4)::before{content:"";position:absolute;top:50%;left:50%;width:12px;height:12px;border-radius:9999px;background:#ec4899;box-shadow:0 0 14px #ec4899,0 0 32px rgba(236,72,153,.55);animation:pentridge-planet-inner 10s linear infinite;z-index:22}
+[class~="w-64"][class~="h-64"] > div:nth-child(4)::after{content:"";position:absolute;top:50%;left:50%;width:10px;height:10px;border-radius:9999px;background:#8b5cf6;box-shadow:0 0 14px #8b5cf6,0 0 30px rgba(139,92,246,.55);animation:pentridge-planet-third 24s linear infinite;z-index:22}
+@media(max-width:768px){.relative.w-64.h-64{transform:scale(.9)}}

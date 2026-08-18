@@ -19,8 +19,24 @@ const Navbar = () => {
       const label = Array.from(document.querySelectorAll('p')).find((element) => element.textContent?.trim() === '10 / What They Say');
       const section = label?.closest('section');
       const cards = section?.querySelectorAll('.glass-card');
-      if (cards?.[2]) cards[2].querySelector('[class~="text-white/90"]')?.replaceChildren('Alexis Holstead');
-      if (cards?.[3]) cards[3].querySelector('[class~="text-white/90"]')?.replaceChildren('D.O.');
+      const update = (card, name, company) => {
+        const nameElement = card?.querySelector('[class~="text-white/90"]');
+        if (!nameElement) return;
+        nameElement.textContent = name;
+        nameElement.style.color = '#ffffff';
+        nameElement.style.fontSize = '0.875rem';
+        nameElement.style.fontFamily = 'inherit';
+        let companyElement = card.querySelector('[data-testimonial-company]');
+        if (!companyElement) {
+          companyElement = document.createElement('p');
+          companyElement.dataset.testimonialCompany = 'true';
+          nameElement.parentElement?.appendChild(companyElement);
+        }
+        companyElement.textContent = company;
+        companyElement.className = 'font-mono text-xs text-purple-400/70 mt-1';
+      };
+      update(cards?.[2], 'Alexis Holstead', 'White Law PLLC');
+      update(cards?.[3], 'D.O.', 'LogoSeed');
     };
     const timer = window.setTimeout(updateTestimonialNames, 100);
     return () => window.clearTimeout(timer);

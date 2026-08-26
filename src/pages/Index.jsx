@@ -445,6 +445,65 @@ const InfrastructureSection = () => {
   );
 };
 
+// ─── Section 04: Manor ───────────────────────────────────────────────
+const ManorSection = () => (
+  <section className="bg-black py-24 md:py-32 border-t border-white/5 overflow-hidden">
+    <div className="max-w-7xl mx-auto px-6">
+      <motion.div
+        {...fadeUp}
+        className="relative overflow-hidden rounded-3xl border border-purple-500/20 bg-[#09080c]"
+      >
+        <div className="absolute -top-40 -left-28 h-80 w-80 rounded-full bg-purple-600/20 blur-[110px] pointer-events-none" />
+        <div className="absolute -bottom-48 right-0 h-96 w-96 rounded-full bg-violet-600/10 blur-[130px] pointer-events-none" />
+
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-[0.82fr_1.18fr] gap-10 lg:gap-14 items-center p-7 sm:p-10 md:p-14">
+          <div>
+            <p className="section-label mb-6">04 / Our Product</p>
+            <img
+              src="/logo-website.png"
+              alt="Manor logo"
+              loading="lazy"
+              className="h-20 w-28 object-cover object-center rounded-xl border border-white/10 mb-8"
+            />
+            <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] max-w-xl">
+              Meet Manor. Your command center for AI agents.
+            </h2>
+            <p className="text-white/55 text-lg mt-6 max-w-xl leading-relaxed">
+              Bring your agents, conversations, and connected business tools into one focused workspace. See what every agent is doing, give new instructions, and keep your AI operations moving from one place.
+            </p>
+            <a
+              href="https://manor.pentridgemedia.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary inline-flex items-center gap-3 mt-9"
+              aria-label="Visit the Manor website"
+            >
+              Explore Manor <ArrowRight size={15} />
+            </a>
+          </div>
+
+          <a
+            href="https://manor.pentridgemedia.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group block"
+            aria-label="Open Manor"
+          >
+            <div className="rounded-2xl border border-white/10 bg-black/40 p-2 sm:p-3 shadow-[0_30px_100px_rgba(88,28,135,0.24)] transition-all duration-500 group-hover:border-purple-400/35 group-hover:-translate-y-1">
+              <img
+                src="/Manor.png"
+                alt="Manor AI agent workspace showing agent conversations, tools, and live task activity"
+                loading="lazy"
+                className="w-full rounded-xl object-cover"
+              />
+            </div>
+          </a>
+        </div>
+      </motion.div>
+    </div>
+  </section>
+);
+
 const ProblemSection = () => {
   const problems = [
     'CRM, project management, and marketing data locked in separate tools',
@@ -457,7 +516,7 @@ const ProblemSection = () => {
     <section className="bg-black py-24 md:py-32">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div {...fadeUp} className="mb-16">
-          <p className="section-label mb-4">04 / The Problem</p>
+          <p className="section-label mb-4">05 / The Problem</p>
           <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] max-w-3xl">
             Your business data is scattered. That's why AI hasn't worked yet.
           </h2>
@@ -504,7 +563,7 @@ const TestimonialsSection = () => {
     <section className="bg-black py-24 md:py-32">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div {...fadeUp} className="mb-16">
-          <p className="section-label mb-4">10 / What They Say</p>
+          <p className="section-label mb-4">11 / What They Say</p>
           <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] max-w-3xl capitalize">
             Don't take our word for it.
           </h2>
@@ -561,7 +620,7 @@ const WhyWorkSection = () => {
     <section className="bg-black py-24 md:py-32">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div {...fadeUp} className="mb-16">
-          <p className="section-label mb-4">05 / Why Work With Us</p>
+          <p className="section-label mb-4">06 / Why Work With Us</p>
           <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] max-w-3xl">
             Replace scattered manual work with AI you can actually see working.
           </h2>
@@ -629,7 +688,7 @@ const ComparisonSection = () => {
     <section className="bg-black py-24 md:py-32">
       <div className="max-w-3xl mx-auto px-6">
         <motion.div {...fadeUp} className="mb-16 text-center">
-          <p className="section-label mb-4">06 / Why Partner?</p>
+          <p className="section-label mb-4">07 / Why Partner?</p>
           <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] capitalize">
             Not all AI partners are equal.
           </h2>
@@ -674,7 +733,7 @@ const PentridgeMCPSection = () => {
     <section className="bg-black py-24 md:py-32 border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div {...fadeUp} className="mb-16 text-center">
-          <p className="section-label mb-4">07 / Pentridge MCP</p>
+          <p className="section-label mb-4">08 / Pentridge MCP</p>
           <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] max-w-3xl mx-auto">
             One MCP layer. Any agentic platform.
           </h2>
@@ -721,7 +780,7 @@ const ProcessSection = () => {
     <section className="bg-black py-24 md:py-32 border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div {...fadeUp} className="mb-16">
-          <p className="section-label mb-4">08 / Process</p>
+          <p className="section-label mb-4">09 / Process</p>
           <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] max-w-3xl capitalize">
             Audit, centralize, deploy, and keep improving.
           </h2>
@@ -776,7 +835,7 @@ const FAQSection = () => {
     <section className="bg-black py-24 md:py-32">
       <div className="max-w-3xl mx-auto px-6">
         <motion.div {...fadeUp} className="mb-16">
-          <p className="section-label mb-4">09 / FAQ</p>
+          <p className="section-label mb-4">10 / FAQ</p>
           <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] capitalize">
             Questions? We have answers.
           </h2>
@@ -869,7 +928,7 @@ const CTASection = () => {
     <section className="bg-black py-24 md:py-32">
       <div className="max-w-4xl mx-auto px-6">
         <motion.div {...fadeUp} className="text-center mb-14">
-          <p className="section-label mb-6">11 / Let's Go</p>
+          <p className="section-label mb-6">12 / Let's Go</p>
           <h2 className="font-display text-3xl md:text-5xl leading-[1.15] text-[#fafafa]">
             AI agents in your operations,{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">live in weeks.</span>
@@ -998,6 +1057,7 @@ const Index = () => {
       <TwoWaysSection />
       <TrustedBySection />
       <InfrastructureSection />
+      <ManorSection />
       <ProblemSection />
       <WhyWorkSection />
       <ComparisonSection />

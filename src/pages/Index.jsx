@@ -17,6 +17,79 @@ const TwoWaysSection = () => <section id="what-we-do" className="bg-black py-24 
 const TrustedBySection = () => { const partners=[{name:'Jackson Rental Homes',logo:'/p9.png'},{name:'FunTimes',logo:'/p10.png'},{name:'Blue Proma Digital',logo:'/p11.png'},{name:'Utopos',logo:'/p12.png'},{name:'Pearls Girl Productions',logo:'/p13.png'},{name:'White Law PLLC',logo:'/whitelaw-logo.svg',small:true},{name:'TJ Properties',text:true},{name:'Brave',logo:'/brave-logo.png',small:true}]; const doubled=[...partners,...partners]; return <section className="bg-[#2d1f4e] py-28 md:py-36"><div className="max-w-7xl mx-auto px-6"><motion.div {...fadeUp} className="text-center mb-16"><p className="section-label">02 / Trusted By</p></motion.div><div className="overflow-hidden"><div className="flex items-center gap-16 md:gap-20 animate-scroll-partners">{doubled.map((partner,i)=><div key={`${partner.name}-${i}`} className="flex-shrink-0 flex items-center justify-center h-28 md:h-36">{partner.text?<span className="text-2xl md:text-3xl font-bold text-white/90 tracking-wide whitespace-nowrap">{partner.name}</span>:<img src={partner.logo} alt={partner.name} className={`${partner.small?'h-16 md:h-20':'h-28 md:h-36'} w-auto object-contain`}/>}</div>)}</div></div></div></section>; };
 const InfrastructureSection = () => <section className="bg-black py-24 md:py-32 border-t border-white/5"><div className="max-w-7xl mx-auto px-6"><motion.div {...fadeUp} className="mb-16"><p className="section-label mb-4">03 / The Infrastructure</p><h2 className="font-display text-3xl md:text-[43px] text-[#fafafa] max-w-3xl">All of your business data. One Agent Workspace.</h2><p className="text-white/50 text-lg mt-6 max-w-2xl leading-relaxed">We build and host the infrastructure that gives agents access to company context and gives you visibility into what they are doing.</p></motion.div><motion.div {...fadeUp} className="mb-14"><img src="/agent-infrastructure-diagram.jpg" alt="Pentridge AI infrastructure diagram" loading="lazy" className="w-full rounded-2xl border border-white/5"/></motion.div><div className="grid grid-cols-1 md:grid-cols-3 gap-6">{['Data Pipeline','Agent Workspace','Pentridge MCP'].map((label,i)=><motion.div key={label} {...stagger} className="glass-card-purple rounded-2xl p-8 md:p-10"><p className="font-mono text-xs tracking-[0.2em] uppercase text-purple-400 mb-5">{String(i+1).padStart(2,'0')} / {label}</p><p className="text-white/60 text-sm leading-relaxed">{['Your CRM, project management, marketing, and operations tools feed into one place.','One place for business data, documents, skills, and activity.','The connection between company context and agent platforms.'][i]}</p></motion.div>)}</div></div></section>;
 
+const integrationRows = [
+  [
+    { name: 'HubSpot', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/hubspot.svg', color: '#FF7A59' },
+    { name: 'Salesforce', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/salesforce.svg', color: '#00A1E0' },
+    { name: 'Slack', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/slack.svg', color: '#E01E5A' },
+    { name: 'Google Drive', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/googledrive.svg', color: '#4285F4' },
+    { name: 'Notion', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/notion.svg', color: '#FFFFFF' },
+    { name: 'Airtable', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/airtable.svg', color: '#18BFFF' },
+  ],
+  [
+    { name: 'Gmail', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/gmail.svg', color: '#EA4335' },
+    { name: 'Google Calendar', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/googlecalendar.svg', color: '#4285F4' },
+    { name: 'Asana', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/asana.svg', color: '#F06A6A' },
+    { name: 'Zapier', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/zapier.svg', color: '#FF4F00' },
+    { name: 'Calendly', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/calendly.svg', color: '#006BFF' },
+    { name: 'Zoom', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/zoom.svg', color: '#2D8CFF' },
+  ],
+  [
+    { name: 'QuickBooks', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/quickbooks.svg', color: '#2CA01C' },
+    { name: 'Stripe', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/stripe.svg', color: '#635BFF' },
+    { name: 'Shopify', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/shopify.svg', color: '#7AB55C' },
+    { name: 'Google Sheets', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/googlesheets.svg', color: '#34A853' },
+    { name: 'Dropbox', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/dropbox.svg', color: '#0061FF' },
+    { name: 'Trello', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/trello.svg', color: '#0C66E4' },
+  ],
+];
+
+const IntegrationSources = () => (
+  <section className="integration-sources relative overflow-hidden bg-black py-24 md:py-32 border-t border-white/5">
+    <div className="integration-source-grid absolute inset-0 pointer-events-none" />
+    <div className="absolute left-1/2 top-1/3 h-80 w-[38rem] -translate-x-1/2 rounded-full bg-purple-600/10 blur-[130px] pointer-events-none" />
+    <div className="relative z-10">
+      <motion.div {...fadeUp} className="max-w-4xl mx-auto px-6 text-center mb-16">
+        <p className="font-mono text-xs tracking-[0.24em] uppercase text-purple-400/80 mb-5">Connected Context</p>
+        <h2 className="font-display text-3xl md:text-[50px] leading-[1.08] text-[#fafafa]">
+          Agents connect to the tools your business runs on.
+        </h2>
+        <p className="text-white/50 text-lg mt-6 max-w-3xl mx-auto leading-relaxed">
+          CRM, project management, email, files, payments, and reporting feed the same context layer — giving every agent the information it needs to work across your business.
+        </p>
+      </motion.div>
+
+      <motion.div {...fadeUp} className="integration-source-window space-y-4 md:space-y-5">
+        {integrationRows.map((row, rowIndex) => {
+          const repeated = [...row, ...row];
+          return (
+            <div key={rowIndex} className={`integration-source-row integration-source-row-${rowIndex + 1}`}>
+              <div className="integration-source-track">
+                {repeated.map((source, sourceIndex) => (
+                  <div key={`${source.name}-${sourceIndex}`} className="integration-source-card">
+                    <span className="integration-source-icon">
+                      <span
+                        className="integration-source-logo"
+                        style={{ '--integration-logo': `url("${source.icon}")`, '--integration-color': source.color }}
+                        aria-hidden="true"
+                      />
+                    </span>
+                    <span>{source.name}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          );
+        })}
+      </motion.div>
+
+      <motion.p {...fadeUp} className="mt-14 px-6 text-center font-mono text-xs tracking-[0.14em] uppercase text-white/30">
+        Live context across your stack. No stale exports. No copy-paste handoffs.
+      </motion.p>
+    </div>
+  </section>
+);
+
 const ManorSection = () => (
   <section className="bg-black py-24 md:py-32 border-t border-white/5 overflow-hidden">
     <div className="max-w-7xl mx-auto px-6">
@@ -24,11 +97,11 @@ const ManorSection = () => (
         <div className="absolute -top-40 -left-28 h-80 w-80 rounded-full bg-purple-600/20 blur-[110px] pointer-events-none" />
         <div className="absolute -bottom-48 right-0 h-96 w-96 rounded-full bg-violet-600/10 blur-[130px] pointer-events-none" />
         <div className="relative z-10 p-7 sm:p-10 lg:p-12">
-          <div className="max-w-4xl mb-10 md:mb-14">
-            <p className="section-label mb-6">04 / Our Product</p>
+          <div className="w-full mb-10 md:mb-14">
+            <p className="section-label mb-6">05 / Our Product</p>
             <img src="/logo-website.png" alt="Manor logo" loading="lazy" className="h-20 w-28 object-cover object-center mb-8" />
-            <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] max-w-xl">Meet Manor. Your Agentic Platform for knowledge work.</h2>
-            <p className="text-white/55 text-lg mt-6 max-w-xl leading-relaxed">Manor gives service businesses a place to collaborate with a team of specialized AI agents across disciplines.</p>
+            <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] max-w-5xl">Meet Manor. Your Agentic Platform for knowledge work.</h2>
+            <p className="text-white/55 text-lg mt-6 max-w-5xl leading-relaxed">Manor gives service businesses a place to collaborate with a team of specialized AI agents across disciplines.</p>
             <a href="https://manor.pentridgemedia.com" target="_blank" rel="noopener noreferrer" className="btn-primary inline-flex items-center gap-3 mt-9" aria-label="Visit the Manor website">Learn More <ArrowRight size={15} /></a>
           </div>
           <a href="https://manor.pentridgemedia.com" target="_blank" rel="noopener noreferrer" className="group block" aria-label="Open Manor">
@@ -44,12 +117,51 @@ const ManorSection = () => (
 const ProblemSection = () => { const problems=['CRM, project management, and marketing data locked in separate tools','Manual intake, follow-up, and data entry between disconnected systems','AI experiments without access to real company context','No visibility into what AI is doing for the business']; return <section className="bg-black py-24 md:py-32"><div className="max-w-7xl mx-auto px-6"><motion.div {...fadeUp} className="mb-16"><p className="section-label mb-4">05 / The Problem</p><h2 className="font-display text-3xl md:text-[43px] text-[#fafafa] max-w-3xl">Your business data is scattered. That makes automation harder to use.</h2></motion.div><div className="grid grid-cols-1 md:grid-cols-2 gap-6">{problems.map(problem=><motion.div key={problem} {...stagger} className="glass-card rounded-xl p-8"><p className="font-mono text-xs tracking-[0.15em] uppercase text-red-400/70 mb-3">The blocker</p><p className="text-white/75 text-sm leading-relaxed">{problem}</p></motion.div>)}</div></div></section>; };
 const WhyWorkSection = () => <section className="bg-black py-24 md:py-32"><div className="max-w-7xl mx-auto px-6"><motion.div {...fadeUp} className="mb-16"><p className="section-label mb-4">06 / Why Work With Us</p><h2 className="font-display text-3xl md:text-[43px] text-[#fafafa] max-w-3xl">Replace scattered manual work with systems your team can see and use.</h2></motion.div><div className="grid grid-cols-1 md:grid-cols-3 gap-6">{[['Before','Copy-pasting context into ChatGPT one task at a time'],['With Pentridge','Workflows connected to company context'],['With Pentridge','Intake and follow-up organized from first contact to booked work']].map(([label,text],i)=><motion.div key={`${label}-${i}`} {...stagger} className="glass-card rounded-xl p-8"><p className={`font-mono text-xs tracking-[0.15em] uppercase mb-3 ${label==='Before'?'text-red-400/70':'text-purple-400'}`}>{label}</p><p className="text-white/70 text-sm leading-relaxed">{text}</p></motion.div>)}</div></div></section>;
 const ComparisonSection = () => <section className="bg-black py-24 md:py-32"><div className="max-w-3xl mx-auto px-6"><motion.div {...fadeUp} className="mb-16 text-center"><p className="section-label mb-4">07 / Why Partner?</p><h2 className="font-display text-3xl md:text-[43px] text-[#fafafa]">Not all AI partners are equal.</h2></motion.div><motion.div {...fadeUp} className="overflow-x-auto"><table className="w-full"><thead><tr className="border-b border-white/10"><th className="text-left py-4 pr-4 font-mono text-xs uppercase text-white/40"></th><th className="py-4 px-8 font-mono text-xs uppercase text-white/40">Agencies</th><th className="py-4 px-8 font-mono text-xs uppercase text-purple-400">Pentridge</th></tr></thead><tbody>{['Operations audit before deploying anything','Data pipeline and Agent Workspace','Live visibility into what agents are doing','Business outcome and ROI focus','Long-term operating partner'].map(row=><tr key={row} className="border-b border-white/5"><td className="py-4 pr-4 text-sm text-white/60">{row}</td><td className="py-4 px-8 text-center"><XIcon size={16} className="text-white/20 mx-auto"/></td><td className="py-4 px-8 text-center"><Check size={16} className="text-purple-400 mx-auto"/></td></tr>)}</tbody></table></motion.div></div></section>;
-const PentridgeMCPSection = () => <section className="bg-black py-24 md:py-32 border-t border-white/5"><div className="max-w-7xl mx-auto px-6"><motion.div {...fadeUp} className="mb-16 text-center"><p className="section-label mb-4">08 / Pentridge MCP</p><h2 className="font-display text-3xl md:text-[43px] text-[#fafafa] max-w-3xl mx-auto">One MCP layer. Any agentic platform.</h2><p className="text-white/50 text-lg mt-6 max-w-2xl mx-auto">Connect company context to the platforms your agents use, with updates flowing back into the workspace.</p></motion.div><motion.div {...fadeUp} className="flex justify-center"><img src="/pentridge-mcp-hub.jpg" alt="Pentridge MCP hub diagram" loading="lazy" className="w-full max-w-4xl rounded-2xl"/></motion.div></div></section>;
-const ProcessSection = () => <section className="bg-black py-24 md:py-32 border-t border-white/5"><div className="max-w-7xl mx-auto px-6"><motion.div {...fadeUp} className="mb-16"><p className="section-label mb-4">09 / Process</p><h2 className="font-display text-3xl md:text-[43px] text-[#fafafa] max-w-3xl">Audit, centralize, deploy, and keep improving.</h2></motion.div><motion.div {...fadeUp} className="overflow-hidden bg-black"><iframe src="/assembly-line.bundle-2.html?v=contained-fit-2" width="100%" style={{border:0,aspectRatio:'16 / 8.5'}} loading="lazy" title="Our process" className="block w-full bg-black"/></motion.div></div></section>;
-const FAQSection = () => { const [openIndex,setOpenIndex]=useState(null); const faqs=[['What does Pentridge actually do?','We get your company AI-ready, then deploy agents into marketing and operations.'],['What is the Agent Workspace?','It is a shared place for company data, documents, workflows, and activity.'],['What is Pentridge MCP?','It connects company context to the agent platforms your team uses.'],['What does pricing look like?','We scope pricing after understanding the business, systems, and first workflows.'],['How long does a typical deployment take?','Focused automations can launch within weeks. Larger builds depend on access and integrations.'],['What happens after agents are deployed?','We can stay involved to monitor, improve, and expand the work.']]; return <section className="bg-black py-24 md:py-32"><div className="max-w-3xl mx-auto px-6"><motion.div {...fadeUp} className="mb-16"><p className="section-label mb-4">10 / FAQ</p><h2 className="font-display text-3xl md:text-[43px] text-[#fafafa]">Questions? We have answers.</h2></motion.div>{faqs.map(([q,a],i)=><div key={q} className="faq-item"><button onClick={()=>setOpenIndex(openIndex===i?null:i)} className="w-full flex items-center justify-between py-6 text-left"><span className="text-white/80">{q}</span>{openIndex===i?<Minus size={18} className="text-purple-400"/>:<Plus size={18} className="text-white/30"/>}</button>{openIndex===i&&<p className="text-white/50 text-sm leading-relaxed pb-6">{a}</p>}</div>)}</div></section>; };
+const mcpPlatforms = [
+  { name: 'Claude Code', logo: '/logos/claudecode.svg' },
+  { name: 'Codex', logo: '/logos/codex-blue.png' },
+  { name: 'Cursor', logo: '/logos/cursor.svg' },
+  { name: 'Hermes', logo: '/logos/hermes.png', rounded: true },
+  { name: 'OpenClaw', logo: '/logos/openclaw.svg' },
+  { name: 'Manor', logo: '/logo-website.png', manor: true },
+];
+
+const PentridgeMCPSection = () => (
+  <section className="bg-black py-24 md:py-32 border-t border-white/5">
+    <div className="max-w-7xl mx-auto px-6">
+      <motion.div {...fadeUp} className="mb-16 text-center">
+        <p className="section-label mb-4">04 / Pentridge MCP</p>
+        <h2 className="font-display text-3xl md:text-[43px] text-[#fafafa] max-w-3xl mx-auto">One MCP layer. Any agentic platform.</h2>
+        <p className="text-white/50 text-lg mt-6 max-w-2xl mx-auto">Connect company context to the platforms your agents use, with updates flowing back into the workspace.</p>
+      </motion.div>
+      <motion.div {...fadeUp} className="flex justify-center">
+        <img src="/pentridge-mcp-hub.jpg" alt="Pentridge MCP hub diagram" loading="lazy" className="w-full max-w-4xl rounded-2xl" />
+      </motion.div>
+      <motion.div {...fadeUp} className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 mt-16 max-w-6xl mx-auto">
+        {mcpPlatforms.map((platform) => (
+          <div key={platform.name} className="group flex flex-col items-center justify-center rounded-2xl border border-white/10 bg-white/[0.025] px-4 py-7 text-center transition-all duration-300 hover:border-purple-400/35 hover:bg-purple-500/[0.06]">
+            <div className="h-14 flex items-center justify-center mb-4">
+              <img
+                src={platform.logo}
+                alt={`${platform.name} logo`}
+                className={`${platform.manor ? 'h-14 w-20 object-cover' : 'h-11 w-11 object-contain'} ${platform.rounded ? 'rounded-xl' : ''}`}
+              />
+            </div>
+            <h3 className="text-white/80 font-medium text-sm group-hover:text-white transition-colors">{platform.name}</h3>
+          </div>
+        ))}
+      </motion.div>
+      <motion.p {...fadeUp} className="text-center font-mono text-xs tracking-[0.18em] uppercase text-white/30 mt-12">
+        + any MCP-compatible platform or personal agent
+      </motion.p>
+    </div>
+  </section>
+);
+const ProcessSection = () => <section className="bg-black py-24 md:py-32 border-t border-white/5"><div className="max-w-7xl mx-auto px-6"><motion.div {...fadeUp} className="mb-16"><p className="section-label mb-4">06 / Process</p><h2 className="font-display text-3xl md:text-[43px] text-[#fafafa] max-w-3xl">Audit, centralize, deploy, and keep improving.</h2></motion.div><motion.div {...fadeUp} className="overflow-hidden bg-black"><iframe src="/assembly-line.bundle-2.html?v=contained-fit-2" width="100%" style={{border:0,aspectRatio:'16 / 8.5'}} loading="lazy" title="Our process" className="block w-full bg-black"/></motion.div></div></section>;
+const FAQSection = () => { const [openIndex,setOpenIndex]=useState(null); const faqs=[['What does Pentridge actually do?','We get your company AI-ready, then deploy agents into marketing and operations.'],['What is the Agent Workspace?','It is a shared place for company data, documents, workflows, and activity.'],['What is Pentridge MCP?','It connects company context to the agent platforms your team uses.'],['What does pricing look like?','We scope pricing after understanding the business, systems, and first workflows.'],['How long does a typical deployment take?','Focused automations can launch within weeks. Larger builds depend on access and integrations.'],['What happens after agents are deployed?','We can stay involved to monitor, improve, and expand the work.']]; return <section className="bg-black py-24 md:py-32"><div className="max-w-3xl mx-auto px-6"><motion.div {...fadeUp} className="mb-16"><p className="section-label mb-4">07 / FAQ</p><h2 className="font-display text-3xl md:text-[43px] text-[#fafafa]">Questions? We have answers.</h2></motion.div>{faqs.map(([q,a],i)=><div key={q} className="faq-item"><button onClick={()=>setOpenIndex(openIndex===i?null:i)} className="w-full flex items-center justify-between py-6 text-left"><span className="text-white/80">{q}</span>{openIndex===i?<Minus size={18} className="text-purple-400"/>:<Plus size={18} className="text-white/30"/>}</button>{openIndex===i&&<p className="text-white/50 text-sm leading-relaxed pb-6">{a}</p>}</div>)}</div></section>; };
 const ParallaxGlow = ({ className = '' }) => { const ref = useRef(null); const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] }); const y = useTransform(scrollYProgress, [0, 1], [-90, 90]); return <div ref={ref} className={`absolute pointer-events-none ${className}`}><motion.div style={{ y }} className="w-72 h-72 rounded-full bg-purple-600/20 blur-[110px]" /></div>; };
 const SiteParallax = () => { const { scrollYProgress } = useScroll(); const yLeft = useTransform(scrollYProgress, [0, 1], [-160, 280]); const yRight = useTransform(scrollYProgress, [0, 1], [220, -180]); return <div className="fixed inset-0 overflow-hidden pointer-events-none z-0"><motion.div style={{ y: yLeft }} className="absolute top-[12vh] left-[4vw] w-96 h-96 rounded-full bg-purple-600/10 blur-[130px]"/><motion.div style={{ y: yRight }} className="absolute top-[48vh] right-[2vw] w-[28rem] h-[28rem] rounded-full bg-pink-600/10 blur-[140px]"/></div>; };
-const TestimonialsSection = () => { const testimonials=[['Blake McWilliams','Keller Williams','A true expert in the field. Aki understands AI and brings actionable insight.'],['Pedro Rodriguez','Blue Proma Digital','Aki is exceptional in his field. His communication and workflow expertise made the work better.'],['White Law PLLC','','Aki was an excellent asset in the development of our tech stack and we would highly recommend him in the future.'],['LogoSeed','','Amazing and solution-driven. Will definitely work with again.']]; return <section className="bg-black py-24 md:py-32 relative overflow-hidden"><ParallaxGlow className="-top-20 -right-24"/><ParallaxGlow className="bottom-0 -left-24"/><div className="max-w-7xl mx-auto px-6 relative z-10"><motion.div {...fadeUp} className="mb-16"><p className="section-label mb-4">11 / What They Say</p><h2 className="font-display text-3xl md:text-[43px] text-[#fafafa]">Don't take our word for it.</h2></motion.div><div className="grid grid-cols-1 md:grid-cols-2 gap-8">{testimonials.map(([name,company,quote],i)=><motion.div key={name} {...stagger} transition={{duration:.5,delay:i*.08}} className="glass-card rounded-2xl p-10 relative overflow-hidden"><div className="absolute -top-12 -right-8 text-purple-500/10 font-display text-[160px] leading-none pointer-events-none">“</div><span className="text-purple-400 text-4xl leading-none relative">“</span><p className="text-white/70 leading-relaxed mt-2 relative">{quote}</p><div className="mt-8 pt-6 border-t border-white/10 relative"><p className="text-white/90 text-sm">{name}</p>{company&&<p className="font-mono text-xs text-purple-400/70 mt-1">{company}</p>}</div></motion.div>)}</div></div></section>; };
-const CTASection = () => <section className="bg-black py-24 md:py-32"><div className="max-w-4xl mx-auto px-6 text-center"><motion.div {...fadeUp}><p className="section-label mb-6">12 / Let's Go</p><h2 className="font-display text-3xl md:text-5xl text-[#fafafa]">AI agents in your operations, <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">live in weeks.</span></h2><p className="text-white/50 text-lg mt-6 max-w-2xl mx-auto">We embed with your team, connect your business data, and deploy agents across marketing, intake, and internal operations.</p><a href="https://cal.com/akinyemi-bajulaiye-2jua88/30min" target="_blank" rel="noopener noreferrer" className="btn-primary inline-flex mt-8 min-h-[64px] px-12 items-center justify-center">Book A Call</a><NewsletterSignup /></motion.div></div></section>;
-const Index = () => { const metaConfig=getMetaConfig('home'); useEffect(()=>{if(window.location.hash==='#what-we-do') setTimeout(()=>document.getElementById('what-we-do')?.scrollIntoView({behavior:'smooth'}),100);},[]); return <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} transition={{duration:.5}} className="bg-black min-h-screen relative isolate"><SiteParallax/><MetaTags {...metaConfig}/><PageSchemaMarkup pageType="home"/><Navbar/><HeroSection/><TwoWaysSection/><TrustedBySection/><OurWork/><InfrastructureSection/><ManorSection/><ProblemSection/><WhyWorkSection/><ComparisonSection/><PentridgeMCPSection/><ProcessSection/><FAQSection/><TestimonialsSection/><CTASection/></motion.div>; };
+const TestimonialsSection = () => { const testimonials=[['Blake McWilliams','Keller Williams','A true expert in the field. Aki understands AI and brings actionable insight.'],['Pedro Rodriguez','Blue Proma Digital','Aki is exceptional in his field. His communication and workflow expertise made the work better.'],['White Law PLLC','','Aki was an excellent asset in the development of our tech stack and we would highly recommend him in the future.'],['LogoSeed','','Amazing and solution-driven. Will definitely work with again.']]; return <section className="bg-black py-24 md:py-32 relative overflow-hidden"><ParallaxGlow className="-top-20 -right-24"/><ParallaxGlow className="bottom-0 -left-24"/><div className="max-w-7xl mx-auto px-6 relative z-10"><motion.div {...fadeUp} className="mb-16"><p className="section-label mb-4">08 / What They Say</p><h2 className="font-display text-3xl md:text-[43px] text-[#fafafa]">Don't take our word for it.</h2></motion.div><div className="grid grid-cols-1 md:grid-cols-2 gap-8">{testimonials.map(([name,company,quote],i)=><motion.div key={name} {...stagger} transition={{duration:.5,delay:i*.08}} className="glass-card rounded-2xl p-10 relative overflow-hidden"><div className="absolute -top-12 -right-8 text-purple-500/10 font-display text-[160px] leading-none pointer-events-none">“</div><span className="text-purple-400 text-4xl leading-none relative">“</span><p className="text-white/70 leading-relaxed mt-2 relative">{quote}</p><div className="mt-8 pt-6 border-t border-white/10 relative"><p className="text-white/90 text-sm">{name}</p>{company&&<p className="font-mono text-xs text-purple-400/70 mt-1">{company}</p>}</div></motion.div>)}</div></div></section>; };
+const CTASection = () => <section className="bg-black py-24 md:py-32"><div className="max-w-4xl mx-auto px-6 text-center"><motion.div {...fadeUp}><p className="section-label mb-6">09 / Let's Go</p><h2 className="font-display text-3xl md:text-5xl text-[#fafafa]">AI agents in your operations, <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">live in weeks.</span></h2><p className="text-white/50 text-lg mt-6 max-w-2xl mx-auto">We embed with your team, connect your business data, and deploy agents across marketing, intake, and internal operations.</p><a href="https://cal.com/akinyemi-bajulaiye-2jua88/30min" target="_blank" rel="noopener noreferrer" className="btn-primary inline-flex mt-8 min-h-[64px] px-12 items-center justify-center">Book A Call</a><NewsletterSignup /></motion.div></div></section>;
+const Index = () => { const metaConfig=getMetaConfig('home'); useEffect(()=>{if(window.location.hash==='#what-we-do') setTimeout(()=>document.getElementById('what-we-do')?.scrollIntoView({behavior:'smooth'}),100);},[]); return <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} transition={{duration:.5}} className="bg-black min-h-screen relative isolate"><SiteParallax/><MetaTags {...metaConfig}/><PageSchemaMarkup pageType="home"/><Navbar/><HeroSection/><TwoWaysSection/><TrustedBySection/><OurWork/><InfrastructureSection/><IntegrationSources/><PentridgeMCPSection/><ManorSection/><ProcessSection/><FAQSection/><TestimonialsSection/><CTASection/></motion.div>; };
 export default Index;

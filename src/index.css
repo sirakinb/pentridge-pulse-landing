@@ -155,6 +155,130 @@
   animation: scroll 25s linear infinite;
 }
 
+/* Connected tools showcase */
+@keyframes integration-source-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.integration-source-grid {
+  opacity: 0.34;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 74px 74px;
+  mask-image: linear-gradient(to bottom, transparent, black 18%, black 82%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 18%, black 82%, transparent);
+}
+
+.integration-source-window {
+  width: 100%;
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, black 9%, black 91%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 9%, black 91%, transparent);
+}
+
+.integration-source-row {
+  width: 100%;
+  overflow: hidden;
+}
+
+.integration-source-track {
+  display: flex;
+  width: max-content;
+  gap: 16px;
+  padding-right: 16px;
+  animation: integration-source-scroll 38s linear infinite;
+  will-change: transform;
+}
+
+.integration-source-row-2 .integration-source-track {
+  animation-direction: reverse;
+  animation-duration: 44s;
+}
+
+.integration-source-row-3 .integration-source-track {
+  animation-duration: 41s;
+}
+
+.integration-source-row:hover .integration-source-track {
+  animation-play-state: paused;
+}
+
+.integration-source-card {
+  display: flex;
+  width: 220px;
+  min-height: 76px;
+  flex: 0 0 220px;
+  align-items: center;
+  gap: 13px;
+  padding: 14px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(20, 17, 28, 0.92), rgba(8, 8, 10, 0.9));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 12px 35px rgba(0, 0, 0, 0.22);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  font-weight: 500;
+  transition: transform 220ms ease, border-color 220ms ease, background 220ms ease, color 220ms ease;
+}
+
+.integration-source-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(168, 85, 247, 0.45);
+  background: linear-gradient(135deg, rgba(71, 35, 111, 0.35), rgba(15, 12, 22, 0.96));
+  color: rgba(255, 255, 255, 0.96);
+}
+
+.integration-source-icon {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.055);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.integration-source-logo {
+  width: 24px;
+  height: 24px;
+  background: var(--integration-color);
+  mask: var(--integration-logo) center / contain no-repeat;
+  -webkit-mask: var(--integration-logo) center / contain no-repeat;
+}
+
+@media (max-width: 640px) {
+  .integration-source-grid {
+    background-size: 48px 48px;
+  }
+
+  .integration-source-window {
+    mask-image: linear-gradient(90deg, transparent, black 4%, black 96%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent, black 4%, black 96%, transparent);
+  }
+
+  .integration-source-card {
+    width: 184px;
+    min-height: 68px;
+    flex-basis: 184px;
+    padding: 12px 14px;
+    font-size: 13px;
+  }
+
+  .integration-source-icon {
+    width: 36px;
+    height: 36px;
+    flex-basis: 36px;
+  }
+}
+
 /* FAQ accordion */
 .faq-item {
   @apply border-b border-white/10;
@@ -759,6 +883,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .integration-source-track,
   .wall-love-track,
   .wall-love-hint span,
   .wall-love-modal-card {

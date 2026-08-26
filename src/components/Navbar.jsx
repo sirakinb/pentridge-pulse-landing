@@ -4,7 +4,6 @@ import { Menu, X } from 'lucide-react';
 import { scrollToTop } from '../utils/scrollToTop';
 
 const navLinks = [
-  { label: 'Products', to: '/labs' },
   { label: 'Content House', to: '/content-house' },
   { label: 'Resources', to: '/resources' },
   { label: 'About', to: '/about' },
@@ -16,7 +15,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const updateTestimonialNames = () => {
-      const label = Array.from(document.querySelectorAll('p')).find((element) => element.textContent?.trim() === '10 / What They Say');
+      const label = Array.from(document.querySelectorAll('p')).find((element) => element.textContent?.trim() === '08 / What They Say');
       const section = label?.closest('section');
       const cards = section?.querySelectorAll('.glass-card');
       const update = (card, name, company) => {

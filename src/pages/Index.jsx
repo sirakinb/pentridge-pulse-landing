@@ -105,7 +105,9 @@ const ManorSection = () => (
               <img src="/Manor.png" alt="Manor AI agent workspace showing agent conversations, tools, and live task activity" loading="lazy" className="w-full rounded-xl object-cover" />
             </div>
           </a>
-          <a href="https://manor.pentridgemedia.com" target="_blank" rel="noopener noreferrer" className="btn-primary inline-flex items-center gap-3 mt-9" aria-label="Visit the Manor website">Learn More <ArrowRight size={15} /></a>
+          <div className="mt-9 flex justify-center">
+            <a href="https://manor.pentridgemedia.com" target="_blank" rel="noopener noreferrer" className="btn-primary inline-flex items-center gap-3" aria-label="Visit the Manor website">Learn More <ArrowRight size={15} /></a>
+          </div>
         </div>
       </motion.div>
     </div>
@@ -115,6 +117,7 @@ const ProblemSection = () => { const problems=['CRM, project management, and mar
 const WhyWorkSection = () => <section className="bg-black py-24 md:py-32"><div className="max-w-7xl mx-auto px-6"><motion.div {...fadeUp} className="mb-16"><p className="section-label mb-4">06 / Why Work With Us</p><h2 className="font-display text-3xl md:text-[43px] text-[#fafafa] max-w-3xl">Replace scattered manual work with systems your team can see and use.</h2></motion.div><div className="grid grid-cols-1 md:grid-cols-3 gap-6">{[['Before','Copy-pasting context into ChatGPT one task at a time'],['With Pentridge','Workflows connected to company context'],['With Pentridge','Intake and follow-up organized from first contact to booked work']].map(([label,text],i)=><motion.div key={`${label}-${i}`} {...stagger} className="glass-card rounded-xl p-8"><p className={`font-mono text-xs tracking-[0.15em] uppercase mb-3 ${label==='Before'?'text-red-400/70':'text-purple-400'}`}>{label}</p><p className="text-white/70 text-sm leading-relaxed">{text}</p></motion.div>)}</div></div></section>;
 const ComparisonSection = () => <section className="bg-black py-24 md:py-32"><div className="max-w-3xl mx-auto px-6"><motion.div {...fadeUp} className="mb-16 text-center"><p className="section-label mb-4">07 / Why Partner?</p><h2 className="font-display text-3xl md:text-[43px] text-[#fafafa]">Not all AI partners are equal.</h2></motion.div><motion.div {...fadeUp} className="overflow-x-auto"><table className="w-full"><thead><tr className="border-b border-white/10"><th className="text-left py-4 pr-4 font-mono text-xs uppercase text-white/40"></th><th className="py-4 px-8 font-mono text-xs uppercase text-white/40">Agencies</th><th className="py-4 px-8 font-mono text-xs uppercase text-purple-400">Pentridge</th></tr></thead><tbody>{['Operations audit before deploying anything','Data pipeline and Agent Workspace','Live visibility into what agents are doing','Business outcome and ROI focus','Long-term operating partner'].map(row=><tr key={row} className="border-b border-white/5"><td className="py-4 pr-4 text-sm text-white/60">{row}</td><td className="py-4 px-8 text-center"><XIcon size={16} className="text-white/20 mx-auto"/></td><td className="py-4 px-8 text-center"><Check size={16} className="text-purple-400 mx-auto"/></td></tr>)}</tbody></table></motion.div></div></section>;
 const mcpPlatforms = [
+  { name: 'Grok Bot', logo: '/logos/grokbot.svg' },
   { name: 'Claude Code', logo: '/logos/claudecode.svg' },
   { name: 'Codex', logo: '/logos/codex-blue.png' },
   { name: 'Cursor', logo: '/logos/cursor.svg' },
@@ -134,9 +137,9 @@ const PentridgeMCPSection = () => (
       <motion.div {...fadeUp} className="flex justify-center">
         <img src="/pentridge-mcp-hub.jpg" alt="Pentridge MCP hub diagram" loading="lazy" className="w-full max-w-4xl rounded-2xl" />
       </motion.div>
-      <motion.div {...fadeUp} className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 mt-16 max-w-6xl mx-auto">
+      <motion.div {...fadeUp} className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-x-6 gap-y-10 mt-16 max-w-7xl mx-auto">
         {mcpPlatforms.map((platform) => (
-          <div key={platform.name} className="group flex flex-col items-center justify-center rounded-2xl border border-white/10 bg-white/[0.025] px-4 py-7 text-center transition-all duration-300 hover:border-purple-400/35 hover:bg-purple-500/[0.06]">
+          <div key={platform.name} className="group flex flex-col items-center justify-center px-4 py-5 text-center transition-transform duration-300 hover:-translate-y-1">
             <div className="h-14 flex items-center justify-center mb-4">
               <img
                 src={platform.logo}
@@ -149,7 +152,7 @@ const PentridgeMCPSection = () => (
         ))}
       </motion.div>
       <motion.p {...fadeUp} className="text-center font-mono text-xs tracking-[0.18em] uppercase text-white/30 mt-12">
-        + any MCP-compatible platform or personal agent
+        + any MCP-compatible agentic platform or personal agent
       </motion.p>
     </div>
   </section>

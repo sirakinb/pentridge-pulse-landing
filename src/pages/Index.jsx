@@ -23,13 +23,13 @@ const ManorSection = () => (
       <motion.div {...fadeUp} className="relative overflow-hidden rounded-3xl border border-purple-500/20 bg-[#09080c]">
         <div className="absolute -top-40 -left-28 h-80 w-80 rounded-full bg-purple-600/20 blur-[110px] pointer-events-none" />
         <div className="absolute -bottom-48 right-0 h-96 w-96 rounded-full bg-violet-600/10 blur-[130px] pointer-events-none" />
-        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-[0.82fr_1.18fr] gap-10 lg:gap-14 items-center p-7 sm:p-10 md:p-14">
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-[0.62fr_1.38fr] gap-10 lg:gap-12 items-center p-7 sm:p-10 lg:p-12">
           <div>
             <p className="section-label mb-6">04 / Our Product</p>
-            <img src="/logo-website.png" alt="Manor logo" loading="lazy" className="h-20 w-28 object-cover object-center rounded-xl border border-white/10 mb-8" />
-            <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] max-w-xl">Meet Manor. Your command center for AI agents.</h2>
-            <p className="text-white/55 text-lg mt-6 max-w-xl leading-relaxed">Bring your agents, conversations, and connected business tools into one focused workspace. See what every agent is doing, give new instructions, and keep your AI operations moving from one place.</p>
-            <a href="https://manor.pentridgemedia.com" target="_blank" rel="noopener noreferrer" className="btn-primary inline-flex items-center gap-3 mt-9" aria-label="Visit the Manor website">Explore Manor <ArrowRight size={15} /></a>
+            <img src="/logo-website.png" alt="Manor logo" loading="lazy" className="h-20 w-28 object-cover object-center mb-8" />
+            <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] max-w-xl">Meet Manor. An agentic platform for knowledge work.</h2>
+            <p className="text-white/55 text-lg mt-6 max-w-xl leading-relaxed">Manor gives knowledge workers a place to collaborate with specialized AI agents across research, analysis, communication, and execution.</p>
+            <a href="https://manor.pentridgemedia.com" target="_blank" rel="noopener noreferrer" className="btn-primary inline-flex items-center gap-3 mt-9" aria-label="Visit the Manor website">Learn More <ArrowRight size={15} /></a>
           </div>
           <a href="https://manor.pentridgemedia.com" target="_blank" rel="noopener noreferrer" className="group block" aria-label="Open Manor">
             <div className="rounded-2xl border border-white/10 bg-black/40 p-2 sm:p-3 shadow-[0_30px_100px_rgba(88,28,135,0.24)] transition-all duration-500 group-hover:border-purple-400/35 group-hover:-translate-y-1">

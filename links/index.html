@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Pentridge Links</title>
+<meta name="description" content="Automation Hour, the checklist, and everything else from Pentridge in one place." />
+<meta property="og:title" content="Pentridge Links" />
+<meta property="og:description" content="Grab the Zoom link for Automation Hour, then everything else." />
+<meta property="og:type" content="website" />
+<meta name="theme-color" content="#000000" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
+<style>
+  @font-face{
+    font-family:"Geist Pixel Grid";
+    src:url("https://framerusercontent.com/assets/YaojHCyVaDBwfMKRVDPYlrmjG88.woff2") format("woff2");
+    font-display:swap;font-style:normal;font-weight:400;
+  }
+  :root{
+    --bg:#000;
+    --muted:rgba(255,255,255,.62); --muted2:rgba(255,255,255,.42); --ink:#fafafa;
+    --purple:#a855f7; --pink:#ec4899; --purple6:#9333ea; --pink6:#db2777;
+    --fill:rgba(255,255,255,.045); --fill-hover:rgba(168,85,247,.14);
+    --line:rgba(255,255,255,.1);
+    --radius:1.15rem;
+    --font-body:'Geist','Geist Variable',system-ui,-apple-system,sans-serif;
+    --font-mono:'Geist Mono',monospace;
+    --font-display:'Geist Pixel Grid',sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg);color:var(--ink);min-height:100vh;font-family:var(--font-body);
+    line-height:1.55;-webkit-font-smoothing:antialiased;
+    background-image:radial-gradient(820px 480px at 50% -8%, rgba(168,85,247,.2), transparent 58%);
+    background-attachment:fixed;
+  }
+  ::-webkit-scrollbar{width:6px}
+  ::-webkit-scrollbar-track{background:#0a0a0a}
+  ::-webkit-scrollbar-thumb{background:rgba(168,85,247,.3);border-radius:3px}
+  svg{display:block}
+  button,input{font-family:inherit}
+
+  .wrap{max-width:440px;margin:0 auto;padding:48px 20px 88px}
+
+  .avatar{
+    width:92px;height:92px;border-radius:50%;margin:0 auto 18px;
+    padding:3px;background:linear-gradient(135deg,var(--purple),var(--pink));
+    box-shadow:0 0 36px rgba(168,85,247,.28);
+  }
+  .avatar-inner{width:100%;height:100%;border-radius:50%;overflow:hidden;background:#0a0a0a}
+  .avatar-inner img{width:100%;height:100%;object-fit:cover;display:block}
+
+  .name{font-family:var(--font-display);letter-spacing:-.04em;font-weight:400;font-size:clamp(28px,8vw,40px);margin:0;line-height:1;text-align:center}
+  .handle{margin-top:10px;text-align:center;font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;color:var(--muted)}
+  .bio{margin:16px auto 0;max-width:34em;text-align:center;font-size:14.5px;color:var(--muted);line-height:1.55}
+
+  .socials{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin:22px 0 0}
+  .social{
+    width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;
+    background:var(--fill);color:var(--ink);text-decoration:none;
+    transition:background .16s,transform .1s,color .16s;
+  }
+  .social:hover{background:var(--fill-hover);color:#fff}
+  .social:active{transform:translateY(1px)}
+  .social svg{width:20px;height:20px;fill:currentColor}
+  .social svg[fill="none"]{fill:none;stroke:currentColor}
+
+  .session{
+    margin-top:28px;text-align:left;background:rgba(255,255,255,.035);
+    border:1px solid var(--line);border-radius:22px;overflow:hidden;
+  }
+  .session-hero{
+    position:relative;height:168px;overflow:hidden;
+    background:
+      radial-gradient(120px 80px at 78% 30%, rgba(236,72,153,.28), transparent 70%),
+      radial-gradient(180px 120px at 18% 80%, rgba(168,85,247,.32), transparent 70%),
+      linear-gradient(180deg,#12061d 0%, #07040d 100%);
+  }
+  .session-ring{
+    position:absolute;inset:50% auto auto 50%;
+    width:210px;height:210px;margin:-105px 0 0 -105px;
+    opacity:.55;
+  }
+  .session-time{
+    position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    font-family:var(--font-display);font-size:64px;letter-spacing:-.06em;line-height:.9;color:#fff;
+    text-shadow:0 0 40px rgba(168,85,247,.45);
+  }
+  .session-tz{display:block;margin-top:8px;font-family:var(--font-mono);font-size:11px;letter-spacing:.28em;color:rgba(255,255,255,.55)}
+
+  .session-body{padding:20px 18px 18px}
+  .session-meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+  .pill{
+    display:inline-flex;align-items:center;gap:6px;
+    font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;
+    color:#e9d5ff;background:rgba(168,85,247,.16);border:1px solid rgba(168,85,247,.28);
+    border-radius:999px;padding:5px 9px;
+  }
+  .when{font-family:var(--font-mono);font-size:12px;color:var(--muted);letter-spacing:.01em}
+  .session h2{
+    margin:0;font-family:var(--font-display);font-size:clamp(28px,8vw,34px);
+    letter-spacing:-.04em;line-height:1;font-weight:400;
+  }
+  .session-blurb{margin:10px 0 0;font-size:14.5px;color:var(--muted);line-height:1.5}
+
+  .session-form{margin-top:16px;display:grid;gap:8px}
+  .session-form input{
+    width:100%;background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.12);
+    border-radius:10px;padding:12px 13px;color:#fff;font-size:15px;outline:none;
+    transition:border-color .16s,background .16s;
+  }
+  .session-form input::placeholder{color:rgba(255,255,255,.34)}
+  .session-form input:focus{border-color:rgba(168,85,247,.55);background:rgba(168,85,247,.08)}
+  .session-form button{
+    position:relative;isolation:isolate;overflow:hidden;
+    width:100%;margin-top:6px;padding:14px 16px;border:0;border-radius:12px;cursor:pointer;
+    color:#fff;font-family:var(--font-mono);font-weight:600;font-size:13px;
+    letter-spacing:.16em;text-transform:uppercase;
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    background:#07040d;
+    box-shadow:0 0 0 1px rgba(168,85,247,.35), 0 10px 28px rgba(168,85,247,.38), inset 0 1px 0 rgba(255,255,255,.12);
+    transition:transform .12s, box-shadow .2s, filter .2s;
+  }
+  .session-form button::before{
+    content:"";position:absolute;inset:-70%;z-index:0;pointer-events:none;
+    background:conic-gradient(from 180deg, transparent 55%, rgba(236,72,153,.7), rgba(168,85,247,.85), transparent 72%);
+    animation:btn-spin 3.8s linear infinite;
+  }
+  .session-form button::after{
+    content:"";position:absolute;inset:1px;z-index:0;border-radius:11px;pointer-events:none;
+    background:linear-gradient(180deg, rgba(168,85,247,.34), rgba(7,4,13,.94) 46%, #05030a);
+  }
+  .session-form button svg,
+  .session-form button span{position:relative;z-index:1}
+  .session-form button svg{width:16px;height:16px;flex:0 0 auto}
+  .session-form button:hover{
+    transform:translateY(-1px);
+    box-shadow:0 0 0 1px rgba(236,72,153,.35), 0 14px 36px rgba(168,85,247,.5);
+    filter:brightness(1.08);
+  }
+  .session-form button:active{transform:translateY(1px)}
+  .session-form button:disabled{opacity:.45;cursor:not-allowed;filter:none;box-shadow:none;animation:none}
+  .form-error{margin:12px 0 0;font-size:13px;color:#f9a8d4;text-align:center}
+  @keyframes btn-spin{to{transform:rotate(360deg)}}
+  .form-success{display:none;text-align:center;padding:10px 4px 4px;font-size:14px;color:#d8b4fe;font-weight:500}
+
+  .links{display:grid;gap:12px;margin-top:18px}
+  .link{
+    display:flex;align-items:center;gap:14px;text-decoration:none;cursor:pointer;
+    background:var(--fill);border-radius:var(--radius);padding:15px 16px;
+    transition:background .16s,transform .1s;
+  }
+  .link:hover{background:var(--fill-hover)}
+  .link:active{transform:translateY(1px)}
+  .link .ic{flex:0 0 auto;width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.06);color:#fff}
+  .link .ic svg{width:20px;height:20px}
+  .link .txt{flex:1;min-width:0}
+  .link .label{display:block;font-weight:600;font-size:15px;color:var(--ink)}
+  .link .sub{display:block;font-size:12.5px;color:var(--muted2);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .link .arrow{flex:0 0 auto;color:var(--muted2);transition:color .16s,transform .16s}
+  .link .arrow svg{width:18px;height:18px}
+  .link:hover .arrow{color:var(--purple);transform:translateX(2px)}
+
+  .oh-toast{
+    position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);
+    background:#141414;border:1px solid rgba(168,85,247,.35);border-radius:14px;
+    padding:14px 18px;max-width:320px;width:calc(100% - 40px);
+    box-shadow:0 8px 32px rgba(0,0,0,.6);
+    display:flex;align-items:flex-start;gap:12px;
+    opacity:0;transition:opacity .25s,transform .3s;pointer-events:none;z-index:999;
+  }
+  .oh-toast.show{opacity:1;transform:translateX(-50%) translateY(0);pointer-events:auto}
+  .oh-toast-icon{
+    flex:0 0 auto;width:32px;height:32px;border-radius:9px;
+    background:linear-gradient(135deg,rgba(168,85,247,.3),rgba(236,72,153,.2));
+    display:flex;align-items:center;justify-content:center;
+  }
+  .oh-toast-icon svg{width:16px;height:16px;stroke:#c084fc;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .oh-toast-title{font-weight:600;font-size:14px;color:#fff;margin:0 0 2px}
+  .oh-toast-msg{font-size:13px;color:var(--muted);margin:0;line-height:1.45}
+
+  @media (prefers-reduced-motion: reduce){
+    .link,.social,.session-form button,.oh-toast{transition:none}
+    .session-form button::before{animation:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="oh-toast" id="oh-toast">
+  <div class="oh-toast-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.8 19.8 0 0 1 1.63 3.4 2 2 0 0 1 3.62 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16z"/></svg></div>
+  <div>
+    <p class="oh-toast-title">You're registered</p>
+    <p class="oh-toast-msg">The Zoom link is on its way to your inbox.</p>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="avatar" id="avatar">
+    <div class="avatar-inner"><img id="avatar-img" alt="" /></div>
+  </div>
+  <h1 class="name" id="name"></h1>
+  <div class="handle" id="handle"></div>
+  <p class="bio" id="bio"></p>
+  <div class="socials" id="socials"></div>
+
+  <section class="session" aria-labelledby="session-title">
+    <div class="session-hero" aria-hidden="true">
+      <svg class="session-ring" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="1.2"/>
+        <circle cx="50" cy="50" r="42" fill="none" stroke="url(#ring)" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="70 194" transform="rotate(-90 50 50)"/>
+        <defs>
+          <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#a855f7"/>
+            <stop offset="100%" stop-color="#ec4899"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <div class="session-time"><span id="session-clock">7:00</span><span class="session-tz">ET</span></div>
+    </div>
+    <div class="session-body">
+      <div class="session-meta">
+        <span class="pill" id="session-badge">Free</span>
+        <span class="when" id="session-when"></span>
+      </div>
+      <h2 id="session-title"></h2>
+      <p class="session-blurb" id="session-blurb"></p>
+      <form class="session-form" id="session-form" novalidate>
+        <input type="text" id="ah-fname" name="firstName" placeholder="First name" autocomplete="given-name" required />
+        <input type="email" id="ah-email" name="email" placeholder="Email address" autocomplete="email" required />
+        <button type="submit" id="ah-submit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 10l4.55-2.27A1 1 0 0 1 21 8.62v6.76a1 1 0 0 1-1.45.89L15 14"/><rect x="3" y="6" width="12" height="12" rx="2"/></svg>
+          <span id="ah-submit-label">Get the Zoom link</span>
+        </button>
+        <p class="form-error" id="ah-error" hidden>Couldn't send that. Try again.</p>
+        <div class="form-success" id="ah-success">You're in. Check your email for the Zoom link.</div>
+      </form>
+    </div>
+  </section>
+
+  <div class="links" id="links"></div>
+</div>
+
+<script>
+var TRACK_URL = "https://uvf4r7ds.function2.insforge.app/link-click";
+var MANOR_SIGNUP_URL = "https://manor.pentridgemedia.com/v1/public/automation-hour";
+
+var PROFILE = {
+  name: "Akinyemi Bajulaiye",
+  handle: "@sirakinb",
+  bio: "I help operators make AI practical in their businesses, adding agents and systems that actually fit how the work gets done.",
+  avatar: "aki.png"
+};
+
+var SESSION = {
+  id: "automation-hour",
+  title: "Automation Hour",
+  clock: "7:00",
+  when: "Thursday, Oct 1 at 7:00 PM ET",
+  badge: "Free",
+  blurb: "Bring questions on AI, systems, automation, and apps. Let's discuss the tools available to you, workflows to support your operations, and practical implementation that moves the needle in your business.",
+  cta: "Get the Zoom link",
+  source: "automation-hour"
+};
+
+var SOCIALS = [
+  { id: "youtube",  icon: "youtube",  url: "https://youtube.com/@sirakinb" },
+  { id: "substack", icon: "substack", url: "https://sirakinb.substack.com" },
+  { id: "website",  icon: "globe",    url: "https://www.pentridgemedia.com" }
+];
+
+var LINKS = [
+  { id: "readiness-checklist", icon: "checklist", label: "Automation Readiness Checklist", sub: "Free 2-minute scorecard",
+    url: "https://checklist.pentridgemedia.com" },
+  { id: "manor-agents", icon: "users", label: "Deploy your team of always-on AI agents", sub: "Built around your operations",
+    url: "https://manor.pentridgemedia.com" }
+];
+
+var ICONS = {
+  substack:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3h16v3H4zM4 8h16v3H4zM4 13h16v8l-8-4-8 4z"/></svg>',
+  tiktok:   '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>',
+  youtube:  '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>',
+  instagram:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg>',
+  checklist:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="m9 14 2 2 4-4"/></svg>',
+  globe:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>',
+  users:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
+  article:  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h6M8 9h2"/></svg>',
+  arrow:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>'
+};
+
+function qp(n){ try { return new URLSearchParams(location.search).get(n) || null; } catch(e){ return null; } }
+var VISIT = { referrer: document.referrer || null, utm_source: qp("utm_source"), utm_medium: qp("utm_medium"), utm_campaign: qp("utm_campaign") };
+
+function track(o){
+  var payload = JSON.stringify({
+    link_id: o.id, link_label: o.label || o.id, destination_url: o.url || "",
+    referrer: VISIT.referrer, utm_source: VISIT.utm_source, utm_medium: VISIT.utm_medium, utm_campaign: VISIT.utm_campaign
+  });
+  try { var b = new Blob([payload], { type:"text/plain" }); if (navigator.sendBeacon && navigator.sendBeacon(TRACK_URL, b)) return; } catch(e){}
+  try { fetch(TRACK_URL, { method:"POST", body:payload, headers:{"Content-Type":"text/plain"}, keepalive:true }); } catch(e){}
+}
+
+(function(){
+  document.getElementById("name").textContent = PROFILE.name || "";
+  document.getElementById("handle").textContent = PROFILE.handle || "";
+  document.getElementById("bio").textContent = PROFILE.bio || "";
+  var img = document.getElementById("avatar-img");
+  if (PROFILE.avatar) {
+    img.src = PROFILE.avatar;
+    img.alt = PROFILE.name || "";
+  } else {
+    document.getElementById("avatar").style.display = "none";
+  }
+})();
+
+(function(){
+  document.getElementById("session-clock").textContent = SESSION.clock;
+  document.getElementById("session-badge").textContent = SESSION.badge;
+  document.getElementById("session-when").textContent = SESSION.when;
+  document.getElementById("session-title").textContent = SESSION.title;
+  document.getElementById("session-blurb").textContent = SESSION.blurb;
+  document.getElementById("ah-submit-label").textContent = SESSION.cta;
+})();
+
+(function(){
+  var box = document.getElementById("socials");
+  SOCIALS.forEach(function(s){
+    var a = document.createElement("a");
+    a.className = "social";
+    a.href = s.url; a.target = "_blank"; a.rel = "noopener noreferrer";
+    a.setAttribute("aria-label", s.id);
+    a.innerHTML = ICONS[s.icon] || "";
+    a.addEventListener("click", function(){ track({ id:s.id, label:s.id, url:s.url }); });
+    box.appendChild(a);
+  });
+})();
+
+(function(){
+  var box = document.getElementById("links");
+  LINKS.forEach(function(link){
+    var a = document.createElement("a");
+    a.className = "link";
+    a.href = link.url; a.target = "_blank"; a.rel = "noopener noreferrer";
+    a.innerHTML =
+      '<span class="ic">' + (ICONS[link.icon] || "") + '</span>' +
+      '<span class="txt"><span class="label">' + link.label + '</span>' +
+      (link.sub ? '<span class="sub">' + link.sub + '</span>' : '') + '</span>' +
+      '<span class="arrow">' + ICONS.arrow + '</span>';
+    a.addEventListener("click", function(){ track(link); });
+    box.appendChild(a);
+  });
+})();
+
+(function(){
+  var form = document.getElementById("session-form");
+  var btn = document.getElementById("ah-submit");
+  var success = document.getElementById("ah-success");
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var fname = (document.getElementById("ah-fname").value || "").trim();
+    var email = (document.getElementById("ah-email").value || "").trim();
+    if (!fname || !email || !email.includes("@")) {
+      document.getElementById(!fname ? "ah-fname" : "ah-email").focus();
+      return;
+    }
+    var err = document.getElementById("ah-error");
+    err.hidden = true;
+    btn.disabled = true;
+    document.getElementById("ah-submit-label").textContent = "Sending…";
+    track({ id: SESSION.id, label: SESSION.title, url: "" });
+    fetch(MANOR_SIGNUP_URL, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain" },
+      body: JSON.stringify({ first_name: fname, email: email })
+    }).then(function(res){
+      if (!res.ok) throw new Error("signup failed");
+      btn.style.display = "none";
+      document.getElementById("ah-fname").style.display = "none";
+      document.getElementById("ah-email").style.display = "none";
+      success.style.display = "block";
+      var toast = document.getElementById("oh-toast");
+      if (toast) {
+        toast.classList.add("show");
+        setTimeout(function(){ toast.classList.remove("show"); }, 5000);
+      }
+    }).catch(function(){
+      btn.disabled = false;
+      document.getElementById("ah-submit-label").textContent = "Get the Zoom link";
+      document.getElementById("ah-error").hidden = false;
+    });
+  });
+})();
+</script>
+</body>
+</html>

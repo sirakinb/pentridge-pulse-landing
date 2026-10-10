@@ -117,6 +117,22 @@ export const publicSeoRoutes = [
     changefreq: 'monthly'
   },
   {
+    path: '/case-studies/michigan-law-firm-intake',
+    title: 'Michigan Law Firm Intake and Workflow Automation | Pentridge',
+    description: 'How Pentridge helped a Michigan-based full-service law firm structure intake, qualification, follow-up, booking, and the handoff from lead to client.',
+    keywords: 'law firm intake automation case study, legal workflow automation, law firm CRM automation, client intake system',
+    priority: '0.8',
+    changefreq: 'monthly'
+  },
+  {
+    path: '/case-studies/property-management-operations',
+    title: 'Property Management Voice Agent and Operations | Pentridge',
+    description: 'How Pentridge helped a Philadelphia-based property management company answer inbound calls, qualify rental interest, and connect leasing operations.',
+    keywords: 'property management case study, voice AI leasing, property management automation, applicant follow-up',
+    priority: '0.8',
+    changefreq: 'monthly'
+  },
+  {
     path: '/resources',
     title: 'AI Automation Resources, Guides & Calculators | Pentridge',
     description: 'Explore Pentridge resources for AI workflow automation, including guides, use cases, ROI calculators, and implementation ideas for service businesses.',

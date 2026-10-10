@@ -80,6 +80,28 @@ const Resources = () => {
       cta: 'See Law Firm Automation',
       icon: <Scale size={16} />,
     },
+    {
+      badge: 'Case Study',
+      badgeColor: 'text-purple-300 border-purple-300/30',
+      meta: 'Legal',
+      title: 'Michigan Law Firm Intake',
+      description: 'Structured intake, qualification, booking, follow-up, and the handoff from lead to client.',
+      tags: ['Case Study', 'Legal', 'Intake'],
+      link: '/case-studies/michigan-law-firm-intake',
+      cta: 'View Case Study',
+      icon: <FileText size={16} />,
+    },
+    {
+      badge: 'Case Study',
+      badgeColor: 'text-pink-300 border-pink-300/30',
+      meta: 'Property Management',
+      title: 'Property Management Operations',
+      description: 'A voice agent, applicant follow-up, utility workflows, and a connected operating layer.',
+      tags: ['Case Study', 'Voice AI', 'Operations'],
+      link: '/case-studies/property-management-operations',
+      cta: 'View Case Study',
+      icon: <FileText size={16} />,
+    },
   ];
 
   const videoResources = [

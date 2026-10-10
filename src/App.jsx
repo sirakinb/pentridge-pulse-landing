@@ -7,6 +7,7 @@ import Blog from './pages/Blog'; // Add this route
 import Resources from './pages/Resources'; // Add this route
 import AIVoiceAgents from './pages/AIVoiceAgents'; // Add this route
 import AIBusinessAutomationGuide from './pages/AIBusinessAutomationGuide'; // Add this route
+import CaseStudyPage from './pages/CaseStudyPage';
 import PropertyManagementVoiceAICaseStudy from './pages/PropertyManagementVoiceAICaseStudy';
 import AIProcessAutomationExamples from './pages/AIProcessAutomationExamples';
 import Services from './pages/Services'; // Add services page
@@ -32,7 +33,7 @@ const LabsLayout = () => (
 
 export const AppContent = () => {
   const location = useLocation();
-  const hideFooter = location.pathname === '/wall-of-love';
+  const hideFooter = location.pathname === '/wall-of-love' || location.pathname.startsWith('/case-studies/');
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -49,6 +50,8 @@ export const AppContent = () => {
             <Route path="/resources" element={<Resources />} /> {/* Add this route */}
             <Route path="/services/ai-voice-agents" element={<AIVoiceAgents />} /> {/* Add this route */}
             <Route path="/ai-business-automation-guide" element={<AIBusinessAutomationGuide />} /> {/* Add this route */}
+            <Route path="/case-studies/michigan-law-firm-intake" element={<CaseStudyPage type="law" />} />
+            <Route path="/case-studies/property-management-operations" element={<CaseStudyPage type="property" />} />
             <Route path="/case-studies/property-management-voice-ai" element={<PropertyManagementVoiceAICaseStudy />} />
             <Route path="/resources/ai-process-automation-examples" element={<AIProcessAutomationExamples />} />
             <Route path="/services" element={<Services />} /> {/* Add services route */}

@@ -8,9 +8,9 @@ import { Volume2, VolumeX } from 'lucide-react';
 // or — worse, where it is allowed — play audio at someone who did not ask for
 // it. The choice is remembered, so it is a one-time click per person.
 //
-// Drop any track you hold the rights to at public/labs-world/ambient.mp3.
+// Background track: public/WNBA.mp3
 
-const SRC = '/labs-world/ambient.mp3';
+const SRC = '/WNBA.mp3';
 const KEY = 'pentridge-labs-world-audio';
 const VOLUME = 0.32;
 

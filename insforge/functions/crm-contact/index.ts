@@ -62,8 +62,9 @@ function esc(s: unknown): string {
     ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c] as string));
 }
 
-const OFFICE_HOURS_ZOOM = "https://us06web.zoom.us/j/87488468945";
-const OFFICE_HOURS_DATE = "Thursday, July 15 at 6pm EST";
+const OFFICE_HOURS_ZOOM = "https://us06web.zoom.us/j/86230034559";
+const OFFICE_HOURS_DATE = "Thursday, Oct 8, 7:00 to 8:00 PM ET";
+const SESSION_SOURCES = new Set(["office-hours", "automation-hour"]);
 
 async function sendOfficeHoursConfirmation(toEmail: string, firstName: string | null): Promise<void> {
   if (!RESEND_API_KEY) return;
@@ -77,10 +78,10 @@ async function sendOfficeHoursConfirmation(toEmail: string, firstName: string | 
         to: [toEmail],
         cc: [NOTIFY_EMAIL],
         reply_to: REPLY_TO,
-        subject: "You're in — AI Office Hours Zoom link",
+        subject: "You're in: Automation Hour Zoom link",
         html: `<div style="font-family:Arial,sans-serif;font-size:15px;line-height:1.6;color:#111;max-width:480px">
           <p>${esc(greeting)}</p>
-          <p>You're registered for AI Office Hours. Here's your Zoom link:</p>
+          <p>You're registered for Automation Hour. Here's your Zoom link:</p>
           <p style="margin:24px 0">
             <a href="${OFFICE_HOURS_ZOOM}" style="background:#9333ea;color:#fff;text-decoration:none;padding:12px 24px;border-radius:8px;font-weight:600;display:inline-block">
               Join on Zoom
@@ -88,8 +89,8 @@ async function sendOfficeHoursConfirmation(toEmail: string, firstName: string | 
           </p>
           <p style="color:#555;font-size:14px">${OFFICE_HOURS_DATE}<br>
           <a href="${OFFICE_HOURS_ZOOM}" style="color:#9333ea">${OFFICE_HOURS_ZOOM}</a></p>
-          <p style="color:#555;font-size:14px">Bring your questions on AI, vibe coding, and workflow automation. See you there!</p>
-          <p>— Aki</p>
+          <p style="color:#555;font-size:14px">Bring questions on AI, systems, and automation. We'll talk through the tools available to you and how to use them in practical ways.</p>
+          <p>- Aki</p>
         </div>`,
       }),
     });
@@ -242,8 +243,8 @@ export default async function (req: Request): Promise<Response> {
     // Notify the owner — best-effort, never blocks the response.
     await notifyOwner(email, source, created, tagName);
 
-    // Send confirmation with Zoom link for office hours signups.
-    if (source === "office-hours") {
+    // Send confirmation with Zoom link for live session signups.
+    if (SESSION_SOURCES.has(source)) {
       await sendOfficeHoursConfirmation(email, firstName);
     }
 

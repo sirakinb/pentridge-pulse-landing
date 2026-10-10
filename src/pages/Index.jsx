@@ -27,6 +27,7 @@ const useCountUp = (end, duration = 2000) => {
 import Navbar from '../components/Navbar';
 import MetaTags from '../components/MetaTags';
 import PageSchemaMarkup from '../components/PageSchemaMarkup';
+import OurWork from '../components/OurWork';
 import { getMetaConfig } from '../lib/meta-config';
 
 const fadeUp = {
@@ -375,75 +376,105 @@ const TrustedBySection = () => {
   );
 };
 
-// ─── Section 03: The Infrastructure ───────────────────────────
-const InfrastructureSection = () => {
-  const layers = [
-    {
-      label: 'Data Pipeline',
-      accent: 'text-purple-400',
-      dot: 'bg-purple-500',
-      description:
-        'Your CRM, project management, marketing, and operations tools feed into one place through a managed data pipeline. No exports, no stale spreadsheets — live business data, centralized.',
-    },
-    {
-      label: 'Agent Workspace',
-      accent: 'text-pink-400',
-      dot: 'bg-pink-500',
-      description:
-        'The single source of context for your company. Your workspace holds your business data, documents, and agent skills — and gives you status updates and a live understanding of what your agents are doing.',
-    },
-    {
-      label: 'Pentridge MCP',
-      accent: 'text-violet-400',
-      dot: 'bg-violet-500',
-      description:
-        'The MCP/API layer built into your workspace. It connects your company context to agentic platforms like Claude Code, Codex, and Cursor — so any agent can run your workflows, with updates flowing back to the workspace.',
-    },
-  ];
+const agentPlatforms = [
+  { name: 'Grok Bot', logo: '/logos/grokbot.svg' },
+  { name: 'Claude Code', logo: '/logos/claudecode.svg' },
+  { name: 'Codex', logo: '/logos/codex-blue.png' },
+  { name: 'Cursor', logo: '/logos/cursor.svg' },
+  { name: 'Hermes', logo: '/logos/hermes.png', rounded: true },
+  { name: 'OpenClaw', logo: '/logos/openclaw.svg' },
+];
 
-  return (
-    <section className="bg-black py-24 md:py-32 border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-6">
-        <motion.div {...fadeUp} className="mb-16">
-          <p className="section-label mb-4">03 / The Infrastructure</p>
-          <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] max-w-3xl">
-            All of your business data. One Agent Workspace.
-          </h2>
-          <p className="text-white/50 text-lg mt-6 max-w-2xl leading-relaxed">
-            Agents are only as good as the context they can reach. We build and host the AI infrastructure that gives them your company's context — and gives you live visibility into what they're doing. Data pipeline and workspace included.
-          </p>
-        </motion.div>
+const customWorkspaces = [
+  {
+    src: '/manor-workspace-vibecode.png',
+    alt: 'Vibe Code Philly custom Manor agent workspace with company branding',
+  },
+  {
+    src: '/manor-workspace-jackson.png',
+    alt: 'Jackson Rental Homes custom Manor agent workspace with company branding',
+  },
+  {
+    src: '/manor-workspace-meridian.png',
+    alt: 'Meridian Properties custom Manor agent workspace with company branding',
+  },
+];
 
-        <motion.div {...fadeUp} className="mb-14">
-          <img
-            src="/agent-infrastructure-diagram.jpg"
-            alt="Pentridge AI infrastructure diagram: CRM, project management, marketing, and intake data flow through a data pipeline into the Agent Workspace, connected via Pentridge MCP to Claude Code, Codex, and Cursor with status updates flowing back"
-            loading="lazy"
-            className="w-full rounded-2xl border border-white/5"
-          />
-        </motion.div>
+const WorkspaceScreenshot = ({ src, alt }) => (
+  <div className="rounded-2xl border border-white/10 bg-black/40 p-1.5 sm:p-2 overflow-hidden">
+    <img src={src} alt={alt} loading="lazy" className="w-full rounded-xl object-cover object-top" />
+  </div>
+);
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {layers.map((layer, i) => (
-            <motion.div
-              key={layer.label}
-              {...stagger}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="glass-card-purple rounded-2xl p-8 md:p-10 hover:border-purple-500/40 transition-all duration-500"
-            >
-              <div className="flex items-center gap-3 mb-5">
-                <span className="font-mono text-xs text-white/30">{String(i + 1).padStart(2, '0')}</span>
-                <span className={`w-1.5 h-1.5 rounded-full ${layer.dot}`} />
-                <p className={`font-mono text-xs tracking-[0.2em] uppercase ${layer.accent}`}>{layer.label}</p>
+const integrationRows = [
+  [
+    { name: 'HubSpot', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/hubspot.svg', color: '#FF7A59' },
+    { name: 'Salesforce', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/salesforce.svg', color: '#00A1E0' },
+    { name: 'Slack', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/slack.svg', color: '#E01E5A' },
+    { name: 'Google Drive', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/googledrive.svg', color: '#4285F4' },
+    { name: 'Notion', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/notion.svg', color: '#FFFFFF' },
+    { name: 'Airtable', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/airtable.svg', color: '#18BFFF' },
+  ],
+  [
+    { name: 'Gmail', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/gmail.svg', color: '#EA4335' },
+    { name: 'Google Calendar', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/googlecalendar.svg', color: '#4285F4' },
+    { name: 'Asana', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/asana.svg', color: '#F06A6A' },
+    { name: 'Zapier', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/zapier.svg', color: '#FF4F00' },
+    { name: 'Calendly', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/calendly.svg', color: '#006BFF' },
+    { name: 'Zoom', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/zoom.svg', color: '#2D8CFF' },
+  ],
+  [
+    { name: 'QuickBooks', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/quickbooks.svg', color: '#2CA01C' },
+    { name: 'Stripe', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/stripe.svg', color: '#635BFF' },
+    { name: 'Shopify', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/shopify.svg', color: '#7AB55C' },
+    { name: 'Google Sheets', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/googlesheets.svg', color: '#34A853' },
+    { name: 'Dropbox', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/dropbox.svg', color: '#0061FF' },
+    { name: 'Trello', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/trello.svg', color: '#0C66E4' },
+  ],
+];
+
+const IntegrationSources = () => (
+  <section className="integration-sources relative overflow-hidden bg-black py-24 md:py-32 border-t border-white/5">
+    <div className="integration-source-grid absolute inset-0 pointer-events-none" />
+    <div className="absolute left-1/2 top-1/3 h-80 w-[38rem] -translate-x-1/2 rounded-full bg-purple-600/10 blur-[130px] pointer-events-none" />
+    <div className="relative z-10">
+      <motion.div {...fadeUp} className="max-w-4xl mx-auto px-6 text-center mb-16">
+        <p className="font-mono text-xs tracking-[0.24em] uppercase text-purple-400/80 mb-5">Connected Context</p>
+        <h2 className="font-display text-3xl md:text-[50px] leading-[1.08] text-[#fafafa]">
+          Agents connect to the tools your business runs on.
+        </h2>
+        <p className="text-white/50 text-lg mt-6 max-w-3xl mx-auto leading-relaxed">
+          CRM, project management, email, files, payments, and reporting feed the same context layer — giving every agent the information it needs to work across your business.
+        </p>
+      </motion.div>
+
+      <motion.div {...fadeUp} className="integration-source-window space-y-4 md:space-y-5">
+        {integrationRows.map((row, rowIndex) => {
+          const repeated = [...row, ...row];
+          return (
+            <div key={rowIndex} className={`integration-source-row integration-source-row-${rowIndex + 1}`}>
+              <div className="integration-source-track">
+                {repeated.map((source, sourceIndex) => (
+                  <div key={`${source.name}-${sourceIndex}`} className="integration-source-card">
+                    <span className="integration-source-icon">
+                      <span
+                        className="integration-source-logo"
+                        style={{ '--integration-logo': `url("${source.icon}")`, '--integration-color': source.color }}
+                        aria-hidden="true"
+                      />
+                    </span>
+                    <span>{source.name}</span>
+                  </div>
+                ))}
               </div>
-              <p className="text-white/60 text-sm leading-relaxed">{layer.description}</p>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
+            </div>
+          );
+        })}
+      </motion.div>
+
+    </div>
+  </section>
+);
 
 // ─── Section 04: Manor ───────────────────────────────────────────────
 const ManorSection = () => (
@@ -456,40 +487,29 @@ const ManorSection = () => (
         <div className="absolute -top-40 -left-28 h-80 w-80 rounded-full bg-purple-600/20 blur-[110px] pointer-events-none" />
         <div className="absolute -bottom-48 right-0 h-96 w-96 rounded-full bg-violet-600/10 blur-[130px] pointer-events-none" />
 
-        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-[0.82fr_1.18fr] gap-10 lg:gap-14 items-center p-7 sm:p-10 md:p-14">
-          <div>
+        <div className="relative z-10 p-7 sm:p-10 lg:p-12">
+          <div className="w-full mb-10 md:mb-14">
             <p className="section-label mb-6">04 / Our Product</p>
             <img
               src="/logo-website.png"
               alt="Manor logo"
               loading="lazy"
-              className="h-20 w-28 object-cover object-center rounded-xl border border-white/10 mb-8"
+              className="h-20 w-28 object-cover object-center mb-8"
             />
-            <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] max-w-xl">
-              Meet Manor. Your command center for AI agents.
+            <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] max-w-5xl">
+              Meet Manor. Your Agentic Platform for knowledge work.
             </h2>
-            <p className="text-white/55 text-lg mt-6 max-w-xl leading-relaxed">
-              Bring your agents, conversations, and connected business tools into one focused workspace. See what every agent is doing, give new instructions, and keep your AI operations moving from one place.
+            <p className="text-white/55 text-lg mt-6 max-w-5xl leading-relaxed">
+              Manor gives service businesses a place to collaborate with a team of specialized AI agents across disciplines.
             </p>
-            <a
-              href="https://manor.pentridgemedia.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary inline-flex items-center gap-3 mt-9"
-              aria-label="Visit the Manor website"
-            >
-              Explore Manor <ArrowRight size={15} />
-            </a>
           </div>
 
           <a
             href="https://manor.pentridgemedia.com"
-            target="_blank"
-            rel="noopener noreferrer"
             className="group block"
             aria-label="Open Manor"
           >
-            <div className="rounded-2xl border border-white/10 bg-black/40 p-2 sm:p-3 shadow-[0_30px_100px_rgba(88,28,135,0.24)] transition-all duration-500 group-hover:border-purple-400/35 group-hover:-translate-y-1">
+            <div className="w-full rounded-2xl border border-white/10 bg-black/40 p-1.5 sm:p-2 shadow-[0_30px_100px_rgba(88,28,135,0.24)] transition-all duration-500 group-hover:border-purple-400/35 group-hover:-translate-y-1">
               <img
                 src="/Manor.png"
                 alt="Manor AI agent workspace showing agent conversations, tools, and live task activity"
@@ -498,6 +518,54 @@ const ManorSection = () => (
               />
             </div>
           </a>
+
+          <div className="mt-12 pt-12 border-t border-white/10">
+            <p className="font-mono text-xs tracking-[0.2em] uppercase text-white/35 text-center mb-8">
+              Custom Agent Workspaces For Your Company
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-5xl mx-auto">
+              <WorkspaceScreenshot src={customWorkspaces[0].src} alt={customWorkspaces[0].alt} />
+              <WorkspaceScreenshot src={customWorkspaces[1].src} alt={customWorkspaces[1].alt} />
+              <div className="md:col-span-2 flex justify-center">
+                <div className="w-full md:w-[calc(50%-0.75rem)]">
+                  <WorkspaceScreenshot src={customWorkspaces[2].src} alt={customWorkspaces[2].alt} />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-9 flex justify-center">
+            <a
+              href="https://manor.pentridgemedia.com"
+              className="btn-primary inline-flex items-center gap-3"
+              aria-label="Visit the Manor website"
+            >
+              Learn More <ArrowRight size={15} />
+            </a>
+          </div>
+
+          <div className="mt-16 pt-14 border-t border-white/10">
+            <p className="text-white/50 text-base md:text-lg text-center max-w-3xl mx-auto leading-relaxed mb-12">
+              Let us build you your own custom agent workspace, with your company's branding. Make it your AI home, your system of record, or pull in your company's context to any agentic platform you already use. Your workflows and business data are available wherever your agents live.
+            </p>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-6 gap-y-10 max-w-5xl mx-auto">
+              {agentPlatforms.map((platform) => (
+                <div key={platform.name} className="flex flex-col items-center justify-center text-center">
+                  <div className="h-16 flex items-center justify-center mb-4">
+                    <img
+                      src={platform.logo}
+                      alt={`${platform.name} logo`}
+                      className={`h-12 w-12 object-contain ${platform.rounded ? 'rounded-xl' : ''}`}
+                    />
+                  </div>
+                  <h3 className="text-white font-semibold text-sm">{platform.name}</h3>
+                </div>
+              ))}
+            </div>
+            <p className="text-center font-mono text-xs tracking-[0.2em] uppercase text-white/30 mt-12">
+              + any MCP-compatible agentic platform or personal agent
+            </p>
+          </div>
         </div>
       </motion.div>
     </div>
@@ -557,13 +625,25 @@ const TestimonialsSection = () => {
       name: 'Pedro Rodriguez',
       company: 'Blue Proma Digital',
     },
+    {
+      quote:
+        'Aki was an excellent asset in the development of our tech stack and we would highly recommend him in the future.',
+      name: 'Alexis Holstead',
+      company: 'White Law PLLC',
+    },
+    {
+      quote:
+        'Absolutely amazing and solution-driven! Working together was a seamless experience from start to finish. They not only delivered outstanding results but also went above and beyond to address challenges with creative, effective solutions. Their professionalism, attention to detail, and commitment to excellence made a lasting impact. I will definitely collaborate with them again and highly recommend their services to anyone seeking top-tier expertise and results.',
+      name: 'D.O.',
+      company: 'LogoSeed',
+    },
   ];
 
   return (
     <section className="bg-black py-24 md:py-32">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div {...fadeUp} className="mb-16">
-          <p className="section-label mb-4">11 / What They Say</p>
+          <p className="section-label mb-4">07 / What They Say</p>
           <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] max-w-3xl capitalize">
             Don't take our word for it.
           </h2>
@@ -719,68 +799,13 @@ const ComparisonSection = () => {
   );
 };
 
-// ─── Section 07: Pentridge MCP ────────────────────────────────
-const PentridgeMCPSection = () => {
-  const platforms = [
-    { name: 'Claude Code', logo: '/logos/claudecode.svg' },
-    { name: 'Codex', logo: '/logos/codex-blue.png' },
-    { name: 'Cursor', logo: '/logos/cursor.svg' },
-    { name: 'Hermes', logo: '/logos/hermes.png', rounded: true },
-    { name: 'OpenClaw', logo: '/logos/openclaw.svg' },
-  ];
-
-  return (
-    <section className="bg-black py-24 md:py-32 border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-6">
-        <motion.div {...fadeUp} className="mb-16 text-center">
-          <p className="section-label mb-4">08 / Pentridge MCP</p>
-          <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] max-w-3xl mx-auto">
-            One MCP layer. Any agentic platform.
-          </h2>
-          <p className="text-white/50 text-lg mt-6 max-w-2xl mx-auto leading-relaxed">
-            Pentridge MCP connects your Agent Workspace to any agentic platform or personal agent — so your workflows and company context are available wherever your agents live, with updates flowing back to the workspace.
-          </p>
-        </motion.div>
-
-        <motion.div {...fadeUp} className="mb-16 flex justify-center">
-          <img
-            src="/pentridge-mcp-hub.jpg"
-            alt="Pentridge MCP hub diagram: a central Pentridge MCP node connects the Agent Workspace to Claude Code, Codex, Cursor, Hermes, and OpenClaw"
-            loading="lazy"
-            className="w-full max-w-4xl rounded-2xl"
-          />
-        </motion.div>
-
-        <motion.div {...fadeUp} className="grid grid-cols-2 md:grid-cols-5 gap-x-8 gap-y-12 md:gap-x-12 max-w-4xl mx-auto">
-          {platforms.map((platform) => (
-            <div key={platform.name} className="flex flex-col items-center justify-center text-center">
-              <div className="h-16 flex items-center justify-center mb-4">
-                <img
-                  src={platform.logo}
-                  alt={`${platform.name} logo`}
-                  className={`h-12 w-12 object-contain ${platform.rounded ? 'rounded-xl' : ''}`}
-                />
-              </div>
-              <h3 className="text-white font-semibold">{platform.name}</h3>
-            </div>
-          ))}
-        </motion.div>
-
-        <motion.p {...fadeUp} className="text-center font-mono text-xs tracking-[0.2em] uppercase text-white/30 mt-14">
-          + any MCP-compatible platform or personal agent
-        </motion.p>
-      </div>
-    </section>
-  );
-};
-
 // ─── Section 07: Process ──────────────────────────────────────
 const ProcessSection = () => {
   return (
     <section className="bg-black py-24 md:py-32 border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div {...fadeUp} className="mb-16">
-          <p className="section-label mb-4">09 / Process</p>
+          <p className="section-label mb-4">05 / Process</p>
           <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] max-w-3xl capitalize">
             Audit, centralize, deploy, and keep improving.
           </h2>
@@ -835,7 +860,7 @@ const FAQSection = () => {
     <section className="bg-black py-24 md:py-32">
       <div className="max-w-3xl mx-auto px-6">
         <motion.div {...fadeUp} className="mb-16">
-          <p className="section-label mb-4">10 / FAQ</p>
+          <p className="section-label mb-4">06 / FAQ</p>
           <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] capitalize">
             Questions? We have answers.
           </h2>
@@ -885,35 +910,47 @@ const FAQSection = () => {
 };
 
 // ─── Section 10: CTA / Apply ──────────────────────────────────
+const isValidEmail = (value) =>
+  typeof value === 'string' && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+
 const CTASection = () => {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [smsConsent, setSmsConsent] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [submittedEmail, setSubmittedEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!email) return;
-    if (!smsConsent) return; // SMS consent is required to subscribe
+    setErrorMessage('');
+    if (!isValidEmail(email)) {
+      setErrorMessage('Please enter a valid email address.');
+      return;
+    }
+    if (phone.trim() && !smsConsent) return;
+    setIsSubmitting(true);
     try {
       const res = await fetch('/api/newsletter', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, phone, sms_consent: smsConsent }),
+        body: JSON.stringify({ email: email.trim(), phone: phone.trim() }),
       });
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
-        console.error('Newsletter error:', data);
+        setErrorMessage(data.error || 'Something went wrong submitting the form. Please try again.');
         return;
       }
-      setSubmittedEmail(email);
+      setSubmittedEmail(email.trim());
       setSubmitted(true);
       setEmail('');
       setPhone('');
       setSmsConsent(false);
-    } catch (err) {
-      console.error('Newsletter error:', err);
+    } catch {
+      setErrorMessage('Something went wrong submitting the form. Please try again.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -928,7 +965,7 @@ const CTASection = () => {
     <section className="bg-black py-24 md:py-32">
       <div className="max-w-4xl mx-auto px-6">
         <motion.div {...fadeUp} className="text-center mb-14">
-          <p className="section-label mb-6">12 / Let's Go</p>
+          <p className="section-label mb-6">08 / Let's Go</p>
           <h2 className="font-display text-3xl md:text-5xl leading-[1.15] text-[#fafafa]">
             AI agents in your operations,{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">live in weeks.</span>
@@ -990,16 +1027,16 @@ const CTASection = () => {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="your@email.com"
-                      className="flex-1 bg-white/5 border border-white/10 rounded-none px-4 py-3 text-sm text-white placeholder-white/30 focus:outline-none focus:border-purple-500/50 font-mono"
+                      className="min-w-0 flex-1 bg-white/5 border border-white/10 rounded-none px-4 py-3 text-sm text-white placeholder-white/30 focus:outline-none focus:border-purple-500/50 font-mono"
                       required
                     />
                     <input
                       type="tel"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
-                      placeholder="(555) 555-5555"
-                      className="flex-1 bg-white/5 border border-white/10 rounded-none px-4 py-3 text-sm text-white placeholder-white/30 focus:outline-none focus:border-purple-500/50 font-mono"
-                      required
+                      placeholder="Phone (optional)"
+                      aria-label="Phone (optional)"
+                      className="min-w-0 flex-1 bg-white/5 border border-white/10 rounded-none px-4 py-3 text-sm text-white placeholder-white/30 focus:outline-none focus:border-purple-500/50 font-mono"
                     />
                   </div>
                   <label className="flex items-start gap-2 text-left cursor-pointer">
@@ -1007,7 +1044,7 @@ const CTASection = () => {
                       type="checkbox"
                       checked={smsConsent}
                       onChange={(e) => setSmsConsent(e.target.checked)}
-                      required
+                      required={Boolean(phone.trim())}
                       className="mt-0.5 accent-purple-500 shrink-0"
                     />
                     <span className="font-mono text-[11px] leading-relaxed text-white/40">
@@ -1016,10 +1053,14 @@ const CTASection = () => {
                   </label>
                   <button
                     type="submit"
-                    className="btn-primary px-6 py-3 text-xs whitespace-nowrap"
+                    disabled={isSubmitting}
+                    className="btn-primary px-6 py-3 text-xs whitespace-nowrap disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    Subscribe
+                    {isSubmitting ? 'Submitting…' : 'Subscribe'}
                   </button>
+                  {errorMessage && (
+                    <p className="text-pink-400 text-sm text-center">{errorMessage}</p>
+                  )}
                 </form>
               )}
             </div>
@@ -1056,12 +1097,9 @@ const Index = () => {
       <HeroSection />
       <TwoWaysSection />
       <TrustedBySection />
-      <InfrastructureSection />
+      <OurWork />
       <ManorSection />
-      <ProblemSection />
-      <WhyWorkSection />
-      <ComparisonSection />
-      <PentridgeMCPSection />
+      <IntegrationSources />
       <ProcessSection />
       <FAQSection />
       <TestimonialsSection />

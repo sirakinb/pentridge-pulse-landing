@@ -8,6 +8,8 @@ const columns = [
     heading: 'Resources',
     links: [
       { label: 'Use Cases', to: '/resources/ai-process-automation-examples' },
+      { label: 'Law Firm Case Study', to: '/case-studies/michigan-law-firm-intake' },
+      { label: 'Property Management Case Study', to: '/case-studies/property-management-operations' },
       { label: 'ROI Calculator', to: '/roi-calculator' },
       { label: 'AI Guide', to: '/ai-business-automation-guide' },
       { label: 'Blog', to: '/blog' },

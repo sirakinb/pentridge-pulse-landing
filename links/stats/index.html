@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Link Analytics — Pentridge</title>
+<meta name="robots" content="noindex,nofollow" />
+<meta name="theme-color" content="#000000" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
+<style>
+  @font-face{font-family:"Geist Pixel Grid";src:url("https://framerusercontent.com/assets/YaojHCyVaDBwfMKRVDPYlrmjG88.woff2") format("woff2");font-display:swap;font-weight:400}
+  :root{
+    --bg:#000;--card:#0a0a0a;--fill:rgba(255,255,255,.045);
+    --muted:rgba(255,255,255,.6);--muted2:rgba(255,255,255,.4);--ink:#fafafa;
+    --purple:#a855f7;--pink:#ec4899;--purple6:#9333ea;--pink6:#db2777;
+    --font-body:'Geist',system-ui,sans-serif;--font-mono:'Geist Mono',monospace;--font-display:'Geist Pixel Grid',sans-serif;
+  }
+  *{box-sizing:border-box}html,body{margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);min-height:100vh;font-family:var(--font-body);-webkit-font-smoothing:antialiased;
+    background-image:radial-gradient(900px 500px at 50% -8%,rgba(168,85,247,.16),transparent 60%);background-attachment:fixed}
+  ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:#0a0a0a}::-webkit-scrollbar-thumb{background:rgba(168,85,247,.3);border-radius:3px}
+  .wrap{max-width:680px;margin:0 auto;padding:48px 22px 90px}
+  .eyebrow{font-family:var(--font-mono);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted2)}
+  h1{font-family:var(--font-display);letter-spacing:-.04em;font-weight:400;font-size:clamp(28px,6vw,40px);margin:14px 0 0}
+  .total{margin-top:26px;background:var(--card);border-radius:14px;padding:26px;text-align:center;box-shadow:0 0 40px 8px rgba(168,85,247,.14)}
+  .total .n{font-family:var(--font-display);letter-spacing:-.04em;font-size:64px;line-height:1;
+    background:linear-gradient(135deg,var(--purple),var(--pink));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .total .l{font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted2);margin-top:8px}
+  .sec{margin-top:26px}
+  .sec-title{font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted2);margin:0 0 14px}
+  .row{background:var(--fill);border-radius:11px;padding:13px 16px;margin-bottom:10px;position:relative;overflow:hidden}
+  .row .bar{position:absolute;inset:0 auto 0 0;background:linear-gradient(90deg,rgba(168,85,247,.22),rgba(236,72,153,.12));z-index:0}
+  .row .rowin{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .row .k{font-weight:600;font-size:14.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .row .v{font-family:var(--font-mono);font-size:14px;color:var(--ink);flex:0 0 auto}
+  .recent{font-family:var(--font-mono);font-size:12.5px;color:var(--muted);line-height:1.9}
+  .recent .rl{display:flex;justify-content:space-between;gap:12px;border-top:1px solid rgba(255,255,255,.06);padding:7px 0}
+  .recent .rl:first-child{border-top:none}
+  .msg{margin-top:40px;background:var(--card);border-radius:14px;padding:28px;text-align:center;color:var(--muted)}
+  input{width:100%;max-width:320px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:10px;color:var(--ink);font-size:15px;padding:12px 14px;font-family:var(--font-mono);margin:16px auto 0;display:block}
+  input:focus{outline:none;border-color:var(--purple)}
+  button{margin-top:14px;font-family:var(--font-mono);font-size:12px;letter-spacing:.15em;text-transform:uppercase;border:none;border-radius:0;padding:13px 26px;color:#fff;cursor:pointer;background:linear-gradient(to right,var(--purple6),var(--pink6))}
+  .foot{margin-top:36px;font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted2);text-align:center}
+  .refresh{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--purple);text-decoration:none;cursor:pointer}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">Pentridge · Links</div>
+  <h1>Link Analytics</h1>
+  <div id="body"></div>
+</div>
+
+<script>
+var FN = "https://uvf4r7ds.function2.insforge.app/link-stats";
+function qp(n){ try { return new URLSearchParams(location.search).get(n) || ""; } catch(e){ return ""; } }
+var body = document.getElementById("body");
+
+function esc(s){ return String(s==null?"":s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];}); }
+function fmtDate(iso){ try { var d=new Date(iso); return d.toLocaleDateString(undefined,{month:"short",day:"numeric"})+" "+d.toLocaleTimeString(undefined,{hour:"numeric",minute:"2-digit"}); } catch(e){ return iso; } }
+
+function askKey(note){
+  body.innerHTML =
+    '<div class="msg">'+ (note || "Enter your access key to view analytics.") +
+    '<input id="key" type="text" placeholder="access key" autocomplete="off" />' +
+    '<button onclick="go(document.getElementById(\'key\').value.trim())">View analytics</button></div>';
+}
+
+function load(key){
+  body.innerHTML = '<div class="msg">Loading…</div>';
+  fetch(FN, { method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify({ key:key }) })
+    .then(function(r){ if(r.status===401) throw new Error("bad-key"); if(!r.ok) throw new Error("err"); return r.json(); })
+    .then(function(o){ render(o.stats, key); })
+    .catch(function(e){ askKey(e.message==="bad-key" ? "That key isn't right. Try again." : "Couldn't load analytics. Try again."); });
+}
+
+function go(key){ if(!key) return; var u=new URL(location.href); u.searchParams.set("key",key); history.replaceState(null,"",u); load(key); }
+
+function bars(items, keyName){
+  if(!items || !items.length) return '<div class="msg">No clicks yet.</div>';
+  var max = Math.max.apply(null, items.map(function(i){ return i.clicks; })) || 1;
+  return items.map(function(i){
+    var pct = Math.max(6, Math.round(i.clicks/max*100));
+    var label = keyName==="link" ? (i.link_label || i.link_id) : i.source;
+    return '<div class="row"><div class="bar" style="width:'+pct+'%"></div>' +
+      '<div class="rowin"><span class="k">'+esc(label)+'</span><span class="v">'+i.clicks+'</span></div></div>';
+  }).join("");
+}
+
+function render(s, key){
+  var recent = (s.recent||[]).map(function(r){
+    return '<div class="rl"><span>'+esc(r.link_id)+'</span><span>'+esc(r.source)+'</span><span>'+fmtDate(r.created_at)+'</span></div>';
+  }).join("") || '<div class="msg">No clicks yet.</div>';
+
+  body.innerHTML =
+    '<div class="total"><div class="n">'+ (s.total||0) +'</div><div class="l">Total clicks</div></div>' +
+    '<div class="sec"><div class="sec-title">Clicks by link</div>'+ bars(s.by_link,"link") +'</div>' +
+    '<div class="sec"><div class="sec-title">Traffic sources</div>'+ bars(s.by_source,"source") +'</div>' +
+    '<div class="sec"><div class="sec-title">Recent clicks</div><div class="recent">'+ recent +'</div></div>' +
+    '<div class="foot"><a class="refresh" onclick="load(\''+esc(key)+'\')">↻ Refresh</a></div>';
+}
+
+var k = qp("key");
+if (k) load(k); else askKey();
+</script>
+</body>
+</html>

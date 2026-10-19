@@ -164,6 +164,13 @@
   .link .arrow{flex:0 0 auto;color:var(--muted2);transition:color .16s,transform .16s}
   .link .arrow svg{width:18px;height:18px}
   .link:hover .arrow{color:var(--purple);transform:translateX(2px)}
+  .link.featured{
+    background:linear-gradient(135deg,rgba(168,85,247,.22),rgba(236,72,153,.08) 70%);
+    box-shadow:0 0 0 1px rgba(168,85,247,.35), 0 10px 30px rgba(168,85,247,.18);
+  }
+  .link.featured:hover{background:linear-gradient(135deg,rgba(168,85,247,.32),rgba(236,72,153,.14) 70%)}
+  .link.featured .ic{background:linear-gradient(135deg,var(--purple),var(--pink))}
+  .link.featured .sub{color:#e9d5ff}
   .link.event{cursor:default;flex-direction:column;align-items:stretch}
   .link.event:hover{background:var(--fill)}
   .link.event .event-copy{display:flex;align-items:center;gap:14px}
@@ -272,7 +279,7 @@ var SESSION = {
   id: "automation-hour",
   title: "Automation Hour",
   clock: "7:00",
-  when: "Thursday, Oct 15 at 7:00 PM ET",
+  when: "Thursday, Oct 22 at 7:00 PM ET",
   badge: "Free",
   blurb: "Bring questions on AI, systems, automation, and apps. Let's discuss the tools available to you, workflows to support your operations, and practical implementation that moves the needle in your business.",
   cta: "Get the Zoom link",
@@ -286,12 +293,12 @@ var SOCIALS = [
 ];
 
 var LINKS = [
+  { id: "own-your-agent", icon: "agent", label: "Own Your Agent: build your own AI agent", sub: "Step-by-step guide · $97",
+    url: "https://links.pentridgemedia.com/agent/", featured: true },
+  { id: "book-call", icon: "calendar", label: "Want it built for you? Book a 1:1 call", sub: "Custom agents and automations",
+    url: "https://cal.com/akinyemi-bajulaiye-2jua88/30min" },
   { id: "readiness-checklist", icon: "checklist", label: "Automation Readiness Checklist", sub: "Free 2-minute scorecard",
-    url: "https://checklist.pentridgemedia.com" },
-  { id: "manor-agents", icon: "users", label: "Deploy your team of always-on AI agents", sub: "Built around your operations",
-    url: "https://manor.pentridgemedia.com" },
-  { id: "vibe-marketing-event", icon: "calendar", label: "Vibe Marketing Event, Oct 17", sub: "Vibe Code Philly",
-    cta: "RSVP", url: "https://partiful.com/e/zl6giZDvfTnFRP0I7l6Y" }
+    url: "https://checklist.pentridgemedia.com" }
 ];
 
 var ICONS = {
@@ -304,6 +311,7 @@ var ICONS = {
   users:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
   calendar: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4M16 2v4M3 10h18"/><rect x="3" y="4" width="18" height="18" rx="2"/></svg>',
   article:  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h6M8 9h2"/></svg>',
+  agent:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="7" width="16" height="13" rx="3"/><path d="M12 7V3M9 13h.01M15 13h.01M9.5 17h5"/></svg>',
   arrow:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>'
 };
 
@@ -370,8 +378,9 @@ function track(o){
       return;
     }
     var a = document.createElement("a");
-    a.className = "link";
-    a.href = link.url; a.target = "_blank"; a.rel = "noopener noreferrer";
+    a.className = "link" + (link.featured ? " featured" : "");
+    a.href = link.url;
+    if (!link.featured) { a.target = "_blank"; a.rel = "noopener noreferrer"; }
     a.innerHTML =
       '<span class="ic">' + (ICONS[link.icon] || "") + '</span>' +
       '<span class="txt"><span class="label">' + link.label + '</span>' +

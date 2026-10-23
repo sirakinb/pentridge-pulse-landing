@@ -148,7 +148,7 @@
   @keyframes btn-spin{to{transform:rotate(360deg)}}
   .form-success{display:none;text-align:center;padding:10px 4px 4px;font-size:14px;color:#d8b4fe;font-weight:500}
 
-  .links{display:grid;gap:12px;margin-top:18px}
+  .links{display:grid;grid-template-columns:minmax(0,1fr);gap:12px;margin-top:18px}
   .link{
     display:flex;align-items:center;gap:14px;text-decoration:none;cursor:pointer;
     background:var(--fill);border-radius:var(--radius);padding:15px 16px;
@@ -158,9 +158,10 @@
   .link:active{transform:translateY(1px)}
   .link .ic{flex:0 0 auto;width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.06);color:#fff}
   .link .ic svg{width:20px;height:20px}
+  .link .ic svg:not([fill="none"]){fill:currentColor}
   .link .txt{flex:1;min-width:0}
   .link .label{display:block;font-weight:600;font-size:15px;color:var(--ink)}
-  .link .sub{display:block;font-size:12.5px;color:var(--muted2);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .link .sub{display:block;font-size:12.5px;color:var(--muted2);margin-top:2px;line-height:1.4}
   .link .arrow{flex:0 0 auto;color:var(--muted2);transition:color .16s,transform .16s}
   .link .arrow svg{width:18px;height:18px}
   .link:hover .arrow{color:var(--purple);transform:translateX(2px)}
@@ -293,12 +294,12 @@ var SOCIALS = [
 ];
 
 var LINKS = [
-  { id: "own-your-agent", icon: "agent", label: "Own Your Agent: build your own AI agent", sub: "Step-by-step guide · $97",
-    url: "https://links.pentridgemedia.com/agent/", featured: true },
-  { id: "book-call", icon: "calendar", label: "Want it built for you? Book a 1:1 call", sub: "Custom agents and automations",
+  { id: "breakfast-building", icon: "users", label: "Breakfast & Building", sub: "Join us in person",
+    url: "https://partiful.com/e/hqWkFzikB1frVdihGKTE", cta: "RSVP" },
+  { id: "book-call", icon: "calendar", label: "Book a 1:1 call with me", sub: "Custom agents, apps and automations",
     url: "https://cal.com/akinyemi-bajulaiye-2jua88/30min" },
-  { id: "readiness-checklist", icon: "checklist", label: "Automation Readiness Checklist", sub: "Free 2-minute scorecard",
-    url: "https://checklist.pentridgemedia.com" }
+  { id: "youtube-channel", icon: "youtube", label: "Watch me build on YouTube", sub: "AI agents, apps and automations",
+    url: "https://youtube.com/@sirakinb" }
 ];
 
 var ICONS = {

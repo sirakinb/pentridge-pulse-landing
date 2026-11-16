@@ -100,13 +100,6 @@ try {
   fs.writeFileSync(path.join(distDir, '404.html'), notFoundPage);
   console.log('Prerendered 404.html');
 
-  // Standalone /links page lives at the repo root, outside Vite's build.
-  const linksSource = path.join(projectRoot, 'links', 'index.html');
-  if (fs.existsSync(linksSource)) {
-    fs.mkdirSync(path.join(distDir, 'links'), { recursive: true });
-    fs.copyFileSync(linksSource, path.join(distDir, 'links', 'index.html'));
-    console.log('Copied /links');
-  }
 } finally {
   await vite.close();
 }

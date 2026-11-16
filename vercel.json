@@ -96,10 +96,6 @@
       "destination": "/labs/index.html"
     },
     {
-      "source": "/links",
-      "destination": "/links/index.html"
-    },
-    {
       "source": "/wall-of-love",
       "destination": "/index.html"
     },

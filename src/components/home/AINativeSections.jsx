@@ -65,12 +65,86 @@ const GrainWave = () => (
   </div>
 );
 
+// The Pentridge globe: the logo on a lit sphere with three orbiting moons.
+const orbitDot = (size, light, mid, dark, glow) => (
+  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
+    <div
+      className="rounded-full"
+      style={{
+        width: size,
+        height: size,
+        background: `radial-gradient(circle at 35% 30%, ${light} 0%, ${mid} 40%, ${dark} 100%)`,
+        boxShadow: `0 0 ${size * 3}px ${glow}`,
+      }}
+    />
+  </div>
+);
+
+export const PentridgeGlobe = ({ className = 'w-40 h-40 md:w-48 md:h-48' }) => (
+  <div className={`relative ${className}`} style={{ perspective: '1000px' }} aria-hidden="true">
+    <div className="absolute inset-0 bg-purple-600/25 rounded-full blur-[80px] scale-[1.6] pointer-events-none" />
+    <div className="absolute inset-0" style={{ transformStyle: 'preserve-3d' }}>
+      <div
+        className="absolute inset-[-6%] rounded-full pointer-events-none"
+        style={{
+          background: 'radial-gradient(circle, transparent 40%, rgba(168,85,247,0.15) 55%, rgba(168,85,247,0.05) 70%, transparent 80%)',
+          animation: 'globe-atmosphere 4s ease-in-out infinite',
+        }}
+      />
+      <div
+        className="absolute inset-0 rounded-full overflow-hidden"
+        style={{ boxShadow: '0 0 60px rgba(168,85,247,0.5), inset -16px -16px 48px rgba(0,0,0,0.7), inset 12px 12px 32px rgba(168,85,247,0.1)' }}
+      >
+        <div
+          className="absolute inset-0 rounded-full z-10 pointer-events-none"
+          style={{ background: 'radial-gradient(ellipse at 30% 20%, rgba(255,255,255,0.25) 0%, transparent 45%), radial-gradient(ellipse at 75% 80%, rgba(0,0,0,0.6) 0%, transparent 50%)' }}
+        />
+        <div
+          className="absolute inset-0 rounded-full z-10 pointer-events-none opacity-30"
+          style={{
+            background: 'conic-gradient(from 0deg, transparent, rgba(168,85,247,0.2), transparent, rgba(139,92,246,0.15), transparent, rgba(192,132,252,0.15), transparent)',
+            animation: 'globe-shimmer 20s linear infinite',
+            mixBlendMode: 'screen',
+          }}
+        />
+        <img src="/Pentridge.png" alt="" className="w-full h-full object-cover mix-blend-lighten" />
+      </div>
+      <div className="absolute inset-[-17%]" style={{ animation: 'globe-orbit-1 16s linear infinite', transformStyle: 'preserve-3d' }}>
+        <div className="absolute inset-0 rounded-full border border-purple-500/15" />
+        {orbitDot(14, 'rgba(216,180,254,1)', 'rgba(168,85,247,0.9)', 'rgba(107,33,168,0.8)', 'rgba(168,85,247,0.9)')}
+      </div>
+      <div className="absolute inset-[-11%]" style={{ animation: 'globe-orbit-2 10s linear infinite', transformStyle: 'preserve-3d' }}>
+        <div className="absolute inset-0 rounded-full border border-purple-400/10" />
+        {orbitDot(10, 'rgba(233,213,255,1)', 'rgba(192,132,252,0.9)', 'rgba(147,51,234,0.8)', 'rgba(192,132,252,0.9)')}
+      </div>
+      <div className="absolute inset-[-26%]" style={{ animation: 'globe-orbit-3 24s linear infinite', transformStyle: 'preserve-3d' }}>
+        <div className="absolute inset-0 rounded-full border border-violet-400/5" />
+        {orbitDot(8, 'rgba(221,214,254,1)', 'rgba(139,92,246,0.9)', 'rgba(91,33,182,0.8)', 'rgba(139,92,246,0.9)')}
+      </div>
+      <motion.div
+        animate={{ opacity: [0.2, 0.5, 0.2], scale: [1, 1.01, 1] }}
+        transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+        className="absolute inset-[-2px] rounded-full pointer-events-none"
+        style={{ border: '1.5px solid rgba(168,85,247,0.3)' }}
+      />
+    </div>
+  </div>
+);
+
 export const AINativeHero = () => {
   const row = [...partners, ...partners];
   return (
-    <section className="relative min-h-screen bg-black overflow-hidden flex flex-col pt-28 md:pt-32">
+    <section className="relative min-h-screen bg-black overflow-hidden flex flex-col pt-24 md:pt-24">
       <GrainWave />
       <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1 }}
+          className="mb-10 md:mb-12"
+        >
+          <PentridgeGlobe />
+        </motion.div>
         <motion.h1
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
@@ -106,7 +180,7 @@ export const AINativeHero = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.9, delay: 0.45 }}
-        className="relative z-10 w-full max-w-5xl mx-auto px-6 pb-10 md:pb-14 mt-16"
+        className="relative z-10 w-full max-w-5xl mx-auto px-6 pb-8 md:pb-10 mt-12"
       >
         <div className="rounded-[20px] border border-white/10 bg-black/30 backdrop-blur-md p-2">
           <div className="rounded-[14px] border border-white/10 bg-black/40 overflow-hidden py-5">

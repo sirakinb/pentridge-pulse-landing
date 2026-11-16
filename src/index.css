@@ -928,3 +928,10 @@
 @media (prefers-reduced-motion: reduce) {
   .grain-wave, .grain-noise { animation: none; }
 }
+
+/* Pentridge globe */
+@keyframes globe-orbit-1 { from { transform: rotateX(70deg) rotateZ(0deg); } to { transform: rotateX(70deg) rotateZ(360deg); } }
+@keyframes globe-orbit-2 { from { transform: rotateX(80deg) rotateZ(60deg); } to { transform: rotateX(80deg) rotateZ(420deg); } }
+@keyframes globe-orbit-3 { from { transform: rotateX(60deg) rotateZ(160deg); } to { transform: rotateX(60deg) rotateZ(520deg); } }
+@keyframes globe-shimmer { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes globe-atmosphere { 0%, 100% { opacity: 0.4; transform: scale(1); } 50% { opacity: 0.7; transform: scale(1.03); } }

@@ -155,9 +155,6 @@ export const AINativeHero = () => (
     <div className="relative max-w-7xl mx-auto px-6 py-16 md:py-24 w-full">
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.15fr] gap-14 lg:gap-10 items-center">
         <motion.div {...fadeUp}>
-          <p className="font-mono text-xs tracking-[0.3em] uppercase text-white/40 mb-6">
-            Pentridge / AI-native infrastructure
-          </p>
           <h1 className="font-display text-[40px] md:text-6xl leading-[1.05] mb-6 text-[#fafafa]">
             Make your company{' '}
             <span className="text-purple-400">AI-native.</span>
@@ -212,7 +209,7 @@ const blueprintSteps = [
   {
     icon: Bot,
     title: 'Deploy Agents Into Workflows',
-    copy: 'We ship the marketing and operations workflows that move the needle first, then keep expanding. Any agent can run them: ours, or the ones your team already uses.',
+    copy: 'We build the marketing and operations workflows that move the needle first, then keep expanding. Any agent can run them: ours, or the ones your team already uses.',
     points: ['Marketing and operations playbooks', 'Works with Claude, ChatGPT, Codex, Cursor'],
   },
 ];
@@ -399,7 +396,7 @@ export const WorkflowsSection = () => {
           <div className="max-w-3xl">
             <p className="section-label mb-4">03 / Workflows</p>
             <h2 className="font-display text-3xl md:text-[46px] leading-[1.12] text-[#fafafa]">
-              Frameworks we&rsquo;ve already shipped.
+              Frameworks we&rsquo;ve already built.
             </h2>
             <p className="text-white/50 text-lg mt-6 leading-relaxed">
               You don&rsquo;t start from a blank page. Every engagement starts from marketing and operations workflows we&rsquo;ve built and run for real businesses.

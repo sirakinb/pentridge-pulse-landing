@@ -134,22 +134,22 @@ export const PentridgeGlobe = ({ className = 'w-40 h-40 md:w-48 md:h-48' }) => (
 export const AINativeHero = () => {
   const row = [...partners, ...partners];
   return (
-    <section className="relative min-h-screen bg-black overflow-hidden flex flex-col pt-24 md:pt-24">
+    <section className="relative min-h-screen bg-black overflow-hidden flex flex-col pt-20 md:pt-24">
       <GrainWave />
       <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6">
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1 }}
-          className="mb-10 md:mb-12"
+          className="mb-8 md:mb-10"
         >
-          <PentridgeGlobe />
+          <PentridgeGlobe className="w-24 h-24 md:w-28 md:h-28" />
         </motion.div>
         <motion.h1
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9 }}
-          className="font-display text-[48px] sm:text-7xl lg:text-[104px] leading-[0.95] tracking-[-0.04em] text-[#fafafa] max-w-5xl"
+          className="font-display text-[44px] sm:text-6xl lg:text-[80px] leading-[0.98] tracking-[-0.04em] text-[#fafafa] max-w-5xl"
         >
           Make your company <span className="whitespace-nowrap">AI-native.</span>
         </motion.h1>
@@ -157,15 +157,15 @@ export const AINativeHero = () => {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.15 }}
-          className="mt-8 text-lg md:text-xl text-white/70 leading-relaxed max-w-2xl"
+          className="mt-6 text-lg md:text-xl text-white/70 leading-relaxed max-w-2xl"
         >
-          We connect your business data to agents and give them secure access to query and write to the systems you run on.
+          We connect your business data to agents and give them secure access to drive your marketing and operations.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.3 }}
-          className="mt-10 flex flex-col sm:flex-row gap-3"
+          className="mt-8 flex flex-col sm:flex-row gap-3"
         >
           <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-3 bg-[#fafafa] text-black font-mono text-sm uppercase tracking-[0.15em] px-8 py-3 border border-[#fafafa] hover:bg-white transition-colors">
             Book a call <ArrowRight size={15} />
@@ -180,7 +180,7 @@ export const AINativeHero = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.9, delay: 0.45 }}
-        className="relative z-10 w-full max-w-5xl mx-auto px-6 pb-8 md:pb-10 mt-12"
+        className="relative z-10 w-full max-w-5xl mx-auto px-6 pb-8 mt-10"
       >
         <div className="rounded-[20px] border border-white/10 bg-black/30 backdrop-blur-md p-2">
           <div className="rounded-[14px] border border-white/10 bg-black/40 overflow-hidden py-5">
@@ -362,6 +362,7 @@ const AgentRouter = () => {
 
   return (
     <Panel title="Pentridge MCP" aside={<span className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/45">Scoped · logged</span>}>
+      <div className="relative">
       <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto block" role="img" aria-label="Any agent connects through one Pentridge access layer to your CRM, email, payments and docs">
         {routerAgents.map((name, i) => {
           const on = i === activeAgent;
@@ -383,12 +384,14 @@ const AgentRouter = () => {
             </g>
           );
         })}
-        <rect x={cx - 38} y={cy - 38} width="76" height="76" fill="#000" stroke="rgba(255,255,255,0.35)" />
-        <image href="/logos/pentridge-mark.png" x={cx - 15} y={cy - 22} width="30" height="45" aria-label="Pentridge" />
         <circle key={step} r="3.2" fill="#fafafa">
           <animateMotion dur="1.8s" repeatCount="1" fill="freeze" path={fullPath} />
         </circle>
       </svg>
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[17%]">
+        <PentridgeGlobe className="w-full aspect-square" />
+      </div>
+      </div>
       <div className="border-t border-white/10 px-5 py-3 font-mono text-[11px] text-white/55">
         <span className="text-white">{routerAgents[activeAgent]}</span> {verbs[step % 2]} <span className="text-purple-300">{routerSystems[activeSystem]}</span> · permission checked · logged
       </div>

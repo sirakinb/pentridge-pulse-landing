@@ -124,6 +124,8 @@ const Section = ({ section }) => (
         <img
           src={fig.src}
           alt={fig.alt}
+          width={fig.width}
+          height={fig.height}
           loading="lazy"
           decoding="async"
           className="w-full h-auto rounded-xl border border-white/10 bg-white/5"

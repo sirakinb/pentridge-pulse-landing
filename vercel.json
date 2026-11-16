@@ -115,5 +115,17 @@
       "source": "/seo-test",
       "destination": "/index.html"
     }
+  ],
+  "redirects": [
+    {
+      "source": "/links",
+      "destination": "https://links.pentridgemedia.com",
+      "permanent": false
+    },
+    {
+      "source": "/links/(.*)",
+      "destination": "https://links.pentridgemedia.com/$1",
+      "permanent": false
+    }
   ]
 }

@@ -44,14 +44,14 @@ const TextLink = ({ href, children, external }) => (
 
 // ─── Hero ─────────────────────────────────────────────────────
 const partners = [
-  { name: 'Jackson Rental Homes', logo: '/logos/clients/jackson-rental-homes.png', h: 'h-11 md:h-14' },
-  { name: 'Blue Proma Digital', logo: '/logos/clients/blue-proma-digital.png', h: 'h-12 md:h-16' },
-  { name: 'Utopos', logo: '/logos/clients/utopos.png', h: 'h-10 md:h-12' },
-  { name: 'White Law PLLC', logo: '/whitelaw-logo.svg', h: 'h-12 md:h-14' },
-  { name: 'Pearls Girl Productions', logo: '/logos/clients/pearls-girl-productions.png', h: 'h-14 md:h-20' },
+  { name: 'Jackson Rental Homes', logo: '/logos/clients/jackson-rental-homes.png', h: 'h-14 md:h-20' },
+  { name: 'Blue Proma Digital', logo: '/logos/clients/blue-proma-digital.png', h: 'h-16 md:h-24' },
+  { name: 'Utopos', logo: '/logos/clients/utopos.png', h: 'h-14 md:h-[72px]' },
+  { name: 'White Law PLLC', logo: '/whitelaw-logo.svg', h: 'h-16 md:h-20' },
+  { name: 'Pearls Girl Productions', logo: '/logos/clients/pearls-girl-productions.png', h: 'h-20 md:h-28' },
   { name: 'TJ Properties', text: true },
-  { name: 'Brave', logo: '/logos/clients/brave.png', h: 'h-14 md:h-20' },
-  { name: 'FunTimes', logo: '/logos/clients/funtimes.png', h: 'h-11 md:h-14' },
+  { name: 'Brave', logo: '/logos/clients/brave.png', h: 'h-20 md:h-28' },
+  { name: 'FunTimes', logo: '/logos/clients/funtimes.png', h: 'h-14 md:h-20' },
 ];
 
 const GrainWave = () => (
@@ -106,15 +106,15 @@ export const AINativeHero = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.9, delay: 0.45 }}
-        className="relative z-10 w-full max-w-5xl mx-auto px-6 pb-10 md:pb-14 mt-16"
+        className="relative z-10 w-full max-w-6xl mx-auto px-6 pb-10 md:pb-14 mt-14"
       >
         <div className="rounded-[20px] border border-white/10 bg-black/30 backdrop-blur-md p-2">
-          <div className="rounded-[14px] border border-white/10 bg-black/40 overflow-hidden py-6 md:py-8">
-            <div className="flex w-max items-center gap-14 md:gap-20 animate-scroll-partners">
+          <div className="rounded-[14px] border border-white/10 bg-black/40 overflow-hidden py-6 md:py-7">
+            <div className="flex w-max items-center gap-16 md:gap-24 animate-scroll-partners">
               {row.map((p, i) => (
-                <div key={`${p.name}-${i}`} className="flex h-14 md:h-20 items-center shrink-0">
+                <div key={`${p.name}-${i}`} className="flex h-20 md:h-28 items-center shrink-0">
                   {p.text ? (
-                    <span className="text-2xl md:text-3xl font-bold text-white/90 whitespace-nowrap">{p.name}</span>
+                    <span className="text-3xl md:text-4xl font-bold text-white/90 whitespace-nowrap">{p.name}</span>
                   ) : (
                     <img src={p.logo} alt={p.name} className={`${p.h} w-auto object-contain`} />
                   )}

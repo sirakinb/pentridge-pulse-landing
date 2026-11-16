@@ -36,11 +36,11 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <span className="font-mono text-xl tracking-wider">[P]</span>
+              <img src="/logos/pentridge-mark.png" alt="" className="h-8 w-auto" />
               <span className="font-mono text-sm text-white/50 tracking-wider uppercase">Pentridge</span>
             </div>
             <p className="text-sm text-white/40 leading-relaxed mb-6 max-w-xs">
-              We get your company AI-ready and deploy AI agents into your business operations.
+              We make companies AI-native: your data connected to agents that can query and write to the systems you run on.
             </p>
             <div className="flex items-center gap-4">
               <a href="https://www.instagram.com/pentridgemedia" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-white transition-colors">

@@ -44,14 +44,14 @@ const TextLink = ({ href, children, external }) => (
 
 // ─── Hero ─────────────────────────────────────────────────────
 const partners = [
-  { name: 'Jackson Rental Homes', logo: '/p9.png' },
-  { name: 'Blue Proma Digital', logo: '/p11.png' },
-  { name: 'Utopos', logo: '/p12.png' },
-  { name: 'White Law PLLC', logo: '/whitelaw-logo.svg' },
-  { name: 'Pearls Girl Productions', logo: '/p13.png' },
+  { name: 'Jackson Rental Homes', logo: '/logos/clients/jackson-rental-homes.png', h: 'h-11 md:h-14' },
+  { name: 'Blue Proma Digital', logo: '/logos/clients/blue-proma-digital.png', h: 'h-12 md:h-16' },
+  { name: 'Utopos', logo: '/logos/clients/utopos.png', h: 'h-10 md:h-12' },
+  { name: 'White Law PLLC', logo: '/whitelaw-logo.svg', h: 'h-12 md:h-14' },
+  { name: 'Pearls Girl Productions', logo: '/logos/clients/pearls-girl-productions.png', h: 'h-14 md:h-20' },
   { name: 'TJ Properties', text: true },
-  { name: 'Brave', logo: '/brave-logo.png' },
-  { name: 'FunTimes', logo: '/p10.png' },
+  { name: 'Brave', logo: '/logos/clients/brave.png', h: 'h-14 md:h-20' },
+  { name: 'FunTimes', logo: '/logos/clients/funtimes.png', h: 'h-11 md:h-14' },
 ];
 
 const GrainWave = () => (
@@ -109,14 +109,14 @@ export const AINativeHero = () => {
         className="relative z-10 w-full max-w-5xl mx-auto px-6 pb-10 md:pb-14 mt-16"
       >
         <div className="rounded-[20px] border border-white/10 bg-black/30 backdrop-blur-md p-2">
-          <div className="rounded-[14px] border border-white/10 bg-black/40 overflow-hidden py-6">
-            <div className="flex w-max items-center gap-16 animate-scroll-partners">
+          <div className="rounded-[14px] border border-white/10 bg-black/40 overflow-hidden py-6 md:py-8">
+            <div className="flex w-max items-center gap-14 md:gap-20 animate-scroll-partners">
               {row.map((p, i) => (
-                <div key={`${p.name}-${i}`} className="flex h-10 items-center shrink-0 opacity-80">
+                <div key={`${p.name}-${i}`} className="flex h-14 md:h-20 items-center shrink-0">
                   {p.text ? (
-                    <span className="text-lg font-semibold text-white/90 whitespace-nowrap">{p.name}</span>
+                    <span className="text-2xl md:text-3xl font-bold text-white/90 whitespace-nowrap">{p.name}</span>
                   ) : (
-                    <img src={p.logo} alt={p.name} className="h-10 w-auto max-w-[140px] object-contain" />
+                    <img src={p.logo} alt={p.name} className={`${p.h} w-auto object-contain`} />
                   )}
                 </div>
               ))}
@@ -130,7 +130,7 @@ export const AINativeHero = () => {
 
 // ─── Big statement ────────────────────────────────────────────
 export const Statement = ({ children, sub }) => (
-  <section className="bg-black pt-28 md:pt-40 pb-8 md:pb-12">
+  <section id="what-we-do" className="bg-black pt-28 md:pt-40 pb-8 md:pb-12 scroll-mt-20">
     <motion.div {...fadeUp} className="max-w-4xl mx-auto px-6 text-center">
       <h2 className="font-display text-4xl md:text-6xl leading-[1.05] tracking-[-0.03em] text-[#fafafa]">{children}</h2>
       {sub && <p className="mt-6 text-lg text-white/60 leading-relaxed">{sub}</p>}
@@ -310,7 +310,7 @@ const AgentRouter = () => {
           );
         })}
         <rect x={cx - 38} y={cy - 38} width="76" height="76" fill="#000" stroke="rgba(255,255,255,0.35)" />
-        <text x={cx} y={cy + 6} textAnchor="middle" fill="#fafafa" fontSize="18" fontFamily="Geist Mono, monospace">[P]</text>
+        <image href="/logos/pentridge-mark.png" x={cx - 15} y={cy - 22} width="30" height="45" aria-label="Pentridge" />
         <circle key={step} r="3.2" fill="#fafafa">
           <animateMotion dur="1.8s" repeatCount="1" fill="freeze" path={fullPath} />
         </circle>

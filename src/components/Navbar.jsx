@@ -25,8 +25,9 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/5">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="font-mono text-white text-lg tracking-wider" onClick={scrollToTop}>
-          [P]
+        <Link to="/" className="flex items-center gap-3 font-mono text-white text-sm tracking-[0.2em] uppercase" onClick={scrollToTop} aria-label="Pentridge home">
+          <img src="/logos/pentridge-mark.png" alt="" className="h-7 w-auto" />
+          Pentridge
         </Link>
 
         {/* Desktop nav */}

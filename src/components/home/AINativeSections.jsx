@@ -72,8 +72,8 @@ const HeroGraph = () => (
         <g key={name}>
           <path d={path} fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
           <FlowDot path={path} color="#c084fc" dur={2.6 + i * 0.3} begin={i * 0.45} />
-          <FlowDot path={path} color="#f472b6" dur={3.4 + i * 0.2} begin={1.2 + i * 0.5} reverse />
-          <rect x={SRC_X - 58} y={y - 17} width="116" height="34" rx="9" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.12)" />
+          <FlowDot path={path} color="#fafafa" dur={3.4 + i * 0.2} begin={1.2 + i * 0.5} reverse />
+          <rect x={SRC_X - 58} y={y - 17} width="116" height="34" rx="0" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.12)" />
           <text x={SRC_X} y={y + 4.5} textAnchor="middle" fill="rgba(255,255,255,0.75)" fontSize="13" fontFamily="Geist Mono, monospace">{name}</text>
         </g>
       );
@@ -86,9 +86,9 @@ const HeroGraph = () => (
         <g key={name}>
           <path d={path} fill="none" stroke="rgba(168,85,247,0.18)" strokeWidth="1" />
           <FlowDot path={path} color="#c084fc" dur={2.2 + i * 0.25} begin={0.6 + i * 0.5} />
-          <FlowDot path={path} color="#f472b6" dur={2.9 + i * 0.3} begin={1.6 + i * 0.4} reverse />
-          <rect x={AGENT_X - 64} y={y - 17} width="128" height="34" rx="17" fill="rgba(168,85,247,0.12)" stroke="rgba(168,85,247,0.45)" />
-          <circle cx={AGENT_X - 46} cy={y} r="3.5" fill="#4ade80">
+          <FlowDot path={path} color="#fafafa" dur={2.9 + i * 0.3} begin={1.6 + i * 0.4} reverse />
+          <rect x={AGENT_X - 64} y={y - 17} width="128" height="34" rx="0" fill="rgba(168,85,247,0.12)" stroke="rgba(168,85,247,0.45)" />
+          <circle cx={AGENT_X - 46} cy={y} r="3.5" fill="#c084fc">
             <animate attributeName="opacity" values="1;0.35;1" dur="1.8s" begin={`${i * 0.4}s`} repeatCount="indefinite" />
           </circle>
           <text x={AGENT_X + 6} y={y + 4.5} textAnchor="middle" fill="#f5f3ff" fontSize="13" fontFamily="Geist, sans-serif">{name}</text>
@@ -99,8 +99,8 @@ const HeroGraph = () => (
     <circle cx={CORE_X} cy={CORE_Y} r="120" fill="url(#core-glow)">
       <animate attributeName="r" values="110;128;110" dur="5s" repeatCount="indefinite" />
     </circle>
-    <rect x={CORE_X - 62} y={CORE_Y - 62} width="124" height="124" rx="22" fill="url(#core-fill)" stroke="rgba(192,132,252,0.6)" />
-    <rect x={CORE_X - 62} y={CORE_Y - 62} width="124" height="124" rx="22" fill="none" stroke="#f472b6" strokeOpacity="0.8" strokeDasharray="60 436">
+    <rect x={CORE_X - 62} y={CORE_Y - 62} width="124" height="124" rx="16" fill="url(#core-fill)" stroke="rgba(192,132,252,0.6)" />
+    <rect x={CORE_X - 62} y={CORE_Y - 62} width="124" height="124" rx="16" fill="none" stroke="#c084fc" strokeOpacity="0.8" strokeDasharray="60 436">
       <animate attributeName="stroke-dashoffset" values="0;-496" dur="6s" repeatCount="indefinite" />
     </rect>
     <text x={CORE_X} y={CORE_Y - 6} textAnchor="middle" fill="#fafafa" fontSize="15" fontFamily="Geist Pixel Grid, sans-serif">Context</text>
@@ -118,10 +118,10 @@ const HeroFeed = () => {
   const visible = [0, 1, 2].map((offset) => heroFeed[(index + offset) % heroFeed.length]);
 
   return (
-    <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4 md:p-5 font-mono text-[12px] md:text-[13px]">
+    <div className="border border-white/10 bg-white/[0.03] p-4 md:p-5 font-mono text-[12px] md:text-[13px]">
       <div className="flex items-center justify-between mb-3 text-white/35 uppercase tracking-[0.2em] text-[10px]">
         <span>Agent activity</span>
-        <span className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-green-400 animate-pulse" />Live</span>
+        <span className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-[#3dbb72] animate-pulse" />Live</span>
       </div>
       <div className="space-y-2 h-[104px] md:h-[84px] overflow-hidden">
         <AnimatePresence initial={false} mode="popLayout">
@@ -135,7 +135,7 @@ const HeroFeed = () => {
               transition={{ duration: 0.45 }}
               className="flex items-start gap-3"
             >
-              <span className={`shrink-0 rounded px-1.5 py-0.5 text-[10px] uppercase tracking-wider ${item.verb === 'write' ? 'bg-pink-500/15 text-pink-300' : 'bg-purple-500/15 text-purple-300'}`}>
+              <span className={`shrink-0 rounded px-1.5 py-0.5 text-[10px] uppercase tracking-wider ${item.verb === 'write' ? 'bg-white/10 text-white' : 'bg-purple-500/15 text-purple-300'}`}>
                 {item.verb}
               </span>
               <span className="text-white/70"><span className="text-white">{item.agent}</span> {item.text}</span>
@@ -151,7 +151,6 @@ export const AINativeHero = () => (
   <section className="min-h-screen bg-black relative overflow-hidden flex items-center pt-24">
     <div className="absolute inset-0 ai-native-grid pointer-events-none" />
     <div className="absolute top-1/4 right-1/4 w-[520px] h-[520px] bg-purple-600/20 rounded-full blur-[130px] pointer-events-none" />
-    <div className="absolute bottom-0 left-1/4 w-[320px] h-[320px] bg-pink-600/10 rounded-full blur-[110px] pointer-events-none" />
 
     <div className="relative max-w-7xl mx-auto px-6 py-16 md:py-24 w-full">
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.15fr] gap-14 lg:gap-10 items-center">
@@ -161,7 +160,7 @@ export const AINativeHero = () => (
           </p>
           <h1 className="font-display text-[40px] md:text-6xl leading-[1.05] mb-6 text-[#fafafa]">
             Make your company{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">AI-native.</span>
+            <span className="text-purple-400">AI-native.</span>
           </h1>
           <p className="text-lg md:text-xl text-white/60 leading-relaxed mb-10 max-w-xl">
             We connect your business data to agents and give them secure access to query and write to the systems you run on, so your marketing and operations run on agents.
@@ -194,25 +193,25 @@ export const AINativeHero = () => (
 const blueprintSteps = [
   {
     icon: Database,
-    title: 'Connect your sources',
+    title: 'Connect Your Sources',
     copy: 'We wire up the systems your business already runs on: CRM, email, calendars, payments, docs, spreadsheets and databases. No rip and replace.',
     points: ['CRM, email, files, payments, databases', 'Managed sync, hosted by us'],
   },
   {
     icon: Layers,
-    title: 'Build the context layer',
+    title: 'Build the Context Layer',
     copy: 'Your data is cleaned, linked and described so an agent understands your business: who your customers are, what a deal is, how work moves.',
     points: ['One model of your business', 'Definitions agents can reason over'],
   },
   {
     icon: KeyRound,
-    title: 'Give agents read and write access',
+    title: 'Give Agents Read and Write Access',
     copy: 'Through our MCP and API layer, agents can query any source and write back to it: create tasks, update records, draft emails, send invoices. Every action is permissioned and logged.',
     points: ['Scoped permissions per agent', 'Full audit log of every read and write'],
   },
   {
     icon: Bot,
-    title: 'Deploy agents into workflows',
+    title: 'Deploy Agents Into Workflows',
     copy: 'We ship the marketing and operations workflows that move the needle first, then keep expanding. Any agent can run them: ours, or the ones your team already uses.',
     points: ['Marketing and operations playbooks', 'Works with Claude, ChatGPT, Codex, Cursor'],
   },
@@ -240,7 +239,7 @@ export const BlueprintSection = () => {
           <div className="absolute left-[19px] md:left-1/2 top-0 bottom-0 w-px bg-white/10 md:-translate-x-1/2" />
           <motion.div
             style={{ scaleY: lineScale }}
-            className="absolute left-[19px] md:left-1/2 top-0 bottom-0 w-px origin-top bg-gradient-to-b from-purple-400 via-pink-400 to-purple-500 md:-translate-x-1/2"
+            className="absolute left-[19px] md:left-1/2 top-0 bottom-0 w-px origin-top bg-purple-500 md:-translate-x-1/2"
           />
 
           <div className="space-y-14 md:space-y-24">
@@ -256,7 +255,7 @@ export const BlueprintSection = () => {
                   transition={{ duration: 0.6 }}
                   className="relative grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-20"
                 >
-                  <div className="absolute left-0 md:left-1/2 top-1 md:-translate-x-1/2 z-10 flex h-10 w-10 items-center justify-center rounded-full border border-purple-400/50 bg-black text-purple-300 shadow-[0_0_24px_rgba(168,85,247,0.35)]">
+                  <div className="absolute left-0 md:left-1/2 top-1 md:-translate-x-1/2 z-10 flex h-10 w-10 items-center justify-center rounded-full border border-purple-400/50 bg-black text-purple-300">
                     <Icon size={17} />
                   </div>
                   <div className={`pl-16 md:pl-0 ${right ? 'md:col-start-2 md:pl-12' : 'md:pr-12 md:text-right'}`}>
@@ -266,7 +265,7 @@ export const BlueprintSection = () => {
                     <ul className={`space-y-2 ${right ? '' : 'md:flex md:flex-col md:items-end'}`}>
                       {step.points.map((point) => (
                         <li key={point} className="flex items-center gap-3 text-white/45 text-sm">
-                          <span className="w-1 h-1 bg-pink-400 rounded-full" />
+                          <span className="w-1 h-1 bg-purple-400 rounded-full" />
                           {point}
                         </li>
                       ))}
@@ -298,9 +297,9 @@ const sessionLines = [
 const lineStyles = {
   prompt: { tag: 'you', tagClass: 'bg-white/10 text-white/80', textClass: 'text-white' },
   read: { tag: 'read', tagClass: 'bg-purple-500/15 text-purple-300', textClass: 'text-white/75' },
-  write: { tag: 'write', tagClass: 'bg-pink-500/15 text-pink-300', textClass: 'text-white/75' },
+  write: { tag: 'write', tagClass: 'bg-white/10 text-white', textClass: 'text-white/75' },
   result: { tag: '→', tagClass: 'text-white/30', textClass: 'text-white/45' },
-  done: { tag: '✓', tagClass: 'bg-green-500/15 text-green-300', textClass: 'text-green-200/90' },
+  done: { tag: '✓', tagClass: 'bg-purple-500/25 text-white', textClass: 'text-white' },
 };
 
 const AgentSession = () => {
@@ -316,7 +315,7 @@ const AgentSession = () => {
   }, [inView, shown]);
 
   return (
-    <div ref={ref} className="rounded-2xl border border-white/10 bg-[#07050b] shadow-[0_30px_100px_rgba(88,28,135,0.25)] overflow-hidden">
+    <div ref={ref} className="border border-white/10 bg-[#0a0a0a] overflow-hidden">
       <div className="flex items-center gap-2 border-b border-white/10 px-4 py-3">
         <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
         <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
@@ -347,7 +346,6 @@ const AgentSession = () => {
 
 export const ReadWriteSection = () => (
   <section className="bg-black py-24 md:py-32 border-t border-white/5 relative overflow-hidden">
-    <div className="absolute -right-40 top-1/3 h-96 w-96 rounded-full bg-pink-600/10 blur-[130px] pointer-events-none" />
     <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-14 items-center relative">
       <motion.div {...fadeUp}>
         <p className="section-label mb-4">02 / Read and Write</p>
@@ -358,12 +356,12 @@ export const ReadWriteSection = () => (
           A chatbot can tell you which deals went quiet. An AI-native company has an agent that finds them, reads the history, drafts the follow-ups, creates the tasks and tells the team, inside the tools you already use.
         </p>
         <div className="mt-10 grid grid-cols-2 gap-4 max-w-md">
-          <div className="rounded-xl border border-purple-500/25 bg-purple-500/[0.06] p-5">
+          <div className="border border-purple-500/25 bg-purple-500/[0.06] p-5">
             <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-purple-300 mb-2">Query</p>
             <p className="text-white/60 text-sm leading-relaxed">Ask anything across every source, in plain language.</p>
           </div>
-          <div className="rounded-xl border border-pink-500/25 bg-pink-500/[0.06] p-5">
-            <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-pink-300 mb-2">Write</p>
+          <div className="border border-white/20 bg-white/[0.03] p-5">
+            <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-white mb-2">Write</p>
             <p className="text-white/60 text-sm leading-relaxed">Act on it: records, tasks, emails, invoices, posts.</p>
           </div>
         </div>
@@ -378,16 +376,16 @@ export const ReadWriteSection = () => (
 // ─── Workflows: marketing and operations ──────────────────────
 const workflowTabs = {
   Marketing: [
-    { title: 'Campaign engine', reads: 'CRM segments, past campaign results', writes: 'Email drafts, send schedule, CRM activity' },
-    { title: 'Content distribution', reads: 'Briefs, brand guidelines, calendar', writes: 'Posts on every social channel' },
-    { title: 'Lead follow-up', reads: 'New leads, email threads, deal stage', writes: 'Personalised follow-ups and CRM tasks' },
-    { title: 'Weekly performance recap', reads: 'Ads, analytics, CRM pipeline', writes: 'Summary report to Slack or email' },
+    { title: 'Campaign Engine', reads: 'CRM segments, past campaign results', writes: 'Email drafts, send schedule, CRM activity' },
+    { title: 'Content Distribution', reads: 'Briefs, brand guidelines, calendar', writes: 'Posts on every social channel' },
+    { title: 'Lead Follow-Up', reads: 'New leads, email threads, deal stage', writes: 'Personalised follow-ups and CRM tasks' },
+    { title: 'Weekly Performance Recap', reads: 'Ads, analytics, CRM pipeline', writes: 'Summary report to Slack or email' },
   ],
   Operations: [
-    { title: 'Intake and qualification', reads: 'Calls, forms, availability', writes: 'Booked appointments and CRM records' },
-    { title: 'Billing and collections', reads: 'Contracts, usage, payment history', writes: 'Invoices and reminders in Stripe or QuickBooks' },
-    { title: 'Reporting and analytics', reads: 'Operational data across every tool', writes: 'Monthly recaps and dashboards' },
-    { title: 'Internal requests', reads: 'Docs, SOPs, project boards', writes: 'Tasks, updates and answers for the team' },
+    { title: 'Intake and Qualification', reads: 'Calls, forms, availability', writes: 'Booked appointments and CRM records' },
+    { title: 'Billing and Collections', reads: 'Contracts, usage, payment history', writes: 'Invoices and reminders in Stripe or QuickBooks' },
+    { title: 'Reporting and Analytics', reads: 'Operational data across every tool', writes: 'Monthly recaps and dashboards' },
+    { title: 'Internal Requests', reads: 'Docs, SOPs, project boards', writes: 'Tasks, updates and answers for the team' },
   ],
 };
 
@@ -407,16 +405,16 @@ export const WorkflowsSection = () => {
               You don&rsquo;t start from a blank page. Every engagement starts from marketing and operations workflows we&rsquo;ve built and run for real businesses.
             </p>
           </div>
-          <div className="inline-flex self-start md:self-auto rounded-full border border-white/10 bg-white/[0.03] p-1">
+          <div className="inline-flex self-start md:self-auto border border-white/10 bg-white/[0.03] p-1">
             {Object.keys(workflowTabs).map((name) => (
               <button
                 key={name}
                 type="button"
                 onClick={() => setTab(name)}
-                className={`relative rounded-full px-5 py-2 font-mono text-xs tracking-[0.15em] uppercase transition-colors ${tab === name ? 'text-white' : 'text-white/45 hover:text-white/70'}`}
+                className={`relative px-5 py-2 font-mono text-xs tracking-[0.15em] uppercase transition-colors ${tab === name ? 'text-white' : 'text-white/45 hover:text-white/70'}`}
               >
                 {tab === name && (
-                  <motion.span layoutId="workflow-tab" className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-600/60 to-pink-600/50" transition={{ duration: 0.35 }} />
+                  <motion.span layoutId="workflow-tab" className="absolute inset-0 bg-[#8033cc]" transition={{ duration: 0.35 }} />
                 )}
                 <span className="relative">{name}</span>
               </button>
@@ -445,7 +443,7 @@ export const WorkflowsSection = () => {
                     <span className="text-white/60">{wf.reads}</span>
                   </div>
                   <div className="flex items-start gap-3">
-                    <span className="shrink-0 min-w-[48px] text-center rounded px-1.5 py-0.5 font-mono text-[10px] uppercase tracking-wider bg-pink-500/15 text-pink-300">writes</span>
+                    <span className="shrink-0 min-w-[48px] text-center rounded px-1.5 py-0.5 font-mono text-[10px] uppercase tracking-wider bg-white/10 text-white">writes</span>
                     <span className="text-white/60">{wf.writes}</span>
                   </div>
                 </div>
@@ -490,7 +488,7 @@ export const AnyAgentSection = () => (
             transition={{ duration: 0.5, delay: i * 0.07 }}
             className="flex flex-col items-center"
           >
-            <div className="h-16 w-16 mb-4 flex items-center justify-center rounded-2xl border border-white/10 bg-white/[0.03]">
+            <div className="h-16 w-16 mb-4 flex items-center justify-center border border-white/10 bg-white/[0.03]">
               <img src={platform.logo} alt={`${platform.name} logo`} loading="lazy" className={`h-9 w-9 object-contain ${platform.rounded ? 'rounded-lg' : ''}`} />
             </div>
             <p className="text-white/80 text-sm font-medium">{platform.name}</p>

@@ -28,6 +28,7 @@ import Navbar from '../components/Navbar';
 import MetaTags from '../components/MetaTags';
 import PageSchemaMarkup from '../components/PageSchemaMarkup';
 import OurWork from '../components/OurWork';
+import { AINativeHero, BlueprintSection, ReadWriteSection, WorkflowsSection, AnyAgentSection } from '../components/home/AINativeSections';
 import { getMetaConfig } from '../lib/meta-config';
 
 const fadeUp = {
@@ -54,285 +55,6 @@ const StatCounter = ({ end, suffix = '+', label }) => {
   );
 };
 
-// ─── Hero Section ─────────────────────────────────────────────
-const HeroSection = () => (
-  <section className="min-h-screen bg-black relative overflow-hidden flex items-center pt-20">
-    {/* Ambient glow */}
-    <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-purple-600/20 rounded-full blur-[120px] pointer-events-none" />
-    <div className="absolute bottom-1/4 left-1/3 w-[300px] h-[300px] bg-pink-600/10 rounded-full blur-[100px] pointer-events-none" />
-
-    <div className="max-w-7xl mx-auto px-6 py-20 md:py-32 w-full">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        {/* Left: Copy */}
-        <motion.div {...fadeUp}>
-          <p className="font-mono text-xs tracking-[0.3em] uppercase text-white/40 mb-6">
-            Pentridge / AI Agent Deployment
-          </p>
-          <h1 className="font-display text-4xl md:text-5xl lg:text-[43px] leading-[1.2] mb-6 text-[#fafafa]">
-            Deploy AI agents into your business operations.
-          </h1>
-          <p className="text-lg md:text-xl text-white/60 leading-relaxed mb-10 max-w-xl">
-            We get your company AI-ready and streamline your marketing, intake, and internal operations.
-          </p>
-          <img
-            src="/agent-workspace-activity.jpg"
-            alt="Agent Workspace activity feed showing live status updates: intake agent updating the voice agent on available properties for the week, marketing agent drafted and sent an email campaign, workspace agent scheduled to send the monthly intake analytics recap, ops agent billed all tenants for their water bill"
-            className="w-full max-w-xl rounded-2xl"
-          />
-        </motion.div>
-
-        {/* Right: 3D Planetary System */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.3 }}
-          className="flex flex-col items-center gap-14"
-        >
-          {/* CSS Keyframes for 3D orbits */}
-          <style>{`
-            @keyframes orbit-1 {
-              from { transform: rotateX(70deg) rotateZ(0deg); }
-              to { transform: rotateX(70deg) rotateZ(360deg); }
-            }
-            @keyframes orbit-2 {
-              from { transform: rotateX(80deg) rotateZ(60deg); }
-              to { transform: rotateX(80deg) rotateZ(420deg); }
-            }
-            @keyframes orbit-3 {
-              from { transform: rotateX(60deg) rotateZ(160deg); }
-              to { transform: rotateX(60deg) rotateZ(520deg); }
-            }
-            @keyframes holographic-shimmer {
-              from { transform: rotate(0deg); }
-              to { transform: rotate(360deg); }
-            }
-            @keyframes atmosphere-pulse {
-              0%, 100% { opacity: 0.4; transform: scale(1); }
-              50% { opacity: 0.7; transform: scale(1.03); }
-            }
-          `}</style>
-
-          <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96" style={{ perspective: '1000px' }}>
-            {/* Deep ambient glow */}
-            <div className="absolute inset-0 bg-purple-600/25 rounded-full blur-[120px] scale-[1.8] pointer-events-none" />
-
-            {/* 3D Stage */}
-            <div className="absolute inset-0" style={{ transformStyle: 'preserve-3d' }}>
-
-              {/* Atmospheric rim glow */}
-              <div
-                className="absolute inset-[-15px] rounded-full pointer-events-none"
-                style={{
-                  background: 'radial-gradient(circle, transparent 40%, rgba(168,85,247,0.15) 55%, rgba(168,85,247,0.05) 70%, transparent 80%)',
-                  animation: 'atmosphere-pulse 4s ease-in-out infinite',
-                }}
-              />
-
-              {/* Sphere body */}
-              <div
-                className="absolute inset-0 rounded-full overflow-hidden"
-                style={{
-                  boxShadow: '0 0 80px rgba(168,85,247,0.5), inset -20px -20px 60px rgba(0,0,0,0.7), inset 15px 15px 40px rgba(168,85,247,0.1), 0 0 160px rgba(168,85,247,0.15)',
-                }}
-              >
-                {/* 3D sphere lighting - top-left highlight, bottom-right shadow */}
-                <div
-                  className="absolute inset-0 rounded-full z-10 pointer-events-none"
-                  style={{
-                    background: 'radial-gradient(ellipse at 30% 20%, rgba(255,255,255,0.25) 0%, transparent 45%), radial-gradient(ellipse at 75% 80%, rgba(0,0,0,0.6) 0%, transparent 50%), radial-gradient(ellipse at 50% 0%, rgba(168,85,247,0.1) 0%, transparent 30%)',
-                  }}
-                />
-                {/* Holographic shimmer overlay */}
-                <div
-                  className="absolute inset-0 rounded-full z-10 pointer-events-none opacity-30"
-                  style={{
-                    background: 'conic-gradient(from 0deg, transparent, rgba(168,85,247,0.2), transparent, rgba(139,92,246,0.15), transparent, rgba(236,72,153,0.15), transparent)',
-                    animation: 'holographic-shimmer 20s linear infinite',
-                    mixBlendMode: 'screen',
-                  }}
-                />
-                {/* Logo */}
-                <img
-                  src="/Pentridge.png"
-                  alt="Pentridge"
-                  className="w-full h-full object-cover mix-blend-lighten"
-                />
-              </div>
-
-              {/* Orbital System 1 - Main orbit (large, slow) */}
-              <div
-                className="absolute inset-[-45px]"
-                style={{
-                  animation: 'orbit-1 16s linear infinite',
-                  transformStyle: 'preserve-3d',
-                }}
-              >
-                <div className="absolute inset-0 rounded-full border border-purple-500/15" />
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                  <div
-                    className="w-5 h-5 rounded-full"
-                    style={{
-                      background: 'radial-gradient(circle at 35% 30%, rgba(216,180,254,1) 0%, rgba(168,85,247,0.9) 40%, rgba(107,33,168,0.8) 100%)',
-                      boxShadow: '0 0 18px rgba(168,85,247,0.9), 0 0 40px rgba(168,85,247,0.4)',
-                    }}
-                  />
-                </div>
-              </div>
-
-              {/* Orbital System 2 - Inner orbit (medium, faster) */}
-              <div
-                className="absolute inset-[-28px]"
-                style={{
-                  animation: 'orbit-2 10s linear infinite',
-                  transformStyle: 'preserve-3d',
-                }}
-              >
-                <div className="absolute inset-0 rounded-full border border-pink-500/10" />
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                  <div
-                    className="w-3.5 h-3.5 rounded-full"
-                    style={{
-                      background: 'radial-gradient(circle at 35% 30%, rgba(251,207,232,1) 0%, rgba(236,72,153,0.9) 40%, rgba(190,24,93,0.8) 100%)',
-                      boxShadow: '0 0 14px rgba(236,72,153,0.9), 0 0 30px rgba(236,72,153,0.3)',
-                    }}
-                  />
-                </div>
-              </div>
-
-              {/* Orbital System 3 - Outer orbit (wide, slowest) */}
-              <div
-                className="absolute inset-[-68px]"
-                style={{
-                  animation: 'orbit-3 24s linear infinite',
-                  transformStyle: 'preserve-3d',
-                }}
-              >
-                <div className="absolute inset-0 rounded-full border border-violet-400/5" />
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                  <div
-                    className="w-2.5 h-2.5 rounded-full"
-                    style={{
-                      background: 'radial-gradient(circle at 35% 30%, rgba(221,214,254,1) 0%, rgba(139,92,246,0.9) 40%, rgba(91,33,182,0.8) 100%)',
-                      boxShadow: '0 0 12px rgba(139,92,246,0.9), 0 0 25px rgba(139,92,246,0.3)',
-                    }}
-                  />
-                </div>
-              </div>
-
-              {/* Pulsing border glow */}
-              <motion.div
-                animate={{ opacity: [0.2, 0.5, 0.2], scale: [1, 1.01, 1] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute inset-[-2px] rounded-full pointer-events-none"
-                style={{
-                  border: '1.5px solid rgba(168,85,247,0.3)',
-                  boxShadow: '0 0 30px rgba(168,85,247,0.15), 0 0 60px rgba(168,85,247,0.08)',
-                }}
-              />
-
-            </div>
-          </div>
-
-          <a
-            href="https://cal.com/akinyemi-bajulaiye-2jua88/30min"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary inline-flex min-h-[76px] w-full sm:w-auto sm:px-16 items-center justify-center text-center"
-          >
-            Book A Call
-          </a>
-        </motion.div>
-      </div>
-
-      {/* Stats stripe */}
-      <motion.div
-        {...fadeUp}
-        className="mt-20 pt-10 border-t border-white/10 flex flex-wrap justify-center gap-12 md:gap-24 font-mono text-sm text-center"
-      >
-        <StatCounter end={50} label="Projects Delivered" />
-        <StatCounter end={12} label="Active Partners" />
-        <StatCounter end={500} label="Hours Automated" />
-      </motion.div>
-    </div>
-  </section>
-);
-
-// ─── Section 01: Automation Offer ─────────────────────────────
-const TwoWaysSection = () => (
-  <section id="what-we-do" className="bg-black py-24 md:py-32 relative scroll-mt-20">
-    <div className="max-w-7xl mx-auto px-6">
-      <motion.div {...fadeUp} className="mb-16">
-        <p className="section-label mb-4">01 / What We Do</p>
-        <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] max-w-2xl">
-          We make your company AI-ready. Then we deploy agents.
-        </h2>
-      </motion.div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <motion.div
-          {...stagger}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="glass-card-purple rounded-2xl p-10 md:p-12 group hover:border-purple-500/40 transition-all duration-500"
-        >
-          <p className="font-mono text-xs tracking-[0.2em] uppercase text-purple-400 mb-4">Step One</p>
-          <h3 className="font-display text-2xl md:text-3xl leading-[1.2] text-[#fafafa] mb-4 capitalize">
-            Get AI-Ready
-          </h3>
-          <p className="text-white/60 leading-relaxed mb-8">
-            We audit how your business runs, streamline your intake and internal operations, and pipe your CRM, project management, and marketing data into one Agent Workspace — the single source of context your agents will work from.
-          </p>
-          <ul className="space-y-3 mb-8">
-            {['Operations audit and roadmap', 'Intake and follow-up automation', 'Internal operations streamlining', 'Data pipeline into your Agent Workspace'].map((item) => (
-              <li key={item} className="flex items-center gap-3 text-white/50 text-sm">
-                <span className="w-1 h-1 bg-purple-500 rounded-full" />
-                {item}
-              </li>
-            ))}
-          </ul>
-          <a
-            href="https://cal.com/akinyemi-bajulaiye-2jua88/30min"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-outline inline-flex items-center gap-2 group-hover:border-purple-400/60"
-          >
-            Book A Call <ArrowRight size={14} />
-          </a>
-        </motion.div>
-
-        <motion.div
-          {...stagger}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="glass-card-purple rounded-2xl p-10 md:p-12 group hover:border-purple-500/40 transition-all duration-500"
-        >
-          <p className="font-mono text-xs tracking-[0.2em] uppercase text-pink-400 mb-4">Step Two</p>
-          <h3 className="font-display text-2xl md:text-3xl leading-[1.2] text-[#fafafa] mb-4 capitalize">
-            Deploy AI Agents
-          </h3>
-          <p className="text-white/60 leading-relaxed mb-8">
-            With your context centralized, we deploy agents into your marketing and operations. Through Pentridge MCP, any agent can run your workflows — and status updates flow back into your workspace, so you have a live understanding of what your agents are doing.
-          </p>
-          <ul className="space-y-3 mb-8">
-            {['Marketing and operations agents', 'Company context and agent skills in one workspace', 'Pentridge MCP: any agent can run your workflows', 'Live status updates on agent activity'].map((item) => (
-              <li key={item} className="flex items-center gap-3 text-white/50 text-sm">
-                <span className="w-1 h-1 bg-pink-500 rounded-full" />
-                {item}
-              </li>
-            ))}
-          </ul>
-          <a
-            href="https://cal.com/akinyemi-bajulaiye-2jua88/30min"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-outline inline-flex items-center gap-2 group-hover:border-pink-400/60"
-          >
-            Discuss Agent Deployment <ArrowRight size={14} />
-          </a>
-        </motion.div>
-      </div>
-    </div>
-  </section>
-);
-
 // ─── Section 02: Trusted By ───────────────────────────────────
 const TrustedBySection = () => {
   const partners = [
@@ -352,7 +74,7 @@ const TrustedBySection = () => {
     <section className="bg-[#2d1f4e] py-28 md:py-36">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div {...fadeUp} className="text-center mb-16">
-          <p className="section-label">02 / Trusted By</p>
+          <p className="section-label">Trusted By</p>
         </motion.div>
         <div className="overflow-hidden">
           <div className="flex items-center gap-16 md:gap-20 animate-scroll-partners">
@@ -375,36 +97,6 @@ const TrustedBySection = () => {
     </section>
   );
 };
-
-const agentPlatforms = [
-  { name: 'Grok Bot', logo: '/logos/grokbot.svg' },
-  { name: 'Claude Code', logo: '/logos/claudecode.svg' },
-  { name: 'Codex', logo: '/logos/codex-blue.png' },
-  { name: 'Cursor', logo: '/logos/cursor.svg' },
-  { name: 'Hermes', logo: '/logos/hermes.png', rounded: true },
-  { name: 'OpenClaw', logo: '/logos/openclaw.svg' },
-];
-
-const customWorkspaces = [
-  {
-    src: '/manor-workspace-vibecode.png',
-    alt: 'Vibe Code Philly custom Manor agent workspace with company branding',
-  },
-  {
-    src: '/manor-workspace-jackson.png',
-    alt: 'Jackson Rental Homes custom Manor agent workspace with company branding',
-  },
-  {
-    src: '/manor-workspace-meridian.png',
-    alt: 'Meridian Properties custom Manor agent workspace with company branding',
-  },
-];
-
-const WorkspaceScreenshot = ({ src, alt }) => (
-  <div className="rounded-2xl border border-white/10 bg-black/40 p-1.5 sm:p-2 overflow-hidden">
-    <img src={src} alt={alt} loading="lazy" className="w-full rounded-xl object-cover object-top" />
-  </div>
-);
 
 const integrationRows = [
   [
@@ -444,7 +136,7 @@ const IntegrationSources = () => (
           Agents connect to the tools your business runs on.
         </h2>
         <p className="text-white/50 text-lg mt-6 max-w-3xl mx-auto leading-relaxed">
-          CRM, project management, email, files, payments, and reporting feed the same context layer — giving every agent the information it needs to work across your business.
+          CRM, project management, email, files, payments and reporting feed one context layer, and agents can read from and write to every one of them.
         </p>
       </motion.div>
 
@@ -472,102 +164,6 @@ const IntegrationSources = () => (
         })}
       </motion.div>
 
-    </div>
-  </section>
-);
-
-// ─── Section 04: Manor ───────────────────────────────────────────────
-const ManorSection = () => (
-  <section className="bg-black py-24 md:py-32 border-t border-white/5 overflow-hidden">
-    <div className="max-w-7xl mx-auto px-6">
-      <motion.div
-        {...fadeUp}
-        className="relative overflow-hidden rounded-3xl border border-purple-500/20 bg-[#09080c]"
-      >
-        <div className="absolute -top-40 -left-28 h-80 w-80 rounded-full bg-purple-600/20 blur-[110px] pointer-events-none" />
-        <div className="absolute -bottom-48 right-0 h-96 w-96 rounded-full bg-violet-600/10 blur-[130px] pointer-events-none" />
-
-        <div className="relative z-10 p-7 sm:p-10 lg:p-12">
-          <div className="w-full mb-10 md:mb-14">
-            <p className="section-label mb-6">04 / Our Product</p>
-            <img
-              src="/logo-website.png"
-              alt="Manor logo"
-              loading="lazy"
-              className="h-20 w-28 object-cover object-center mb-8"
-            />
-            <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] max-w-5xl">
-              Meet Manor. Your Agentic Platform for knowledge work.
-            </h2>
-            <p className="text-white/55 text-lg mt-6 max-w-5xl leading-relaxed">
-              Manor gives service businesses a place to collaborate with a team of specialized AI agents across disciplines.
-            </p>
-          </div>
-
-          <a
-            href="https://manor.pentridgemedia.com"
-            className="group block"
-            aria-label="Open Manor"
-          >
-            <div className="w-full rounded-2xl border border-white/10 bg-black/40 p-1.5 sm:p-2 shadow-[0_30px_100px_rgba(88,28,135,0.24)] transition-all duration-500 group-hover:border-purple-400/35 group-hover:-translate-y-1">
-              <img
-                src="/Manor.png"
-                alt="Manor AI agent workspace showing agent conversations, tools, and live task activity"
-                loading="lazy"
-                className="w-full rounded-xl object-cover"
-              />
-            </div>
-          </a>
-
-          <div className="mt-12 pt-12 border-t border-white/10">
-            <p className="font-mono text-xs tracking-[0.2em] uppercase text-white/35 text-center mb-8">
-              Custom Agent Workspaces For Your Company
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-5xl mx-auto">
-              <WorkspaceScreenshot src={customWorkspaces[0].src} alt={customWorkspaces[0].alt} />
-              <WorkspaceScreenshot src={customWorkspaces[1].src} alt={customWorkspaces[1].alt} />
-              <div className="md:col-span-2 flex justify-center">
-                <div className="w-full md:w-[calc(50%-0.75rem)]">
-                  <WorkspaceScreenshot src={customWorkspaces[2].src} alt={customWorkspaces[2].alt} />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-9 flex justify-center">
-            <a
-              href="https://manor.pentridgemedia.com"
-              className="btn-primary inline-flex items-center gap-3"
-              aria-label="Visit the Manor website"
-            >
-              Learn More <ArrowRight size={15} />
-            </a>
-          </div>
-
-          <div className="mt-16 pt-14 border-t border-white/10">
-            <p className="text-white/50 text-base md:text-lg text-center max-w-3xl mx-auto leading-relaxed mb-12">
-              Let us build you your own custom agent workspace, with your company's branding. Make it your AI home, your system of record, or pull in your company's context to any agentic platform you already use. Your workflows and business data are available wherever your agents live.
-            </p>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-6 gap-y-10 max-w-5xl mx-auto">
-              {agentPlatforms.map((platform) => (
-                <div key={platform.name} className="flex flex-col items-center justify-center text-center">
-                  <div className="h-16 flex items-center justify-center mb-4">
-                    <img
-                      src={platform.logo}
-                      alt={`${platform.name} logo`}
-                      className={`h-12 w-12 object-contain ${platform.rounded ? 'rounded-xl' : ''}`}
-                    />
-                  </div>
-                  <h3 className="text-white font-semibold text-sm">{platform.name}</h3>
-                </div>
-              ))}
-            </div>
-            <p className="text-center font-mono text-xs tracking-[0.2em] uppercase text-white/30 mt-12">
-              + any MCP-compatible agentic platform or personal agent
-            </p>
-          </div>
-        </div>
-      </motion.div>
     </div>
   </section>
 );
@@ -643,7 +239,7 @@ const TestimonialsSection = () => {
     <section className="bg-black py-24 md:py-32">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div {...fadeUp} className="mb-16">
-          <p className="section-label mb-4">07 / What They Say</p>
+          <p className="section-label mb-4">08 / What They Say</p>
           <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] max-w-3xl capitalize">
             Don't take our word for it.
           </h2>
@@ -805,9 +401,9 @@ const ProcessSection = () => {
     <section className="bg-black py-24 md:py-32 border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div {...fadeUp} className="mb-16">
-          <p className="section-label mb-4">05 / Process</p>
+          <p className="section-label mb-4">06 / Process</p>
           <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] max-w-3xl capitalize">
-            Audit, centralize, deploy, and keep improving.
+            Audit, connect, deploy, and keep improving.
           </h2>
         </motion.div>
         <motion.div {...fadeUp} className="mx-auto w-full max-w-7xl overflow-hidden bg-black">
@@ -832,23 +428,27 @@ const FAQSection = () => {
   const faqs = [
     {
       q: 'What does Pentridge actually do?',
-      a: 'We get your company AI-ready, then deploy AI agents into your marketing and operations. In practice that means streamlining your intake and internal operations, centralizing your business data into an Agent Workspace, and connecting agents to your workflows — with live visibility into what they are doing.',
+      a: 'We make companies AI-native. We connect your business data to agents, give them secure access to query and write to the systems you run on, and deploy the marketing and operations workflows that put that access to work.',
     },
     {
-      q: 'What is the Agent Workspace?',
-      a: 'It is the single source of context for your company. A managed data pipeline brings your CRM, project management, marketing, and operations data into one workspace, alongside your documents and agent skills. It also gives you status updates and a live understanding of what your agents are doing. Both the pipeline and the workspace are included and hosted by us.',
+      q: 'What does "AI-native" mean in practice?',
+      a: 'Your agents can see your business and act in it. They query your CRM, email, payments, docs and databases, and they write back: creating tasks, updating records, drafting emails, sending invoices. Your team reviews and steers the work instead of doing it by hand.',
     },
     {
-      q: 'What is Pentridge MCP?',
-      a: 'Pentridge MCP is the MCP/API layer built into your workspace. It connects your company context to agentic platforms like Claude Code, Codex, and Cursor — so any agent can run your workflows, with updates flowing back into the workspace.',
+      q: 'How do agents get access to our data?',
+      a: 'Through Pentridge MCP, the MCP and API layer we set up on top of your connected sources. Each agent gets scoped permissions for what it can read and what it can write, and every action is logged, so you always know what your agents did and why.',
     },
     {
       q: 'What does pricing look like?',
       a: 'Every deployment is different. We usually begin with a discovery call, then scope the infrastructure, agents, and any ongoing monitoring based on complexity, integrations, and expected ROI.',
     },
     {
+      q: 'Can we use the agents we already have?',
+      a: 'Yes. Because the access layer speaks MCP, Claude, ChatGPT, Codex, Cursor and other MCP-compatible agents can use the same data and workflows as the agents we deploy.',
+    },
+    {
       q: 'How long does a typical deployment take?',
-      a: 'Focused automations and first agents often launch within 2-4 weeks. Full workspace builds with multiple data sources and agents can take 6-8 weeks depending on access, integrations, and review cycles.',
+      a: 'First connected sources and workflows often go live within 2-4 weeks. Company-wide builds with many sources and agents can take 6-8 weeks depending on access, integrations, and review cycles.',
     },
     {
       q: 'What happens after agents are deployed?',
@@ -860,7 +460,7 @@ const FAQSection = () => {
     <section className="bg-black py-24 md:py-32">
       <div className="max-w-3xl mx-auto px-6">
         <motion.div {...fadeUp} className="mb-16">
-          <p className="section-label mb-4">06 / FAQ</p>
+          <p className="section-label mb-4">07 / FAQ</p>
           <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] capitalize">
             Questions? We have answers.
           </h2>
@@ -956,7 +556,7 @@ const CTASection = () => {
 
   const commitments = [
     'First workflows live within weeks',
-    'Data pipeline and Agent Workspace included — hosted by us',
+    'Data connections and access layer included, hosted by us',
     'Hands-on setup for your data sources, agents, and workflows',
     'Pricing scoped after we understand your setup',
   ];
@@ -965,13 +565,13 @@ const CTASection = () => {
     <section className="bg-black py-24 md:py-32">
       <div className="max-w-4xl mx-auto px-6">
         <motion.div {...fadeUp} className="text-center mb-14">
-          <p className="section-label mb-6">08 / Let's Go</p>
+          <p className="section-label mb-6">09 / Let's Go</p>
           <h2 className="font-display text-3xl md:text-5xl leading-[1.15] text-[#fafafa]">
-            AI agents in your operations,{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">live in weeks.</span>
+            Become an AI-native company,{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">in weeks.</span>
           </h2>
           <p className="text-white/50 text-lg mt-6 max-w-2xl mx-auto leading-relaxed">
-            We embed with your team, wire your business data into one Agent Workspace, and deploy agents across your marketing, intake, and internal operations — scoped to your business, not a generic playbook.
+            We embed with your team, connect your business data to agents, and deploy the workflows that run your marketing and operations, scoped to your business, not a generic playbook.
           </p>
         </motion.div>
 
@@ -1094,12 +694,14 @@ const Index = () => {
       <MetaTags {...metaConfig} />
       <PageSchemaMarkup pageType="home" />
       <Navbar />
-      <HeroSection />
-      <TwoWaysSection />
+      <AINativeHero />
       <TrustedBySection />
-      <OurWork />
-      <ManorSection />
+      <BlueprintSection />
+      <ReadWriteSection />
+      <WorkflowsSection />
       <IntegrationSources />
+      <AnyAgentSection />
+      <OurWork />
       <ProcessSection />
       <FAQSection />
       <TestimonialsSection />

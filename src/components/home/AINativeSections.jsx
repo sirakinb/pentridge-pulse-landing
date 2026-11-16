@@ -44,14 +44,14 @@ const TextLink = ({ href, children, external }) => (
 
 // ─── Hero ─────────────────────────────────────────────────────
 const partners = [
-  { name: 'Jackson Rental Homes', logo: '/logos/clients/jackson-rental-homes.png', h: 'h-11 md:h-14' },
-  { name: 'Blue Proma Digital', logo: '/logos/clients/blue-proma-digital.png', h: 'h-12 md:h-16' },
-  { name: 'Utopos', logo: '/logos/clients/utopos.png', h: 'h-10 md:h-12' },
-  { name: 'White Law PLLC', logo: '/whitelaw-logo.svg', h: 'h-12 md:h-14' },
-  { name: 'Pearls Girl Productions', logo: '/logos/clients/pearls-girl-productions.png', h: 'h-14 md:h-20' },
+  { name: 'Jackson Rental Homes', logo: '/logos/clients/jackson-rental-homes.png', h: 'h-7 md:h-8' },
+  { name: 'Blue Proma Digital', logo: '/logos/clients/blue-proma-digital.png', h: 'h-8 md:h-10' },
+  { name: 'Utopos', logo: '/logos/clients/utopos.png', h: 'h-7 md:h-8' },
+  { name: 'White Law PLLC', logo: '/whitelaw-logo.svg', h: 'h-8 md:h-9' },
+  { name: 'Pearls Girl Productions', logo: '/logos/clients/pearls-girl-productions.png', h: 'h-10 md:h-12' },
   { name: 'TJ Properties', text: true },
-  { name: 'Brave', logo: '/logos/clients/brave.png', h: 'h-14 md:h-20' },
-  { name: 'FunTimes', logo: '/logos/clients/funtimes.png', h: 'h-11 md:h-14' },
+  { name: 'Brave', logo: '/logos/clients/brave.png', h: 'h-10 md:h-12' },
+  { name: 'FunTimes', logo: '/logos/clients/funtimes.png', h: 'h-7 md:h-8' },
 ];
 
 const GrainWave = () => (
@@ -109,12 +109,12 @@ export const AINativeHero = () => {
         className="relative z-10 w-full max-w-5xl mx-auto px-6 pb-10 md:pb-14 mt-16"
       >
         <div className="rounded-[20px] border border-white/10 bg-black/30 backdrop-blur-md p-2">
-          <div className="rounded-[14px] border border-white/10 bg-black/40 overflow-hidden py-6 md:py-8">
-            <div className="flex w-max items-center gap-14 md:gap-20 animate-scroll-partners">
+          <div className="rounded-[14px] border border-white/10 bg-black/40 overflow-hidden py-5">
+            <div className="flex w-max items-center gap-14 md:gap-16 animate-scroll-partners">
               {row.map((p, i) => (
-                <div key={`${p.name}-${i}`} className="flex h-14 md:h-20 items-center shrink-0">
+                <div key={`${p.name}-${i}`} className="flex h-12 items-center shrink-0">
                   {p.text ? (
-                    <span className="text-2xl md:text-3xl font-bold text-white/90 whitespace-nowrap">{p.name}</span>
+                    <span className="text-lg md:text-xl font-bold text-white/90 whitespace-nowrap">{p.name}</span>
                   ) : (
                     <img src={p.logo} alt={p.name} className={`${p.h} w-auto object-contain`} />
                   )}

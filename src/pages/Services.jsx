@@ -52,16 +52,26 @@ const services = [
   },
 ];
 
+const engagementSteps = [
+  {
+    title: 'Audit',
+    text: 'We map how leads, clients, and internal work move through your business today, find where time and leads are lost, and pick the first workflows worth automating.',
+  },
+  {
+    title: 'Centralize',
+    text: 'We connect your CRM, calendar, inbox, phone, documents, and operations data into one Agent Workspace, so every agent works from the same context.',
+  },
+  {
+    title: 'Deploy',
+    text: 'We build and launch the agents and automations, such as call answering, lead follow-up, CRM updates, and reporting, with live visibility into what each one is doing.',
+  },
+  {
+    title: 'Keep improving',
+    text: 'We monitor results, refine agent skills, and expand into the next part of the business once the first workflows are working.',
+  },
+];
+
 const Services = () => {
-  const openAction = (service) => {
-    if (service.external) {
-      window.open(service.action, '_blank', 'noopener,noreferrer');
-      return;
-    }
-
-    window.location.href = service.action;
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-800">
       <MetaTags
@@ -132,17 +142,87 @@ const Services = () => {
                         {service.description}
                       </p>
                       <Button
+                        asChild
                         variant="outline"
                         className="border-white text-white hover:bg-white hover:text-purple-600"
-                        onClick={() => openAction(service)}
                       >
-                        Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                        <a
+                          href={service.action}
+                          {...(service.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                        >
+                          Learn more about {service.title.toLowerCase()} <ArrowRight className="ml-2 h-4 w-4" />
+                        </a>
                       </Button>
                     </CardContent>
                   </Card>
                 </motion.div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-20">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4">How an engagement works</h2>
+          <p className="text-lg text-purple-200 mb-10 max-w-3xl">
+            Every project follows the same path: audit, centralize, deploy, and keep improving. You see what we plan to build before we build it, and nothing goes live without your review.
+          </p>
+          <ol className="grid md:grid-cols-2 gap-6">
+            {engagementSteps.map((step, i) => (
+              <li key={step.title} className="rounded-2xl border border-purple-300/30 bg-white/5 p-6">
+                <span className="font-mono text-xs text-purple-300">{String(i + 1).padStart(2, '0')}</span>
+                <h3 className="text-xl font-semibold text-white mt-2 mb-2">{step.title}</h3>
+                <p className="text-purple-100 leading-relaxed">{step.text}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-20">
+        <div className="container mx-auto px-4 max-w-5xl grid md:grid-cols-2 gap-10">
+          <div>
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Timelines and pricing</h2>
+            <ul className="space-y-4 text-purple-100 leading-relaxed">
+              <li><strong className="text-white">Focused automations and first agents</strong> usually launch within 2 to 4 weeks.</li>
+              <li><strong className="text-white">Full Agent Workspace builds</strong> with several data sources and agents take 6 to 8 weeks, depending on system access, integrations, and review cycles.</li>
+              <li><strong className="text-white">Pricing is scoped per project</strong> after a free 30-minute call, based on the systems involved, the number of workflows and agents, and whether you want ongoing monitoring.</li>
+              <li><strong className="text-white">After launch</strong>, most clients keep us on to monitor agents, improve their skills, and expand into new parts of the business.</li>
+            </ul>
+          </div>
+          <div>
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Who we work with</h2>
+            <p className="text-purple-100 leading-relaxed mb-4">
+              Service businesses where leads, clients, and daily operations run through phones, forms, inboxes, calendars, and a CRM, and where the team spends hours moving information between them.
+            </p>
+            <p className="text-purple-100 leading-relaxed">
+              Clients so far include law firms, property management companies, real estate teams, agencies, and production companies. We work inside the tools you already use, including HubSpot, Salesforce, Zoho, Clio, Law Ruler, Buildium, Google Workspace, Slack, and Zapier.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-20">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-10">Results from client work</h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            <a href="/case-studies/property-management-operations" className="block rounded-2xl border border-purple-300/30 bg-white/5 p-6 hover:bg-white/10 transition-colors">
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-purple-300 mb-3">Property management · Philadelphia</p>
+              <h3 className="text-xl font-semibold text-white mb-3">A voice agent that handled 1,532 calls in one month</h3>
+              <p className="text-purple-100 leading-relaxed mb-4">
+                In July 2026, the voice agent we built for Jackson Rental Homes answered 1,532 calls, handled 61% of them with no staff involvement, and caught 427 after-hours and weekend calls.
+              </p>
+              <span className="inline-flex items-center text-white font-medium">Read the case study <ArrowRight className="ml-2 h-4 w-4" /></span>
+            </a>
+            <a href="/case-studies/michigan-law-firm-intake" className="block rounded-2xl border border-purple-300/30 bg-white/5 p-6 hover:bg-white/10 transition-colors">
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-purple-300 mb-3">Law firm · Michigan</p>
+              <h3 className="text-xl font-semibold text-white mb-3">One intake path from first inquiry to signed client</h3>
+              <p className="text-purple-100 leading-relaxed mb-4">
+                Practice-specific intake, lead qualification, email and SMS follow-up, booking, signing, and payment sequences, with a defined handoff from Law Ruler into Clio across three practice areas.
+              </p>
+              <span className="inline-flex items-center text-white font-medium">Read the case study <ArrowRight className="ml-2 h-4 w-4" /></span>
+            </a>
           </div>
         </div>
       </section>

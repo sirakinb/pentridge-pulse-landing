@@ -1,12 +1,22 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Plus, Minus, ArrowRight, Check, X as XIcon, Kanban, Users, Mic, CreditCard } from 'lucide-react';
 
 // ─── Animated Counter Hook ────────────────────────────────────
+// Runs before paint in the browser; falls back to useEffect during prerender.
+const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
+
 const useCountUp = (end, duration = 2000) => {
-  const [count, setCount] = useState(0);
+  // Start at the real value so the prerendered HTML (what crawlers, link
+  // previews and AI tools read) shows the actual number, not 0.
+  const [count, setCount] = useState(end);
   const ref = useRef(null);
   const inView = useInView(ref, { once: true });
+
+  // In the browser, reset to 0 before the first paint so the count-up still plays.
+  useIsomorphicLayoutEffect(() => {
+    setCount(0);
+  }, []);
 
   useEffect(() => {
     if (!inView) return;
@@ -856,8 +866,19 @@ const FAQSection = () => {
     },
   ];
 
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: { '@type': 'Answer', text: faq.a },
+    })),
+  };
+
   return (
     <section className="bg-black py-24 md:py-32">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <div className="max-w-3xl mx-auto px-6">
         <motion.div {...fadeUp} className="mb-16">
           <p className="section-label mb-4">06 / FAQ</p>
@@ -890,17 +911,10 @@ const FAQSection = () => {
                   <Plus size={18} className="text-white/30 flex-shrink-0 ml-4" />
                 )}
               </button>
-              {openIndex === i && (
-                <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: 'auto', opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="pb-6 pl-10"
-                >
-                  <p className="text-white/50 text-sm leading-relaxed">{faq.a}</p>
-                </motion.div>
-              )}
+              {/* Answers stay in the HTML (hidden when closed) so search engines can read them. */}
+              <div className={openIndex === i ? 'pb-6 pl-10' : 'hidden'}>
+                <p className="text-white/50 text-sm leading-relaxed">{faq.a}</p>
+              </div>
             </motion.div>
           ))}
         </div>

@@ -6,6 +6,7 @@ const SchemaMarkup = () => {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Pentridge",
+    "alternateName": "Pentridge Media",
     "url": "https://www.pentridgemedia.com",
     "logo": {
       "@type": "ImageObject",
@@ -23,10 +24,14 @@ const SchemaMarkup = () => {
     },
     "address": {
       "@type": "PostalAddress",
+      "addressLocality": "Philadelphia",
+      "addressRegion": "PA",
       "addressCountry": "US"
     },
     "sameAs": [
-      "https://www.pentridgemedia.com"
+      "https://www.instagram.com/pentridgemedia",
+      "https://www.youtube.com/@sirakinb",
+      "https://clutch.co/profile/pentridge-media"
     ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
@@ -170,54 +175,6 @@ const SchemaMarkup = () => {
     }
   };
 
-  // FAQ Schema
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What types of businesses do you work with?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We work with a wide range of businesses, from startups to established companies, across various industries. Our focus is on helping businesses leverage AI and automation to improve their operations and growth."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you work with businesses in specific industries?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We work with clients across various industries, including coaches, consultants, service providers, and businesses looking to leverage technology and automation. Our services can be customized to fit your specific niche and target audience."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can you help set up automated systems for lead capture and follow-up?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Absolutely. We can implement tools like ManyChat to create automated responses to inquiries, set up discovery call bookings, and nurture leads through personalized follow-up sequences."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How do you maintain authenticity when using AI for content creation?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We focus on repurposing your existing content, conversations, and ideas. This ensures the content remains authentic to your voice and message, while AI helps scale the production and distribution."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you offer training on AI tools and automation for my team?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, we can provide training and support to help your team leverage AI tools and automation effectively in their workflows."
-        }
-      }
-    ]
-  };
-
   // WebSite Schema
   const websiteSchema = {
     "@context": "https://schema.org",
@@ -232,14 +189,6 @@ const SchemaMarkup = () => {
         "@type": "ImageObject",
         "url": "https://www.pentridgemedia.com/logonew.png"
       }
-    },
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": "https://www.pentridgemedia.com/search?q={search_term_string}"
-      },
-      "query-input": "required name=search_term_string"
     }
   };
 
@@ -258,16 +207,12 @@ const SchemaMarkup = () => {
       "@type": "ImageObject",
       "url": "https://www.pentridgemedia.com/logop.png"
     },
-    "telephone": "+1-XXX-XXX-XXXX",
     "email": "aki.b@pentridgemedia.com",
     "address": {
       "@type": "PostalAddress",
+      "addressLocality": "Philadelphia",
+      "addressRegion": "PA",
       "addressCountry": "US"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": "40.7128",
-      "longitude": "-74.0060"
     },
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
@@ -294,38 +239,6 @@ const SchemaMarkup = () => {
     }
   };
 
-  // BreadcrumbList Schema for navigation
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://www.pentridgemedia.com"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Content House",
-        "item": "https://www.pentridgemedia.com/content-house"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "Contact",
-        "item": "https://www.pentridgemedia.com/contact"
-      },
-      {
-        "@type": "ListItem",
-        "position": 4,
-        "name": "About Us",
-        "item": "https://www.pentridgemedia.com/about"
-      }
-    ]
-  };
-
   return (
     <>
       <script
@@ -343,12 +256,6 @@ const SchemaMarkup = () => {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(faqSchema, null, 2)
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
           __html: JSON.stringify(websiteSchema, null, 2)
         }}
       />
@@ -356,12 +263,6 @@ const SchemaMarkup = () => {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(localBusinessSchema, null, 2)
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(breadcrumbSchema, null, 2)
         }}
       />
     </>

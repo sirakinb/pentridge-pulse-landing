@@ -102,7 +102,7 @@ export const publicSeoRoutes = [
   },
   {
     path: '/roi-calculator',
-    title: 'AI ROI Calculator - Calculate Your Business Automation Savings',
+    title: 'AI Automation ROI Calculator | Pentridge',
     description: 'Use the free Pentridge AI ROI Calculator to estimate time savings, cost savings, annual ROI, and payback period from workflow automation.',
     keywords: 'AI ROI calculator, business automation savings, AI implementation cost, automation ROI, business efficiency calculator',
     priority: '0.8',

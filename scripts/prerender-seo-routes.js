@@ -88,6 +88,25 @@ try {
     writeRouteHtml(template, route, appHtml);
     console.log(`Prerendered ${route.path}`);
   }
+
+  // 404 page: Vercel serves dist/404.html with a 404 status for unknown URLs.
+  const notFoundHtml = await render('/__page-that-does-not-exist__');
+  const notFoundPage = removeSeoTags(template)
+    .replace(
+      '</head>',
+      '  <title>Page not found | Pentridge</title>\n  <meta name="robots" content="noindex" />\n</head>'
+    )
+    .replace('<div id="root"></div>', `<div id="root">${notFoundHtml}</div>`);
+  fs.writeFileSync(path.join(distDir, '404.html'), notFoundPage);
+  console.log('Prerendered 404.html');
+
+  // Standalone /links page lives at the repo root, outside Vite's build.
+  const linksSource = path.join(projectRoot, 'links', 'index.html');
+  if (fs.existsSync(linksSource)) {
+    fs.mkdirSync(path.join(distDir, 'links'), { recursive: true });
+    fs.copyFileSync(linksSource, path.join(distDir, 'links', 'index.html'));
+    console.log('Copied /links');
+  }
 } finally {
   await vite.close();
 }

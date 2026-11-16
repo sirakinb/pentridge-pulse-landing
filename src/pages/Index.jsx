@@ -28,7 +28,7 @@ import Navbar from '../components/Navbar';
 import MetaTags from '../components/MetaTags';
 import PageSchemaMarkup from '../components/PageSchemaMarkup';
 import OurWork from '../components/OurWork';
-import { AINativeHero, BlueprintSection, ReadWriteSection, WorkflowsSection, AnyAgentSection } from '../components/home/AINativeSections';
+import { AINativeHero, Statement, FeatureRows, BuildSection, BlueprintSection, BeforeYouStart } from '../components/home/AINativeSections';
 import { getMetaConfig } from '../lib/meta-config';
 
 const fadeUp = {
@@ -52,49 +52,6 @@ const StatCounter = ({ end, suffix = '+', label }) => {
       <span className="text-2xl font-bold text-white">{count}{suffix}</span>
       <p className="text-white/40 mt-1">{label}</p>
     </div>
-  );
-};
-
-// ─── Section 02: Trusted By ───────────────────────────────────
-const TrustedBySection = () => {
-  const partners = [
-    { name: 'Jackson Rental Homes', logo: '/p9.png' },
-    { name: 'FunTimes', logo: '/p10.png' },
-    { name: 'Blue Proma Digital', logo: '/p11.png' },
-    { name: 'Utopos', logo: '/p12.png' },
-    { name: 'Pearls Girl Productions', logo: '/p13.png' },
-    { name: 'White Law PLLC', logo: '/whitelaw-logo.svg', small: true },
-    { name: 'TJ Properties', text: true },
-    { name: 'Brave', logo: '/brave-logo.png', small: true },
-  ];
-
-  const doubled = [...partners, ...partners];
-
-  return (
-    <section className="bg-[#2d1f4e] py-28 md:py-36">
-      <div className="max-w-7xl mx-auto px-6">
-        <motion.div {...fadeUp} className="text-center mb-16">
-          <p className="section-label">Trusted By</p>
-        </motion.div>
-        <div className="overflow-hidden">
-          <div className="flex items-center gap-16 md:gap-20 animate-scroll-partners">
-            {doubled.map((partner, i) => (
-              <div key={`${partner.name}-${i}`} className="flex-shrink-0 flex items-center justify-center h-28 md:h-36">
-                {partner.text ? (
-                  <span className="text-2xl md:text-3xl font-bold text-white/90 tracking-wide whitespace-nowrap">{partner.name}</span>
-                ) : (
-                  <img
-                    src={partner.logo}
-                    alt={partner.name}
-                    className={`${partner.small ? 'h-16 md:h-20' : 'h-28 md:h-36'} w-auto object-contain`}
-                  />
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
   );
 };
 
@@ -239,7 +196,7 @@ const TestimonialsSection = () => {
     <section className="bg-black py-24 md:py-32">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div {...fadeUp} className="mb-16">
-          <p className="section-label mb-4">08 / What They Say</p>
+          <p className="section-label mb-4">What They Say</p>
           <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] max-w-3xl capitalize">
             Don't take our word for it.
           </h2>
@@ -395,120 +352,6 @@ const ComparisonSection = () => {
   );
 };
 
-// ─── Section 07: Process ──────────────────────────────────────
-const ProcessSection = () => {
-  return (
-    <section className="bg-black py-24 md:py-32 border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-6">
-        <motion.div {...fadeUp} className="mb-16">
-          <p className="section-label mb-4">06 / Process</p>
-          <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] max-w-3xl capitalize">
-            Audit, connect, deploy, and keep improving.
-          </h2>
-        </motion.div>
-        <motion.div {...fadeUp} className="mx-auto w-full max-w-7xl overflow-hidden bg-black">
-          <iframe
-            src="/assembly-line.bundle-2.html?v=contained-fit-2"
-            width="100%"
-            style={{ border: 0, aspectRatio: '16 / 8.5', fontFamily: 'inherit' }}
-            loading="lazy"
-            title="Our process"
-            className="block w-full bg-black"
-          />
-        </motion.div>
-      </div>
-    </section>
-  );
-};
-
-// ─── Section 06: FAQ ──────────────────────────────────────────
-const FAQSection = () => {
-  const [openIndex, setOpenIndex] = useState(null);
-
-  const faqs = [
-    {
-      q: 'What does Pentridge actually do?',
-      a: 'We make companies AI-native. We connect your business data to agents, give them secure access to query and write to the systems you run on, and deploy the marketing and operations workflows that put that access to work.',
-    },
-    {
-      q: 'What does "AI-native" mean in practice?',
-      a: 'Your agents can see your business and act in it. They query your CRM, email, payments, docs and databases, and they write back: creating tasks, updating records, drafting emails, sending invoices. Your team reviews and steers the work instead of doing it by hand.',
-    },
-    {
-      q: 'How do agents get access to our data?',
-      a: 'Through Pentridge MCP, the MCP and API layer we set up on top of your connected sources. Each agent gets scoped permissions for what it can read and what it can write, and every action is logged, so you always know what your agents did and why.',
-    },
-    {
-      q: 'What does pricing look like?',
-      a: 'Every deployment is different. We usually begin with a discovery call, then scope the infrastructure, agents, and any ongoing monitoring based on complexity, integrations, and expected ROI.',
-    },
-    {
-      q: 'Can we use the agents we already have?',
-      a: 'Yes. Because the access layer speaks MCP, Claude, ChatGPT, Codex, Cursor and other MCP-compatible agents can use the same data and workflows as the agents we deploy.',
-    },
-    {
-      q: 'How long does a typical deployment take?',
-      a: 'First connected sources and workflows often go live within 2-4 weeks. Company-wide builds with many sources and agents can take 6-8 weeks depending on access, integrations, and review cycles.',
-    },
-    {
-      q: 'What happens after agents are deployed?',
-      a: 'Most clients keep us involved to monitor agents, improve their skills, and expand into new parts of the business. We do not treat AI as set-it-and-forget-it software.',
-    },
-  ];
-
-  return (
-    <section className="bg-black py-24 md:py-32">
-      <div className="max-w-3xl mx-auto px-6">
-        <motion.div {...fadeUp} className="mb-16">
-          <p className="section-label mb-4">07 / FAQ</p>
-          <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] capitalize">
-            Questions? We have answers.
-          </h2>
-        </motion.div>
-
-        <div className="space-y-0">
-          {faqs.map((faq, i) => (
-            <motion.div
-              key={i}
-              {...stagger}
-              transition={{ duration: 0.4, delay: i * 0.05 }}
-              className="faq-item"
-            >
-              <button
-                onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                className="w-full flex items-center justify-between py-6 text-left group"
-              >
-                <div className="flex items-center gap-4">
-                  <span className="font-mono text-xs text-white/30">{String(i + 1).padStart(2, '0')}</span>
-                  <span className="text-white/80 group-hover:text-white transition-colors text-sm md:text-base">
-                    {faq.q}
-                  </span>
-                </div>
-                {openIndex === i ? (
-                  <Minus size={18} className="text-purple-400 flex-shrink-0 ml-4" />
-                ) : (
-                  <Plus size={18} className="text-white/30 flex-shrink-0 ml-4" />
-                )}
-              </button>
-              {openIndex === i && (
-                <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: 'auto', opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="pb-6 pl-10"
-                >
-                  <p className="text-white/50 text-sm leading-relaxed">{faq.a}</p>
-                </motion.div>
-              )}
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
 // ─── Section 10: CTA / Apply ──────────────────────────────────
 const isValidEmail = (value) =>
   typeof value === 'string' && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
@@ -565,10 +408,9 @@ const CTASection = () => {
     <section className="bg-black py-24 md:py-32">
       <div className="max-w-4xl mx-auto px-6">
         <motion.div {...fadeUp} className="text-center mb-14">
-          <p className="section-label mb-6">09 / Let's Go</p>
-          <h2 className="font-display text-3xl md:text-5xl leading-[1.15] text-[#fafafa]">
-            Become an AI-native company,{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">in weeks.</span>
+          <p className="section-label mb-6">Let's Go</p>
+          <h2 className="font-display text-4xl md:text-7xl leading-[1.02] tracking-[-0.03em] text-[#fafafa]">
+            Become AI-native.
           </h2>
           <p className="text-white/50 text-lg mt-6 max-w-2xl mx-auto leading-relaxed">
             We embed with your team, connect your business data to agents, and deploy the workflows that run your marketing and operations, scoped to your business, not a generic playbook.
@@ -695,16 +537,14 @@ const Index = () => {
       <PageSchemaMarkup pageType="home" />
       <Navbar />
       <AINativeHero />
-      <TrustedBySection />
+      <Statement>Everything your agents need to run your marketing and operations.</Statement>
+      <FeatureRows />
+      <BuildSection />
       <BlueprintSection />
-      <ReadWriteSection />
-      <WorkflowsSection />
       <IntegrationSources />
-      <AnyAgentSection />
       <OurWork />
-      <ProcessSection />
-      <FAQSection />
       <TestimonialsSection />
+      <BeforeYouStart />
       <CTASection />
     </motion.div>
   );

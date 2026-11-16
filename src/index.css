@@ -876,12 +876,55 @@
   }
 }
 
-/* AI-native homepage: faint grid behind the hero */
-.ai-native-grid {
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
-  background-size: 56px 56px;
-  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 40%, transparent 100%);
-  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 40%, transparent 100%);
+/* AI-native hero: a slow, grainy purple wave (one hue, per the design system) */
+.grain-wave {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(70px);
+  will-change: transform;
+}
+.grain-wave-a {
+  left: -20%; right: -20%; top: 52%; height: 46%;
+  background: radial-gradient(ellipse at center, rgba(168, 85, 247, 0.85), rgba(128, 51, 204, 0.35) 55%, transparent 75%);
+  animation: grain-drift-a 16s ease-in-out infinite alternate;
+}
+.grain-wave-b {
+  left: 5%; width: 55%; top: 40%; height: 40%;
+  background: radial-gradient(ellipse at center, rgba(192, 132, 252, 0.7), transparent 70%);
+  animation: grain-drift-b 19s ease-in-out infinite alternate;
+}
+.grain-wave-c {
+  right: -5%; width: 50%; top: 58%; height: 42%;
+  background: radial-gradient(ellipse at center, rgba(147, 51, 234, 0.8), transparent 70%);
+  animation: grain-drift-c 22s ease-in-out infinite alternate;
+}
+.grain-noise {
+  position: absolute;
+  inset: -50%;
+  opacity: 0.55;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1.6 -0.35'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain-shift 1.2s steps(4) infinite;
+}
+@keyframes grain-drift-a {
+  from { transform: translate3d(-4%, 0, 0) scaleY(0.9) rotate(-3deg); }
+  to { transform: translate3d(4%, -6%, 0) scaleY(1.15) rotate(3deg); }
+}
+@keyframes grain-drift-b {
+  from { transform: translate3d(0, 4%, 0) scale(1); }
+  to { transform: translate3d(18%, -8%, 0) scale(1.2); }
+}
+@keyframes grain-drift-c {
+  from { transform: translate3d(0, -4%, 0) scale(1.1); }
+  to { transform: translate3d(-20%, 6%, 0) scale(0.9); }
+}
+@keyframes grain-shift {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-3%, 2%); }
+  50% { transform: translate(2%, -3%); }
+  75% { transform: translate(-2%, -1%); }
+  100% { transform: translate(0, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .grain-wave, .grain-noise { animation: none; }
 }

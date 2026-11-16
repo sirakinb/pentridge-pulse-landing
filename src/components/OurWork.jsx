@@ -32,7 +32,7 @@ const OurWork = () => (
         transition={{ duration: 0.6 }}
         className="mb-14"
       >
-        <p className="section-label mb-4">05 / Some of our work</p>
+        <p className="section-label mb-4">Some of our work</p>
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <h2 className="font-display text-3xl md:text-[43px] leading-[1.2] text-[#fafafa] max-w-2xl">
             Real systems built for real businesses.

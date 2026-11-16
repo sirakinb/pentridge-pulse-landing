@@ -172,9 +172,9 @@ export const caseStudies = {
     title: 'Property Management Voice Agent and Operations | Pentridge',
     description:
       'How Pentridge helped a Philadelphia-based property management company answer inbound calls, qualify rental interest, and connect leasing operations.',
-    eyebrow: 'Case study · Property management · Jackson Rental Homes',
+    eyebrow: 'Case study · Property management · Philadelphia',
     headline: 'From missed calls to a working leasing pipeline.',
-    dek: 'How Pentridge helped Jackson Rental Homes answer inbound calls, qualify rental interest, keep applicants informed, and connect property-management work across its systems.',
+    dek: 'How Pentridge helped a Philadelphia-area property management company answer inbound calls, qualify rental interest, keep applicants informed, and connect property-management work across its systems.',
     startingPoint:
       'The work began with a voice agent. It expanded into a connected set of systems for leasing, applications, utilities, and follow-up.',
     sections: [
@@ -182,7 +182,7 @@ export const caseStudies = {
         label: '01 / Context',
         heading: 'Demand was arriving faster than the team could handle it by phone.',
         body: [
-          'Jackson Rental Homes serves Philadelphia-area owners, tenants, market-rate renters, and Section 8 applicants. People call about available properties, applications, showings, move-ins, utility bills, and tenant questions.',
+          'The company serves Philadelphia-area owners, tenants, market-rate renters, and Section 8 applicants. People call about available properties, applications, showings, move-ins, utility bills, and tenant questions.',
         ],
         client:
           'A property management and leasing company with a steady flow of renter inquiries and ongoing owner and tenant operations.',
@@ -295,24 +295,13 @@ export const caseStudies = {
         heading: 'Utility work moved from a long chain of automations toward code and shared data.',
         body: [
           'The utility system began as a Make.com build with approximately 12 workflows. Later work moved toward Claude Code, scripts, a data pipeline, InsForge, and the Agent Workspace.',
-        ],
-        figures: [
-          {
-            kicker: 'Utility automation',
-            heading: 'Billing logic became something the team could see and extend.',
-            body: 'The system supports utility billing workflows for properties and tenants. It uses property and tenant data, applies the relevant billing logic, and creates a path for updates and notifications. The newer architecture connects the property management platform, CRM, and related business data through a pipeline into InsForge and the Agent Workspace.',
-            src: img('1D2QF0m1APB-9scKdG_s210HX_8dpMAfR'),
-            width: 2000,
-            height: 969,
-            alt: 'Agent Workspace utilities view',
-            caption: 'Agent Workspace utilities view',
-          },
+          'The system supports utility billing workflows for properties and tenants. It uses property and tenant data, applies the relevant billing logic, and creates a path for updates and notifications. The newer architecture connects the property management platform, CRM, and related business data through a pipeline into InsForge and the Agent Workspace.',
         ],
       },
       {
         label: '08 / Additional workflows',
         heading: 'The operating system grew beyond one automation.',
-        body: ['The Jackson work also included workflows for recurring property-management tasks and the visibility needed to keep improving them.'],
+        body: ['The work also included workflows for recurring property-management tasks and the visibility needed to keep improving them.'],
         items: [
           ['Tenant recertification', 'Recurring tenant and voucher-related work organized into a repeatable process.'],
           ['Surge notifications', 'Properties with water-bill increases above the defined 15% threshold were surfaced for review.'],
@@ -321,50 +310,10 @@ export const caseStudies = {
           ['Email campaigns', 'Campaign work can be created programmatically and recorded in the Workspace.'],
           ['Shared context', 'Buildium, Zoho, Instagram, Section 8 information, and operations data can be viewed together.'],
         ],
-        figures: [
-          {
-            kicker: 'Workspace activity',
-            heading: 'The work now leaves a visible record.',
-            body: 'The Agent Workspace provides a shared view of data, agent skills, activity, and completed work. That gives the team a place to inspect what happened instead of relying on disconnected automation histories.',
-            src: img('1hmu-Fl_YKxr5KSZUNWwtc3et-QIyuemM'),
-            width: 2000,
-            height: 971,
-            alt: 'Agent Workspace activity view',
-            caption: 'Agent Workspace activity view',
-          },
-        ],
+        note: 'The Agent Workspace provides a shared view of data, agent skills, activity, and completed work, so the team can inspect what happened instead of relying on disconnected automation histories.',
       },
       {
-        label: '09 / Economics',
-        heading: 'The business case starts with Jackson’s actual economics.',
-        body: ['The following figures were provided directly by Jackson Rental Homes.'],
-        columns: [
-          {
-            heading: 'Owner side',
-            list: [
-              'Management fee: 5% of collected monthly rent',
-              'Average rent: approximately $1,600 per month',
-              'Typical range: about $1,200 to $2,300',
-              'Owner relationship: approximately 5 to 7 years',
-              'Setup fee: none',
-              'Placement fee: 75% of one month’s rent',
-              'Estimated property lifetime value: $7,500 to $10,000',
-            ],
-          },
-          {
-            heading: 'Tenant side',
-            list: [
-              'Average stay: approximately 2 to 3 years',
-              'Average rent: approximately $1,600 per month',
-              'Serious inquiry to signed lease: approximately 20% to 25%',
-              'Serious inquiries completing a showing: about 60% to 70%',
-              'Tour to signed lease: approximately 35% to 45%',
-            ],
-          },
-        ],
-      },
-      {
-        label: '10 / The lesson',
+        label: '09 / The lesson',
         heading: 'The voice agent solved the first bottleneck. The Workspace made the next ones visible.',
         body: [
           'The work moved from answering calls to coordinating the business around the calls.',
@@ -373,7 +322,7 @@ export const caseStudies = {
         ],
       },
       {
-        label: '11 / What comes next',
+        label: '10 / What comes next',
         heading: 'Improve the handoffs that happen after the call.',
         body: ['The July report shows that the next opportunities are not only about answering more calls. They are about making the next step faster and more reliable.'],
         items: [
@@ -386,7 +335,7 @@ export const caseStudies = {
     ],
     cta: {
       heading: 'More conversations answered. More work connected.',
-      body: 'Jackson’s work with Pentridge shows how a service business can start with a practical voice agent and continue toward a connected operating system. Start with a 30-minute call about where your work gets stuck.',
+      body: 'This client’s work with Pentridge shows how a service business can start with a practical voice agent and continue toward a connected operating system. Start with a 30-minute call about where your work gets stuck.',
     },
   },
 };

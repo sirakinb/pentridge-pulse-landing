@@ -211,7 +211,7 @@ const Services = () => {
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-purple-300 mb-3">Property management · Philadelphia</p>
               <h3 className="text-xl font-semibold text-white mb-3">A voice agent that handled 1,532 calls in one month</h3>
               <p className="text-purple-100 leading-relaxed mb-4">
-                In July 2026, the voice agent we built for Jackson Rental Homes answered 1,532 calls, handled 61% of them with no staff involvement, and caught 427 after-hours and weekend calls.
+                In July 2026, the voice agent we built for a Philadelphia-area property management company answered 1,532 calls, handled 61% of them with no staff involvement, and caught 427 after-hours and weekend calls.
               </p>
               <span className="inline-flex items-center text-white font-medium">Read the case study <ArrowRight className="ml-2 h-4 w-4" /></span>
             </a>

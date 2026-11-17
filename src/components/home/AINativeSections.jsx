@@ -615,7 +615,7 @@ const blueprintSteps = [
     icon: Bot,
     title: 'Deploy Agents Into Workflows',
     copy: 'We build the marketing and operations workflows that move the needle first, then keep expanding. Any agent can run them: ours, or the ones your team already uses.',
-    points: ['Marketing and operations playbooks', 'Works with Claude, ChatGPT, Codex, Cursor'],
+    points: ['Marketing and operations playbooks', 'Works with ChatGPT/Codex, Claude/Claude Code, Grok Bot, Muse, or any AI agent'],
   },
 ];
 

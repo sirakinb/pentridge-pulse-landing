@@ -338,7 +338,7 @@ const AgentSession = () => {
 };
 
 // ─── Panel C: one secure door for any agent ───────────────────
-const routerAgents = ['Claude', 'ChatGPT', 'Codex', 'Cursor'];
+const routerAgents = ['ChatGPT', 'Claude', 'Grok Bot', 'Muse'];
 const routerSystems = ['CRM', 'Email', 'Payments', 'Docs'];
 const routerPairs = [[0, 0], [1, 2], [2, 3], [3, 1], [0, 2], [1, 0], [2, 1], [3, 3]];
 
@@ -419,7 +419,7 @@ export const FeatureRows = () => (
     <FeatureRow
       eyebrow="Any agent"
       title="One secure door for every agent."
-      copy="Pentridge MCP gives Claude, ChatGPT, Codex, Cursor and the agents we deploy the same scoped access to your business. One set of permissions. One audit log."
+      copy="Pentridge MCP gives ChatGPT/Codex, Claude/Claude Code, Grok Bot, Muse or any AI agent the same scoped access to your business. One set of permissions. One audit log."
       link={<TextLink href={BOOKING_URL} external>Talk to us</TextLink>}
       panel={<AgentRouter />}
     />
@@ -696,7 +696,7 @@ const faqs = [
   },
   {
     q: 'Can we use the agents we already have?',
-    a: 'Yes. Claude, ChatGPT, Codex, Cursor and other MCP-compatible agents can use the same data and workflows as the agents we deploy.',
+    a: 'Yes. ChatGPT/Codex, Claude/Claude Code, Grok Bot, Muse or any AI agent can use the same data and workflows as the agents we deploy.',
   },
   {
     q: 'How long does it take?',

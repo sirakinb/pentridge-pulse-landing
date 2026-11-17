@@ -145,11 +145,10 @@ const ROICalculator = () => {
               <div className="bg-white/[0.07] p-8 rounded-2xl border border-white/10 hover:border-purple-500/30 transition-colors">
                 <h3 className="text-2xl font-bold text-white mb-4">See Real Results</h3>
                 <p className="text-white/50 mb-6">
-                  Learn how we implemented a voice AI agent for a property management company,
-                  saving them 40+ hours per week and generating $300K+ in additional annual revenue.
+                  In July 2026, the voice agent we built for a Philadelphia-area property management company answered 1,532 calls and handled 61% of them with no staff involvement, including 427 after-hours and weekend calls.
                 </p>
                 <Link
-                  to="/case-studies/property-management-voice-ai"
+                  to="/case-studies/property-management-operations"
                   className="inline-flex items-center px-6 py-3 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 transition-colors"
                 >
                   Read the Case Study →

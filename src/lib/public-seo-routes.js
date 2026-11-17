@@ -3,9 +3,9 @@ export const SITE_URL = 'https://www.pentridgemedia.com';
 export const publicSeoRoutes = [
   {
     path: '/',
-    title: 'Deploy AI Agents Into Your Business Operations | Pentridge',
-    description: 'Pentridge gets your company AI-ready, centralizes your business data into one Agent Workspace, and deploys AI agents into your marketing and operations.',
-    keywords: 'deploy AI agents, AI agents for business operations, AI agent deployment, agent workspace, MCP server for business, marketing AI agents, operations automation',
+    title: 'AI Consulting to Make Your Company AI-Native | Pentridge',
+    description: 'AI consulting for service businesses. We connect your data to AI agents with secure access to your systems, so your marketing and operations run on agents.',
+    keywords: 'AI consulting, AI consultant for small business, AI-native company, AI agents for business operations, AI agent deployment, Pentridge MCP',
     priority: '1.0',
     changefreq: 'weekly'
   },

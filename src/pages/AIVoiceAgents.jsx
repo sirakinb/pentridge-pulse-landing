@@ -177,7 +177,7 @@ const AIVoiceAgents = () => {
             <Button size="lg" className="bg-violet-600 hover:bg-violet-700 text-white" onClick={() => window.open('https://cal.com/akinyemi-bajulaiye-2jua88/30min', '_blank')}>
               Book an Automation Audit <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
-            <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white/10" onClick={() => window.location.href = '/case-studies/property-management-voice-ai'}>
+            <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white/10" onClick={() => window.location.href = '/case-studies/property-management-operations'}>
               Read the case study
             </Button>
           </div>
@@ -423,23 +423,23 @@ const AIVoiceAgents = () => {
             <div className="text-center mb-8">
               <h2 className="text-3xl font-bold mb-4">See Real Results in Action</h2>
               <p className="text-xl text-green-100 max-w-3xl mx-auto">
-                Discover how we implemented a voice AI agent for a property management company, 
-                saving them 40+ hours per week and generating $300K+ in additional annual revenue.
+                In July 2026, the voice agent we built for a Philadelphia-area property management company
+                answered 1,532 calls and handled 61% of them with no staff involvement.
               </p>
             </div>
             
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               <div className="text-center">
-                <div className="text-3xl font-bold text-green-200">40+</div>
-                <div className="text-green-100">Hours Saved Per Week</div>
+                <div className="text-3xl font-bold text-green-200">1,532</div>
+                <div className="text-green-100">Calls Answered in One Month</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-green-200">$300K+</div>
-                <div className="text-green-100">Additional Annual Revenue</div>
+                <div className="text-3xl font-bold text-green-200">61%</div>
+                <div className="text-green-100">Handled With No Staff Involvement</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-green-200">80%</div>
-                <div className="text-green-100">Calls Handled by AI</div>
+                <div className="text-3xl font-bold text-green-200">427</div>
+                <div className="text-green-100">After-Hours and Weekend Calls</div>
               </div>
             </div>
             
@@ -448,7 +448,7 @@ const AIVoiceAgents = () => {
                 size="lg" 
                 variant="secondary"
                 className="bg-white text-green-600 hover:bg-gray-100"
-                onClick={() => window.location.href = '/case-studies/property-management-voice-ai'}
+                onClick={() => window.location.href = '/case-studies/property-management-operations'}
               >
                 Read the Full Case Study →
               </Button>
@@ -526,7 +526,7 @@ const AIVoiceAgents = () => {
             >
               Book an Automation Audit <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
-            <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white/10" onClick={() => window.location.href = '/case-studies/property-management-voice-ai'}>
+            <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white/10" onClick={() => window.location.href = '/case-studies/property-management-operations'}>
               Read the case study
             </Button>
           </div>

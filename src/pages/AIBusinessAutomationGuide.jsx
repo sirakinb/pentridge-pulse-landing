@@ -475,11 +475,11 @@ const AIBusinessAutomationGuide = () => {
             <div className="bg-gradient-to-r from-green-600/20 to-emerald-600/20 p-8 rounded-2xl border border-white/10">
               <h3 className="text-2xl font-bold text-[#fafafa] mb-4">See Real Results</h3>
               <p className="text-white/60 mb-6">
-                Learn how we implemented a voice AI agent for a property management company, saving them 40+ hours per week and generating $300K+ in additional annual revenue.
+                In July 2026, the voice agent we built for a Philadelphia-area property management company answered 1,532 calls and handled 61% of them with no staff involvement, including 427 after-hours and weekend calls.
               </p>
               <div className="space-y-3">
                 <Link
-                  to="/case-studies/property-management-voice-ai"
+                  to="/case-studies/property-management-operations"
                   className="btn-primary inline-flex items-center gap-2"
                 >
                   Read the Case Study →

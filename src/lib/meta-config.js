@@ -1,8 +1,8 @@
 // Meta tag configurations based on keyword research and SEO strategy
 export const metaConfig = {
   home: {
-    title: "Make Your Company AI-Native | Pentridge",
-    description: "Pentridge connects your business data to AI agents and gives them secure access to query and write to the systems you run on, so your marketing and operations run on agents.",
+    title: "AI Consulting to Make Your Company AI-Native | Pentridge",
+    description: "AI consulting for service businesses. We connect your data to AI agents with secure access to your systems, so your marketing and operations run on agents.",
     keywords: "deploy AI agents, AI agents for business operations, AI agent deployment, agent workspace, MCP server for business, marketing AI agents, operations automation",
     canonicalUrl: "https://www.pentridgemedia.com",
     pageType: "website"

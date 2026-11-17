@@ -52,10 +52,6 @@
       "destination": "/roi-calculator/index.html"
     },
     {
-      "source": "/case-studies/property-management-voice-ai",
-      "destination": "/case-studies/property-management-voice-ai/index.html"
-    },
-    {
       "source": "/resources",
       "destination": "/resources/index.html"
     },
@@ -117,6 +113,16 @@
     }
   ],
   "redirects": [
+    {
+      "source": "/case-studies/property-management-voice-ai",
+      "destination": "/case-studies/property-management-operations",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies/property-management-voice-ai/",
+      "destination": "/case-studies/property-management-operations",
+      "permanent": true
+    },
     {
       "source": "/links",
       "destination": "https://links.pentridgemedia.com",

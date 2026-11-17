@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes, useLocation, Outlet } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, useLocation, Outlet, Navigate } from 'react-router-dom';
 import Index from './pages/Index';
 import Contact from './pages/Contact';
 import ContentHouse from './pages/ContentHouse';
@@ -8,7 +8,6 @@ import Resources from './pages/Resources'; // Add this route
 import AIVoiceAgents from './pages/AIVoiceAgents'; // Add this route
 import AIBusinessAutomationGuide from './pages/AIBusinessAutomationGuide'; // Add this route
 import CaseStudyPage from './pages/CaseStudyPage';
-import PropertyManagementVoiceAICaseStudy from './pages/PropertyManagementVoiceAICaseStudy';
 import AIProcessAutomationExamples from './pages/AIProcessAutomationExamples';
 import Services from './pages/Services'; // Add services page
 import ROICalculator from './pages/ROICalculator'; // Add ROI Calculator page
@@ -53,7 +52,7 @@ export const AppContent = () => {
             <Route path="/ai-business-automation-guide" element={<AIBusinessAutomationGuide />} /> {/* Add this route */}
             <Route path="/case-studies/michigan-law-firm-intake" element={<CaseStudyPage type="law" />} />
             <Route path="/case-studies/property-management-operations" element={<CaseStudyPage type="property" />} />
-            <Route path="/case-studies/property-management-voice-ai" element={<PropertyManagementVoiceAICaseStudy />} />
+            <Route path="/case-studies/property-management-voice-ai" element={<Navigate to="/case-studies/property-management-operations" replace />} />
             <Route path="/resources/ai-process-automation-examples" element={<AIProcessAutomationExamples />} />
             <Route path="/services" element={<Services />} /> {/* Add services route */}
             <Route path="/law-firm-automation/" element={<LawFirmAutomationPage pageId="hub" />} />

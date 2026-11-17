@@ -109,14 +109,6 @@ export const publicSeoRoutes = [
     changefreq: 'monthly'
   },
   {
-    path: '/case-studies/property-management-voice-ai',
-    title: 'AI Voice Agent Case Study | Pentridge',
-    description: 'See how an AI voice agent captured after-hours calls, qualified leasing leads, and created revenue lift for a property management company.',
-    keywords: 'property management voice AI case study, AI voice agent for property management, automated tenant communication, AI phone agent, after-hours leasing leads',
-    priority: '0.8',
-    changefreq: 'monthly'
-  },
-  {
     path: '/case-studies/michigan-law-firm-intake',
     title: 'Michigan Law Firm Intake and Workflow Automation | Pentridge',
     description: 'How Pentridge helped a Michigan-based full-service law firm structure intake, qualification, follow-up, booking, and the handoff from lead to client.',

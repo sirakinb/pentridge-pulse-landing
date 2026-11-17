@@ -430,7 +430,7 @@ export const pentridgeReviews = [
     "text": "This location was incredible—the best location I've ever used to film an interview.",
     "initials": "MB",
     "tone": "rose",
-    "avatarUrl": "http://img.peerspace.com/image/upload/v1626382632/c63uztyffklbl4sdapk8.jpg"
+    "avatarUrl": "https://img.peerspace.com/image/upload/v1626382632/c63uztyffklbl4sdapk8.jpg"
   },
   {
     "name": "Leemy H.",
@@ -670,7 +670,7 @@ export const pentridgeReviews = [
     "text": "Great location",
     "initials": "TA",
     "tone": "ochre",
-    "avatarUrl": "http://img.peerspace.com/image/upload/v1591387487/j3ah7huy4g9v6hvkbv4m.jpg"
+    "avatarUrl": "https://img.peerspace.com/image/upload/v1591387487/j3ah7huy4g9v6hvkbv4m.jpg"
   },
   {
     "name": "Sirwayne D.",
@@ -780,7 +780,7 @@ export const pentridgeReviews = [
     "text": "Very accomodating host, great space",
     "initials": "MP",
     "tone": "rose",
-    "avatarUrl": "http://img.peerspace.com/image/upload/v1634391524/tsubbsozeyftikuuhjev.jpg"
+    "avatarUrl": "https://img.peerspace.com/image/upload/v1634391524/tsubbsozeyftikuuhjev.jpg"
   },
   {
     "name": "Thomas A.",
@@ -790,7 +790,7 @@ export const pentridgeReviews = [
     "text": "Great space! Would definitely book again.",
     "initials": "TA",
     "tone": "olive",
-    "avatarUrl": "http://img.peerspace.com/image/upload/v1591387487/j3ah7huy4g9v6hvkbv4m.jpg"
+    "avatarUrl": "https://img.peerspace.com/image/upload/v1591387487/j3ah7huy4g9v6hvkbv4m.jpg"
   },
   {
     "name": "David P.",
@@ -850,7 +850,7 @@ export const pentridgeReviews = [
     "text": "Great place!",
     "initials": "JR",
     "tone": "amber",
-    "avatarUrl": "http://img.peerspace.com/image/upload/v1632331395/giuwybdgxx9v9r0q30ty.jpg"
+    "avatarUrl": "https://img.peerspace.com/image/upload/v1632331395/giuwybdgxx9v9r0q30ty.jpg"
   },
   {
     "name": "Zakee B.",
@@ -920,7 +920,7 @@ export const pentridgeReviews = [
     "text": "The space was awesome and I would definitely book again.",
     "initials": "NT",
     "tone": "ochre",
-    "avatarUrl": "http://img.peerspace.com/image/upload/v1628889663/avn8dsfayfplkcaxlufa.jpg"
+    "avatarUrl": "https://img.peerspace.com/image/upload/v1628889663/avn8dsfayfplkcaxlufa.jpg"
   },
   {
     "name": "Cinnamon G.",
@@ -980,7 +980,7 @@ export const pentridgeReviews = [
     "text": "Absolutely wonderful. Great place, spacious. Perfect for photo and video. 100 percent book!!",
     "initials": "TB",
     "tone": "rose",
-    "avatarUrl": "http://img.peerspace.com/image/upload/v1641077654/lkk4hokjcswqn5umeuqf.jpg"
+    "avatarUrl": "https://img.peerspace.com/image/upload/v1641077654/lkk4hokjcswqn5umeuqf.jpg"
   },
   {
     "name": "Cinnamon G.",

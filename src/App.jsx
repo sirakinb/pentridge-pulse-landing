@@ -23,6 +23,7 @@ import LawFirmAutomationPage from './pages/LawFirmAutomationPage';
 import Labs from './pages/Labs';
 import LabsAuth from './pages/LabsAuth';
 import LabsWorkspace from './pages/LabsWorkspace';
+import NotFound from './pages/NotFound';
 import { LabsAuthProvider } from './contexts/LabsAuthContext';
 
 const LabsLayout = () => (
@@ -33,7 +34,7 @@ const LabsLayout = () => (
 
 export const AppContent = () => {
   const location = useLocation();
-  const hideFooter = location.pathname === '/wall-of-love' || location.pathname.startsWith('/case-studies/');
+  const hideFooter = location.pathname === '/wall-of-love';
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -72,6 +73,7 @@ export const AppContent = () => {
               <Route path="/labs/workspace" element={<LabsWorkspace />} />
             </Route>
             <Route path="/seo-test" element={<SEOTest />} />
+            <Route path="*" element={<NotFound />} />
             {/* ... other routes ... */}
           </Routes>
         </AnimatePresence>

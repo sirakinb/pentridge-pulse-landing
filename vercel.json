@@ -84,8 +84,48 @@
       "destination": "/privacy/index.html"
     },
     {
-      "source": "/(.*)",
+      "source": "/case-studies/michigan-law-firm-intake",
+      "destination": "/case-studies/michigan-law-firm-intake/index.html"
+    },
+    {
+      "source": "/case-studies/property-management-operations",
+      "destination": "/case-studies/property-management-operations/index.html"
+    },
+    {
+      "source": "/labs",
+      "destination": "/labs/index.html"
+    },
+    {
+      "source": "/wall-of-love",
       "destination": "/index.html"
+    },
+    {
+      "source": "/labs/signin",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/labs/signup",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/labs/workspace",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/seo-test",
+      "destination": "/index.html"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/links",
+      "destination": "https://links.pentridgemedia.com",
+      "permanent": false
+    },
+    {
+      "source": "/links/(.*)",
+      "destination": "https://links.pentridgemedia.com/$1",
+      "permanent": false
     }
   ]
 }

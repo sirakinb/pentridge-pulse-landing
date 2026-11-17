@@ -1,12 +1,22 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Plus, Minus, ArrowRight, Check, X as XIcon, Kanban, Users, Mic, CreditCard } from 'lucide-react';
 
 // ─── Animated Counter Hook ────────────────────────────────────
+// Runs before paint in the browser; falls back to useEffect during prerender.
+const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
+
 const useCountUp = (end, duration = 2000) => {
-  const [count, setCount] = useState(0);
+  // Start at the real value so the prerendered HTML (what crawlers, link
+  // previews and AI tools read) shows the actual number, not 0.
+  const [count, setCount] = useState(end);
   const ref = useRef(null);
   const inView = useInView(ref, { once: true });
+
+  // In the browser, reset to 0 before the first paint so the count-up still plays.
+  useIsomorphicLayoutEffect(() => {
+    setCount(0);
+  }, []);
 
   useEffect(() => {
     if (!inView) return;

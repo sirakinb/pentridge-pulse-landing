@@ -708,8 +708,19 @@ const faqs = [
   },
 ];
 
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.q,
+    acceptedAnswer: { '@type': 'Answer', text: faq.a },
+  })),
+};
+
 export const BeforeYouStart = () => (
   <section className="bg-black py-24 md:py-32">
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
     <div className="max-w-3xl mx-auto px-6">
       <motion.h2 {...fadeUp} className="font-display text-4xl md:text-6xl leading-[1.05] tracking-[-0.03em] text-[#fafafa] text-center mb-14">
         Before you start.

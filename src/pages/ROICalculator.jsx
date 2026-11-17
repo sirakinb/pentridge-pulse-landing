@@ -9,12 +9,12 @@ const ROICalculator = () => {
   return (
     <>
       <MetaTags
-        title="AI ROI Calculator - Calculate Your Business Automation Savings"
+        title="AI Automation ROI Calculator | Pentridge"
         description="Use our free AI ROI Calculator to estimate potential time and cost savings from AI automation. Input your business metrics and get projected annual savings, ROI, and payback period."
         keywords="AI ROI calculator, business automation savings, AI implementation cost, automation ROI, business efficiency calculator"
         canonicalUrl="https://www.pentridgemedia.com/roi-calculator"
         pageType="website"
-        ogTitle="AI ROI Calculator - Calculate Your Business Automation Savings"
+        ogTitle="AI Automation ROI Calculator | Pentridge"
         ogDescription="Use our free AI ROI Calculator to estimate potential time and cost savings from AI automation. Input your business metrics and get projected annual savings, ROI, and payback period."
         ogImage="/background.png"
       />

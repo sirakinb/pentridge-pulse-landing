@@ -159,7 +159,7 @@ export const AINativeHero = () => {
           transition={{ duration: 0.9, delay: 0.15 }}
           className="mt-6 text-lg md:text-xl text-white/70 leading-relaxed max-w-2xl"
         >
-          We connect your business data to agents and give them secure access to drive your marketing and operations.
+          We connect your business data to AI agents and give them secure access to drive your marketing and operations.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 16 }}
